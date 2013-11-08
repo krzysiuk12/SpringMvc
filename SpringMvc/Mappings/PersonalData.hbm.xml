@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="PersonalData" table="PersonalData">
+
+    <id name="Id" column="Id" type="Int64">
+      <generator class="foreign">
+        <param name="property">UserAccount</param>
+      </generator>
+    </id>
+
+    <property name="FirstName" column="FirstName" type="String"/>
+    <property name="MiddleName" column="MiddleName" type="String"/>
+    <property name="LastName" column="LastName" type="String"/>
+    <property name="Sex" column="Sex" type="PersonalData+Gender"/>
+    <property name="IdentityCardNumber" column="IdentityCardNumber" type="String"/>
+    <property name="PESEL" column="PESEL" type="String"/>
+    <property name="PhoneNumber" column="PhoneNumber" type="String"/>
+
+    <one-to-one name="UserAccount" class="UserAccount" constrained="true"/>
+    <one-to-one name="Address" class="Address" lazy="proxy" foreign-key="FK_AddressPersonalData" cascade="all"/>
+  </class>
+</hibernate-mapping>

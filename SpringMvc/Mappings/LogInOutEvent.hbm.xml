@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="LogInOutEvent" table="LogInOutEvent">
+
+    <id name="Id" column="LogId" type="Int64">
+      <generator class="sequence">
+        <param name="sequence">PK_LogInOutEventId</param>
+      </generator>
+    </id>
+
+    <property name="IpAddress" column="IpAddress" type="String"/>
+    <property name="GeneratedOn" column="GeneratedOn" type="DateTime"/>
+    <property name="Type" column="Type" type="LogInOutEvent+ActionType"/>
+
+    <many-to-one name="UserAccount" column="Id" class="UserAccount" not-null="true"/>
+
+  </class>
+</hibernate-mapping>

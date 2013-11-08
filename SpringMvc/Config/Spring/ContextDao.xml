@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:db="http://www.springframework.net/database"
+         xmlns:tx="http://www.springframework.net/tx">
+
+  
+  <object type="Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer, Spring.Core">
+    <property name="ConfigSections" value="databaseSettings"/>
+  </object>
+  
+
+  <db:provider id="DbProvider"
+               provider="Npgsql-2.0"
+               connectionString="Server=${db.server};database=${db.database};port=${db.port};user id=${db.user};password=${db.password}"/>
+
+  
+  <!-- NHibernate Session Factory Configuration -->
+  <object id="sessionFactory" type="SpringMvc.Config.CustomLocalSessionFactoryProvider">
+    <property name="DbProvider" ref="DbProvider" />
+    <property name="MappingResources">
+      <list>
+        <value>~/Mappings/UserAccount.hbm.xml</value>
+        <value>~/Mappings/PersonalData.hbm.xml</value>
+        <value>~/Mappings/Address.hbm.xml</value>
+        <value>~/Mappings/LogInOutEvent.hbm.xml</value>
+      </list>
+    </property>
+    <property name="HibernateProperties">
+      <dictionary>
+        <entry key="hibernate.connection.provider" value="NHibernate.Connection.DriverConnectionProvider" />
+        <entry key="dialect" value="NHibernate.Dialect.PostgreSQLDialect" />
+        <entry key="connection.driver_class" value="NHibernate.Driver.NpgsqlDriver" />
+        <entry key="show_sql" value="true" />
+        <entry key="hbm2ddl.auto" value="create-drop"/>
+      </dictionary>
+    </property>
+    <property name="ExposeTransactionAwareSessionFactory" value="true" />
+  </object>
+  
+
+  <!-- Transaction Manager Configuration -->
+  <object id="transactionmanager" type="spring.data.nhibernate.hibernatetransactionmanager , spring.data.nhibernate33">
+    <property name="dbprovider" ref="dbprovider"/>
+    <property name="sessionfactory" ref="sessionfactory"/>
+  </object>
+
+
+  <!-- Exception translation object post processor -->
+  <object type="Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor, Spring.Data"/>
+
+  
+  <!--<object id="baseHibernateDao" type="SpringMvc.Models.Common.BaseHibernateDao">
+    <property name="sessionFactory" ref="sessionFactory" />
+  </object>-->
+
+
+  <object id="addressSaving" type="SpringMvc.Models.AddressSaving">
+    <property name="SessionFactory" ref="sessionFactory" />
+  </object>
+
+  <object type="SpringMvc.Controllers.HomeController, SpringMvc" singleton="false">
+    <property name="addressSaving" ref="addressSaving"/>
+    <!--<property name="baseHibernateDao" ref="baseHibernateDao"/>-->
+  </object>
+  
+  <tx:attribute-driven transaction-manager="transactionManager"/>
+</objects>
