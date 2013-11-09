@@ -8,9 +8,9 @@ namespace SpringMvc.Models.Common.Interfaces
 {
     public interface IServiceLocator
     {
-        public IAuthorizationService AuthorizationService { get; set; }
-        public IAccountAdministrationService AccountAdministrationService { get; set; }
-        public ILogEventsService LogEventsService { get; set; }
-        public IUserInformationService UserInformationService { get; set; }
+        IAuthorizationService AuthorizationService { get; set; }
+        IAccountAdministrationService AccountAdministrationService { get; set; }
+        ILogEventsService LogEventsService { get; set; }
+        IUserInformationService UserInformationService { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace SpringMvc.Models.Common.Interfaces
 {
     public interface IDaoFactory
     {
-        public IAuthorizationDao AuthorizationDao { get; set; }
-        public IAccountAdministrationDao AccountAdministrationDao { get; set; }
-        public ILogEventsDao LogEventsDao { get; set; }
-        public IUserInformationDao UserInformationDao { get; set; }
+        IAuthorizationDao AuthorizationDao { get; set; }
+        IAccountAdministrationDao AccountAdministrationDao { get; set; }
+        ILogEventsDao LogEventsDao { get; set; }
+        IUserInformationDao UserInformationDao { get; set; }
     }
 }
