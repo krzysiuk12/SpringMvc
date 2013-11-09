@@ -32,7 +32,7 @@ namespace SpringMvc.Controllers
         {
             //BaseHibernateDao bhd = ctx.GetObject("BaseHibernateDao") as BaseHibernateDao;
             //AddressSaving address = (AddressSaving)ctx.GetObject("AddressSaving");
-            AddressSaving.SaveAddress(new Address() { City = "Polska", Country = "Krakow", PostalCode = "12-213", Street = "Grodzka" });
+            //AddressSaving.SaveAddress(new Address() { City = "Polska", Country = "Krakow", PostalCode = "12-213", Street = "Grodzka" });
 
             //using (ISession session = baseHibernateDao.Session)
             //{

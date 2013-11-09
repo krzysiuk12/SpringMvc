@@ -58,25 +58,8 @@
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Web.Mvc, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\Microsoft.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\packages\Npgsql.2.0.12.1\lib\net40\Mono.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcContrib, Version=3.0.0.99, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\MvcContrib.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcContrib.FluentHtml">
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\MvcContrib.FluentHtml.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcContrib.TestHelper">
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\MvcContrib.TestHelper.dll</HintPath>
-    </Reference>
-    <Reference Include="MvcContrib.WatiN">
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\MvcContrib.WatiN.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\packages\NHibernate.3.3.3.4001\lib\Net35\NHibernate.dll</HintPath>
@@ -86,9 +69,6 @@
     </Reference>
     <Reference Include="policy.2.0.Npgsql">
       <HintPath>..\packages\Npgsql.2.0.12.1\lib\net40\policy.2.0.Npgsql.dll</HintPath>
-    </Reference>
-    <Reference Include="Rhino.Mocks">
-      <HintPath>..\..\..\..\..\Desktop\MvcContrib3\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="Spring.Aop">
       <HintPath>..\packages\Spring.Aop.2.0.0-M2\lib\net40\Spring.Aop.dll</HintPath>
@@ -272,7 +252,6 @@
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
-    <Compile Include="Models\Sample\Address.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AccountAdministrationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AuthorizationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\LogEventsDao.cs" />
