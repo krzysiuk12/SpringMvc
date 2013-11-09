@@ -1,1 +1,12 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<objects xmlns="http://www.springframework.net"
+         xmlns:tx="http://www.springframework.net/tx">
+
+
+  <object id="addressSaving" type="SpringMvc.Models.AddressSaving">
+    <property name="SessionFactory" ref="sessionFactory" />
+  </object>
+
+  <tx:attribute-driven transaction-manager="transactionManager"/>
+  
+</objects>
