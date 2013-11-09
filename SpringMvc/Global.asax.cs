@@ -10,7 +10,6 @@ using Spring.Web.Mvc;
 using SpringMvc.Config;
 using Spring.Context.Support;
 using Spring.Context;
-using MvcContrib;
 
 namespace SpringMvc
 {
