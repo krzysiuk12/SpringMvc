@@ -31,7 +31,7 @@ namespace SpringMvc.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
-            return View();
+            return RedirectToAction("Create", "UserAccountPanel");
         }
     }
 }

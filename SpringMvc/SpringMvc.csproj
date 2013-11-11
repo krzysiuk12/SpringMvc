@@ -241,6 +241,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
+    <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -259,6 +260,7 @@
     <Compile Include="Models\POCO\UserAccount.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
     <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
+    <Compile Include="Models\UserAccountsPages\UserAccountModel.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AccountAdministrationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AuthorizationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\LogEventsDao.cs" />
@@ -363,6 +365,8 @@
     <Content Include="Views\Logging\Index.aspx" />
     <Content Include="Views\Logging\Register.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
+    <Content Include="Views\UserAccountPanel\Create.aspx" />
+    <Content Include="Views\UserAccountPanel\Edit.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -447,7 +451,6 @@
     <Folder Include="Models\Warehouse\Dao\" />
     <Folder Include="Models\Warehouse\Services\" />
     <Folder Include="Views\AdministratorPanel\" />
-    <Folder Include="Views\UserAccountPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
