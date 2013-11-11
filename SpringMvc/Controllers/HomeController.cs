@@ -15,11 +15,9 @@ namespace SpringMvc.Controllers
 {
     public class HomeController : Controller
     {
-        //private BaseHibernateDao baseHibernateDao;
         private IAddressService addressSaving;
 
         public IAddressService AddressSaving { get { return addressSaving; } set { this.addressSaving = value; } }
-        //public BaseHibernateDao BaseHibernateDao { get { return baseHibernateDao; } set { this.baseHibernateDao = value; } }
 
         public ActionResult Index()
         {
@@ -30,27 +28,6 @@ namespace SpringMvc.Controllers
 
         public ActionResult About()
         {
-            //BaseHibernateDao bhd = ctx.GetObject("BaseHibernateDao") as BaseHibernateDao;
-            //AddressSaving address = (AddressSaving)ctx.GetObject("AddressSaving");
-            //AddressSaving.SaveAddress(new Address() { City = "Polska", Country = "Krakow", PostalCode = "12-213", Street = "Grodzka" });
-
-            //using (ISession session = baseHibernateDao.Session)
-            //{
-            //    using (session.BeginTransaction())
-            //    {
-            //        Address address = new Address() { City = "Polska", Country = "Krakow", PostalCode = "12-213", Street = "Grodzka" };
-            //        session.Save(address);
-            //        try
-            //        {
-            //            session.Transaction.Commit();
-            //        }
-            //        catch (HibernateException ex)
-            //        {
-            //            session.Transaction.Rollback();
-            //        }
-            //    }
-            //}
-
             ViewBag.Message = "Your app description page.";
 
             return View();
