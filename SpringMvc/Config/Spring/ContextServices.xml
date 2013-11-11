@@ -2,11 +2,28 @@
 <objects xmlns="http://www.springframework.net"
          xmlns:tx="http://www.springframework.net/tx">
 
-
-  <object id="addressSaving" type="SpringMvc.Models.AddressSaving">
-    <property name="SessionFactory" ref="sessionFactory" />
+  <object id="accountAdministrationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService">
+    <property name="DaoFactory" ref="daoFactory"/>
   </object>
 
-  <tx:attribute-driven transaction-manager="transactionManager"/>
+  <object id="authorizationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService">
+    <property name="DaoFactory" ref="daoFactory"/>
+  </object>
+
+  <object id="logEventsService" type="SpringMvc.Models.UserAccounts.Services.Implementation.LogEventsService">
+    <property name="DaoFactory" ref="daoFactory"/>
+  </object>
+
+  <object id="userInformationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.UserInformationService">
+    <property name="DaoFactory" ref="daoFactory"/>
+  </object>
+
+  <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
+    <property name="AccountAdministrationService" ref="accountAdministrationService"/>
+    <property name="AuthorizationService" ref="authorizationService"/>
+    <property name="LogEventsService" ref="logEventsService"/>
+    <property name="UserInformationService" ref="userInformationService"/>
+  </object>
   
+  <tx:attribute-driven transaction-manager="transactionManager"/>
 </objects>

@@ -249,6 +249,7 @@
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AddressSaving.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
+    <Compile Include="Models\Common\BaseSpringService.cs" />
     <Compile Include="Models\Common\DaoFactory.cs" />
     <Compile Include="Models\Common\Interfaces\IDaoFactory.cs" />
     <Compile Include="Models\Common\Interfaces\IServiceLocator.cs" />

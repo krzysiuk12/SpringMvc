@@ -49,19 +49,28 @@
   <object type="Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor, Spring.Data"/>
 
   
-  <!--<object id="baseHibernateDao" type="SpringMvc.Models.Common.BaseHibernateDao">
-    <property name="sessionFactory" ref="sessionFactory" />
-  </object>-->
-
-
-  <object id="addressSaving" type="SpringMvc.Models.AddressSaving">
-    <property name="SessionFactory" ref="sessionFactory" />
+  <!-- ********************* DATA ACCESS OBJECTS ********************* -->
+  <object id="accountAdministrationDao" type="SpringMvc.Models.UserAccounts.Dao.Implementation.AccountAdministrationDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
   </object>
 
-  <object type="SpringMvc.Controllers.HomeController, SpringMvc" singleton="false">
-    <property name="addressSaving" ref="addressSaving"/>
-    <!--<property name="baseHibernateDao" ref="baseHibernateDao"/>-->
+  <object id="authorizationDao" type="SpringMvc.Models.UserAccounts.Dao.Implementation.AuthorizationDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+
+  <object id="logEventsDao" type="SpringMvc.Models.UserAccounts.Dao.Implementation.LogEventsDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+
+  <object id="userInformationDao" type="SpringMvc.Models.UserAccounts.Dao.Implementation.UserInformationDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+
+  <object id="daoFactory" type="SpringMvc.Models.Common.DaoFactory">
+    <property name="AccountAdministrationDao" ref="accountAdministrationDao"/>
+    <property name="AuthorizationDao" ref="authorizationDao"/>
+    <property name="LogEventsDao" ref="logEventsDao"/>
+    <property name="UserInformationDao" ref="userInformationDao"/>
   </object>
   
-  <tx:attribute-driven transaction-manager="transactionManager"/>
 </objects>

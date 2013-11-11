@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.UserAccountsPages;
+﻿using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.UserAccountsPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace SpringMvc.Controllers
 {
     public class UserAccountPanelController : Controller
     {
+        private IServiceLocator serviceLocator;
+
         //
         // GET: /UserAccountPanel/
 

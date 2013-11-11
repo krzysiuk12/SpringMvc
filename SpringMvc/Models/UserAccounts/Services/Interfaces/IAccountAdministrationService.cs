@@ -10,6 +10,8 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
     {
         void SaveOrUpdateUser(UserAccount userAccount);
 
+        void AddNewUser(UserAccount userAccount);
+
         void RemoveUser(long userAccountId);
 
         void TurnOnUser(long userAccountId);

@@ -3,7 +3,14 @@
 
   <object type="SpringMvc.Controllers.HomeController, SpringMvc" singleton="false">
     <property name="addressSaving" ref="addressSaving"/>
-    <!--<property name="baseHibernateDao" ref="baseHibernateDao"/>-->
+  </object>
+
+  <object type="SpringMvc.Controllers.LoggingController, SpringMvc" singleton="false">
+    <property name="serviceLocator" ref="serviceLocator"/>
+  </object>
+  
+  <object type="SpringMvc.Controllers.UserAccountPanelController, SpringMvc" singleton="false">
+    <property name="serviceLocator" ref="serviceLocator"/>
   </object>
 
 </objects>

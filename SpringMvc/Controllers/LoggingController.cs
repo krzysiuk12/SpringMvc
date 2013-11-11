@@ -1,4 +1,6 @@
-﻿using SpringMvc.Models.UserAccountsPages;
+﻿using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.POCO;
+using SpringMvc.Models.UserAccountsPages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +11,8 @@ namespace SpringMvc.Controllers
 {
     public class LoggingController : Controller
     {
+        private IServiceLocator serviceLocator;
+
         //
         // GET: /Logging/
 
@@ -31,6 +35,8 @@ namespace SpringMvc.Controllers
         [HttpPost]
         public ActionResult Register(RegisterModel model)
         {
+            UserAccount newUserAccount = new UserAccount() { Login = model.Login, Password = model.Password, Email = model.Email };
+            serviceLocator.AccountAdministrationService.AddNewUser(newUserAccount); 
             return RedirectToAction("Create", "UserAccountPanel");
         }
     }
