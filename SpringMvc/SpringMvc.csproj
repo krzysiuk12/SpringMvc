@@ -240,6 +240,7 @@
     <Compile Include="Config\SpringDependencyResolver.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -256,6 +257,8 @@
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
+    <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
+    <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AccountAdministrationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\AuthorizationDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Implementation\LogEventsDao.cs" />
@@ -276,7 +279,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\Log4Net\Log4Net.xml" />
-    <Content Include="Config\Spring\ContextControllers.xml" />
+    <Content Include="Config\Spring\ContextControllers.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Spring\ContextDao.xml" />
     <Content Include="Config\Spring\ContextServices.xml" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
@@ -336,6 +341,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
+    <Content Include="Images\logo.png" />
     <Content Include="Mappings\Address.hbm.xml" />
     <Content Include="Mappings\LogInOutEvent.hbm.xml" />
     <Content Include="Mappings\PersonalData.hbm.xml" />
@@ -354,6 +360,9 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Logging\Index.aspx" />
+    <Content Include="Views\Logging\Register.aspx" />
+    <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -437,6 +446,8 @@
     <Folder Include="Models\Suggestions\Services\" />
     <Folder Include="Models\Warehouse\Dao\" />
     <Folder Include="Models\Warehouse\Services\" />
+    <Folder Include="Views\AdministratorPanel\" />
+    <Folder Include="Views\UserAccountPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
