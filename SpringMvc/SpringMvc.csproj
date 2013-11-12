@@ -246,6 +246,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Mappings\BookTypeDetailsMap.cs" />
+    <Compile Include="Mappings\BookTypeMap.cs" />
     <Compile Include="Models\AccountModels.cs" />
     <Compile Include="Models\AddressSaving.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
@@ -263,6 +265,12 @@
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\Sending_ShopRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\StorehouseRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\SuggestingRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\ISending_ShopRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\IStorehouseRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\ISuggestingRepository.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\IAssTestService.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
@@ -455,6 +463,7 @@
     <Folder Include="Models\Shipment\Services\" />
     <Folder Include="Models\Shop\Dao\" />
     <Folder Include="Models\Shop\Services\" />
+    <Folder Include="Models\Storehouse\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
     <Folder Include="Views\AdministratorPanel\" />
   </ItemGroup>
