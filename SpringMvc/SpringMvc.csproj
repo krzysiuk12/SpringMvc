@@ -258,6 +258,8 @@
     <Compile Include="Models\Common\SessionScope.cs" />
     <Compile Include="Models\IAddressService.cs" />
     <Compile Include="Models\POCO\Address.cs" />
+    <Compile Include="Models\POCO\BookType.cs" />
+    <Compile Include="Models\POCO\BookTypeDetails.cs" />
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
