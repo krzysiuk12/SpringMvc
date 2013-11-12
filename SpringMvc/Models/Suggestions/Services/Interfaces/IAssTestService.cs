@@ -5,10 +5,7 @@ using System.Text;
 
 namespace SpringMvc.Models.Suggestions.Services.Interfaces
 {
-    interface ISuggestionService
+    interface IAssTestService
     {
-        void AssForKrzys();
-
-        void AssForKuba();
     }
 }
