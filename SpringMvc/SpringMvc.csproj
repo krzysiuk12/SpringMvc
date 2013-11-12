@@ -238,17 +238,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config\CustomLocalSessionFactoryProvider.cs" />
     <Compile Include="Config\SpringDependencyResolver.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\ShipmentController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
-    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Models\AddressSaving.cs" />
+    <Compile Include="Mappings\BookTypeDetailsMap.cs" />
+    <Compile Include="Mappings\BookTypeMap.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
     <Compile Include="Models\Common\BaseSpringService.cs" />
@@ -257,15 +254,20 @@
     <Compile Include="Models\Common\Interfaces\IServiceLocator.cs" />
     <Compile Include="Models\Common\ServiceLocator.cs" />
     <Compile Include="Models\Common\SessionScope.cs" />
-    <Compile Include="Models\IAddressService.cs" />
-    <Compile Include="Models\POCO\Address.cs" />
-    <Compile Include="Models\POCO\OrderInfo.cs" />
-    <Compile Include="Models\POCO\OrderEntryDetails.cs" />
-    <Compile Include="Models\POCO\LogInOutEvent.cs" />
+    <Compile Include="Models\POCO\Address.cs" />    <Compile Include="Models\POCO\BookType.cs" />
+    <Compile Include="Models\POCO\BookTypeDetails.cs" />    <Compile Include="Models\POCO\OrderInfo.cs" />
+    <Compile Include="Models\POCO\OrderEntryDetails.cs" />    <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
+
     <Compile Include="Models\Shipment\Services\Implementation\ShipmentPreparationService.cs" />
-    <Compile Include="Models\Shipment\Services\Interfaces\IShipmentPreparationService.cs" />
+    <Compile Include="Models\Shipment\Services\Interfaces\IShipmentPreparationService.cs" />    <Compile Include="Models\Storehouse\Services\Implementation\Sending_ShopRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\StorehouseRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\SuggestingRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\ISending_ShopRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\IStorehouseRepository.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\ISuggestingRepository.cs" />
+    <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
     <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
     <Compile Include="Models\UserAccountsPages\UserAccountModel.cs" />
@@ -402,18 +404,6 @@
     <Content Include="Images\orderedList7.png" />
     <Content Include="Images\orderedList8.png" />
     <Content Include="Images\orderedList9.png" />
-    <Content Include="Views\Account\_ChangePasswordPartial.aspx" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.aspx" />
-    <Content Include="Views\Account\_RemoveExternalLoginsPartial.aspx" />
-    <Content Include="Views\Account\_SetPasswordPartial.aspx" />
-    <Content Include="Views\Account\Login.aspx" />
-    <Content Include="Views\Account\Manage.aspx" />
-    <Content Include="Views\Account\Register.aspx" />
-    <Content Include="Views\Account\ExternalLoginFailure.aspx" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.aspx" />
-    <Content Include="Views\Home\About.aspx" />
-    <Content Include="Views\Home\Contact.aspx" />
-    <Content Include="Views\Home\Index.aspx" />
     <Content Include="Views\Shared\Error.aspx" />
     <Content Include="Views\Shared\_LoginPartial.aspx" />
     <Content Include="Views\Shared\Site.Master" />
@@ -451,15 +441,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
     <Folder Include="Models\Invoices\Dao\" />
     <Folder Include="Models\Invoices\Services\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Shop\Dao\" />
     <Folder Include="Models\Shop\Services\" />
+    <Folder Include="Models\Storehouse\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
-    <Folder Include="Models\Suggestions\Services\" />
-    <Folder Include="Models\Warehouse\Dao\" />
-    <Folder Include="Models\Warehouse\Services\" />
     <Folder Include="Views\AdministratorPanel\" />
   </ItemGroup>
   <ItemGroup>
