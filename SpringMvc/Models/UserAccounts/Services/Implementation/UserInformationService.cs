@@ -13,7 +13,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
     [Repository]
     public class UserInformationService : BaseSpringService, IUserInformationService
     {
-        [Transaction]
+        [Transaction(ReadOnly = true)]
         public UserAccount GetUserAccountById(long userAccountId)
         {
             return DaoFactory.UserInformationDao.GetUserAccountById(userAccountId);

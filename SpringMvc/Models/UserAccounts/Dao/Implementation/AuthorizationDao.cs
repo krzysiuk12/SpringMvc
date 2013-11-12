@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
+using NHibernate.Linq;
 
 namespace SpringMvc.Models.UserAccounts.Dao.Implementation
 {
@@ -12,7 +13,7 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
     {
         public UserAccount LoginUser(string login, string password)
         {
-            throw new NotImplementedException();
+            return this.Session.Query<UserAccount>().Where(user => user.Login == login).Select(user => user).Single();
         }
 
         public void LogoutUser(string login)
@@ -22,7 +23,7 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
 
         public void RegisterUser(UserAccount newUserAccount)
         {
-            throw new NotImplementedException();
+            this.Session.Save(newUserAccount);
         }
 
         public IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<string, string> parameters)

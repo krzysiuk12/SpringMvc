@@ -24,6 +24,9 @@ namespace SpringMvc.Controllers
         [HttpPost]
         public ActionResult Index(LogInModel loginModelData)
         {
+            UserAccount user = serviceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
+            Session["LoggedUser"] = user;
+            //serviceLocator.SessionScope.LoggedUser = user;
             return View();
         }
 
@@ -36,8 +39,8 @@ namespace SpringMvc.Controllers
         public ActionResult Register(RegisterModel model)
         {
             UserAccount newUserAccount = new UserAccount() { Login = model.Login, Password = model.Password, Email = model.Email };
-            serviceLocator.AccountAdministrationService.AddNewUser(newUserAccount); 
-            return RedirectToAction("Create", "UserAccountPanel");
+            serviceLocator.AuthorizationService.RegisterUser(newUserAccount);
+            return RedirectToAction("Create", "UserAccountPanel", newUserAccount);
         }
     }
 }

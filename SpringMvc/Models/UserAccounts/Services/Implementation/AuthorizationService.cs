@@ -5,27 +5,49 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
+using Spring.Transaction.Interceptor;
+using Spring.Stereotype;
 
 
 namespace SpringMvc.Models.UserAccounts.Services.Implementation
 {
+    [Repository]
     public class AuthorizationService : BaseSpringService, IAuthorizationService
     {
+        [Transaction]
         public UserAccount LoginUser(string login, string password)
         {
-            throw new NotImplementedException();
+            UserAccount user = DaoFactory.AuthorizationDao.LoginUser(login, password);
+            if (user.Password.Equals(password))
+            {
+                DaoFactory.LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+            }
+            else 
+            {
+                DaoFactory.LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                return null; //Exception in future
+            }
+            return user;
+
         }
 
+        [Transaction]
         public void LogoutUser(string login)
         {
             throw new NotImplementedException();
         }
 
+        [Transaction]
         public void RegisterUser(UserAccount newUserAccount)
         {
-            throw new NotImplementedException();
+            newUserAccount.AccountStatus = UserAccount.Status.ACTIVE;
+            newUserAccount.LastPasswordChangedDate = DateTime.Now;
+            newUserAccount.ValidFrom = DateTime.Now;
+            newUserAccount.ValidTo = new DateTime(newUserAccount.ValidFrom.Year + 1, newUserAccount.ValidFrom.Month, newUserAccount.ValidFrom.Day);
+            DaoFactory.AuthorizationDao.RegisterUser(newUserAccount);
         }
 
+        [Transaction(ReadOnly = true)]
         public IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<string, string> parameters)
         {
             throw new NotImplementedException();
@@ -33,11 +55,13 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
 
         public UserAccount LoggedUserAccount
         {
+            [Transaction(ReadOnly = true)]
             get { throw new NotImplementedException(); }
         }
 
         public IEnumerable<UserAccount> AllLoggedUserAccounts
         {
+            [Transaction(ReadOnly = true)]
             get { throw new NotImplementedException(); }
         }
     }

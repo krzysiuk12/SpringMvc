@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using NHibernate.Linq;
 
 namespace SpringMvc.Models.UserAccounts.Dao.Implementation
 {
@@ -12,32 +13,7 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
     {
         public void SaveOrUpdateUser(UserAccount userAccount)
         {
-            throw new NotImplementedException();
-        }
-
-        public void AddNewUser(UserAccount userAccount)
-        {
-            this.Session.Save(userAccount);
-        }
-
-        public void RemoveUser(long userAccountId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TurnOnUser(long userAccountId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void TurnOffUser(long userAccountId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void LockUser(long userAccountId)
-        {
-            throw new NotImplementedException();
+            this.Session.SaveOrUpdate(userAccount);
         }
 
         public void ChangePassword(long userAccountId, string oldPassword, string newPassword)

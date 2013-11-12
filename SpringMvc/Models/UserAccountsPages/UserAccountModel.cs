@@ -16,6 +16,7 @@ namespace SpringMvc.Models.UserAccountsPages
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Required]
         [Display(Name = "Date Of Birth (MM/dd/yyyy)")]
         [DataType(DataType.DateTime)]
         public DateTime DateOfBirth { get; set; }
@@ -23,6 +24,7 @@ namespace SpringMvc.Models.UserAccountsPages
         public SpringMvc.Models.POCO.PersonalData.Gender Sex { get; set; }
         [Display(Name = "Identity Card Number")]
         public string IdentityCardNumber { get; set; }
+        [Required]
         [Display(Name = "PESEL")]
         [MinLength(11)]
         [StringLength(11)]

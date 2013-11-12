@@ -1,4 +1,5 @@
 ﻿using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.POCO;
 using SpringMvc.Models.UserAccountsPages;
 using System;
 using System.Collections.Generic;
@@ -32,21 +33,24 @@ namespace SpringMvc.Controllers
         // GET: /UserAccountPanel/Create
 
         #region Create Methods
-        public ActionResult Create()
+        public ActionResult Create(UserAccount userAccount)
         {
-            return View();
+            return View(userAccount);
         }
 
         [HttpPost]
-        public ActionResult Create(UserAccountModel model)
+        public ActionResult Create(UserAccount userAccount, UserAccountModel model)
         {
+            userAccount.PersonalData = ConvertUserAccountModelToPersonalData(model);
+            userAccount.PersonalData.UserAccount = userAccount;
+            serviceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
             return RedirectToAction("Index", "Logging");
         }
         #endregion
 
         //
         // GET: /UserAccountPanel/Edit/5
-
+        #region Edit Methods
         public ActionResult Edit(int id)
         {
             return View();
@@ -60,6 +64,7 @@ namespace SpringMvc.Controllers
         {
             return View();
         }
+        #endregion
 
         #region Delete Methods
         //
@@ -86,6 +91,32 @@ namespace SpringMvc.Controllers
             {
                 return View();
             }
+        }
+        #endregion
+
+        #region Convert Methods
+        private PersonalData ConvertUserAccountModelToPersonalData(UserAccountModel model) 
+        {
+            PersonalData personalData = new PersonalData()
+            {
+                FirstName = model.FirstName,
+                LastName = model.LastName,
+                DateOfBirth = model.DateOfBirth,
+                PESEL = model.PESEL,
+                MiddleName = model.MiddleName != null ? model.MiddleName : null,
+                IdentityCardNumber = model.IdentityCardNumber != null ? model.IdentityCardNumber : null,
+                PhoneNumber = model.PhoneNumber != null ? model.PhoneNumber : null,
+            };
+            Address address = new Address()
+            {
+                City = model.City,
+                Country = model.Country,
+                PersonalData = personalData,
+                PostalCode = model.PostalCode,
+                Street = model.Street
+            };
+            personalData.Address = address;
+            return personalData;
         }
         #endregion
     }
