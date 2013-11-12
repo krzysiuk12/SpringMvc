@@ -271,7 +271,6 @@
     <Compile Include="Models\Storehouse\Services\Interfaces\ISending_ShopRepository.cs" />
     <Compile Include="Models\Storehouse\Services\Interfaces\IStorehouseRepository.cs" />
     <Compile Include="Models\Storehouse\Services\Interfaces\ISuggestingRepository.cs" />
-    <Compile Include="Models\Suggestions\Services\Interfaces\IAssTestService.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
     <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
