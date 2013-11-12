@@ -453,8 +453,6 @@
     <Folder Include="Models\Shop\Dao\" />
     <Folder Include="Models\Shop\Services\" />
     <Folder Include="Models\Suggestions\Dao\" />
-    <Folder Include="Models\Warehouse\Dao\" />
-    <Folder Include="Models\Warehouse\Services\" />
     <Folder Include="Views\AdministratorPanel\" />
   </ItemGroup>
   <ItemGroup>
