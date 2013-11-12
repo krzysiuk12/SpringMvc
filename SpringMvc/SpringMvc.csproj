@@ -261,6 +261,7 @@
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
+    <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
     <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
     <Compile Include="Models\UserAccountsPages\UserAccountModel.cs" />
@@ -452,7 +453,6 @@
     <Folder Include="Models\Shop\Dao\" />
     <Folder Include="Models\Shop\Services\" />
     <Folder Include="Models\Suggestions\Dao\" />
-    <Folder Include="Models\Suggestions\Services\" />
     <Folder Include="Models\Warehouse\Dao\" />
     <Folder Include="Models\Warehouse\Services\" />
     <Folder Include="Views\AdministratorPanel\" />
