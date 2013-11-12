@@ -7,8 +7,6 @@ namespace SpringMvc.Models.Suggestions.Services.Interfaces
 {
     interface ISuggestionService
     {
-        void AssForKrzys();
 
-        void AssForKuba();
     }
 }
