@@ -261,6 +261,7 @@
     <Compile Include="Models\POCO\BookType.cs" />
     <Compile Include="Models\POCO\BookTypeDetails.cs" />
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
+    <Compile Include="Models\POCO\Order.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
     <Compile Include="Models\Storehouse\Services\Implementation\Sending_ShopRepository.cs" />
