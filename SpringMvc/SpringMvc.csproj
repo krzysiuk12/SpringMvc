@@ -257,9 +257,12 @@
     <Compile Include="Models\Common\Interfaces\IServiceLocator.cs" />
     <Compile Include="Models\Common\ServiceLocator.cs" />
     <Compile Include="Models\Common\SessionScope.cs" />
+    <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />
+    <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\POCO\Address.cs" />
     <Compile Include="Models\POCO\BookType.cs" />
     <Compile Include="Models\POCO\BookTypeDetails.cs" />
+    <Compile Include="Models\POCO\Invoice.cs" />
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\Order.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
@@ -458,7 +461,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
-    <Folder Include="Models\Invoices\" />
+    <Folder Include="Models\Invoices\Dao\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Shipment\Services\" />
     <Folder Include="Models\Storehouse\Dao\" />
