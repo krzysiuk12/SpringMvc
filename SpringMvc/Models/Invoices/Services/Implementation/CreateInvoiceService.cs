@@ -15,9 +15,9 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
     public class CreateInvoiceService : BaseSpringService, ICreateInvoiceService
     {
         [Transaction(ReadOnly=true)]
-        public void GetInvoice(long orderId)
+        public Invoice GetInvoice(long orderId)
         {
-            
+            throw new NotImplementedException("");
         }
     }
 }
