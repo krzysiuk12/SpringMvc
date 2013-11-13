@@ -21,9 +21,9 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
             throw new NotImplementedException();
         }
 
-        public void RegisterUser(UserAccount newUserAccount)
+        public long RegisterUser(UserAccount newUserAccount)
         {
-            this.Session.Save(newUserAccount);
+            return (long)this.Session.Save(newUserAccount);
         }
 
         public IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<string, string> parameters)

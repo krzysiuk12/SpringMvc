@@ -1,69 +1,81 @@
-2013-11-13 00:50:31,934 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:31,949 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
-2013-11-13 00:50:31,953 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
-2013-11-13 00:50:31,957 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
-2013-11-13 00:50:31,962 [12] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
-2013-11-13 00:50:31,967 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:31,970 [12] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
-2013-11-13 00:50:31,974 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
-2013-11-13 00:50:31,977 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
-2013-11-13 00:50:31,982 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
-2013-11-13 00:50:31,985 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
-2013-11-13 00:50:31,988 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:31,991 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:31,993 [12] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
-2013-11-13 00:50:31,996 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
-2013-11-13 00:50:32,000 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:32,067 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:32,955 [8] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:32,959 [8] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,837 [7] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,842 [7] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,848 [7] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,852 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
-2013-11-13 00:50:46,855 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
-2013-11-13 00:50:46,858 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
-2013-11-13 00:50:46,861 [7] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
-2013-11-13 00:50:46,864 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:46,866 [7] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
-2013-11-13 00:50:46,869 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
-2013-11-13 00:50:46,872 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
-2013-11-13 00:50:46,875 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
-2013-11-13 00:50:46,879 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
-2013-11-13 00:50:46,882 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:46,885 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
-2013-11-13 00:50:46,888 [7] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
-2013-11-13 00:50:46,891 [7] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
-2013-11-13 00:50:46,907 [7] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,913 [7] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(8963119)' registered under name 'spring.root'.
-2013-11-13 00:50:46,928 [7] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Getting transaction for SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService.RegisterUser
-2013-11-13 00:50:46,936 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Using transaction object [Spring.Data.NHibernate.HibernateTransactionManager+HibernateTransactionObject]
-2013-11-13 00:50:46,941 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Creating new transaction with name [SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService.RegisterUser]:PROPAGATION_Required,ISOLATION_ReadCommitted
-2013-11-13 00:50:46,959 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Opened new Session [NHibernate.Impl.SessionImpl] for Hibernate transaction
-2013-11-13 00:50:46,970 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Exposing Hibernate transaction as ADO transaction [Npgsql.NpgsqlConnection]
-2013-11-13 00:50:46,974 [7] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.Support.ConnectionHolder@1DD3B9] for key [Spring.Data.Common.DbProvider@F47E10] to thread [7]
-2013-11-13 00:50:46,977 [7] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.NHibernate.SessionHolder@3D84AE5] for key [NHibernate.Impl.SessionFactoryImpl@2EDA9E1] to thread [7]
-2013-11-13 00:51:15,583 [7] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Retrieved value [Spring.Data.NHibernate.SessionHolder@3D84AE5] for key [NHibernate.Impl.SessionFactoryImpl@2EDA9E1] bound to thread [7]
-2013-11-13 00:51:15,903 [7] INFO  NHibernate.Hql.Ast.ANTLR.Tree.FromElement [(null)] - handling property dereference [SpringMvc.Models.POCO.UserAccount (user) -> Id (Class)]
-2013-11-13 00:51:16,023 [7] INFO  NHibernate.Loader.Loader [(null)] - select useraccoun0_.Id as Id0_, useraccoun0_.Login as Login0_, useraccoun0_.Password as Password0_, useraccoun0_.Email as Email0_, useraccoun0_.LastPasswordChangedDate as LastPass5_0_, useraccoun0_.LastSuccessfulSignInDate as LastSucc6_0_, useraccoun0_.ValidFrom as ValidFrom0_, useraccoun0_.ValidTo as ValidTo0_, useraccoun0_.AccountStatus as AccountS9_0_ from UserAccount useraccoun0_ where useraccoun0_.Id=:p0
-2013-11-13 00:51:18,799 [7] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Completing transaction for [SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService.RegisterUser] after exception: System.InvalidOperationException: Sekwencja nie zawiera elementów.
-   w NHibernate.Linq.DefaultQueryProvider.ExecuteQuery(NhLinqExpression nhLinqExpression, IQuery query, NhLinqExpression nhQuery)
-   w NHibernate.Linq.DefaultQueryProvider.Execute(Expression expression)
-   w NHibernate.Linq.DefaultQueryProvider.Execute[TResult](Expression expression)
-   w System.Linq.Queryable.Single[TSource](IQueryable`1 source)
-   w SpringMvc.Models.UserAccounts.Dao.Implementation.UserInformationDao.GetUserAccountById(Int64 userAccountId) w c:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Models\UserAccounts\Dao\Implementation\UserInformationDao.cs:wiersz 16
-   w SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService.TurnOnUser(Int64 userAccountId) w c:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Models\UserAccounts\Services\Implementation\AccountAdministrationService.cs:wiersz 33
-   w SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService.RegisterUser(UserAccount newUserAccount) w c:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Models\UserAccounts\Services\Implementation\AuthorizationService.cs:wiersz 43
-   w _dynamic_SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService.RegisterUser(Object , Object[] )
-   w Spring.Reflection.Dynamic.SafeMethod.Invoke(Object target, Object[] arguments)
-   w Spring.Aop.Framework.DynamicMethodInvocation.InvokeJoinpoint()
-   w Spring.Aop.Framework.AbstractMethodInvocation.Proceed()
-   w Spring.Dao.Support.PersistenceExceptionTranslationInterceptor.Invoke(IMethodInvocation invocation)
-   w Spring.Aop.Framework.AbstractMethodInvocation.Proceed()
-   w Spring.Transaction.Interceptor.TransactionInterceptor.Invoke(IMethodInvocation invocation)
-2013-11-13 00:51:18,804 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Initiating transaction rollback
-2013-11-13 00:51:18,808 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Rolling back Hibernate transaction on Session [NHibernate.Impl.SessionImpl]
-2013-11-13 00:51:18,817 [7] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.NHibernate.SessionHolder@3D84AE5] for key [NHibernate.Impl.SessionFactoryImpl@2EDA9E1] from thread [7]
-2013-11-13 00:51:18,821 [7] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.Support.ConnectionHolder@1DD3B9] for key [Spring.Data.Common.DbProvider@F47E10] from thread [7]
-2013-11-13 00:51:18,823 [7] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Closing Hibernate Session [NHibernate.Impl.SessionImpl] after transaction
-2013-11-13 00:51:18,827 [7] DEBUG Spring.Data.NHibernate.SessionFactoryUtils [(null)] - Closing Hibernate Session
+2013-11-13 02:16:44,061 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:16:44,087 [11] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:16:44,091 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:44,095 [11] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
+2013-11-13 02:16:44,099 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:16:44,103 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:16:44,106 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:16:44,110 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:16:44,114 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:44,118 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:44,122 [11] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
+2013-11-13 02:16:44,126 [11] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:16:44,130 [11] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:44,206 [11] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:45,084 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:45,087 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:52,125 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:52,130 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:52,134 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:52,137 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:16:52,140 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
+2013-11-13 02:16:52,143 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:16:52,146 [12] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:16:52,150 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:52,152 [12] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
+2013-11-13 02:16:52,155 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:16:52,158 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:16:52,161 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:16:52,164 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:16:52,167 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:52,170 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:16:52,173 [12] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
+2013-11-13 02:16:52,177 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:16:52,192 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:52,198 [12] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:55,716 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.TransactionInterceptor#0 => canonical name Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:16:55,724 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:16:55,731 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:16:55,737 [12] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:16:55,746 [12] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Getting transaction for CompositionAopProxy_5f165b3315a44e15a294dad16316351f.RegisterUser
+2013-11-13 02:16:55,754 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Using transaction object [Spring.Data.NHibernate.HibernateTransactionManager+HibernateTransactionObject]
+2013-11-13 02:16:55,761 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Creating new transaction with name [CompositionAopProxy_5f165b3315a44e15a294dad16316351f.RegisterUser]:PROPAGATION_Required,ISOLATION_ReadCommitted
+2013-11-13 02:16:55,779 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Opened new Session [NHibernate.Impl.SessionImpl] for Hibernate transaction
+2013-11-13 02:16:55,789 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Exposing Hibernate transaction as ADO transaction [Npgsql.NpgsqlConnection]
+2013-11-13 02:16:55,794 [12] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.Support.ConnectionHolder@33C73B2] for key [Spring.Data.Common.DbProvider@106F262] to thread [12]
+2013-11-13 02:16:55,797 [12] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.NHibernate.SessionHolder@383F3FF] for key [NHibernate.Impl.SessionFactoryImpl@2AED20F] to thread [12]
+2013-11-13 02:16:55,806 [12] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Retrieved value [Spring.Data.NHibernate.SessionHolder@383F3FF] for key [NHibernate.Impl.SessionFactoryImpl@2AED20F] bound to thread [12]
+2013-11-13 02:16:55,836 [12] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,841 [12] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,851 [12] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,855 [12] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,859 [12] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Completing transaction for [CompositionAopProxy_5f165b3315a44e15a294dad16316351f.RegisterUser]
+2013-11-13 02:16:55,865 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Committing Hibernate transaction on Session [NHibernate.Impl.SessionImpl]
+2013-11-13 02:16:55,872 [12] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,876 [12] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:16:55,922 [12] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.NHibernate.SessionHolder@383F3FF] for key [NHibernate.Impl.SessionFactoryImpl@2AED20F] from thread [12]
+2013-11-13 02:16:55,926 [12] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.Support.ConnectionHolder@33C73B2] for key [Spring.Data.Common.DbProvider@106F262] from thread [12]
+2013-11-13 02:16:55,930 [12] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Closing Hibernate Session [NHibernate.Impl.SessionImpl] after transaction
+2013-11-13 02:16:55,933 [12] DEBUG Spring.Data.NHibernate.SessionFactoryUtils [(null)] - Closing Hibernate Session
+2013-11-13 02:16:55,969 [13] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:55,973 [13] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:55,978 [13] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:16:55,982 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.UserAccountPanelController#0 => canonical name SpringMvc.Controllers.UserAccountPanelController#0
+2013-11-13 02:16:55,986 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.UserAccountPanelController#0' with merged definition [Root web object with class [SpringMvc.Controllers.UserAccountPanelController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 8].
+2013-11-13 02:16:55,990 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.UserAccountPanelController#0'.
+2013-11-13 02:16:55,995 [13] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /UserAccountPanel/Create/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:16:56,000 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:16:56,003 [13] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.UserAccountPanelController#0' to object 'serviceLocator'.
+2013-11-13 02:16:56,006 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:16:56,010 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:16:56,013 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:16:56,016 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:16:56,019 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:16:56,022 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:16:56,026 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:16:56,029 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:16:56,032 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:16:56,035 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:16:56,043 [13] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] rejected for targetType [SpringMvc.Controllers.UserAccountPanelController]
+2013-11-13 02:16:56,046 [13] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /UserAccountPanel/Create
+2013-11-13 02:16:56,049 [13] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.UserAccountPanelController#0

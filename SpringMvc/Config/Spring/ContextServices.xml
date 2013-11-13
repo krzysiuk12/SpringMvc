@@ -25,6 +25,11 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="suggestionService" type="SpringMvc.Models.Suggestions.Services.Implementation.SuggestionService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="SessionScope" ref="sessionScope"/>
     <property name="ApplicationScope" ref="applicationScope"/>
@@ -32,6 +37,7 @@
     <property name="AuthorizationService" ref="authorizationService"/>
     <property name="LogEventsService" ref="logEventsService"/>
     <property name="UserInformationService" ref="userInformationService"/>
+    <property name="SuggestionService" ref="suggestionService"/>
   </object>
   
   <tx:attribute-driven transaction-manager="transactionManager"/>

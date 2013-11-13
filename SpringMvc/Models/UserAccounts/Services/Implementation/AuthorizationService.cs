@@ -38,13 +38,13 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         }
 
         [Transaction]
-        public void RegisterUser(UserAccount newUserAccount)
+        public long RegisterUser(UserAccount newUserAccount)
         {
             newUserAccount.AccountStatus = UserAccount.Status.ACTIVE;
             newUserAccount.LastPasswordChangedDate = DateTime.Now;
             newUserAccount.ValidFrom = DateTime.Now;
             newUserAccount.ValidTo = new DateTime(newUserAccount.ValidFrom.Year + 1, newUserAccount.ValidFrom.Month, newUserAccount.ValidFrom.Day);
-            DaoFactory.AuthorizationDao.RegisterUser(newUserAccount);
+            return DaoFactory.AuthorizationDao.RegisterUser(newUserAccount);
         }
 
         [Transaction(ReadOnly = true)]
