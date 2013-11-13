@@ -17,6 +17,6 @@
     <property name="ValidTo" column="ValidTo" type="DateTime"/>
     <property name="AccountStatus" column="AccountStatus" type="UserAccount+Status"/>
 
-    <one-to-one name="PersonalData" class="PersonalData" lazy="proxy" foreign-key="FK_UserAccountPersonalData" cascade="all"/>
+    <one-to-one name="PersonalData" class="PersonalData" lazy="false" foreign-key="FK_UserAccountPersonalData" cascade="all"/>
   </class>
 </hibernate-mapping>

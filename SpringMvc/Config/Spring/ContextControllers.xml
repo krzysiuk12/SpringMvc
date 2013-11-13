@@ -2,11 +2,11 @@
 <objects xmlns="http://www.springframework.net">
 
   <object type="SpringMvc.Controllers.LoggingController, SpringMvc" singleton="false">
-    <property name="serviceLocator" ref="serviceLocator"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
   
   <object type="SpringMvc.Controllers.UserAccountPanelController, SpringMvc" singleton="false">
-    <property name="serviceLocator" ref="serviceLocator"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
 </objects>

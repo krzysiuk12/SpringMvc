@@ -11,7 +11,7 @@ namespace SpringMvc.Controllers
 {
     public class UserAccountPanelController : Controller
     {
-        private IServiceLocator serviceLocator;
+        private IServiceLocator ServiceLocator { get; set; } 
 
         //
         // GET: /UserAccountPanel/
@@ -33,21 +33,19 @@ namespace SpringMvc.Controllers
         // GET: /UserAccountPanel/Create
 
         #region Create Methods
-        public ActionResult Create(UserAccount userAccount)
+        public ActionResult Create(long userAccountId)
         {
             UserAccountModel userAccountModel = new UserAccountModel();
-            userAccountModel.UserAccount = userAccount;
+            userAccountModel.UserAccount = ServiceLocator.UserInformationService.GetUserAccountById(userAccountId);
             userAccountModel.PersonalData = new PersonalData();
             userAccountModel.Address = new Address();
             return View(userAccountModel);
         }
 
         [HttpPost]
-        public ActionResult Create(UserAccount userAccount, UserAccountModel model)
+        public ActionResult Create(long userAccountId, UserAccountModel model)
         {
-            model.UserAccount = userAccount;
-            model.ConnectUserAccountModelReferences();
-            serviceLocator.AccountAdministrationService.SaveOrUpdateUser(model.UserAccount);
+            ServiceLocator.AuthorizationService.SaveNewUserPersonalData(userAccountId, model.PersonalData, model.Address);
             return RedirectToAction("Index", "Logging");
         }
         #endregion

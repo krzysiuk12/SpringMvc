@@ -17,6 +17,6 @@
     <property name="PhoneNumber" column="PhoneNumber" type="String"/>
 
     <one-to-one name="UserAccount" class="UserAccount" constrained="true"/>
-    <one-to-one name="Address" class="Address" lazy="proxy" foreign-key="FK_AddressPersonalData" cascade="all"/>
+    <one-to-one name="Address" class="Address" lazy="false" foreign-key="FK_AddressPersonalData" cascade="all"/>
   </class>
 </hibernate-mapping>

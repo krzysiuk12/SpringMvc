@@ -11,7 +11,7 @@ namespace SpringMvc.Controllers
 {
     public class LoggingController : Controller
     {
-        private IServiceLocator serviceLocator;
+        private IServiceLocator ServiceLocator { get; set; } 
 
         //
         // GET: /Logging/
@@ -24,7 +24,7 @@ namespace SpringMvc.Controllers
         [HttpPost]
         public ActionResult Index(LogInModel loginModelData)
         {
-            UserAccount user = serviceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
+            UserAccount user = ServiceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
             Session["LoggedUser"] = user;
             //serviceLocator.SessionScope.LoggedUser = user;
             return View();
@@ -39,8 +39,8 @@ namespace SpringMvc.Controllers
         public ActionResult Register(RegisterModel model)
         {
             UserAccount newUserAccount = new UserAccount() { Login = model.Login, Password = model.Password, Email = model.Email };
-            serviceLocator.AuthorizationService.RegisterUser(newUserAccount);
-            return RedirectToAction("Create", "UserAccountPanel", newUserAccount);
+            ServiceLocator.AuthorizationService.RegisterUser(newUserAccount);
+            return RedirectToAction("Create", "UserAccountPanel", new { userAccountId = newUserAccount.Id });
         }
     }
 }

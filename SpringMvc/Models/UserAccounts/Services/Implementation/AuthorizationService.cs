@@ -47,6 +47,17 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             return DaoFactory.AuthorizationDao.RegisterUser(newUserAccount);
         }
 
+        [Transaction]
+        public void SaveNewUserPersonalData(long userAccountId, PersonalData personalData, Address address)
+        {
+            UserAccount userAccount = ServiceLocator.UserInformationService.GetUserAccountById(userAccountId);
+            userAccount.PersonalData = personalData;
+            userAccount.PersonalData.UserAccount = userAccount;
+            personalData.Address = address;
+            address.PersonalData = personalData;
+            ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
+        }
+
         [Transaction(ReadOnly = true)]
         public IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<string, string> parameters)
         {
