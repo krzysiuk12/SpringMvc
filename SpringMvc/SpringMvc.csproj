@@ -449,8 +449,7 @@
     <Folder Include="Models\Invoices\Services\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Shipment\Services\" />
-    <Folder Include="Models\Shop\Dao\" />
-    <Folder Include="Models\Shop\Services\" />
+    <Folder Include="Models\Shop\" />
     <Folder Include="Models\Storehouse\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
     <Folder Include="Views\AdministratorPanel\" />
