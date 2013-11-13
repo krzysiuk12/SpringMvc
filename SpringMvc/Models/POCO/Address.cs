@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -23,10 +24,23 @@ namespace SpringMvc.Models.POCO
 
         #region Properties
         public virtual long Id { get; set; }
+        
+        [Required]
+        [Display(Name = "Street")]
         public virtual string Street { get; set; }
+
+        [Required]
+        [Display(Name = "City")]
         public virtual string City { get; set; }
+
+        [Required]
+        [Display(Name = "Postal Code")]
         public virtual string PostalCode { get; set; }
+
+        [Required]
+        [Display(Name = "Country")]
         public virtual string Country { get; set; }
+
         public virtual PersonalData PersonalData { get; set; }
         #endregion
     }

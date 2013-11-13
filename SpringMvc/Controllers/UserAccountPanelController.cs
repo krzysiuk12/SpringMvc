@@ -35,15 +35,19 @@ namespace SpringMvc.Controllers
         #region Create Methods
         public ActionResult Create(UserAccount userAccount)
         {
-            return View(userAccount);
+            UserAccountModel userAccountModel = new UserAccountModel();
+            userAccountModel.UserAccount = userAccount;
+            userAccountModel.PersonalData = new PersonalData();
+            userAccountModel.Address = new Address();
+            return View(userAccountModel);
         }
 
         [HttpPost]
         public ActionResult Create(UserAccount userAccount, UserAccountModel model)
         {
-            userAccount.PersonalData = ConvertUserAccountModelToPersonalData(model);
-            userAccount.PersonalData.UserAccount = userAccount;
-            serviceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
+            model.UserAccount = userAccount;
+            model.ConnectUserAccountModelReferences();
+            serviceLocator.AccountAdministrationService.SaveOrUpdateUser(model.UserAccount);
             return RedirectToAction("Index", "Logging");
         }
         #endregion
@@ -91,32 +95,6 @@ namespace SpringMvc.Controllers
             {
                 return View();
             }
-        }
-        #endregion
-
-        #region Convert Methods
-        private PersonalData ConvertUserAccountModelToPersonalData(UserAccountModel model) 
-        {
-            PersonalData personalData = new PersonalData()
-            {
-                FirstName = model.FirstName,
-                LastName = model.LastName,
-                DateOfBirth = model.DateOfBirth,
-                PESEL = model.PESEL,
-                MiddleName = model.MiddleName != null ? model.MiddleName : null,
-                IdentityCardNumber = model.IdentityCardNumber != null ? model.IdentityCardNumber : null,
-                PhoneNumber = model.PhoneNumber != null ? model.PhoneNumber : null,
-            };
-            Address address = new Address()
-            {
-                City = model.City,
-                Country = model.Country,
-                PersonalData = personalData,
-                PostalCode = model.PostalCode,
-                Street = model.Street
-            };
-            personalData.Address = address;
-            return personalData;
         }
         #endregion
     }
