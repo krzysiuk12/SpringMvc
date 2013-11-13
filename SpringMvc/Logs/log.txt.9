@@ -1,0 +1,520 @@
+2013-11-13 02:01:59,430 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'logEventsService' to allow for resolving potential circular references
+2013-11-13 02:01:59,442 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'logEventsService'
+2013-11-13 02:01:59,445 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'DaoFactory' in object 'logEventsService' to object 'daoFactory'.
+2013-11-13 02:01:59,449 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name daoFactory => canonical name daoFactory
+2013-11-13 02:01:59,451 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'daoFactory'.
+2013-11-13 02:01:59,454 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'daoFactory'.
+2013-11-13 02:01:59,457 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname daoFactory
+2013-11-13 02:01:59,460 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'ServiceLocator' in object 'logEventsService' to object 'serviceLocator'.
+2013-11-13 02:01:59,462 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:01:59,465 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning eagerly cached instance of singleton object 'serviceLocator' that is not fully initialized yet - a consequence of a circular reference
+2013-11-13 02:01:59,468 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:01:59,470 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:01:59,474 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'logEventsService'
+2013-11-13 02:01:59,476 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'logEventsService'
+2013-11-13 02:01:59,484 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,487 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,489 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,491 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,494 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] accepted for targetType [CompositionAopProxy_dab65514376a4dc6a046171aeee3d4b7]
+2013-11-13 02:01:59,496 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Creating implicit proxy for object 'logEventsService' with 0 common interceptors and 1 specific interceptors
+2013-11-13 02:01:59,505 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'logEventsService'
+2013-11-13 02:01:59,508 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'logEventsService'.
+2013-11-13 02:01:59,510 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: returning instance for objectname logEventsService
+2013-11-13 02:01:59,513 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'UserInformationService' in object 'serviceLocator' to object 'userInformationService'.
+2013-11-13 02:01:59,515 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: obtaining instance for name userInformationService => canonical name userInformationService
+2013-11-13 02:01:59,517 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'userInformationService'
+2013-11-13 02:01:59,520 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'userInformationService' with merged definition [Root web object with class [SpringMvc.Models.UserAccounts.Services.Implementation.UserInformationService] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextServices.xml] line 23].
+2013-11-13 02:01:59,524 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'userInformationService'.
+2013-11-13 02:01:59,527 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'userInformationService' to allow for resolving potential circular references
+2013-11-13 02:01:59,529 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'userInformationService'
+2013-11-13 02:01:59,531 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'DaoFactory' in object 'userInformationService' to object 'daoFactory'.
+2013-11-13 02:01:59,534 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name daoFactory => canonical name daoFactory
+2013-11-13 02:01:59,536 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'daoFactory'.
+2013-11-13 02:01:59,538 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'daoFactory'.
+2013-11-13 02:01:59,540 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname daoFactory
+2013-11-13 02:01:59,543 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'ServiceLocator' in object 'userInformationService' to object 'serviceLocator'.
+2013-11-13 02:01:59,545 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:01:59,547 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning eagerly cached instance of singleton object 'serviceLocator' that is not fully initialized yet - a consequence of a circular reference
+2013-11-13 02:01:59,550 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:01:59,552 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:01:59,555 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'userInformationService'
+2013-11-13 02:01:59,558 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'userInformationService'
+2013-11-13 02:01:59,563 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,565 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,568 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,570 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,572 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] accepted for targetType [CompositionAopProxy_6f7668ef7f6b49c4ad90692a6e8cd69d]
+2013-11-13 02:01:59,575 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Creating implicit proxy for object 'userInformationService' with 0 common interceptors and 1 specific interceptors
+2013-11-13 02:01:59,580 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'userInformationService'
+2013-11-13 02:01:59,582 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'userInformationService'.
+2013-11-13 02:01:59,584 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: returning instance for objectname userInformationService
+2013-11-13 02:01:59,586 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'SuggestionService' in object 'serviceLocator' to object 'suggestionService'.
+2013-11-13 02:01:59,589 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: obtaining instance for name suggestionService => canonical name suggestionService
+2013-11-13 02:01:59,591 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'suggestionService'
+2013-11-13 02:01:59,593 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'suggestionService' with merged definition [Root web object with class [SpringMvc.Models.Suggestions.Services.Implementation.SuggestionService] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextServices.xml] line 28].
+2013-11-13 02:01:59,595 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'suggestionService'.
+2013-11-13 02:01:59,598 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'suggestionService' to allow for resolving potential circular references
+2013-11-13 02:01:59,601 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'suggestionService'
+2013-11-13 02:01:59,603 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'DaoFactory' in object 'suggestionService' to object 'daoFactory'.
+2013-11-13 02:01:59,606 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name daoFactory => canonical name daoFactory
+2013-11-13 02:01:59,608 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'daoFactory'.
+2013-11-13 02:01:59,611 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'daoFactory'.
+2013-11-13 02:01:59,613 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname daoFactory
+2013-11-13 02:01:59,616 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'ServiceLocator' in object 'suggestionService' to object 'serviceLocator'.
+2013-11-13 02:01:59,619 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:01:59,622 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning eagerly cached instance of singleton object 'serviceLocator' that is not fully initialized yet - a consequence of a circular reference
+2013-11-13 02:01:59,624 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:01:59,627 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:01:59,630 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'suggestionService'
+2013-11-13 02:01:59,632 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'suggestionService'
+2013-11-13 02:01:59,639 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -             GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,642 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,644 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,646 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,649 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] accepted for targetType [CompositionAopProxy_750bb21e37b64378ad4439dee666b41a]
+2013-11-13 02:01:59,652 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Creating implicit proxy for object 'suggestionService' with 0 common interceptors and 1 specific interceptors
+2013-11-13 02:01:59,658 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'suggestionService'
+2013-11-13 02:01:59,661 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'suggestionService'.
+2013-11-13 02:01:59,663 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: returning instance for objectname suggestionService
+2013-11-13 02:01:59,667 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'serviceLocator'
+2013-11-13 02:01:59,670 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'serviceLocator'
+2013-11-13 02:01:59,672 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,673 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,676 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,678 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,683 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] rejected for targetType [SpringMvc.Models.Common.ServiceLocator]
+2013-11-13 02:01:59,685 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'serviceLocator'
+2013-11-13 02:01:59,687 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:01:59,689 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:01:59,692 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'accountAdministrationService'
+2013-11-13 02:01:59,694 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'accountAdministrationService'
+2013-11-13 02:01:59,702 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,704 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,706 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,708 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,711 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] accepted for targetType [CompositionAopProxy_585a91354f2a439584db2cb00670675a]
+2013-11-13 02:01:59,713 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Creating implicit proxy for object 'accountAdministrationService' with 0 common interceptors and 1 specific interceptors
+2013-11-13 02:01:59,721 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'accountAdministrationService'
+2013-11-13 02:01:59,724 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'accountAdministrationService'.
+2013-11-13 02:01:59,726 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname accountAdministrationService
+2013-11-13 02:01:59,728 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.TransactionInterceptor#0 => canonical name Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:01:59,730 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'
+2013-11-13 02:01:59,732 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'Spring.Transaction.Interceptor.TransactionInterceptor#0' with merged definition [Root web object with class [Spring.Transaction.Interceptor.TransactionInterceptor] defined in ].
+2013-11-13 02:01:59,734 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:01:59,736 [6] DEBUG Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Did not attempt to autoproxy infrastructure type [Spring.Transaction.Interceptor.TransactionInterceptor]
+2013-11-13 02:01:59,739 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'Spring.Transaction.Interceptor.TransactionInterceptor#0' to allow for resolving potential circular references
+2013-11-13 02:01:59,741 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'Spring.Transaction.Interceptor.TransactionInterceptor#0'
+2013-11-13 02:01:59,743 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'transactionManager' in object 'Spring.Transaction.Interceptor.TransactionInterceptor#0' to object 'transactionManager'.
+2013-11-13 02:01:59,745 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name transactionManager => canonical name transactionManager
+2013-11-13 02:01:59,747 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'transactionManager'.
+2013-11-13 02:01:59,749 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'transactionManager'.
+2013-11-13 02:01:59,752 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname transactionManager
+2013-11-13 02:01:59,754 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'transactionAttributeSource' in object 'Spring.Transaction.Interceptor.TransactionInterceptor#0' to object 'Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0'.
+2013-11-13 02:01:59,756 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0 => canonical name Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0
+2013-11-13 02:01:59,758 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0'.
+2013-11-13 02:01:59,760 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0'.
+2013-11-13 02:01:59,762 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.AttributesTransactionAttributeSource#0
+2013-11-13 02:01:59,764 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'
+2013-11-13 02:01:59,767 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling AfterPropertiesSet() on object with name 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:01:59,769 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'
+2013-11-13 02:01:59,771 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'
+2013-11-13 02:01:59,773 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:01:59,775 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:01:59,777 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - Publishing event in context [spring.root] : ContextRefreshedEventArgs [Refreshed]
+2013-11-13 02:01:59,779 [6] INFO  Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Completed
+2013-11-13 02:01:59,781 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - created instance [spring.root]:WebApplicationContext(35363151)
+2013-11-13 02:01:59,784 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Registering context '[spring.root]:WebApplicationContext(35363151)' under name 'spring.root'.
+2013-11-13 02:01:59,786 [6] DEBUG Spring.Context.Support.ContextHandler [(null)] - context '[spring.root]:WebApplicationContext(35363151)' created for name 'spring.root'
+2013-11-13 02:01:59,789 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,791 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,809 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,896 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,899 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,902 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:01:59,904 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
+2013-11-13 02:01:59,906 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:01:59,909 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:01:59,911 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
+2013-11-13 02:01:59,913 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:01:59,916 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:01:59,918 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:01:59,921 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:01:59,926 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:01:59,929 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:01:59,931 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,933 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,935 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:01:59,937 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:01:59,944 [6] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] rejected for targetType [SpringMvc.Controllers.LoggingController]
+2013-11-13 02:01:59,946 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:01:59,948 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,951 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,953 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,958 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:01:59,965 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:01,834 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:01,839 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:02,297 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:02,397 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:02,496 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:03,372 [14] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:03,375 [14] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:04,259 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:04,262 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:04,265 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:04,268 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:02:04,271 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
+2013-11-13 02:02:04,273 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:02:04,277 [17] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:02:04,280 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:04,283 [17] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
+2013-11-13 02:02:04,285 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:02:04,288 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:02:04,291 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:02:04,293 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:02:04,296 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:04,299 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:04,302 [17] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
+2013-11-13 02:02:04,304 [17] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:02:04,308 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:04,381 [17] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:05,278 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:05,283 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,344 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,348 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,351 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,355 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.LoggingController#0 => canonical name SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:02:14,359 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.LoggingController#0' with merged definition [Root web object with class [SpringMvc.Controllers.LoggingController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 4].
+2013-11-13 02:02:14,362 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:02:14,364 [16] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /Logging/Register/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:02:14,367 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:14,370 [16] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.LoggingController#0' to object 'serviceLocator'.
+2013-11-13 02:02:14,373 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:02:14,377 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:02:14,380 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:02:14,382 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:02:14,385 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:14,389 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.LoggingController#0'
+2013-11-13 02:02:14,392 [16] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /Logging/Register
+2013-11-13 02:02:14,395 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.LoggingController#0
+2013-11-13 02:02:14,410 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,416 [16] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:14,430 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.TransactionInterceptor#0 => canonical name Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:02:14,435 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:02:14,438 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.TransactionInterceptor#0'.
+2013-11-13 02:02:14,441 [16] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.TransactionInterceptor#0
+2013-11-13 02:02:14,446 [16] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Getting transaction for CompositionAopProxy_01147d69bd514e9581dc81c0df4b0297.RegisterUser
+2013-11-13 02:02:14,452 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Using transaction object [Spring.Data.NHibernate.HibernateTransactionManager+HibernateTransactionObject]
+2013-11-13 02:02:14,458 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Creating new transaction with name [CompositionAopProxy_01147d69bd514e9581dc81c0df4b0297.RegisterUser]:PROPAGATION_Required,ISOLATION_ReadCommitted
+2013-11-13 02:02:14,476 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Opened new Session [NHibernate.Impl.SessionImpl] for Hibernate transaction
+2013-11-13 02:02:14,487 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Exposing Hibernate transaction as ADO transaction [Npgsql.NpgsqlConnection]
+2013-11-13 02:02:14,493 [16] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.Support.ConnectionHolder@2DF8B11] for key [Spring.Data.Common.DbProvider@107EC74] to thread [16]
+2013-11-13 02:02:14,498 [16] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Bound value [Spring.Data.NHibernate.SessionHolder@2407BD4] for key [NHibernate.Impl.SessionFactoryImpl@FDB3E4] to thread [16]
+2013-11-13 02:02:33,708 [16] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Retrieved value [Spring.Data.NHibernate.SessionHolder@2407BD4] for key [NHibernate.Impl.SessionFactoryImpl@FDB3E4] bound to thread [16]
+2013-11-13 02:02:33,743 [16] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,747 [16] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,758 [16] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,761 [16] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,765 [16] DEBUG Spring.Transaction.Interceptor.TransactionAspectSupport [(null)] - Completing transaction for [CompositionAopProxy_01147d69bd514e9581dc81c0df4b0297.RegisterUser]
+2013-11-13 02:02:33,770 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Committing Hibernate transaction on Session [NHibernate.Impl.SessionImpl]
+2013-11-13 02:02:33,778 [16] INFO  NHibernate.Engine.Cascade [(null)] - processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,782 [16] INFO  NHibernate.Engine.Cascade [(null)] - done processing cascade NHibernate.Engine.CascadingAction+SaveUpdateCascadingAction for: SpringMvc.Models.POCO.UserAccount
+2013-11-13 02:02:33,829 [16] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.NHibernate.SessionHolder@2407BD4] for key [NHibernate.Impl.SessionFactoryImpl@FDB3E4] from thread [16]
+2013-11-13 02:02:33,833 [16] DEBUG Spring.Transaction.Support.TransactionSynchronizationManager [(null)] - Removed value [Spring.Data.Support.ConnectionHolder@2DF8B11] for key [Spring.Data.Common.DbProvider@107EC74] from thread [16]
+2013-11-13 02:02:33,836 [16] DEBUG Spring.Data.NHibernate.HibernateTransactionManager [(null)] - Closing Hibernate Session [NHibernate.Impl.SessionImpl] after transaction
+2013-11-13 02:02:33,840 [16] DEBUG Spring.Data.NHibernate.SessionFactoryUtils [(null)] - Closing Hibernate Session
+2013-11-13 02:02:33,877 [15] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:33,881 [15] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:33,886 [15] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:33,893 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name SpringMvc.Controllers.UserAccountPanelController#0 => canonical name SpringMvc.Controllers.UserAccountPanelController#0
+2013-11-13 02:02:33,897 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'SpringMvc.Controllers.UserAccountPanelController#0' with merged definition [Root web object with class [SpringMvc.Controllers.UserAccountPanelController] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml] line 8].
+2013-11-13 02:02:33,900 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'SpringMvc.Controllers.UserAccountPanelController#0'.
+2013-11-13 02:02:33,904 [15] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - rewriting path from /UserAccountPanel/Create/1/ to /currentcontext.dummy results in /currentcontext.dummy
+2013-11-13 02:02:33,907 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:02:33,911 [15] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'serviceLocator' in object 'SpringMvc.Controllers.UserAccountPanelController#0' to object 'serviceLocator'.
+2013-11-13 02:02:33,914 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name serviceLocator => canonical name serviceLocator
+2013-11-13 02:02:33,917 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'serviceLocator'.
+2013-11-13 02:02:33,921 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'serviceLocator'.
+2013-11-13 02:02:33,924 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname serviceLocator
+2013-11-13 02:02:33,928 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:02:33,931 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'SpringMvc.Controllers.UserAccountPanelController#0'
+2013-11-13 02:02:33,933 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0 => canonical name Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:02:33,936 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Returning cached instance of singleton object 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:02:33,939 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0'.
+2013-11-13 02:02:33,942 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: returning instance for objectname Spring.Transaction.Interceptor.ObjectFactoryTransactionAttributeSourceAdvisor#0
+2013-11-13 02:02:33,950 [15] INFO  Spring.Aop.Framework.AutoProxy.InfrastructureAdvisorAutoProxyCreator [(null)] - Candidate advisor [ObjectFactoryTransactionAttributeSourceAdvisor: advice object 'Spring.Transaction.Interceptor.TransactionInterceptor#0'] rejected for targetType [SpringMvc.Controllers.UserAccountPanelController]
+2013-11-13 02:02:33,953 [15] DEBUG Spring.Util.VirtualEnvironment+HttpRuntimeEnvironment [(null)] - restoring path from /currentcontext.dummy back to /UserAccountPanel/Create/1?Login=Krszyiu&Password=a&Email=kkrzysiu%40poczta.onet.pl&LastPasswordChangedDate=11%2F13%2F2013%2002%3A02%3A33&LastSuccessfulSignInDate=01%2F01%2F0001%2000%3A00%3A00&ValidFrom=11%2F13%2F2013%2002%3A02%3A33&ValidTo=11%2F13%2F2014%2000%3A00%3A00&AccountStatus=ACTIVE
+2013-11-13 02:02:33,956 [15] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname SpringMvc.Controllers.UserAccountPanelController#0
+2013-11-13 02:02:35,237 [15] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:35,308 [15] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:35,914 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:02:35,917 [6] DEBUG Spring.Context.Support.ContextRegistry [(null)] - Returning context '[spring.root]:WebApplicationContext(35363151)' registered under name 'spring.root'.
+2013-11-13 02:04:52,861 [6] DEBUG Spring.Context.Support.ContextHandler [(null)] - creating context 'spring.root'
+2013-11-13 02:04:52,901 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - BeforeFirstRequest:False
+2013-11-13 02:04:52,908 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Refreshing object factory 
+2013-11-13 02:04:52,926 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loading XML object definitions from file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextDao.xml]
+2013-11-13 02:04:52,950 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2013-11-13 02:04:52,956 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Loading object definitions.
+2013-11-13 02:04:52,960 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Loading object definitions...
+2013-11-13 02:04:52,961 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default lazy init 'false'.
+2013-11-13 02:04:52,963 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default dependency check 'none'.
+2013-11-13 02:04:52,965 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire 'no'.
+2013-11-13 02:04:52,966 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default merge 'false'.
+2013-11-13 02:04:52,968 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:52,969 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:52,970 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire candidates ''.
+2013-11-13 02:04:52,972 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:52,973 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:52,992 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0]
+2013-11-13 02:04:52,996 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'.
+2013-11-13 02:04:53,001 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Registering alias 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer' for object with name 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'.
+2013-11-13 02:04:53,007 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'sessionFactory'.
+2013-11-13 02:04:53,012 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'transactionmanager'.
+2013-11-13 02:04:53,014 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0]
+2013-11-13 02:04:53,015 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'.
+2013-11-13 02:04:53,016 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Registering alias 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor' for object with name 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'.
+2013-11-13 02:04:53,018 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'accountAdministrationDao'.
+2013-11-13 02:04:53,020 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'authorizationDao'.
+2013-11-13 02:04:53,021 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'logEventsDao'.
+2013-11-13 02:04:53,024 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'userInformationDao'.
+2013-11-13 02:04:53,026 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'daoFactory'.
+2013-11-13 02:04:53,027 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Found 10 <object> elements defining objects.
+2013-11-13 02:04:53,029 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loaded 10 object definitions from location [file://~/Config/Spring/ContextDao.xml]
+2013-11-13 02:04:53,030 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loading XML object definitions from file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextServices.xml]
+2013-11-13 02:04:53,031 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2013-11-13 02:04:53,110 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2013-11-13 02:04:53,113 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Loading object definitions.
+2013-11-13 02:04:53,114 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Loading object definitions...
+2013-11-13 02:04:53,115 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default lazy init 'false'.
+2013-11-13 02:04:53,117 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default dependency check 'none'.
+2013-11-13 02:04:53,118 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire 'no'.
+2013-11-13 02:04:53,119 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default merge 'false'.
+2013-11-13 02:04:53,121 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,122 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,123 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire candidates ''.
+2013-11-13 02:04:53,124 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,126 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,127 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'sessionScope'.
+2013-11-13 02:04:53,129 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'applicationScope'.
+2013-11-13 02:04:53,131 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'accountAdministrationService'.
+2013-11-13 02:04:53,132 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'authorizationService'.
+2013-11-13 02:04:53,134 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'logEventsService'.
+2013-11-13 02:04:53,135 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'userInformationService'.
+2013-11-13 02:04:53,137 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'suggestionService'.
+2013-11-13 02:04:53,139 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'serviceLocator'.
+2013-11-13 02:04:53,144 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Found 22 <object> elements defining objects.
+2013-11-13 02:04:53,147 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loaded 12 object definitions from location [file://~/Config/Spring/ContextServices.xml]
+2013-11-13 02:04:53,149 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loading XML object definitions from file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextControllers.xml]
+2013-11-13 02:04:53,150 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2013-11-13 02:04:53,152 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Loading object definitions.
+2013-11-13 02:04:53,153 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Loading object definitions...
+2013-11-13 02:04:53,154 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default lazy init 'false'.
+2013-11-13 02:04:53,156 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default dependency check 'none'.
+2013-11-13 02:04:53,157 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire 'no'.
+2013-11-13 02:04:53,159 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default merge 'false'.
+2013-11-13 02:04:53,160 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,161 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,163 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default autowire candidates ''.
+2013-11-13 02:04:53,164 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,165 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,167 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [SpringMvc.Controllers.LoggingController#0]
+2013-11-13 02:04:53,169 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:04:53,170 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Registering alias 'SpringMvc.Controllers.LoggingController' for object with name 'SpringMvc.Controllers.LoggingController#0'.
+2013-11-13 02:04:53,172 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [SpringMvc.Controllers.UserAccountPanelController#0]
+2013-11-13 02:04:53,173 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SpringMvc.Controllers.UserAccountPanelController#0'.
+2013-11-13 02:04:53,175 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Registering alias 'SpringMvc.Controllers.UserAccountPanelController' for object with name 'SpringMvc.Controllers.UserAccountPanelController#0'.
+2013-11-13 02:04:53,177 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Found 24 <object> elements defining objects.
+2013-11-13 02:04:53,178 [6] DEBUG Spring.Objects.Factory.Xml.WebObjectDefinitionReader [(null)] - Loaded 2 object definitions from location [file://~/Config/Spring/ContextControllers.xml]
+2013-11-13 02:04:53,180 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - Refreshed ObjectFactory for application context 'spring.root'.
+2013-11-13 02:04:53,181 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Registering well-known processors and objects
+2013-11-13 02:04:53,185 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Custom post processing object factory
+2013-11-13 02:04:53,187 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Post processing object factory using pre-registered processors
+2013-11-13 02:04:53,189 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - 24 objects defined in application context [spring.root].
+2013-11-13 02:04:53,190 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - ApplicationContext Refresh: Post processing object factory using defined processors
+2013-11-13 02:04:53,213 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0 => canonical name Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0
+2013-11-13 02:04:53,217 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'
+2013-11-13 02:04:53,220 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0' with merged definition [Root web object with class [Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextDao.xml] line 7].
+2013-11-13 02:04:53,222 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'.
+2013-11-13 02:04:53,227 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0' to allow for resolving potential circular references
+2013-11-13 02:04:53,230 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'
+2013-11-13 02:04:53,265 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'
+2013-11-13 02:04:53,271 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'
+2013-11-13 02:04:53,274 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'
+2013-11-13 02:04:53,276 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling code asked for normal instance for name 'Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0'.
+2013-11-13 02:04:53,278 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - GetObjectInternal: returning instance for objectname Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer#0
+2013-11-13 02:04:53,285 [6] DEBUG Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer [(null)] - Resolving placeholder 'db.server' to 'localhost'.
+2013-11-13 02:04:53,287 [6] DEBUG Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer [(null)] - Resolving placeholder 'db.database' to 'SpringMvc'.
+2013-11-13 02:04:53,288 [6] DEBUG Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer [(null)] - Resolving placeholder 'db.port' to '5432'.
+2013-11-13 02:04:53,289 [6] DEBUG Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer [(null)] - Resolving placeholder 'db.user' to 'postgres'.
+2013-11-13 02:04:53,291 [6] DEBUG Spring.Objects.Factory.Config.PropertyPlaceholderConfigurer [(null)] - Resolving placeholder 'db.password' to 'postgres'.
+2013-11-13 02:04:53,294 [6] DEBUG Spring.Context.Support.WebApplicationContext [(null)] - processed 1 IFactoryObjectPostProcessors defined in application context [spring.root].
+2013-11-13 02:04:53,298 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0 => canonical name Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0
+2013-11-13 02:04:53,299 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'
+2013-11-13 02:04:53,301 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0' with merged definition [Root web object with class [Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextDao.xml] line 49].
+2013-11-13 02:04:53,302 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'.
+2013-11-13 02:04:53,305 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0' to allow for resolving potential circular references
+2013-11-13 02:04:53,306 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'
+2013-11-13 02:04:53,307 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Setting the ObjectFactory property on the IObjectFactoryAware object 'Spring.Dao.Attributes.PersistenceExceptionTranslationPostProcessor#0'.
+2013-11-13 02:04:53,312 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -       GetObjectInternal: obtaining instance for name &sessionFactory => canonical name sessionFactory
+2013-11-13 02:04:53,314 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'sessionFactory'
+2013-11-13 02:04:53,315 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'sessionFactory' with merged definition [Root web object with class [SpringMvc.Config.CustomLocalSessionFactoryProvider] defined in file [C:\Users\Krzysiu\Source\Repos\SpringMvc\SpringMvc\Config\Spring\ContextDao.xml] line 18].
+2013-11-13 02:04:53,317 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'sessionFactory'.
+2013-11-13 02:04:53,319 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'sessionFactory' to allow for resolving potential circular references
+2013-11-13 02:04:53,320 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'sessionFactory'
+2013-11-13 02:04:53,322 [6] DEBUG Spring.Objects.Factory.Support.ObjectDefinitionValueResolver [(null)] - Resolving reference from property 'DbProvider' in object 'sessionFactory' to object 'DbProvider'.
+2013-11-13 02:04:53,324 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] -          GetObjectInternal: obtaining instance for name DbProvider => canonical name DbProvider
+2013-11-13 02:04:53,325 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating shared instance of singleton object 'DbProvider'
+2013-11-13 02:04:53,326 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Creating instance of Object 'DbProvider' with merged definition [Root web object with class [Spring.Data.Common.DbProviderFactoryObject] defined in ].
+2013-11-13 02:04:53,328 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'DbProvider'.
+2013-11-13 02:04:53,329 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Eagerly caching object 'DbProvider' to allow for resolving potential circular references
+2013-11-13 02:04:53,331 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Configuring object using definition 'DbProvider'
+2013-11-13 02:04:53,333 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors before initialization of object 'DbProvider'
+2013-11-13 02:04:53,334 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Calling AfterPropertiesSet() on object with name 'DbProvider'.
+2013-11-13 02:04:53,336 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Invoking IObjectPostProcessors after initialization of object 'DbProvider'
+2013-11-13 02:04:53,337 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Cached shared instance of singleton object 'DbProvider'
+2013-11-13 02:04:53,339 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Object with name 'DbProvider' is a factory object.
+2013-11-13 02:04:53,340 [6] DEBUG Spring.Objects.Factory.Support.WebObjectFactory [(null)] - Dereferencing Object with name 'DbProvider'
+2013-11-13 02:04:53,344 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Refreshing object factory 
+2013-11-13 02:04:53,347 [6] DEBUG Spring.Objects.Factory.Xml.XmlObjectDefinitionReader [(null)] - Loading XML object definitions from assembly [Spring.Data, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=null], resource [Spring.Data.Common.dbproviders.xml]
+2013-11-13 02:04:53,349 [6] DEBUG Spring.Objects.Factory.Xml.XmlObjectDefinitionReader [(null)] - Using the following XmlReader implementation : System.Xml.XsdValidatingReader
+2013-11-13 02:04:53,358 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Loading object definitions.
+2013-11-13 02:04:53,361 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Loading object definitions...
+2013-11-13 02:04:53,362 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default lazy init 'false'.
+2013-11-13 02:04:53,364 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default dependency check 'none'.
+2013-11-13 02:04:53,365 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default autowire 'no'.
+2013-11-13 02:04:53,367 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default merge 'false'.
+2013-11-13 02:04:53,368 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,370 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,371 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default autowire candidates ''.
+2013-11-13 02:04:53,373 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default init method ''.
+2013-11-13 02:04:53,374 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Default destroy method ''.
+2013-11-13 02:04:53,377 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3C922E1]
+2013-11-13 02:04:53,380 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SqlServer-1.1'.
+2013-11-13 02:04:53,381 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1C8F391]
+2013-11-13 02:04:53,383 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SqlServer-2.0'.
+2013-11-13 02:04:53,384 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3C39778]
+2013-11-13 02:04:53,386 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SqlServer-4.0'.
+2013-11-13 02:04:53,387 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.SqlClient' for object with name 'SqlServer-2.0'.
+2013-11-13 02:04:53,389 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#12828AF]
+2013-11-13 02:04:53,390 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SqlServerCe-3.1'.
+2013-11-13 02:04:53,392 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#18C9BD6]
+2013-11-13 02:04:53,393 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SqlServerCe-3.5.1'.
+2013-11-13 02:04:53,395 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.SqlServerCe' for object with name 'SqlServerCe-3.5.1'.
+2013-11-13 02:04:53,396 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#EDA750]
+2013-11-13 02:04:53,398 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OleDb-1.1'.
+2013-11-13 02:04:53,399 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2EBF421]
+2013-11-13 02:04:53,401 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OleDb-2.0'.
+2013-11-13 02:04:53,402 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#BAA7C3]
+2013-11-13 02:04:53,404 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OleDb-4.0'.
+2013-11-13 02:04:53,405 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.OleDb' for object with name 'OleDb-2.0'.
+2013-11-13 02:04:53,407 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#125012E]
+2013-11-13 02:04:53,408 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OracleClient-2.0'.
+2013-11-13 02:04:53,409 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.OracleClient' for object with name 'OracleClient-2.0'.
+2013-11-13 02:04:53,411 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1312246]
+2013-11-13 02:04:53,412 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OracleODP-2.0'.
+2013-11-13 02:04:53,414 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'Oracle.DataAccess.Client' for object with name 'OracleODP-2.0'.
+2013-11-13 02:04:53,415 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#290E204]
+2013-11-13 02:04:53,417 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'OracleODP-11-2.0'.
+2013-11-13 02:04:53,418 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2699A87]
+2013-11-13 02:04:53,420 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql'.
+2013-11-13 02:04:53,421 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1F68159]
+2013-11-13 02:04:53,423 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-1.0.9'.
+2013-11-13 02:04:53,424 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#ECA723]
+2013-11-13 02:04:53,426 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-5.0'.
+2013-11-13 02:04:53,427 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2CEEF13]
+2013-11-13 02:04:53,429 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-5.0.8.1'.
+2013-11-13 02:04:53,430 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#171152A]
+2013-11-13 02:04:53,432 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-5.1'.
+2013-11-13 02:04:53,433 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1CF65C7]
+2013-11-13 02:04:53,435 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-5.1.4'.
+2013-11-13 02:04:53,436 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#7E8798]
+2013-11-13 02:04:53,438 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-5.2.3'.
+2013-11-13 02:04:53,439 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2555C3C]
+2013-11-13 02:04:53,441 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-6.1.3'.
+2013-11-13 02:04:53,442 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3AB72DB]
+2013-11-13 02:04:53,444 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'MySql-6.2.2'.
+2013-11-13 02:04:53,445 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'MySql.Data.MySqlClient' for object with name 'MySql-6.2.2'.
+2013-11-13 02:04:53,447 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#26C02E8]
+2013-11-13 02:04:53,448 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Npgsql-1.0'.
+2013-11-13 02:04:53,450 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#23C5453]
+2013-11-13 02:04:53,451 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Npgsql-2.0-beta1'.
+2013-11-13 02:04:53,453 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#D58D70]
+2013-11-13 02:04:53,454 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Npgsql-2.0'.
+2013-11-13 02:04:53,456 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3105CC]
+2013-11-13 02:04:53,457 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'DB2-9.0.0-1.1'.
+2013-11-13 02:04:53,459 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#18DA82C]
+2013-11-13 02:04:53,460 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'DB2-9.0.0-2.0'.
+2013-11-13 02:04:53,462 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'IBM.Data.DB2' for object with name 'DB2-9.0.0-2.0'.
+2013-11-13 02:04:53,463 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#10C0D05]
+2013-11-13 02:04:53,465 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'DB2-9.1.0-1.1'.
+2013-11-13 02:04:53,467 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#25D79A0]
+2013-11-13 02:04:53,469 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'DB2-9.1.0.2'.
+2013-11-13 02:04:53,470 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'IBM.Data.DB2.9.1.0' for object with name 'DB2-9.1.0.2'.
+2013-11-13 02:04:53,471 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#96C72C]
+2013-11-13 02:04:53,473 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'iDB2-10.0.0.0'.
+2013-11-13 02:04:53,474 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1149003]
+2013-11-13 02:04:53,476 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.43'.
+2013-11-13 02:04:53,477 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#354505E]
+2013-11-13 02:04:53,479 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.44'.
+2013-11-13 02:04:53,480 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#8D1ABA]
+2013-11-13 02:04:53,482 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.47'.
+2013-11-13 02:04:53,483 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3FC072A]
+2013-11-13 02:04:53,484 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.56'.
+2013-11-13 02:04:53,486 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#38CCFDD]
+2013-11-13 02:04:53,487 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.65'.
+2013-11-13 02:04:53,489 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2F38C0E]
+2013-11-13 02:04:53,490 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.66'.
+2013-11-13 02:04:53,492 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#196DDB0]
+2013-11-13 02:04:53,493 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.72'.
+2013-11-13 02:04:53,495 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#2171CF8]
+2013-11-13 02:04:53,496 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SQLite-1.0.80'.
+2013-11-13 02:04:53,497 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.SQLite' for object with name 'SQLite-1.0.80'.
+2013-11-13 02:04:53,499 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#9E482A]
+2013-11-13 02:04:53,500 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Firebird-2.1'.
+2013-11-13 02:04:53,502 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'FirebirdSql.Data.FirebirdClient' for object with name 'Firebird-2.1'.
+2013-11-13 02:04:53,503 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#1EE2CC6]
+2013-11-13 02:04:53,505 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SybaseAse-12'.
+2013-11-13 02:04:53,506 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3FB1270]
+2013-11-13 02:04:53,507 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SybaseAse-15'.
+2013-11-13 02:04:53,509 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#37116C5]
+2013-11-13 02:04:53,510 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'SybaseAse-AdoNet2'.
+2013-11-13 02:04:53,512 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#3CF945A]
+2013-11-13 02:04:53,514 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'IfxOdbc'.
+2013-11-13 02:04:53,516 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#283CE34]
+2013-11-13 02:04:53,517 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'IfxSQLI-3.0.0.2'.
+2013-11-13 02:04:53,519 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#EE5BEC]
+2013-11-13 02:04:53,521 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'IfxDRDA-9.0.0.2'.
+2013-11-13 02:04:53,523 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#30069C1]
+2013-11-13 02:04:53,524 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Odbc-1.1'.
+2013-11-13 02:04:53,526 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#30BFADD]
+2013-11-13 02:04:53,527 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Odbc-2.0'.
+2013-11-13 02:04:53,530 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#5B6B09]
+2013-11-13 02:04:53,532 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Odbc-4.0'.
+2013-11-13 02:04:53,533 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'System.Data.Odbc' for object with name 'Odbc-2.0'.
+2013-11-13 02:04:53,535 [6] DEBUG Spring.Objects.Factory.Xml.ObjectDefinitionParserHelper [(null)] - Neither XML 'id' nor 'name' specified - using generated object name [Spring.Data.Common.DbMetadata#25B2012]
+2013-11-13 02:04:53,536 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Registering object definition with id 'Cache-2.0.0.1'.
+2013-11-13 02:04:53,538 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Registering alias 'InterSystems.Data.CacheClient' for object with name 'Cache-2.0.0.1'.
+2013-11-13 02:04:53,539 [6] DEBUG Spring.Objects.Factory.Xml.DefaultObjectDefinitionDocumentReader [(null)] - Found 47 <object> elements defining objects.
+2013-11-13 02:04:53,541 [6] DEBUG Spring.Objects.Factory.Xml.XmlObjectDefinitionReader [(null)] - Loaded 47 object definitions from location [assembly://Spring.Data, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=null/Spring.Data.Common/dbproviders.xml]
+2013-11-13 02:04:53,542 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - Refreshed ObjectFactory for application context 'DBPROVIDERFACTORY_CONTEXT'.
+2013-11-13 02:04:53,543 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Registering well-known processors and objects
+2013-11-13 02:04:53,545 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Custom post processing object factory
+2013-11-13 02:04:53,546 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Post processing object factory using pre-registered processors
+2013-11-13 02:04:53,548 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - 47 objects defined in application context [DBPROVIDERFACTORY_CONTEXT].
+2013-11-13 02:04:53,549 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Post processing object factory using defined processors
+2013-11-13 02:04:53,554 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - processed 0 IFactoryObjectPostProcessors defined in application context [DBPROVIDERFACTORY_CONTEXT].
+2013-11-13 02:04:53,558 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - processed 0 IObjectPostProcessors defined in application context [DBPROVIDERFACTORY_CONTEXT].
+2013-11-13 02:04:53,561 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - No IEventRegistry found with name 'eventRegistry' : using default 'Spring.Objects.Events.Support.EventRegistry'.
+2013-11-13 02:04:53,566 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - No IMessageSource found with name 'messageSource' : using default 'StaticMessageSource : '.
+2013-11-13 02:04:53,571 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Preinstantiating singletons
+2013-11-13 02:04:53,573 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Pre-instantiating singletons in factory [Spring.Objects.Factory.Support.DefaultListableObjectFactory]
+2013-11-13 02:04:53,576 [6] DEBUG Spring.Context.Support.XmlApplicationContext [(null)] - Publishing event in context [DBPROVIDERFACTORY_CONTEXT] : ContextRefreshedEventArgs [Refreshed]
+2013-11-13 02:04:53,579 [6] INFO  Spring.Context.Support.XmlApplicationContext [(null)] - ApplicationContext Refresh: Completed
+2013-11-13 02:04:53,583 [6] INFO  Spring.Data.Common.DbProviderFactory [(null)] - 47 DbProviders Available. [SqlServer-1.1,SqlServer-2.0,SqlServer-4.0,SqlServerCe-3.1,SqlServerCe-3.5.1,OleDb-1.1,OleDb-2.0,OleDb-4.0,OracleClient-2.0,OracleODP-2.0,OracleODP-11-2.0,MySql,MySql-1.0.9,MySql-5.0,MySql-5.0.8.1,MySql-5.1,MySql-5.1.4,MySql-5.2.3,MySql-6.1.3,MySql-6.2.2,Npgsql-1.0,Npgsql-2.0-beta1,Npgsql-2.0,DB2-9.0.0-1.1,DB2-9.0.0-2.0,DB2-9.1.0-1.1,DB2-9.1.0.2,iDB2-10.0.0.0,SQLite-1.0.43,SQLite-1.0.44,SQLite-1.0.47,SQLite-1.0.56,SQLite-1.0.65,SQLite-1.0.66,SQLite-1.0.72,SQLite-1.0.80,Firebird-2.1,SybaseAse-12,SybaseAse-15,SybaseAse-AdoNet2,IfxOdbc,IfxSQLI-3.0.0.2,IfxDRDA-9.0.0.2,Odbc-1.1,Odbc-2.0,Odbc-4.0,Cache-2.0.0.1]
+2013-11-13 02:04:53,585 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] -    GetObjectInternal: obtaining instance for name Npgsql-2.0 => canonical name Npgsql-2.0
+2013-11-13 02:04:53,587 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Creating instance of Object 'Npgsql-2.0' with merged definition [RootObjectDefinition : Class [Spring.Data.Common.DbProvider]; Abstract = False; Parent = ; Scope = prototype; Singleton = False; LazyInit = False; Autowire = No; Autowire-Candidate = True; Primary = False; DependencyCheck = None; InitMethodName = ; DestroyMethodName = ; FactoryMethodName = ; FactoryObjectName = ; defined in = assembly [Spring.Data, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=null], resource [Spring.Data.Common.dbproviders.xml] line 986].
+2013-11-13 02:04:53,588 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'Npgsql-2.0'.
+2013-11-13 02:04:53,593 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Creating instance of Object 'Spring.Data.Common.DbMetadata#D58D70' with merged definition [RootObjectDefinition : Class [Spring.Data.Common.DbMetadata]; Abstract = False; Parent = ; Scope = prototype; Singleton = False; LazyInit = False; Autowire = No; Autowire-Candidate = True; Primary = False; DependencyCheck = None; InitMethodName = ; DestroyMethodName = ; FactoryMethodName = ; FactoryObjectName = ; defined in = assembly [Spring.Data, Version=2.0.0.40000, Culture=neutral, PublicKeyToken=null], resource [Spring.Data.Common.dbproviders.xml] line 988].
+2013-11-13 02:04:53,595 [6] DEBUG Spring.Objects.Factory.Support.DefaultListableObjectFactory [(null)] - Invoking IInstantiationAwareObjectPostProcessors before the instantiation of 'Spring.Data.Common.DbMetadata#D58D70'.
+2013-11-13 02:04:53,607 [6] DEBUG Spring.Objects.Factory.Support.ConstructorResolver [(null)] - Object 'Spring.Data.Common.DbMetadata#D58D70' instantiated via constructor [Void .ctor(System.String, System.String, System.Type, System.Type, System.Type, System.Type, System.Type, System.String, System.Type, System.String, System.String, System.String, System.Type, Boolean, Boolean, Boolean, System.String)].

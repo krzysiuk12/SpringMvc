@@ -9,5 +9,7 @@ namespace SpringMvc.Models.Common
     public class BaseSpringService
     {
         public IDaoFactory DaoFactory { get; set; }
+
+        public ServiceLocator ServiceLocator { get; set; }
     }
 }

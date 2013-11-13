@@ -12,7 +12,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
 
         void LogoutUser(String login);
 
-        void RegisterUser(UserAccount newUserAccount);
+        long RegisterUser(UserAccount newUserAccount);
 
         IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<String, String> parameters);
 
