@@ -7,7 +7,7 @@ namespace SpringMvc.Models.POCO
 {
     public class Order
     {
-        enum OrderState { Ordered, InProgress, Paid, Finished };
+        public enum OrderState { Ordered, InProgress, Paid, Finished };
 
         public virtual long Id { get; set; }
         public virtual long CustomerID { get; set; }
@@ -15,6 +15,6 @@ namespace SpringMvc.Models.POCO
         public virtual DateTime SentDate { get; set; }
         public virtual DateTime OrderDate { get; set; }
         public virtual DateTime FinishedDate { get; set; }
-        public virtual OrderState status { get; set; }
+        public virtual OrderState Status { get; set; }
     }
 }
