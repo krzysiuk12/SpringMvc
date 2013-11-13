@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="Order" table="Orders">
+
+    <id name="Id" column="Id" type="Int64">
+      <generator class="foreign">
+        <param name="property">Order</param>
+      </generator>
+    </id>
+    
+   <property name="Status" column="OrderStatus" type="Order+OrderState"/>
+   <property name="CustomerId" column="CustomerId" type="Int64"/>
+   <property name="SentDate" column="SentDate" type="DateTime"/>
+   <property name="OrderDate" column="OrderPlaceDate" type="DateTime"/>
+   <property name="FinishedDate" column="FinishedDate" type="DateTime"/>
+   
+    <map name="OrderEntries" table="OrderEntries">
+      <key column="OrderId" />
+      <index-many-to-many class="BookType" column="BookTypeId" />
+      <element column="Amount" type="Int64" not-null="true" />
+    </map>
+  </class>
+</hibernate-mapping>
