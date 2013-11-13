@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
+using SpringMvc.Models.Shipment.Services.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -23,5 +24,7 @@ namespace SpringMvc.Models.Common
         public ApplicationScope ApplicationScope { get; set; }
 
         public ISuggestionService SuggestionService { get; set; }
+
+        public IShipmentPreparationService ShipmentPreparationService { get; set; }
     }
 }

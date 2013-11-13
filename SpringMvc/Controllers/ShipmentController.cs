@@ -15,8 +15,10 @@ namespace SpringMvc.Controllers
         // GET: /Shipment/
         public ActionResult Index()
         {
+            Address user = serviceLocator.ShipmentPreparationService.GetUserAddressById(1);
             String[] orders = {"order1", "order2"};
             ViewBag.Orders = orders;
+            ViewBag.AddressDetails = user;
             return View();
         }
 

@@ -1,5 +1,6 @@
 ﻿using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
+using SpringMvc.Models.Shipment.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ namespace SpringMvc.Models.Common.Interfaces
         ILogEventsService LogEventsService { get; set; }
         IUserInformationService UserInformationService { get; set; }
         ISuggestionService SuggestionService { get; set; }
+        IShipmentPreparationService ShipmentPreparationService { get; set; }
         SessionScope SessionScope { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }

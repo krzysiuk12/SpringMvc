@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace SpringMvc.Models.Shipping.Services.Interfaces
+namespace SpringMvc.Models.Shipment.Services.Interfaces
 {
     public interface IShipmentPreparationService
     {
