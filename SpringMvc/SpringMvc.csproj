@@ -257,7 +257,6 @@
     <Compile Include="Models\Common\ServiceLocator.cs" />
     <Compile Include="Models\Common\Services\Implementation\ApplicationInitializationService.cs" />
     <Compile Include="Models\Common\Services\Interfaces\IApplicationInitializationService.cs" />
-    <Compile Include="Models\Invoices\Dao\Interfaces\ITestDao.cs" />
     <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\POCO\Address.cs" />
@@ -470,6 +469,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\Invoices\Dao\Implementation\" />
+    <Folder Include="Models\Invoices\Dao\Interfaces\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Shipment\Services\" />
     <Folder Include="Models\Storehouse\Dao\" />
