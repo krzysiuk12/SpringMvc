@@ -73,11 +73,16 @@
     <property name="SessionFactory" ref="sessionFactory"/>
   </object>
 
+  <object id="createInvoiceDao" type="SpringMvc.Models.Invoices.Dao.Implementation.CreateInvoiceDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+
   <object id="daoFactory" type="SpringMvc.Models.Common.DaoFactory">
     <property name="AccountAdministrationDao" ref="accountAdministrationDao"/>
     <property name="AuthorizationDao" ref="authorizationDao"/>
     <property name="LogEventsDao" ref="logEventsDao"/>
     <property name="UserInformationDao" ref="userInformationDao"/>
+    <property name="CreateInvoiceDao" ref="createInvoiceDao"/>
   </object>
   
 </objects>

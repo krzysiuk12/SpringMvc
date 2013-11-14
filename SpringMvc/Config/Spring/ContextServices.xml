@@ -34,6 +34,11 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="createInvoiceService" type="SpringMvc.Models.Invoices.Services.Implementation.CreateInvoiceService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="ApplicationScope" ref="applicationScope"/>
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
@@ -41,6 +46,7 @@
     <property name="LogEventsService" ref="logEventsService"/>
     <property name="UserInformationService" ref="userInformationService"/>
     <property name="SuggestionService" ref="suggestionService"/>
+    <property name="CreateInvoiceService" ref="createInvoiceService"/>
   </object>
 
   <tx:attribute-driven transaction-manager="transactionManager"/>

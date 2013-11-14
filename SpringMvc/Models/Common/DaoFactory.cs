@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SpringMvc.Models.UserAccounts.Dao.Interfaces;
+using SpringMvc.Models.Invoices.Dao.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -16,5 +17,7 @@ namespace SpringMvc.Models.Common
         public ILogEventsDao LogEventsDao { get; set; }
 
         public IUserInformationDao UserInformationDao { get; set; }
+
+        public ICreateInvoiceDao CreateInvoiceDao { get; set; }
     }
 }

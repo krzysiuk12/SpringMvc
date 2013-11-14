@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.UserAccounts.Dao.Interfaces;
+﻿using SpringMvc.Models.Invoices.Dao.Interfaces;
+using SpringMvc.Models.UserAccounts.Dao.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,5 +13,6 @@ namespace SpringMvc.Models.Common.Interfaces
         IAccountAdministrationDao AccountAdministrationDao { get; set; }
         ILogEventsDao LogEventsDao { get; set; }
         IUserInformationDao UserInformationDao { get; set; }
+        ICreateInvoiceDao CreateInvoiceDao { get; set; }
     }
 }

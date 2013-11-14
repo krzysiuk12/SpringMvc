@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.Suggestions.Services.Interfaces;
+﻿using SpringMvc.Models.Invoices.Services.Interfaces;
+using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SpringMvc.Models.Common.Interfaces
         ILogEventsService LogEventsService { get; set; }
         IUserInformationService UserInformationService { get; set; }
         ISuggestionService SuggestionService { get; set; }
+        ICreateInvoiceService CreateInvoiceService { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }
 }

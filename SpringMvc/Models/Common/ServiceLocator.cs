@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
+using SpringMvc.Models.Invoices.Services.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -19,6 +20,8 @@ namespace SpringMvc.Models.Common
         public IUserInformationService UserInformationService { get; set; }
 
         public ISuggestionService SuggestionService { get; set; }
+
+        public ICreateInvoiceService CreateInvoiceService { get; set; }
 
         public ApplicationScope ApplicationScope { get; set; }
     }
