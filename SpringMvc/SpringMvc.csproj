@@ -259,7 +259,6 @@
     <Compile Include="Models\Common\ServiceLocator.cs" />
     <Compile Include="Models\Common\Services\Implementation\ApplicationInitializationService.cs" />
     <Compile Include="Models\Common\Services\Interfaces\IApplicationInitializationService.cs" />
-    <Compile Include="Models\Common\SessionScope.cs" />
     <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\POCO\Address.cs" />

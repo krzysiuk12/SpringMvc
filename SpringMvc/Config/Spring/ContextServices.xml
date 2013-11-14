@@ -2,7 +2,6 @@
 <objects xmlns="http://www.springframework.net"
          xmlns:tx="http://www.springframework.net/tx">
 
-  <object id="sessionScope" type="SpringMvc.Models.Common.SessionScope" scope="session" singleton="false"/>
   <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application"/>
   
   <object id="accountAdministrationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService">
@@ -36,7 +35,6 @@
   </object>
 
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
-    <property name="SessionScope" ref="sessionScope"/>
     <property name="ApplicationScope" ref="applicationScope"/>
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
     <property name="AuthorizationService" ref="authorizationService"/>

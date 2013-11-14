@@ -18,10 +18,8 @@ namespace SpringMvc.Models.Common
 
         public IUserInformationService UserInformationService { get; set; }
 
-        public SessionScope SessionScope { get; set; }
-        
-        public ApplicationScope ApplicationScope { get; set; }
-
         public ISuggestionService SuggestionService { get; set; }
+
+        public ApplicationScope ApplicationScope { get; set; }
     }
 }

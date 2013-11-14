@@ -14,7 +14,6 @@ namespace SpringMvc.Models.Common.Interfaces
         ILogEventsService LogEventsService { get; set; }
         IUserInformationService UserInformationService { get; set; }
         ISuggestionService SuggestionService { get; set; }
-        SessionScope SessionScope { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }
 }
