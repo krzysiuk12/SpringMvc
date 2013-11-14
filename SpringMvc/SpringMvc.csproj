@@ -382,6 +382,7 @@
     <Content Include="Mappings\BookType.hbm.xml" />
     <Content Include="Mappings\Category.hbm.xml" />
     <Content Include="Mappings\LogInOutEvent.hbm.xml" />
+    <Content Include="Mappings\Order.hbm.xml" />
     <Content Include="Mappings\PersonalData.hbm.xml" />
     <Content Include="Mappings\QuantityMap.hbm.xml" />
     <Content Include="Mappings\UserAccount.hbm.xml" />
