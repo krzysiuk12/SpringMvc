@@ -1,1 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="LogInOutEvent" table="LogInOutEvent">
+
+    <id name="Id" column="Id" type="Int64">
+      <generator class="sequence">
+        <param name="sequence">PK_BookTypeId</param>
+      </generator>
+    </id>
+
+    <property name="Title" column="Title" type="String"/>
+    <property name="Authors" column="Authors" type="String"/>
+    <property name="Price" column="Type" type="Double"/>
+
+    <one-to-one name="Category" class="Category" lazy="false" foreign-key="FK_CategoryId" cascade="all"/>
+    <one-to-one name="QuantityMap" class="QuantityMap" lazy="false" foreign-key="FK_QuantityMapId" cascade="all"/>
+
+  </class>
+</hibernate-mapping>
