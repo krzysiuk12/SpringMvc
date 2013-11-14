@@ -12,8 +12,8 @@ namespace SpringMvc.Models.Shipment.Services.Interfaces
         Address GetUserAddressById(long userId);
         IEnumerable<OrderInfo> GetUnrealisedOrdersDescriptions();
         IEnumerable<OrderEntryDetails> GetOrderEntriesInfoByOrderID(long orderId);
-        void CompleteOrder(int orderId);
-        void MarkOrderAsInProgress(int orderId);
+        void CompleteOrder(long orderId);
+        void MarkOrderAsInProgress(long orderId);
 
     }
 }
