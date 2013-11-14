@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="VatMap" table="VatMap">
+
+    <id name="Id" column="Id" type="long">
+      <generator class="sequence">
+        <param name="sequence">PK_VatMapId</param>
+      </generator>
+    </id>
+
+    <property name="Value" column="Value" type="double"/>
+
+  </class>
+</hibernate-mapping>

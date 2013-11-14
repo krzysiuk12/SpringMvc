@@ -8,9 +8,10 @@
       </generator>
     </id>
 
-    <many-to-one name="Order" column="OrderId" class="Order" unique="true" not-null="true" foreign-key="FK_InvoiceToOrder"/>
     <property name="Counter" column="Counter" type="long"/>
     <property name="TotalValue" column="TotalValue" type="Decimal"/>
+
+    <many-to-one name="Order" column="OrderId" class="Order" unique="true" not-null="true" foreign-key="FK_InvoiceToOrder"/>
     <many-to-one name="Vat" column="VatId" class="VatMap" not-null="true" foreign-key="FK_InvoiceToVatMap"/>
   
   </class>
