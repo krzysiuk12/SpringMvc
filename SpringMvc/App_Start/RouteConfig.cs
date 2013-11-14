@@ -16,7 +16,7 @@ namespace SpringMvc
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Logging", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Initialization", action = "Index", id = UrlParameter.Optional }
             );
         }
     }

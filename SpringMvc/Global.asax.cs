@@ -25,6 +25,9 @@ namespace SpringMvc
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            Application["AdministratorId"] = (long)1;
+            Application["WorkerId"] = (long)2;
         }
     }
 }

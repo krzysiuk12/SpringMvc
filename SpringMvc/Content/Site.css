@@ -176,7 +176,6 @@ footer {
         list-style: none;
     }
 
-
 /* menu
 ----------------------------------------------------------*/
 ul#menu {
@@ -331,6 +330,7 @@ aside {
 /* login page */
 #loginForm {
     border-right: solid 2px #c8c8c8;
+	margin-right: 10px;
     float: left;
     width: 55%;
 }
@@ -361,6 +361,10 @@ aside {
     #loginForm button {
         width: auto;
     }
+
+	#loginForm h2 {
+		padding-bottom: 11px;
+	}
 
 #socialLoginForm {
     margin-left: 40px;
@@ -736,7 +740,6 @@ tr.pager td {
         width: auto;
     }
 
-
     /* footer
     ----------------------------------------------------------*/
     footer .float-left,
@@ -774,3 +777,20 @@ tr.pager td {
     display: inline; 
 }
 
+/*#rightContentSize {
+    margin-left: 40px;
+    float: right;
+    width: 40%;
+}
+
+    #rightContentSize h2 {
+        margin-left: 10px;
+    }
+
+        #rightContentSize p {
+            margin-left: 10px;
+        }
+
+        #rightContentSize button {
+            margin-bottom: 12px;
+        }*/

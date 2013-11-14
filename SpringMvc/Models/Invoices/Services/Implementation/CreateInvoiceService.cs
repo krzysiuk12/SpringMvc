@@ -17,7 +17,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         [Transaction(ReadOnly=true)]
         public Invoice GetInvoice(long orderId)
         {
-            throw new NotImplementedException("");
+            throw new NotImplementedException("Bla Bla Bla");
         }
     }
 }
