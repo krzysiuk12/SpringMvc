@@ -1,1 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?> 
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="Category" table="Category">
+
+    <id name="Id" column="Id" type="Int64">
+      <generator class="foreign">
+        <param name="property">BookType</param>
+      </generator>
+    </id>
+
+    <property name="Name" column="Name" type="String"/>
+    <one-to-one name="BookType" class="BookType" constrained="true"/>
+
+  </class>
+</hibernate-mapping>
