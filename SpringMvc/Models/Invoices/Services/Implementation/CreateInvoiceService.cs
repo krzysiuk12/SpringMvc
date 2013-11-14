@@ -1,5 +1,4 @@
 ﻿using SpringMvc.Models.Invoices.Services.Interfaces;
-using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
@@ -15,9 +14,9 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
     public class CreateInvoiceService : BaseSpringService, ICreateInvoiceService
     {
         [Transaction(ReadOnly=true)]
-        public void GetInvoice(long orderId)
+        public Invoice GetInvoice(long orderId)
         {
-            
+            return null;
         }
     }
 }
