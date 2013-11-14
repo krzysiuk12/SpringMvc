@@ -9,7 +9,7 @@
     </id>
 
     <property name="Quantity" column="Quantity" type="int"/>
-    <one-to-one name="UserAccount" class="UserAccount" constrained="true"/>
+    <one-to-one name="BookType" class="BookType" constrained="true"/>
     
   </class>
 </hibernate-mapping>
