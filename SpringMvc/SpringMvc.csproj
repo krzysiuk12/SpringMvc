@@ -242,7 +242,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config\CustomLocalSessionFactoryProvider.cs" />
     <Compile Include="Config\SpringDependencyResolver.cs" />
-    <Compile Include="Controllers\InitializationController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Global.asax.cs">
