@@ -12,6 +12,6 @@ namespace SpringMvc.Models.POCO
         public virtual QuantityMap QuantityMap { get; set; }
         public virtual string Title { get; set; }
         public virtual string Authors { get; set; }
-        public virtual int Price { get; set; }
+        public virtual double Price { get; set; }
     }
 }
