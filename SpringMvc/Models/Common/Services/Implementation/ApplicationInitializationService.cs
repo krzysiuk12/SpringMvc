@@ -27,25 +27,29 @@ namespace SpringMvc.Models.Common.Services.Implementation
 
         private void CreateApplicationUsers()
         {
-            UserAccount administrator = new UserAccount()
-            {
-                Login = AdministratorLogin,
-                Password = AdministratorPassword,
-                ValidFrom = DateTime.MinValue,
-                ValidTo = DateTime.MaxValue,
-                AccountStatus = UserAccount.Status.ACTIVE
-            };
-            ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(administrator);  // Administrator ID = 1;
+            if (ServiceLocator.UserInformationService.GetUserAccountById(ApplicationScope.AdministratorId) == null) {
+                UserAccount administrator = new UserAccount()
+                {
+                    Login = AdministratorLogin,
+                    Password = AdministratorPassword,
+                    ValidFrom = DateTime.MinValue,
+                    ValidTo = DateTime.MaxValue,
+                    AccountStatus = UserAccount.Status.ACTIVE
+                };
+                ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(administrator);  // Administrator ID = 1;
+            }
 
-            UserAccount worker = new UserAccount()
-            {
-                Login = WorkerLogin,
-                Password = WorkerPassword,
-                ValidFrom = DateTime.MinValue,
-                ValidTo = DateTime.MaxValue,
-                AccountStatus = UserAccount.Status.ACTIVE
-            };
-            ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(worker); // Worker ID = 2
+            if (ServiceLocator.UserInformationService.GetUserAccountById(ApplicationScope.WorkerId) == null) {
+                UserAccount worker = new UserAccount()
+                {
+                    Login = WorkerLogin,
+                    Password = WorkerPassword,
+                    ValidFrom = DateTime.MinValue,
+                    ValidTo = DateTime.MaxValue,
+                    AccountStatus = UserAccount.Status.ACTIVE
+                };
+                ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(worker); // Worker ID = 2
+            }
         }
     }
 }

@@ -7,7 +7,8 @@ namespace SpringMvc.Models.Common
 {
     public class ApplicationScope
     {
-        public String AdministratorLogin { get { return "admin";  } }
-        public String AdministratorPassword { get { return "admin";  } }
+        public static long GuestId { get { return 0; } }
+        public static long AdministratorId { get { return 1;  } }
+        public static long WorkerId { get { return 2; } }
     }
 }

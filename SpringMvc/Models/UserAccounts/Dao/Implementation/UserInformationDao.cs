@@ -13,7 +13,7 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
     {
         public UserAccount GetUserAccountById(long userAccountId)
         {
-            return this.Session.Query<UserAccount>().Where(user => user.Id == userAccountId).Select(user => user).Single();
+            return this.Session.Get(typeof(UserAccount), userAccountId) as UserAccount;
         }
     }
 }

@@ -30,7 +30,7 @@
                     <%: Html.ValidationMessageFor(model => model.Password) %>
                 </div>
                 <p>
-                    <input type="submit" value="Log In" />
+                <input type="submit" value="Log In" />
                 </p>
             </fieldset>
 
@@ -38,13 +38,11 @@
         If you don't have an account: 
         <%: Html.ActionLink("register", "Register", "Logging", routeValues: null, htmlAttributes: new { id = "registerLink" })%>
     </section>
-<%--    <section class="section" id="registrationForm">
-        If you don't have an account: 
-        <%: Html.ActionLink("register", "Register", "Logging", routeValues: null, htmlAttributes: new { id = "registerLink" })%>
-    </section>--%>
     <section class="section" id="social">
         <h2>Try without account</h2>
-        <p>If you are a guest click here.</p>
+        <% using (Html.BeginForm("GuestIndex", "Logging")) { %>
+            <input type="submit" value="Log in as guest" />
+        <% } %>
     </section>
 </asp:Content>
 

@@ -29,6 +29,13 @@ namespace SpringMvc.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult GuestIndex()
+        {
+            Session["LoggedUserId"] = (long)0;
+            return RedirectToAction("Index", "Logging");
+        }
+
         public ActionResult Register()
         {
             return View();
