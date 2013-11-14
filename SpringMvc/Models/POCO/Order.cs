@@ -11,7 +11,7 @@ namespace SpringMvc.Models.POCO
 
         public virtual long Id { get; set; }
         public virtual long CustomerID { get; set; }
-        public virtual Dictionary<long, long> OrderEntries { get; set; }
+        public virtual IEnumerable<OrderEntry> OrderEntries { get; set; }
         public virtual DateTime SentDate { get; set; }
         public virtual DateTime OrderDate { get; set; }
         public virtual DateTime FinishedDate { get; set; }

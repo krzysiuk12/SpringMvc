@@ -9,7 +9,6 @@
     </id>
 
     <property name="Name" column="Name" type="String"/>
-    <one-to-one name="BookType" class="BookType" constrained="true"/>
 
   </class>
 </hibernate-mapping>

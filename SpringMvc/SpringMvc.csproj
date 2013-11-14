@@ -265,6 +265,7 @@
     <Compile Include="Models\POCO\Invoice.cs" />
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\Order.cs" />
+    <Compile Include="Models\POCO\OrderEntry.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\QuantityMap.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
