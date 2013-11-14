@@ -263,7 +263,9 @@
     <Compile Include="Models\Invoices\Dao\Implementation\CreateInvoiceDao.cs" />
     <Compile Include="Models\Invoices\Dao\Interfaces\ICreateInvoiceDao.cs" />
     <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />
+    <Compile Include="Models\Invoices\Services\Implementation\PdfInvoiceBuilder.cs" />
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
+    <Compile Include="Models\Invoices\Services\Interfaces\IPdfInvoiceBuilder.cs" />
     <Compile Include="Models\POCO\Address.cs" />
     <Compile Include="Models\POCO\BookType.cs" />
     <Compile Include="Models\POCO\Category.cs" />
