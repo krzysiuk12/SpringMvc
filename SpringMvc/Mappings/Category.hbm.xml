@@ -3,12 +3,12 @@
   <class name="Category" table="Category">
 
     <id name="Id" column="Id" type="Int64">
-      <generator class="foreign">
-        <param name="property">BookType</param>
+      <generator class="sequence">
+        <param name="sequence">PK_CategoryId</param>
       </generator>
     </id>
 
-    <property name="Name" column="Name" type="String"/>
+    <property name="Name" column="Name" type="String" length="100"/>
 
   </class>
 </hibernate-mapping>

@@ -8,12 +8,12 @@
       </generator>
     </id>
 
-    <property name="Title" column="Title" type="String"/>
-    <property name="Authors" column="Authors" type="String"/>
-    <property name="Price" column="Type" type="Double"/>
+    <property name="Title" column="Title" type="string"/>
+    <property name="Authors" column="Authors" type="string"/>
+    <property name="Price" column="Price" type="double"/>
 
-    <one-to-one name="Category" class="Category" lazy="false" foreign-key="FK_CategoryId" cascade="all"/>
-    <one-to-one name="QuantityMap" class="QuantityMap" lazy="false" foreign-key="FK_QuantityMapId" cascade="all"/>
+    <many-to-one name="Category" column="CategoryId" class="Category" lazy="false" foreign-key="FK_BookTypeCategory"/>
+    <many-to-one name="QuantityMap" column="QuantityMapId" class="QuantityMap" lazy="false" unique="true" foreign-key="FK_BookTypeQuantityMap" cascade="all"/>
 
   </class>
 </hibernate-mapping>

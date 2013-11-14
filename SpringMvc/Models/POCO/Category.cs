@@ -10,6 +10,5 @@ namespace SpringMvc.Models.POCO
     {
         public virtual long Id { get; set; }
         public virtual String Name { get; set; }
-        public virtual ISet<BookType> Books { get; set; }
     }
 }

@@ -3,13 +3,12 @@
   <class name="QuantityMap" table="QuantityMap">
 
     <id name="Id" column="Id" type="Int64">
-      <generator class="foreign">
-        <param name="property">BookType</param>
+      <generator class="sequence">
+        <param name="sequence">PK_QuantityMapId</param>
       </generator>
     </id>
 
     <property name="Quantity" column="Quantity" type="int"/>
-    <one-to-one name="BookType" class="BookType" constrained="true"/>
     
   </class>
 </hibernate-mapping>

@@ -23,6 +23,12 @@
         <value>~/Mappings/PersonalData.hbm.xml</value>
         <value>~/Mappings/Address.hbm.xml</value>
         <value>~/Mappings/LogInOutEvent.hbm.xml</value>
+        <value>~/Mappings/Order.hbm.xml</value>
+        <value>~/Mappings/Invoice.hbm.xml</value>
+        <value>~/Mappings/VatMap.hbm.xml</value>
+        <value>~/Mappings/Category.hbm.xml</value>
+        <value>~/Mappings/QuantityMap.hbm.xml</value>
+        <value>~/Mappings/BookType.hbm.xml</value>
       </list>
     </property>
     <property name="HibernateProperties">
