@@ -269,6 +269,7 @@
     <Compile Include="Models\POCO\Order.cs" />
     <Compile Include="Models\POCO\PersonalData.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
+    <Compile Include="Models\POCO\VatMap.cs" />
     <Compile Include="Models\Shop\Dao\Implementation\FinishOrderDao.cs" />
     <Compile Include="Models\Shop\Dao\Implementation\OrderCollectionDao.cs" />
     <Compile Include="Models\Shop\Dao\Implementation\OrderInformationDao.cs" />
