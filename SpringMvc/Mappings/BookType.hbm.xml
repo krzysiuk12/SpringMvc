@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
-  <class name="LogInOutEvent" table="LogInOutEvent">
+  <class name="BookType" table="BookType">
 
     <id name="Id" column="Id" type="Int64">
       <generator class="sequence">
