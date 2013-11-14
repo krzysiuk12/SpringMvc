@@ -3,7 +3,7 @@
          xmlns:tx="http://www.springframework.net/tx">
 
   <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application"/>
-  
+
   <object id="accountAdministrationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService">
     <property name="DaoFactory" ref="daoFactory"/>
     <property name="ServiceLocator" ref="serviceLocator"/>
@@ -29,6 +29,11 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="applicationInitializationService" type="SpringMvc.Models.Common.Services.Implementation.ApplicationInitializationService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="ApplicationScope" ref="applicationScope"/>
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
@@ -37,6 +42,6 @@
     <property name="UserInformationService" ref="userInformationService"/>
     <property name="SuggestionService" ref="suggestionService"/>
   </object>
-  
+
   <tx:attribute-driven transaction-manager="transactionManager"/>
 </objects>

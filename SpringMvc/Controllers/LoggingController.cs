@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.Common.Interfaces;
+﻿using SpringMvc.Models.Common;
+using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.UserAccountsPages;
 using System;
@@ -25,9 +26,15 @@ namespace SpringMvc.Controllers
         public ActionResult Index(LogInModel loginModelData)
         {
             UserAccount user = ServiceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
-            Session["LoggedUser"] = user;
-            //serviceLocator.SessionScope.LoggedUser = user;
+            Session["LoggedUserId"] = (long)user.Id;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult GuestIndex()
+        {
+            Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
+            return RedirectToAction("Index", "Logging");
         }
 
         public ActionResult Register()

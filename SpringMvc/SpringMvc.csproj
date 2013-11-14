@@ -242,6 +242,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config\CustomLocalSessionFactoryProvider.cs" />
     <Compile Include="Config\SpringDependencyResolver.cs" />
+    <Compile Include="Controllers\InitializationController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Global.asax.cs">
@@ -256,6 +257,8 @@
     <Compile Include="Models\Common\Interfaces\IDaoFactory.cs" />
     <Compile Include="Models\Common\Interfaces\IServiceLocator.cs" />
     <Compile Include="Models\Common\ServiceLocator.cs" />
+    <Compile Include="Models\Common\Services\Implementation\ApplicationInitializationService.cs" />
+    <Compile Include="Models\Common\Services\Interfaces\IApplicationInitializationService.cs" />
     <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\POCO\Address.cs" />
@@ -460,8 +463,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
-    <Folder Include="Models\Common\Services\Implementation\" />
-    <Folder Include="Models\Common\Services\Interfaces\" />
     <Folder Include="Models\Invoices\Dao\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Shipment\Services\" />

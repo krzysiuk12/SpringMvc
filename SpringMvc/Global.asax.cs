@@ -10,6 +10,7 @@ using Spring.Web.Mvc;
 using SpringMvc.Config;
 using Spring.Context.Support;
 using Spring.Context;
+using SpringMvc.Models.Common;
 
 namespace SpringMvc
 {
@@ -25,6 +26,10 @@ namespace SpringMvc
 
             BundleConfig.RegisterBundles(BundleTable.Bundles);
             AuthConfig.RegisterAuth();
+
+            Application["Guest"] = ApplicationScope.GuestId;
+            Application["AdministratorId"] = ApplicationScope.AdministratorId;
+            Application["WorkerId"] = ApplicationScope.WorkerId;
         }
     }
 }
