@@ -29,6 +29,7 @@
         <value>~/Mappings/Category.hbm.xml</value>
         <value>~/Mappings/QuantityMap.hbm.xml</value>
         <value>~/Mappings/BookType.hbm.xml</value>
+        <value>~/Mappings/OrderEntry.hbm.xml</value>
       </list>
     </property>
     <property name="HibernateProperties">

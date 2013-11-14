@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="OrderEntry" table="OrderEntry">
+
+    <id name="Id" column="Id" type="Int64">
+      <generator class="sequence">
+        <param name="sequence">PK_OrderEntryId</param>
+      </generator>
+    </id>
+
+    <property name="Amount" column="Amount" type="Int32"/>
+    <property name="Price" column="Price" type="double"/>
+
+    <many-to-one name="BookType" column="BookTypeId" class="BookType" not-null="true" update="false" insert="false" lazy="proxy" foreign-key="FK_OrderEntryToOrder"/>
+    <many-to-one name="Order" column="OrderId" class="Order" not-null="true" lazy="false" foreign-key="FK_OrderEntryToBookType"/>
+  </class>
+</hibernate-mapping>

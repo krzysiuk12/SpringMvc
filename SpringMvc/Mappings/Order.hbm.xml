@@ -9,15 +9,17 @@
     </id>
 
     <property name="SentDate" column="SentDate" type="DateTime"/>
-    <property name="OrderDate" column="OrderPlaceDate" type="DateTime"/>
+    <property name="OrderDate" column="OrderDate" type="DateTime"/>
     <property name="DeliveryDate" column="DeliveryDate" type="DateTime"/>
     <property name="Status" column="OrderStatus" type="Order+OrderState"/>
 
     <many-to-one name="User" column="UserId" class="UserAccount" not-null="true" lazy="proxy"/>
-    <!--<map name="OrderEntries" table="OrderEntries">
-      <key column="OrderId" />
-      <index-many-to-many class="BookType" column="BookTypeId" />
-      <element column="Amount" type="Int64" not-null="true" />
-    </map>-->
+    
+    <list name="OrderEntries" cascade="all">
+      <key column="OrderId" not-null="true"/>
+      <list-index column="Position" base="1"/>
+      <one-to-many class="OrderEntry"/>
+    </list>
+  
   </class>
 </hibernate-mapping>
