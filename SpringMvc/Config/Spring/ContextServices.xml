@@ -29,11 +29,6 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
-  <object id="applicationInitializationService" type="SpringMvc.Models.Common.Services.Implementation.ApplicationInitializationService">
-    <property name="DaoFactory" ref="daoFactory"/>
-    <property name="ServiceLocator" ref="serviceLocator"/>
-  </object>
-
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="ApplicationScope" ref="applicationScope"/>
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>

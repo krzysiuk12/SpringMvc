@@ -1,5 +1,4 @@
 ﻿using SpringMvc.Models.Invoices.Services.Interfaces;
-using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
@@ -17,7 +16,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         [Transaction(ReadOnly=true)]
         public Invoice GetInvoice(long orderId)
         {
-            throw new NotImplementedException("Bla Bla Bla");
+            return null;
         }
     }
 }
