@@ -248,8 +248,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Mappings\BookTypeDetailsMap.cs" />
-    <Compile Include="Mappings\BookTypeMap.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
     <Compile Include="Models\Common\BaseSpringService.cs" />
@@ -381,8 +379,11 @@
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\logo.png" />
     <Content Include="Mappings\Address.hbm.xml" />
+    <Content Include="Mappings\BookType.hbm.xml" />
+    <Content Include="Mappings\Category.hbm.xml" />
     <Content Include="Mappings\LogInOutEvent.hbm.xml" />
     <Content Include="Mappings\PersonalData.hbm.xml" />
+    <Content Include="Mappings\QuantityMap.hbm.xml" />
     <Content Include="Mappings\UserAccount.hbm.xml" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
