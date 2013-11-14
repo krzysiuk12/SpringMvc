@@ -263,7 +263,6 @@
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\POCO\Address.cs" />
     <Compile Include="Models\POCO\BookType.cs" />
-    <Compile Include="Models\POCO\BookTypeDetails.cs" />
     <Compile Include="Models\POCO\Invoice.cs" />
     <Compile Include="Models\POCO\LogInOutEvent.cs" />
     <Compile Include="Models\POCO\Order.cs" />
