@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="SpringMvc" namespace="SpringMvc.Models.POCO">
+  <class name="Invoice" table="Invoice">
+
+    <id name="Id" column="Id" type="long">
+      <generator class="sequence">
+        <param name="sequence">PK_InvoiceId</param>
+      </generator>
+    </id>
+
+    <property name="Order" column="Order" type="Order"/>
+    <property name="Counter" column="Counter" type="long"/>
+    <property name="TotalValue" column="TotalValue" type="Decimal"/>
+    <property name="VatId" column="VatId" type="VatMap"/>
+  
+  </class>
+</hibernate-mapping>
