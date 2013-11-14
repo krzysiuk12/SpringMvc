@@ -43,5 +43,10 @@ namespace SpringMvc.Models.Common.Services.Implementation
                 ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(workerAccount);
             }
         }
+
+        public void CreateVatStages()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
