@@ -4,11 +4,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SpringMvc.Models.UserAccounts.Services.Interfaces;
 
 namespace SpringMvc.Models.DataGenerator.Services.Implementation
 {
     public class UserAccountGeneratorService : IUserAccountGeneratorService
     {
+        private IAuthorizationService AuthorizationService { get; set; }
+
         #region Data
         private string[] firstNames = new string[] { "Bryan", "William", "Andrew", "Bryan", "Harold", "Rudy", "Jess", "Michael",
                                                      "Felipe", "Glen", "George", "Richard", "Michael", "Thomas", "Jacques", "Johnny",
@@ -119,7 +122,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 users.Add(new UserAccount()
                 {
                     Login = firstNames[index] + lastNames[index],
-                    Password = lastNames[index],
+                    Password = AuthorizationService.EncryptPassword(lastNames[index]),
                     Email = firstNames[index] + lastNames[index] + "@mail.com",
                     // LastPasswordChangedDate =
                     // LastSuccessfulSignInDate =

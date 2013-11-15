@@ -48,7 +48,9 @@
   <!-- **************************************** Generator Services **************************************** -->
   <object id="bookTypeGeneratorService" type="SpringMvc.Models.DataGenerator.Services.Implementation.BookTypeGeneratorService"/>
   <object id="orderGeneratorService" type="SpringMvc.Models.DataGenerator.Services.Implementation.OrderGeneratorService"/>
-  <object id="userAccountGeneratorService" type="SpringMvc.Models.DataGenerator.Services.Implementation.UserAccountGeneratorService"/>
+  <object id="userAccountGeneratorService" type="SpringMvc.Models.DataGenerator.Services.Implementation.UserAccountGeneratorService">
+    <property name="AuthorizationService" ref="authorizationService"/>
+  </object>
 
   <object id="generatorService" type="SpringMvc.Models.DataGenerator.Services.Implementation.GeneratorService">
     <property name="BookTypeGeneratorService" ref="bookTypeGeneratorService"/>
