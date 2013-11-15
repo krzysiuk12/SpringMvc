@@ -11,9 +11,11 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
 {
     public class ShipmentPreparationService : BaseSpringService, IShipmentPreparationService
     {
-        public PersonalData GetUserPersonalDataById(long orderId)
+        public PersonalData GetUserPersonalDataById(long userId)
         {
-            throw new NotImplementedException();
+            PersonalData _personalData = ServiceLocator.UserInformationService.GetUserAccountById(userId).PersonalData;
+            //throw new NotImplementedException();
+            return _personalData;
         }
 
         public IEnumerable<OrderEntryDetails> GetOrderEntriesInfoByOrderId(long orderId)
