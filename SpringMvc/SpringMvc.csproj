@@ -488,7 +488,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\Shipment\Dao\" />
-    <Folder Include="Models\Shipment\Services\" />
+    <Folder Include="Models\Shipment\Services\Implementation\" />
+    <Folder Include="Models\Shipment\Services\Interfaces\" />
     <Folder Include="Models\Storehouse\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
     <Folder Include="Views\AdministratorPanel\" />
