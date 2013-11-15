@@ -286,6 +286,8 @@
     <Compile Include="Models\POCO\QuantityMap.cs" />
     <Compile Include="Models\POCO\UserAccount.cs" />
     <Compile Include="Models\POCO\VatMap.cs" />
+    <Compile Include="Models\ShipmentPages\OrderEntryDetails.cs" />
+    <Compile Include="Models\ShipmentPages\OrderInfo.cs" />
     <Compile Include="Models\Shipment\Services\Implementation\ShipmentPreparationService.cs" />
     <Compile Include="Models\Shipment\Services\Interfaces\IShipmentPreparationService.cs" />
     <Compile Include="Models\Shop\Dao\Implementation\OrderInformationsDao.cs" />
