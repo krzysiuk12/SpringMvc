@@ -192,5 +192,10 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, Text, X, Y, 0);
         }
         }
+
+        public void BuildInvoice(Order orderDetails, UserAccount userDetails)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
