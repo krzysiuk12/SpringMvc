@@ -18,8 +18,10 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         [Transaction]
         public Invoice GetInvoice(long orderId)
         {
-            //Order orderDetails = ServiceLocator.OrderInformationService.GetOrderById(orderId); :: OrderInformationService not yet implemented.
-            //UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
+
+            Order orderDetails = null;
+            UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
+            PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails);
              
             throw new NotImplementedException();
         }
