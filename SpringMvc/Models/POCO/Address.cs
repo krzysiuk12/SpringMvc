@@ -40,8 +40,6 @@ namespace SpringMvc.Models.POCO
         [Required]
         [Display(Name = "Country")]
         public virtual string Country { get; set; }
-
-        public virtual PersonalData PersonalData { get; set; }
         #endregion
     }
 }

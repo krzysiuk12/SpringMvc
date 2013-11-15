@@ -8,5 +8,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Interfaces
     public interface IGeneratorService
     {
         void GenerateShopContent();
+
+        void GenerateUsers();
     }
 }

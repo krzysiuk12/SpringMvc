@@ -54,8 +54,6 @@ namespace SpringMvc.Models.POCO
         public virtual string PhoneNumber { get; set; }
         
         public virtual Address Address { get; set; }
-        
-        public virtual UserAccount UserAccount { get; set; }
         #endregion
     }
 }

@@ -20,7 +20,17 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             List<Category> categories = BookTypeGeneratorService.GenerateCategories();
             List<QuantityMap> quantityMaps = BookTypeGeneratorService.GenerateQuantityMaps();
             List<BookType> books = BookTypeGeneratorService.GenerateBooks(categories, quantityMaps);
-            System.Console.WriteLine("Hello");
+        }
+
+        public void GenerateUsers()
+        {
+            List<Address> addresses = UserAccountGeneratorService.GenerateAddress();
+            List<PersonalData> personalDatas = UserAccountGeneratorService.GeneratePersonalData(addresses);
+            List<UserAccount> userAccounts = UserAccountGeneratorService.GenerateUsers(personalDatas);
+            foreach (UserAccount account in userAccounts)
+            {
+                ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(account);
+            }
         }
     }
 }

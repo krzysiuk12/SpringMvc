@@ -55,9 +55,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         {
             UserAccount userAccount = ServiceLocator.UserInformationService.GetUserAccountById(userAccountId);
             userAccount.PersonalData = personalData;
-            userAccount.PersonalData.UserAccount = userAccount;
             personalData.Address = address;
-            address.PersonalData = personalData;
             ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
         }
 

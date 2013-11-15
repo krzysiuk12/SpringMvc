@@ -60,7 +60,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                                                  "Northadams", "Newport News", "Evanston", "Camden", "Milwaukee", "Philadelphia",
                                                  "San Francisco", "Naugatuck", "Harlingen", "Arlington Heights", "Livonia", "Houston",
                                                  "Salt Lake City", "Fargo", "Minot", "Chicago", "Fredericksburg", "Indianapolis",
-                                                 "Rochelle Park", "Fort Wayne", "Rochester"};
+                                                 "Rochelle Park", "Fort Wayne", "Rochester", "Stanford", "Warsaw", "Cracow", "Texas", "Los Angeles"};
 
         private string[] countries = new string[] { "Argentina", "Australia", "Austria", "Bahamas", "Belgium", "Bosnia Herzegovina",
                                                     "Botswana", "Brazil", "Bulgaria", "Canada", "Cape Verde", "Chile", "China", "Colombia",
@@ -126,11 +126,10 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                     // ValidFrom =
                     // ValidTo =
                     AccountStatus = UserAccount.Status.ACTIVE,
-                    PersonalData = userPersonalDataList.ElementAt(index)
+                    PersonalData = userPersonalDataList.ElementAt(index),
                 });
             }
             return users;
         }
-
     }
 }

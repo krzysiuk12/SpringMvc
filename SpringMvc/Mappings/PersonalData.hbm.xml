@@ -3,20 +3,20 @@
   <class name="PersonalData" table="PersonalData">
 
     <id name="Id" column="Id" type="Int64">
-      <generator class="foreign">
-        <param name="property">UserAccount</param>
+      <generator class="sequence">
+        <param name="sequence">PK_PersonalDataId</param>
       </generator>
     </id>
 
     <property name="FirstName" column="FirstName" type="String"/>
     <property name="MiddleName" column="MiddleName" type="String"/>
     <property name="LastName" column="LastName" type="String"/>
+    <property name="DateOfBirth" column="DateOfBirth" type="DateTime"/>
     <property name="Sex" column="Sex" type="PersonalData+Gender"/>
     <property name="IdentityCardNumber" column="IdentityCardNumber" type="String"/>
     <property name="PESEL" column="PESEL" type="String"/>
     <property name="PhoneNumber" column="PhoneNumber" type="String"/>
 
-    <one-to-one name="UserAccount" class="UserAccount" constrained="true"/>
-    <one-to-one name="Address" class="Address" lazy="false" foreign-key="FK_AddressPersonalData" cascade="all"/>
+    <many-to-one name="Address" class="Address" lazy="false" unique="true" foreign-key="FK_AddressPersonalData" cascade="all"/>
   </class>
 </hibernate-mapping>

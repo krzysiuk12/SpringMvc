@@ -16,9 +16,7 @@ namespace SpringMvc.Models.UserAccountsPages
         public void ConnectUserAccountModelReferences()
         {
             UserAccount.PersonalData = PersonalData;
-            PersonalData.UserAccount = UserAccount;
             PersonalData.Address = Address;
-            Address.PersonalData = PersonalData;
         }
     }
 }

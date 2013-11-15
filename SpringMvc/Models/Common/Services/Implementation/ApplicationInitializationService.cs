@@ -20,6 +20,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
         {
             CreateBaseUsers();
             GeneratorService.GenerateShopContent();
+            GeneratorService.GenerateUsers();
             //CreateVatStages();
         }
 
