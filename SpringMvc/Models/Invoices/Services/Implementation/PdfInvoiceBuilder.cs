@@ -16,13 +16,17 @@ using iTextSharp.text.pdf;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
-    class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
+    public class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
     {
-        BaseFont f_cb = BaseFont.CreateFont("c:\\windows\\fonts\\calibrib.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-        BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
-
-        protected void BuildInvoice(Order orderDetails)
+        public void BuildInvoice(Order orderDetails)
         {
+            throw new NotImplementedException();
+        }
+
+        /*protected void BuildInvoice(Order orderDetails)
+        {
+            BaseFont f_cb = BaseFont.CreateFont("c:\\windows\\fonts\\calibrib.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
+            BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             try {
 
                 UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
@@ -176,12 +180,11 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                         writer.Close();
                         fs.Close();
 
-                        lblMsg.Text = "Invoiced saved to the invoice folder. Good job!";
+                        //lblMsg.Text = "Invoiced saved to the invoice folder. Good job!";
                     }
             }
             catch(Exception rror)
             {
-                lblMsg.Text = rror.Message;
             }
         }
 
@@ -191,11 +194,6 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             cb.SetFontAndSize(font, Size);
             cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, Text, X, Y, 0);
         }
-        }
-
-        public void BuildInvoice(Order orderDetails, UserAccount userDetails)
-        {
-            throw new NotImplementedException();
-        }
+        */
     }
 }

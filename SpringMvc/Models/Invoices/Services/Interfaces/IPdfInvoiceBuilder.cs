@@ -6,8 +6,8 @@ using System.Text;
 
 namespace SpringMvc.Models.Invoices.Services.Interfaces
 {
-    interface IPdfInvoiceBuilder
+    public interface IPdfInvoiceBuilder
     {
-        void BuildInvoice(Order orderDetails, UserAccount userDetails);
+       void BuildInvoice(Order orderDetails);
     }
 }
