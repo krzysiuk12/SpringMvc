@@ -24,7 +24,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                 UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
 
-                using (System.IO.FileStream fs = new FileStream(Server.MapPath("Tmp") + "\\" 
+                using (System.IO.FileStream fs = new FileStream("~\\tmp" + "\\" 
                     + orderDetails.Id.ToString() + DateTime.Now.ToString() + ".pdf", FileMode.Create))
                     {
                         Document document = new Document(PageSize.A4, 25, 25, 30, 1);
@@ -38,7 +38,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                         PdfContentByte cb = writer.DirectContent;
                         //cb.AddTemplate(PdfFooter(cb, drPayee), 30, 1);
 
-                        iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(Server.MapPath("logo.png"));
+                        iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance("~\\Images\\logo.png");
                         png.ScaleAbsolute(200, 55);
                         png.SetAbsolutePosition(40, 750);
                         cb.AddImage(png);
