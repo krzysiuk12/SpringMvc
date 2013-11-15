@@ -18,15 +18,13 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 {
     public class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
     {
-        public void BuildInvoice(Order orderDetails)
+        public void BuildInvoice(Order orderDetails, UserAccount userDetails)
         {
             BaseFont f_cb = BaseFont.CreateFont("c:\\windows\\fonts\\calibrib.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
 
             try {
-
-                UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
-
+                
                 using (System.IO.FileStream fs = new FileStream("~\\Tmp" + "\\" 
                     + orderDetails.Id.ToString() + DateTime.Now.ToString() + ".pdf", FileMode.Create))
                 {
@@ -47,6 +45,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     // Invoice main details.
                     writeText(cb, "BookStore Invoice", 350, 820, f_cb, 14);
                     writeText(cb, "Invoice Id", 350, 800, f_cb, 10);
+                    // Not yet implemented - method to get InvoiceId
                     //writeText(cb, InvoiceId.ToString(), 420, 800, f_cn, 10);
                     writeText(cb, "Order date", 350, 788, f_cb, 10);
                     writeText(cb, orderDetails.OrderDate.ToString(), 420, 788, f_cn, 10);
@@ -146,7 +145,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             }
             catch(Exception error)
             {
-                
+                Console.WriteLine(error.ToString());
             }
         }
 

@@ -1,5 +1,5 @@
-﻿using SpringMvc.Models.Invoices.Services.Interfaces;
-using SpringMvc.Models.POCO;
+﻿using SpringMvc.Models.POCO;
+using SpringMvc.Models.Invoices.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +16,9 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         [Transaction]
         public Invoice GetInvoice(long orderId)
         {
+            //Order orderDetails = ServiceLocator.OrderInformationService.GetOrderById(orderId); :: OrderInformationService not yet implemented.
+            //UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
+             
             throw new NotImplementedException();
         }
     }
