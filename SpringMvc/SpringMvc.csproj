@@ -296,11 +296,8 @@
     <Compile Include="Models\Shop\Dao\Interfaces\IOrderCollectionDao.cs" />
     <Compile Include="Models\Shop\Dao\Interfaces\IOrderInformationDao.cs" />
     <Compile Include="Models\Shop\Dao\Interfaces\IOrderMarkInProgressDao.cs" />
-    <Compile Include="Models\Shop\Services\Interfaces\IFinishOrderService.cs" />
-    <Compile Include="Models\Shop\Services\Interfaces\IOrderCollectionsService.cs" />
-    <Compile Include="Models\Shop\Services\Interfaces\IOrderInformationService.cs" />
-    <Compile Include="Models\Shop\Services\Interfaces\IOrderMarkInProgressDao.cs" />
-    <Compile Include="Models\Shop\Services\Interfaces\IOrderMarkInProgressService.cs" />
+    <Compile Include="Models\Shop\Services\Interfaces\IOrderInformationsService.cs" />
+    <Compile Include="Models\Shop\Services\Interfaces\IOrderManagementService.cs" />
     <Compile Include="Models\Storehouse\Services\Implementation\Sending_ShopRepository.cs" />
     <Compile Include="Models\Storehouse\Services\Implementation\StorehouseRepository.cs" />
     <Compile Include="Models\Storehouse\Services\Implementation\SuggestingRepository.cs" />
@@ -492,6 +489,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\Shipment\Dao\" />
+    <Folder Include="Models\Shop\Services\Implementation\" />
     <Folder Include="Models\Storehouse\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
     <Folder Include="Views\AdministratorPanel\" />
