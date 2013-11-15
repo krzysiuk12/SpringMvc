@@ -90,7 +90,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                     top_margin = 648;
 
-                    double totalInvoicedPrice = 0;
+                    Decimal totalInvoicedPrice = 0;
                     foreach (OrderEntry entry in orderDetails.OrderEntries)
                     {
                         writeText(cb, entry.BookType.Id.ToString(), left_margin, top_margin, f_cn, 10);
@@ -131,9 +131,9 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     left_margin = 535;
                     cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, totalInvoicedPrice.ToString(), left_margin, top_margin, 0);
                     // Fixed VAT = 22%.
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (0.22 * totalInvoicedPrice).ToString(), left_margin, top_margin - 12, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (((Decimal)0.22) * totalInvoicedPrice).ToString(), left_margin, top_margin - 12, 0);
                     //Fixed total amount.
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (totalInvoicedPrice + 0.22 * totalInvoicedPrice).ToString(),
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (totalInvoicedPrice + ((Decimal)0.22) * totalInvoicedPrice).ToString(),
                         left_margin, top_margin - 36, 0);
 
                     cb.EndText();
