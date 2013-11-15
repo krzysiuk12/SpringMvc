@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.POCO;
+﻿using SpringMvc.Models.DataGenerator.Services.Interfaces;
+using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +7,7 @@ using System.Web;
 
 namespace SpringMvc.Models.DataGenerator.Services.Implementation
 {
-    public class BookTypeGeneratorService
+    public class BookTypeGeneratorService : IBookTypeGeneratorService
     {
         #region Data
         private string[] bookTitles = new string[] {    "James and the Giant Peach", "Dead in the Family", "House of Illusions", "Scroll of Saqqara", "Volume Two: The Oasis", "Volume Three: The Horus Road", "Rose Daughter", "The Alton Gift", "Behold the Man", "Rama the Steadfast",
@@ -14,7 +15,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                                                         "Now and Then", "Double Jeopardy", "Spare Change", "Plague Ship", "The Faithful Spy", "Three in Death", "World Without End", "Skeleton Coast", "The Sisters", "Black Wind",
                                                         "The Black Hills", "Ralph Compton The Cheyenne Trail", "The Gunsmith 389", "A Serpent's Tooth", "Slocum 423", "Longarm 426", "The Lawman: Trackdown", "Slocum 422", "Longarm 425", "Gunsmith 388",
                                                         "Tales from 1,001 Nights", "Frostbite", "The Wizard of Oz", "Oliver Twist", "Treasure Island", "Moby-Dick", "Who Would Have Thought It?", "Tom Clancy's EndWar", "King Solomon's Mines", "The Faithful Spy",
-                                                        "No Way Back", "On Tangled Paths", "The Jungle Books", "David Copperfield", "Vainglory", "Childhood; Boyhood; Youth", "Tales from 1,001 Nights", "The Promised Land", "The Phantom of the Opera", "Northanger Abbey",                                                                "", "", "", "", "", "", "", "", "", "",
+                                                        "No Way Back", "On Tangled Paths", "The Jungle Books", "David Copperfield", "Vainglory", "Childhood; Boyhood; Youth", "Tales from 1,001 Nights", "The Promised Land", "The Phantom of the Opera", "Northanger Abbey",
                                                         "Cell", "On Such a Full Sea", "Supervolcano: Things Fall Apart", "Darklove", "The Accidental Werewolf 2: Something About Harry", "Undressing Mr. Darcy", "Saving Grace", "Unrestrained", "City of Lost Dreams", "Helen in Love",
                                                         "Mark of the Lion", "Black Arrow", "China Bayles' Book of Days", "Mrs. Jeffries and the Silent Knight", "The Oxford Murders", "Fear on Friday", "A German Requiem", "The Right Madness", "A Deadly Yarn", "Murder of a Real Bad Boy",
                                                         "The Signature of All Things", "The Spymistress", "Seven Deadlies", "Peaches for Father Francis", "Dark Witch", "The Spirit Keeper", "Lucianna", "Helen in Love", "Because We Belong", "Strip Search",

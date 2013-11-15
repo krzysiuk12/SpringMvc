@@ -1,6 +1,7 @@
 ﻿using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using SpringMvc.Models.Common.Services.Interfaces;
+using SpringMvc.Models.DataGenerator.Services.Interfaces;
 using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ namespace SpringMvc.Models.Common.Services.Implementation
     [Repository]
     public class ApplicationInitializationService : BaseSpringService, IApplicationInitializationService
     {
+        private IGeneratorService GeneratorService { get; set; }
+
         [Transaction]
         public void InitializeApplication()
         {
