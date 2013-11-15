@@ -8,20 +8,10 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
 {
     public interface IOrderManagementService
     {
-        /// <summary>
-        /// Method finishes Order and then return its new
-        /// state
-        /// </summary>
-        /// <param name="orderId">Finishing order id</param>
-        /// <returns>New order state</returns>
-        Order CompleteOrder(long orderId);
+        void CreateNewOrder(Order order);
+            
+        void MarkOrderInProgress(long orderId);
 
-        /// <summary>
-        /// Method mark Order 'In Progress' and then return its new
-        /// state
-        /// </summary>
-        /// <param name="orderId">Currently processing order id</param>
-        /// <returns>New order state</returns>
-        Order MarkOrderInProgress(long orderId);
+        void CompleteOrder(long orderId);
     }
 }
