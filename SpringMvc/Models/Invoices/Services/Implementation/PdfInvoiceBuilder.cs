@@ -24,7 +24,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                 UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
 
-                using (System.IO.FileStream fs = new FileStream(Server.MapPath("invoices") + "\\" 
+                using (System.IO.FileStream fs = new FileStream(Server.MapPath("Tmp") + "\\" 
                     + orderDetails.Id.ToString() + DateTime.Now.ToString() + ".pdf", FileMode.Create))
                     {
                         Document document = new Document(PageSize.A4, 25, 25, 30, 1);
