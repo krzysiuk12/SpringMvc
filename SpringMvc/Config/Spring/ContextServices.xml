@@ -33,6 +33,9 @@
   <object id="createInvoiceService" type="SpringMvc.Models.Invoices.Services.Implementation.CreateInvoiceService">
     <property name="DaoFactory" ref="daoFactory"/>
     <property name="ServiceLocator" ref="serviceLocator"/>
+    <property name="PdfInvoiceBuilder">
+      <object type="SpringMvc.Models.Invoices.Services.Implementation.PdfInvoiceBuilder"/>
+    </property>
   </object>
 
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">

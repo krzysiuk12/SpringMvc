@@ -16,7 +16,7 @@ using iTextSharp.text.pdf;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
-    public class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
+    public class PdfInvoiceBuilder : IPdfInvoiceBuilder
     {
         public void BuildInvoice(Order orderDetails, UserAccount userDetails)
         {
