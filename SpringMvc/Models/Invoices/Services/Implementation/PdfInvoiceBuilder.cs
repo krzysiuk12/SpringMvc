@@ -16,7 +16,7 @@ using iTextSharp.text.pdf;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
-    private class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
+    class PdfInvoiceBuilder : BaseSpringService, IPdfInvoiceBuilder
     {
         protected void BuildInvoice(Order orderDetails)
         {
@@ -50,6 +50,11 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             {
                 
             }
+        }
+
+        public void BuildInvoice(Order orderDetails, UserAccount userDetails)
+        {
+            throw new NotImplementedException();
         }
     }
 }
