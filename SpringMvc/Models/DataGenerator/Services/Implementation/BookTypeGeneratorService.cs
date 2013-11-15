@@ -68,14 +68,14 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             List<BookType> books = new List<BookType>();
             for(int index = 0; index < bookTitles.Length; index++) 
             {
-                BookType newBook = new BookType()
+                books.Add(new BookType()
                 {
                     Title = bookTitles[index],
                     Authors = bookAuthors[index],
                     Category = categories.ElementAt((int)Math.Floor((double)(index / categories.Count))),
                     Price = new Decimal(random.NextDouble() * 100),
                     QuantityMap = quantityMaps.ElementAt(index)
-                };
+                });
             }
             return books;
         }

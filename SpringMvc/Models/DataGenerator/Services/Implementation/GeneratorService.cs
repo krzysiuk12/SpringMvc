@@ -1,6 +1,7 @@
 ﻿using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.DataGenerator.Services.Interfaces;
+using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,5 +14,13 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
         private IBookTypeGeneratorService BookTypeGeneratorService { get; set; }
         private IOrderGeneratorService OrderGeneratorService { get; set; }
         private IUserAccountGeneratorService UserAccountGeneratorService { get; set; }
+
+        public void GenerateShopContent()
+        {
+            List<Category> categories = BookTypeGeneratorService.GenerateCategories();
+            List<QuantityMap> quantityMaps = BookTypeGeneratorService.GenerateQuantityMaps();
+            List<BookType> books = BookTypeGeneratorService.GenerateBooks(categories, quantityMaps);
+            System.Console.WriteLine("Hello");
+        }
     }
 }

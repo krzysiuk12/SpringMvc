@@ -5,7 +5,8 @@ using System.Text;
 
 namespace SpringMvc.Models.DataGenerator.Services.Interfaces
 {
-    interface IGeneratorService
+    public interface IGeneratorService
     {
+        void GenerateShopContent();
     }
 }
