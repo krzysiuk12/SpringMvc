@@ -247,6 +247,7 @@
     <Compile Include="Config\SpringDependencyResolver.cs" />
     <Compile Include="Controllers\InitializationController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
+    <Compile Include="Controllers\MainShopController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -424,6 +425,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Logging\Index.aspx" />
     <Content Include="Views\Logging\Register.aspx" />
+    <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />
