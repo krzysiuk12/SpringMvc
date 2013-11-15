@@ -7,6 +7,8 @@ using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
 using Spring.Transaction.Interceptor;
 using Spring.Stereotype;
+using System.Security.Cryptography;
+using System.Text;
 
 
 namespace SpringMvc.Models.UserAccounts.Services.Implementation
@@ -18,7 +20,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         public UserAccount LoginUser(string login, string password)
         {
             UserAccount user = DaoFactory.AuthorizationDao.LoginUser(login, password);
-            if (user.Password.Equals(password))
+            if (user.Password.Equals(EncryptPassword(password)))
             {
                 DaoFactory.LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
             }
@@ -40,6 +42,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         [Transaction]
         public long RegisterUser(UserAccount newUserAccount)
         {
+            newUserAccount.Password = EncryptPassword(newUserAccount.Password);
             newUserAccount.AccountStatus = UserAccount.Status.ACTIVE;
             newUserAccount.LastPasswordChangedDate = DateTime.Now;
             newUserAccount.ValidFrom = DateTime.Now;
@@ -74,6 +77,19 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         {
             [Transaction(ReadOnly = true)]
             get { throw new NotImplementedException(); }
+        }
+
+        public string EncryptPassword(string text) {
+            SHA256 sha = new SHA256CryptoServiceProvider();
+            sha.ComputeHash(ASCIIEncoding.ASCII.GetBytes(text));
+            byte[] hashResult = sha.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for(int i = 0; i < hashResult.Length; i++)
+            {
+                strBuilder.Append(hashResult[i].ToString("x2"));
+            }
+            return strBuilder.ToString();
         }
     }
 }

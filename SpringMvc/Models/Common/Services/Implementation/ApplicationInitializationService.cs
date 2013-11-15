@@ -16,6 +16,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
         public void InitializeApplication()
         {
             CreateBaseUsers();
+            //CreateVatStages();
         }
 
         public void CreateBaseUsers() 
@@ -24,7 +25,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
                 UserAccount administratorAccont = new UserAccount()
                 {
                     Login = ApplicationScope.AdministratorLogin,
-                    Password = ApplicationScope.AdministratorPassword,
+                    Password = ServiceLocator.AuthorizationService.EncryptPassword(ApplicationScope.AdministratorPassword),
                     ValidFrom = DateTime.MinValue,
                     ValidTo = DateTime.MaxValue
                 };
@@ -36,7 +37,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
                 UserAccount workerAccount = new UserAccount()
                 {
                     Login = ApplicationScope.WorkerLogin,
-                    Password = ApplicationScope.WorkerPassword,
+                    Password = ServiceLocator.AuthorizationService.EncryptPassword(ApplicationScope.WorkerPassword),
                     ValidFrom = DateTime.MinValue,
                     ValidTo = DateTime.MaxValue
                 };

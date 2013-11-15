@@ -15,7 +15,9 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
         long RegisterUser(UserAccount newUserAccount);
 
         void SaveNewUserPersonalData(long userAccountId, PersonalData personalData, Address address);
-        
+
+        string EncryptPassword(string text);
+
         IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<String, String> parameters);
 
         UserAccount LoggedUserAccount { get; }
