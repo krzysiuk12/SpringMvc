@@ -5,7 +5,8 @@ using System.Text;
 
 namespace SpringMvc.Models.Shipment.Services.Interfaces
 {
-    interface IShipmentPreparationService
+    public interface IShipmentPreparationService
     {
+        ///Test Commit
     }
 }
