@@ -1,13 +1,21 @@
-﻿using System;
+﻿using SpringMvc.Models.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using SpringMvc.Models.POCO;
 
 namespace SpringMvc.Models.Shop.Services.Interfaces
 {
-    public interface IOrderMarkInProgressDao
+    public interface IOrderManagementService
     {
+        /// <summary>
+        /// Method finishes Order and then return its new
+        /// state
+        /// </summary>
+        /// <param name="orderId">Finishing order id</param>
+        /// <returns>New order state</returns>
+        Order CompleteOrder(long orderId);
+
         /// <summary>
         /// Method mark Order 'In Progress' and then return its new
         /// state
