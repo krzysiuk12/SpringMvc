@@ -13,6 +13,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
     [Repository]
     public class CreateInvoiceService : BaseSpringService, ICreateInvoiceService
     {
+        private IPdfInvoiceBuilder PdfInvoiceBuilder { get; set; }
+
         [Transaction]
         public Invoice GetInvoice(long orderId)
         {
