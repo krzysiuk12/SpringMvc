@@ -9,17 +9,17 @@ namespace SpringMvc.Models.Shop.Dao.Implementation
 {
     public class OrderManagementDao : IOrderManagementDao
     {
-        void CreateNewOrder(Order order)
+        public void CreateNewOrder(Order order)
         {
             throw new NotImplementedException();
         }
 
-        void MarkOrderInProgress(long orderId)
+        public void MarkOrderInProgress(long orderId)
         {
             throw new NotImplementedException();
         }
 
-        void CompleteOrder(long orderId)
+        public void CompleteOrder(long orderId)
         {
             throw new NotImplementedException();
         }

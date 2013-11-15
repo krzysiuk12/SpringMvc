@@ -9,17 +9,17 @@ namespace SpringMvc.Models.Shop.Services.Implementation
 {
     public class OrderManagementService : IOrderManagementService
     {
-        void CreateNewOrder(Order order)
+        public void CreateNewOrder(Order order)
         {
             throw new NotImplementedException();
         }
 
-        void MarkOrderInProgress(long orderId)
+        public void MarkOrderInProgress(long orderId)
         {
             throw new NotImplementedException();
         }
 
-        void CompleteOrder(long orderId)
+        public void CompleteOrder(long orderId)
         {
             throw new NotImplementedException();
         }

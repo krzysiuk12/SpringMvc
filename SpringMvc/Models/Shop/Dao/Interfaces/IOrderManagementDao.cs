@@ -6,7 +6,7 @@ using SpringMvc.Models.POCO;
 
 namespace SpringMvc.Models.Shop.Dao.Interfaces
 {
-    public class IOrderManagementDao
+    public interface IOrderManagementDao
     {
         void CreateNewOrder(Order order);
 

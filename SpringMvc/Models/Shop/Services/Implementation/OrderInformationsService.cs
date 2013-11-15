@@ -9,22 +9,22 @@ namespace SpringMvc.Models.Shop.Services.Implementation
 {
     public class OrderInformationsService : IOrderInformationsService
     {
-        Order GetOrderById(long orderId)
+        public Order GetOrderById(long orderId)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Order> GetOrdersByUserId(long userId)
+        public IEnumerable<Order> GetOrdersByUserId(long userId)
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Order> GetInProgressOrders()
+        public IEnumerable<Order> GetInProgressOrders()
         {
             throw new NotImplementedException();
         }
 
-        IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
+        public IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
         {
             throw new NotImplementedException();
         }

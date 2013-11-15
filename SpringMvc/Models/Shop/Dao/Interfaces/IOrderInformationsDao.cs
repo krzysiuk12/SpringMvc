@@ -6,7 +6,7 @@ using SpringMvc.Models.POCO;
 
 namespace SpringMvc.Models.Shop.Dao.Interfaces
 {
-    public class IOrderInformationsDao
+    public interface IOrderInformationsDao
     {
         Order GetOrderById(long orderId);
 
