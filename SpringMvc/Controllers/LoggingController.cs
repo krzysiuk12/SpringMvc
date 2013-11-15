@@ -26,8 +26,14 @@ namespace SpringMvc.Controllers
         public ActionResult Index(LogInModel loginModelData)
         {
             UserAccount user = ServiceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
-            Session["LoggedUserId"] = (long)user.Id;
-            return View();
+            if (user != null)
+            {
+                Session["LoggedUserId"] = (long)user.Id;
+                return RedirectToAction("Index", "MainShop");
+            } else
+            {
+                return View();
+            }
         }
 
         [HttpPost]
