@@ -30,7 +30,8 @@ namespace SpringMvc.Controllers
             {
                 Session["LoggedUserId"] = (long)user.Id;
                 return RedirectToAction("Index", "MainShop");
-            } else
+            } 
+            else
             {
                 return View();
             }
