@@ -260,6 +260,14 @@
     <Compile Include="Models\Common\ServiceLocator.cs" />
     <Compile Include="Models\Common\Services\Implementation\ApplicationInitializationService.cs" />
     <Compile Include="Models\Common\Services\Interfaces\IApplicationInitializationService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Implementation\BookTypeGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Implementation\GeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Implementation\OrderGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Implementation\UserAccountGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Interfaces\IBookTypeGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Interfaces\IGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Interfaces\IOrderGeneratorService.cs" />
+    <Compile Include="Models\DataGenerator\Services\Interfaces\IUserAccountGeneratorService.cs" />
     <Compile Include="Models\Invoices\Dao\Implementation\CreateInvoiceDao.cs" />
     <Compile Include="Models\Invoices\Dao\Interfaces\ICreateInvoiceDao.cs" />
     <Compile Include="Models\Invoices\Services\Implementation\CreateInvoiceService.cs" />

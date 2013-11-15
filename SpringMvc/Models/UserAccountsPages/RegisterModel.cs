@@ -16,6 +16,7 @@ namespace SpringMvc.Models.UserAccountsPages
         [Required]
         [DataType(DataType.Password)]
         [Display(Name = "Password")]
+        [StringLength(30, ErrorMessage="Password must have between 8 and 30 characters.", MinimumLength=8)]
         public string Password { get; set; }
 
         [Required]
