@@ -125,15 +125,17 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     cb.SetFontAndSize(f_cn, 10);
                     // Fixed currency.
                     string curr = "PLN";
+                    // Fixed Vat*TotalInvoicedPrice
+                    Decimal vatTaxValue = Decimal.Multiply(0.22m, totalInvoicedPrice);
                     cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin, 0);
                     cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin-12, 0);
                     cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin-36, 0);
                     left_margin = 535;
                     cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, totalInvoicedPrice.ToString(), left_margin, top_margin, 0);
                     // Fixed VAT = 22%.
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (((Decimal)0.22) * totalInvoicedPrice).ToString(), left_margin, top_margin - 12, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, vatTaxValue.ToString(), left_margin, top_margin - 12, 0);
                     //Fixed total amount.
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (totalInvoicedPrice + ((Decimal)0.22) * totalInvoicedPrice).ToString(),
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, (totalInvoicedPrice + vatTaxValue).ToString(),
                         left_margin, top_margin - 36, 0);
 
                     cb.EndText();
