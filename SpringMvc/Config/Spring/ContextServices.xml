@@ -30,6 +30,16 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="orderManagementService" type="SpringMvc.Models.Shop.Services.Implementation.OrderManagementService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
+  <object id="orderInformationsService" type="SpringMvc.Models.Shop.Services.Implementation.OrderInformationsService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="createInvoiceService" type="SpringMvc.Models.Invoices.Services.Implementation.CreateInvoiceService">
     <property name="DaoFactory" ref="daoFactory"/>
     <property name="ServiceLocator" ref="serviceLocator"/>
@@ -46,6 +56,8 @@
     <property name="UserInformationService" ref="userInformationService"/>
     <property name="SuggestionService" ref="suggestionService"/>
     <property name="CreateInvoiceService" ref="createInvoiceService"/>
+    <property name="OrderManagementService" ref="orderManagementService"/>
+    <property name="OrderInformationsService" ref="orderInformationsService"/>
   </object>
   
   <!-- **************************************** Generator Services **************************************** -->
