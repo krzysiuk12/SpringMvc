@@ -1,8 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.20827.3
-MinimumVisualStudioVersion = 10.0.40219.1
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpringMvc", "SpringMvc\SpringMvc.csproj", "{5AA3BCD2-3954-45DE-94AC-0E06147C7A94}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpringMvc.Tests", "SpringMvc.Tests\SpringMvc.Tests.csproj", "{92AC9A5F-CD29-4C50-B0C5-6CC17D069F5F}"
