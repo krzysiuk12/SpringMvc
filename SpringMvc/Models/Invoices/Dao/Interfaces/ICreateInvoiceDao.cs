@@ -10,6 +10,7 @@ namespace SpringMvc.Models.Invoices.Dao.Interfaces
     {
         long SaveInvoice(Invoice newInvoice);
         long SaveVat(VatMap newVat);
+        Invoice GetInvoiceByOrderId(long orderId);
 
     }
 }
