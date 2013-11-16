@@ -307,6 +307,10 @@
     <Compile Include="Models\Storehouse\Services\Implementation\StorehouseManagementService.cs" />
     <Compile Include="Models\Storehouse\Services\Interfaces\IBooksInformationService.cs" />
     <Compile Include="Models\Storehouse\Services\Interfaces\IStorehouseManagementService.cs" />
+    <Compile Include="Models\Suggestions\Services\Implementation\IRecommendationEngine.cs" />
+    <Compile Include="Models\Suggestions\Services\Implementation\RecommendationForGuest.cs" />
+    <Compile Include="Models\Suggestions\Services\Implementation\RecommendationForUser.cs" />
+    <Compile Include="Models\Suggestions\Services\Implementation\SuggestionCache.cs" />
     <Compile Include="Models\Suggestions\Services\Implementation\SuggestionService.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
