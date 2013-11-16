@@ -4,9 +4,10 @@
         <div class="float-right">
             <nav>
                 <ul id="menu">
-                    <li><%: Html.ActionLink("User Account", "Index", "Home") %></li>
-                    <li><%: Html.ActionLink("About", "About", "Home") %></li>
-                    <li><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
+                    <li><%: Html.ActionLink("User Account Panel", "Index", "MainShop") %></li>
+                    <li><%: Html.ActionLink("Administrator Panel", "Index", "MainShop") %></li>
+                    <li><%: Html.ActionLink("Worker Panel", "Index", "MainShop") %></li>
+                    <li><%: Html.ActionLink("Shop", "Index", "MainShop") %></li>
                 </ul>
             </nav>
         </div>
