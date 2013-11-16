@@ -424,6 +424,7 @@
     <Content Include="Views\Logging\Register.aspx" />
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
+    <Content Include="Views\Shipment\index.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />
     <Content Include="Web.config">
