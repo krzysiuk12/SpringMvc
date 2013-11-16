@@ -16,14 +16,14 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         private IPdfInvoiceBuilder PdfInvoiceBuilder { get; set; }
 
         [Transaction]
-        public Invoice GetInvoice(long orderId)
+        public void GetInvoice(long orderId)
         {
 
-            Order orderDetails = null;
+            Order orderDetails = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
             UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
-            PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails);
-             
-            throw new NotImplementedException();
+            Invoice invoice = DaoFactory.CreateInvoiceDao.GetInvoiceByOrderId(orderId);
+            PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails, invoice);
+            
         }
     }
 }

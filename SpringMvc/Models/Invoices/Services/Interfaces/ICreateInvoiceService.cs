@@ -8,6 +8,6 @@ namespace SpringMvc.Models.Invoices.Services.Interfaces
 {
     public interface ICreateInvoiceService
     {
-        Invoice GetInvoice(long orderId);
+        void GetInvoice(long orderId);
     }
 }
