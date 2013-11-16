@@ -18,12 +18,12 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
         [Transaction]
         public void GetInvoice(long orderId)
         {
-
             Order orderDetails = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
             UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
             Invoice invoice = DaoFactory.CreateInvoiceDao.GetInvoiceByOrderId(orderId);
             PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails, invoice);
-            
+            invoice.Counter++;
+            DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
         }
     }
 }
