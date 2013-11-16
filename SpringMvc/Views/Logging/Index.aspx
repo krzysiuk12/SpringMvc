@@ -40,6 +40,7 @@
     </section>
     <section class="section" id="social">
         <h2>Try without account</h2>
+        <br/>
         <div class="button">
             <%: Html.ActionLink("Log As Guest", "GuestLogin", "Logging", routeValues: null, htmlAttributes: new { id = "guestLink" })%>
         </div>
