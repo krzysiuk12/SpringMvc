@@ -42,5 +42,13 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             order.Status = Order.OrderState.PAID;
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
+
+        [Transaction]
+        public void AddOrderEntry(Order order, OrderEntry orderEntry)
+        {
+            Order or = DaoFactory.OrderInformationsDao.GetOrderById(order.User.Id);
+            or.OrderEntries.Add(orderEntry);
+            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
+        }
     }
 }
