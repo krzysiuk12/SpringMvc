@@ -7,6 +7,7 @@ using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.Invoices.Services.Interfaces;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -27,9 +28,11 @@ namespace SpringMvc.Models.Common
         public IOrderInformationsService OrderInformationsService { get; set; }
 
         public IOrderManagementService OrderManagementService { get; set; }
+
+        public IStorehouseManagementService StorehouseManagementService { get; set; }
         
+        public IBooksInformationService BooksInformationService { get; set; }
+
         public ApplicationScope ApplicationScope { get; set; }
-
-
     }
 }

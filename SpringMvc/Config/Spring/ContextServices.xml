@@ -3,7 +3,9 @@
          xmlns:tx="http://www.springframework.net/tx">
 
   <!-- **************************************** Service Locator Injected Services **************************************** -->
-  <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application"/>
+  <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application">
+    <property name="MenuProvider" ref="menuObjectProvider"/>
+  </object>
 
   <object id="accountAdministrationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService">
     <property name="DaoFactory" ref="daoFactory"/>
@@ -40,6 +42,16 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="booksInformationService" type="SpringMvc.Models.Storehouse.Services.Implementation.BooksInformationService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
+  <object id="storehouseManagementService" type="SpringMvc.Models.Storehouse.Services.Implementation.StorehouseManagementService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="createInvoiceService" type="SpringMvc.Models.Invoices.Services.Implementation.CreateInvoiceService">
     <property name="DaoFactory" ref="daoFactory"/>
     <property name="ServiceLocator" ref="serviceLocator"/>
@@ -49,7 +61,6 @@
   </object>
 
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
-    <property name="ApplicationScope" ref="applicationScope"/>
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
     <property name="AuthorizationService" ref="authorizationService"/>
     <property name="LogEventsService" ref="logEventsService"/>
@@ -58,6 +69,9 @@
     <property name="CreateInvoiceService" ref="createInvoiceService"/>
     <property name="OrderManagementService" ref="orderManagementService"/>
     <property name="OrderInformationsService" ref="orderInformationsService"/>
+    <property name="BooksInformationService" ref="booksInformationService"/>
+    <property name="StorehouseManagementService" ref="storehouseManagementService"/>
+    <property name="ApplicationScope" ref="applicationScope"/>
   </object>
   
   <!-- **************************************** Generator Services **************************************** -->

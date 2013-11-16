@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpringMvc.Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,10 @@ namespace SpringMvc.Models.Common
 
         public static String WorkerLogin { get { return "worker"; } }
         public static String WorkerPassword { get { return "worker"; } }
+
+        public MenuObjectProvider MenuProvider { get; set; }
+
+        public static Models.Suggestions.Services.Implementation.SuggestionCache GlobalSuggestionCache = null;
 
     }
 }

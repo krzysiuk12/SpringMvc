@@ -85,6 +85,14 @@
     <property name="SessionFactory" ref="sessionFactory"/>
   </object>
 
+  <object id="booksInformationDao" type="SpringMvc.Models.Storehouse.Dao.Implementation.BooksInformationDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+
+  <object id="storehouseManagamentDao" type="SpringMvc.Models.Storehouse.Dao.Implementation.StorehouseManagementDao">
+    <property name="SessionFactory" ref="sessionFactory"/>
+  </object>
+  
   <object id="daoFactory" type="SpringMvc.Models.Common.DaoFactory">
     <property name="AccountAdministrationDao" ref="accountAdministrationDao"/>
     <property name="AuthorizationDao" ref="authorizationDao"/>
@@ -93,6 +101,8 @@
     <property name="OrderManagementDao" ref="orderManagementDao"/>
     <property name="OrderInformationsDao" ref="orderInformationsDao"/>
     <property name="CreateInvoiceDao" ref="createInvoiceDao"/>
+    <property name="BooksInformationDao" ref="BooksInformationDao"/>
+    <property name="StorehouseManagamentDao" ref="storehouseManagamentDao"/>
   </object>
   
 </objects>
