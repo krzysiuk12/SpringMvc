@@ -1,27 +1,62 @@
-﻿using SpringMvc.Models.Common;
-using SpringMvc.Models.Storehouse.Services.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SpringMvc.Models.POCO;
+using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Common;
+using Spring.Stereotype;
+using Spring.Transaction.Interceptor;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
+    [Repository]
     public class StorehouseManagementService : BaseSpringService, IStorehouseManagementService
     {
-        public void AddCategory(string name)
+        [Transaction]
+        public void AddCategory(String name)
         {
-            throw new NotImplementedException();
+            Category category = new Category()
+            {
+                Name = name
+            };
+            DaoFactory.StorehouseManagamentDao.SaveCategory(category);
         }
 
-        public void AddBookType(string title, string authors, decimal price, int quantity, POCO.Category category)
+        [Transaction]
+        public void AddBookType(string title, string authors, decimal price, int quantity, Category category)
         {
-            throw new NotImplementedException();
+            QuantityMap quantityMap = new QuantityMap()
+            {
+                Quantity = quantity
+            };
+
+            BookType newBookType = new BookType()
+            {
+                Title = title,
+                Authors = authors,
+                Price = price,
+                QuantityMap = quantityMap,
+                Category = category
+            };
+
+            DaoFactory.StorehouseManagamentDao.SaveBookType(newBookType);
         }
 
-        public void MarkSold(long bookTypeId, int quantity)
+        [Transaction]
+        public bool MarkSold(long bookTypeId, int quantity)
         {
-            throw new NotImplementedException();
+            BookType bookType = DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
+
+            if (bookType.QuantityMap.Quantity - quantity < 0)
+                return false;
+            else
+            {
+                bookType.QuantityMap.Quantity -= quantity;
+                DaoFactory.StorehouseManagamentDao.UpdateQuantity(bookType);
+                return true;
+            }
         }
     }
 }

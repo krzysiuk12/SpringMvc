@@ -8,6 +8,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
     public class RecommendationForUser : IRecommendationEngine
     {
+
         public IEnumerable<BookType> GenerateRecommendation()
         {
             throw new NotImplementedException();

@@ -12,6 +12,6 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
 
         IEnumerable<BookType> GetAllBooks();
 
-        BookType GetBookById(long bookTypeId);
+        BookType GetBookTypeById(long bookTypeId);
     }
 }
