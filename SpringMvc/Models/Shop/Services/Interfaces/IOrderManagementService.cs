@@ -9,6 +9,8 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
     public interface IOrderManagementService
     {
         void CreateNewOrder(Order order);
+
+        void AddOrderEntry(Order order, long selectedBookTypeId, int amount);
             
         void MarkOrderInProgress(long orderId);
 
