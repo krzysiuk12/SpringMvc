@@ -43,12 +43,17 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 
-        [Transaction]
-        public void AddOrderEntry(Order order, OrderEntry orderEntry)
+        public void AddOrderEntry(Order order, long selectedBookTypeId, int amount)
         {
-            Order or = DaoFactory.OrderInformationsDao.GetOrderById(order.User.Id);
-            or.OrderEntries.Add(orderEntry);
-            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
+            BookType bookType = new BookType(); //Tutaj jak zaimplementuja ServiceLocator.(...)
+            OrderEntry orderEntry = new OrderEntry()
+            {
+                Order = order,
+                BookType = bookType,
+                Price = bookType.Price,
+                Amount = amount
+            };
+            order.OrderEntries.Add(orderEntry);
         }
     }
 }

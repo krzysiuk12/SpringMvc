@@ -10,7 +10,7 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
     {
         void CreateNewOrder(Order order);
 
-        void AddOrderEntry(Order order, OrderEntry orderEntry);
+        void AddOrderEntry(Order order, long selectedBookTypeId, int amount);
             
         void MarkOrderInProgress(long orderId);
 
