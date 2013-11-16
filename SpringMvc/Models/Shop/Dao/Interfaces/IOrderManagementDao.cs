@@ -8,10 +8,12 @@ namespace SpringMvc.Models.Shop.Dao.Interfaces
 {
     public interface IOrderManagementDao
     {
-        void CreateNewOrder(Order order);
+        void SaveOrUpdate(Order order);
 
-        void MarkOrderInProgress(long orderId);
+        //void CreateNewOrder(Order order);
 
-        void CompleteOrder(long orderId);
+        //void MarkOrderInProgress(long orderId);
+
+        //void CompleteOrder(long orderId);
     }
 }

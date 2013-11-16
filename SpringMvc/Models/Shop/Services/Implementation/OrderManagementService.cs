@@ -4,24 +4,43 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Common;
+using Spring.Stereotype;
+using Spring.Transaction.Interceptor;
 
 namespace SpringMvc.Models.Shop.Services.Implementation
 {
-    public class OrderManagementService : IOrderManagementService
+    [Repository]
+    public class OrderManagementService : BaseSpringService,  IOrderManagementService
     {
+        [Transaction]
         public void CreateNewOrder(Order order)
         {
-            throw new NotImplementedException();
+            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 
+        [Transaction]
         public void MarkOrderInProgress(long orderId)
         {
-            throw new NotImplementedException();
+            Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
+            order.Status = Order.OrderState.IN_PROGRESS;
+            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 
+        [Transaction]
         public void CompleteOrder(long orderId)
         {
-            throw new NotImplementedException();
+            Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
+            order.Status = Order.OrderState.DELIVERED;
+            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
+        }
+
+        [Transaction]
+        public void OrderPaid(long orderId)
+        {
+            Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
+            order.Status = Order.OrderState.PAID;
+            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
     }
 }
