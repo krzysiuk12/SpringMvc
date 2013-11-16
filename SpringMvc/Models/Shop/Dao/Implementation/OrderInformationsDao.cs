@@ -5,30 +5,30 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
+using NHibernate.Linq;
 
 namespace SpringMvc.Models.Shop.Dao.Implementation
 {
-    public class OrderInformationsDao :  IOrderInformationsDao
+    public class OrderInformationsDao : BaseHibernateDao, IOrderInformationsDao
     {
         public Order GetOrderById(long orderId)
         {
-         //   return this.S
-            throw new NotImplementedException();
+            return this.Session.Query<Order>().Where(order => order.Id == orderId).Select(order => order).Single();
         }
 
         public IEnumerable<Order> GetOrdersByUserId(long userId)
         {
-            throw new NotImplementedException();
+            return this.Session.Query<Order>().Where(order => order.User.Id == userId).Select(order => order).ToList();
         }
 
         public IEnumerable<Order> GetInProgressOrders()
         {
-            throw new NotImplementedException();
+            return this.Session.Query<Order>().Where(order => order.Status == Order.OrderState.IN_PROGRESS).Select(order => order).ToList();
         }
 
         public IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
         {
-            throw new NotImplementedException();
+            return this.Session.Query<Order>().Where(order => (order.Status == Order.OrderState.IN_PROGRESS && order.User.Id == userId )).Select(order => order).ToList();
         }
     }
 }

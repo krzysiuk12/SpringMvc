@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.UserAccounts.Dao.Interfaces;
 using SpringMvc.Models.Invoices.Dao.Interfaces;
+using SpringMvc.Models.Shop.Dao.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -19,5 +20,9 @@ namespace SpringMvc.Models.Common
         public IUserInformationDao UserInformationDao { get; set; }
 
         public ICreateInvoiceDao CreateInvoiceDao { get; set; }
+
+        public IOrderInformationsDao OrderInformationsDao { get; set; }
+
+        public IOrderManagementDao OrderManagementDao { get; set; }
     }
 }

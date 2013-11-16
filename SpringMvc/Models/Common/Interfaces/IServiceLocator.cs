@@ -1,4 +1,5 @@
 ﻿using SpringMvc.Models.Invoices.Services.Interfaces;
+using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using System;
@@ -16,6 +17,8 @@ namespace SpringMvc.Models.Common.Interfaces
         IUserInformationService UserInformationService { get; set; }
         ISuggestionService SuggestionService { get; set; }
         ICreateInvoiceService CreateInvoiceService { get; set; }
+        IOrderInformationsService OrderInformationsService { get; set; }
+        IOrderManagementService OrderManagementService { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }
 }

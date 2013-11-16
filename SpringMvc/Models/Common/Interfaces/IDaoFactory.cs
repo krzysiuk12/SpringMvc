@@ -1,5 +1,6 @@
 ﻿using SpringMvc.Models.Invoices.Dao.Interfaces;
 using SpringMvc.Models.UserAccounts.Dao.Interfaces;
+using SpringMvc.Models.Shop.Dao.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace SpringMvc.Models.Common.Interfaces
         ILogEventsDao LogEventsDao { get; set; }
         IUserInformationDao UserInformationDao { get; set; }
         ICreateInvoiceDao CreateInvoiceDao { get; set; }
+        IOrderInformationsDao  OrderInformationsDao { get; set; }
+        IOrderManagementDao OrderManagementDao { get; set; }
     }
 }

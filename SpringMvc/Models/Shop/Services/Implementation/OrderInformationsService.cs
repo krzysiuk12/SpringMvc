@@ -4,29 +4,30 @@ using System.Linq;
 using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Common;
 
 namespace SpringMvc.Models.Shop.Services.Implementation
 {
-    public class OrderInformationsService : IOrderInformationsService
+    public class OrderInformationsService : BaseSpringService, IOrderInformationsService
     {
         public Order GetOrderById(long orderId)
         {
-            throw new NotImplementedException();
+            return DaoFactory.OrderInformationsDao.GetOrderById(orderId);
         }
 
         public IEnumerable<Order> GetOrdersByUserId(long userId)
         {
-            throw new NotImplementedException();
+            return DaoFactory.OrderInformationsDao.GetOrdersByUserId(userId);
         }
 
         public IEnumerable<Order> GetInProgressOrders()
         {
-            throw new NotImplementedException();
+            return DaoFactory.OrderInformationsDao.GetInProgressOrders();
         }
 
         public IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
         {
-            throw new NotImplementedException();
+            return DaoFactory.OrderInformationsDao.GetInProgressOrdersByUserId(userId);
         }
     }
 }
