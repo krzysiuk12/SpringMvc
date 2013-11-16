@@ -14,7 +14,19 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
     public class CreateInvoiceService : BaseSpringService, ICreateInvoiceService
     {
         private IPdfInvoiceBuilder PdfInvoiceBuilder { get; set; }
+        [Transaction]
+        public void CreateNewInvoice(long orderId)
+        {
+            Invoice invoice = new Invoice();
+            invoice.Counter = 0;
+            invoice.Order = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
+            Decimal totalOrderValue = 0;
+            
+            foreach (OrderEntry entry in invoice.Order.OrderEntries)
+                totalOrderValue += entry.Price;
 
+            invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
+        }
         [Transaction]
         public void GetInvoice(long orderId)
         {

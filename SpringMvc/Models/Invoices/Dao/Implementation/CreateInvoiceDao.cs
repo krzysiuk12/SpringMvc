@@ -25,5 +25,11 @@ namespace SpringMvc.Models.Invoices.Dao.Implementation
         {
             return this.Session.Query<Invoice>().Where(invoice => invoice.Order.Id == orderId).Select(invoice => invoice).Single();
         }
+
+        public VatMap GetActualVat()
+        {
+            long actualVatId = this.Session.Query<VatMap>().Max(vat => vat.Id);
+            return this.Session.Query<VatMap>().Where(vat => vat.Id == actualVatId).Select(vat => vat).Single();
+        }
     }
 }

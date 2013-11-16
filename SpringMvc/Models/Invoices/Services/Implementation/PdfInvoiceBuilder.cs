@@ -42,7 +42,6 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     cb.AddImage(png);
                     cb.BeginText();
                         
-                    // Invoice main details.
                     writeText(cb, "BookStore Invoice", 350, 820, f_cb, 14);
                     writeText(cb, "Invoice Id", 350, 800, f_cb, 10);
                     writeText(cb, invoice.Id.ToString(), 420, 800, f_cn, 10);
@@ -51,7 +50,6 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     writeText(cb, "Customer Id", 350, 764, f_cb, 10);
                     writeText(cb, orderDetails.User.Id.ToString(), 420, 764, f_cn, 10);
 
-                    // Delivery address details.
                     int left_margin = 40;
                     int top_margin = 720;
                     writeText(cb, "Delivery address", left_margin, top_margin, f_cb, 10);
@@ -62,7 +60,6 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                         + " " + userDetails.PersonalData.Address.City, left_margin, top_margin-36, f_cn, 10);
                     writeText(cb, userDetails.PersonalData.Address.Country, left_margin, top_margin-48, f_cn, 10);
 
-                    // Fixed invoice address
                     left_margin = 350;
                     writeText(cb, "Invoice address", left_margin, top_margin, f_cb, 10);
                     writeText(cb, "BookStore", left_margin, top_margin - 12, f_cn, 10);
