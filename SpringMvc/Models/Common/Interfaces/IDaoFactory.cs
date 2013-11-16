@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using SpringMvc.Models.Storehouse.Dao.Interfaces;
 
 namespace SpringMvc.Models.Common.Interfaces
 {
@@ -17,5 +18,7 @@ namespace SpringMvc.Models.Common.Interfaces
         ICreateInvoiceDao CreateInvoiceDao { get; set; }
         IOrderInformationsDao  OrderInformationsDao { get; set; }
         IOrderManagementDao OrderManagementDao { get; set; }
+        IBooksInformationDao BooksInformationDao { get; set; }
+        IStorehouseManagementDao StorehouseManagamentDao { get; set; }
     }
 }
