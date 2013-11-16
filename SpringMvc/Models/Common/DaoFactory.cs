@@ -27,7 +27,7 @@ namespace SpringMvc.Models.Common
         public IOrderManagementDao OrderManagementDao { get; set; }
 
         public IBooksInformationDao BooksInformationDao { get; set; }
-
-        public IStorehouseManagementDao StorehouseManagementDato { get; set; }
+        
+        public IStorehouseManagementDao StorehouseManagamentDao { get; set; }
     }
 }

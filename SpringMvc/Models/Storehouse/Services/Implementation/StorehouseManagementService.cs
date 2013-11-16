@@ -9,21 +9,19 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
     public class StorehouseManagementService : BaseSpringService, IStorehouseManagementService
     {
-
-        void AddCategory(String name)
+        public void AddCategory(string name)
         {
-
+            throw new NotImplementedException();
         }
 
-        void AddBookType(String title, String authors, long CategoryID, long QuantityMapId, decimal price)
+        public void AddBookType(string title, string authors, decimal price, int quantity, POCO.Category category)
         {
-
+            throw new NotImplementedException();
         }
 
-        void MarkSold(long id, int quantity)
+        public void MarkSold(long bookTypeId, int quantity)
         {
-
+            throw new NotImplementedException();
         }
-       
     }
 }

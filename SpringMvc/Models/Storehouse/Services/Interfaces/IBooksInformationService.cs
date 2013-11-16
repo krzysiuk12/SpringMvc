@@ -8,10 +8,10 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
 {
     public interface IBooksInformationService
     {
-        IEnumerable<BookType> GetBooksByCategory(long CategoryId);
+        IEnumerable<BookType> GetBooksByCategoryId(long categoryId);
 
         IEnumerable<BookType> GetAllBooks();
 
-        BookType GetBookById(long BookTypeId);
+        BookType GetBookById(long bookTypeId);
     }
 }

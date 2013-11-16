@@ -13,9 +13,9 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
 
     public class BooksInformationDao : BaseHibernateDao, IBooksInformationDao
     {
-        IEnumerable<BookType> GetBooksByCategory(long CategoryId)
+        public IEnumerable<BookType> GetBooksByCategoryId(long categoryId)
         {
-            return this.Session.Query<BookType>().Where(bookType => bookType.Category.Id == CategoryId).Select(bookType => bookType).ToList();
+            return this.Session.Query<BookType>().Where(bookType => bookType.Category.Id == categoryId).Select(bookType => bookType).ToList();
         }
 
         public IEnumerable<BookType> GetAllBooks()
@@ -23,9 +23,9 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
             return this.Session.Query<BookType>().Where(bookType => bookType.Id != -1).Select(bookType => bookType).ToList();
         }
 
-        public BookType GetBookById(long BookTypeId)
+        public BookType GetBookById(long bookTypeId)
         {
-            return this.Session.Query<BookType>().Where(bookType => bookType.Id == BookTypeId).Select(bookType => bookType).Single();
+            return this.Session.Query<BookType>().Where(bookType => bookType.Id == bookTypeId).Select(bookType => bookType).Single();
         }
     }
 }

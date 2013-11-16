@@ -10,22 +10,19 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
     public class BooksInformationService : BaseSpringService, IBooksInformationService
     {
-        
-        public IEnumerable<BookType> GetBooksByCategory(long CategoryId)
+        public IEnumerable<BookType> GetBooksByCategoryId(long categoryId)
         {
-            return DaoFactory.BooksInformationDao.GetBooksByCategory(CategoryId);
+            throw new NotImplementedException();
         }
 
         public IEnumerable<BookType> GetAllBooks()
         {
-            return DaoFactory.BooksInformationDao.GetAllBooks();
-
+            throw new NotImplementedException();
         }
 
-        public BookType GetBookById(long BookTypeId)
+        public BookType GetBookById(long bookTypeId)
         {
-            return DaoFactory.BooksInformationDao.GetBookById(BookTypeId);
+            throw new NotImplementedException();
         }
-
     }
 }

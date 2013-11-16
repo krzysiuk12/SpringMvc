@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SpringMvc.Models.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,8 +10,8 @@ namespace SpringMvc.Models.Storehouse.Dao.Interfaces
     {
         void AddCategory(String name);
 
-        void AddBookType(String title, String authors, long CategoryID, long QuantityMapId, decimal price);
+        void AddBookType(String title, String authors, decimal price, int quantity, Category category);
 
-        void MarkSold(long id, int quantity);
+        void MarkSold(long bookTypeId, int quantity);
     }
 }

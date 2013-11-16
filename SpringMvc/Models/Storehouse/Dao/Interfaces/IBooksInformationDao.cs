@@ -8,10 +8,10 @@ namespace SpringMvc.Models.Storehouse.Dao.Interfaces
 {
     public interface IBooksInformationDao
     {
-        IEnumerable<BookType> GetBooksByCategory(long CategoryId);
+        IEnumerable<BookType> GetBooksByCategoryId(long categoryId);
 
         IEnumerable<BookType> GetAllBooks();
 
-        BookType GetBookById(long BookTypeId);
+        BookType GetBookById(long bookTypeId);
     }
 }
