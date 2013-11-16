@@ -343,6 +343,7 @@
     <Compile Include="Tmp\testclass.cs" />
     <Compile Include="Views\Shared\MainShop.Master.cs">
       <DependentUpon>MainShop.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Shared\MainShop.Master.designer.cs">
       <DependentUpon>MainShop.Master</DependentUpon>

@@ -10,10 +10,19 @@
 
 <asp:Content ID="indexLeftMenu" ContentPlaceHolderID="LeftMenuContent" runat="server">
     <h2>Categories</h2>
-	<ul>
-		<li>cat1</li>	
-		<li>cat2</li>
-	</ul>
+
+	
+    <ul class="leftmenu">
+        <li><%: Html.ActionLink("User Account", "Index", "Home") %>
+			<ul>
+				<li><a href="#">link1</a></li>
+				<li><a href="#">link2</a></li>
+				<li><a href="#">link3</a></li>
+			</ul>
+        </li>
+        <li><%: Html.ActionLink("About", "About", "Home") %></li>
+        <li><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
+    </ul>
 </asp:Content>
 
 <asp:Content ID="indexMain" ContentPlaceHolderID="MainContent" runat="server">

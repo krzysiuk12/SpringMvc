@@ -25,6 +25,7 @@ a {
     a:link, a:visited,
     a:active, a:hover {
         color: #333;
+		padding: 0px;
     }
 
     a:hover {
@@ -109,9 +110,36 @@ h5, h6 {
 	width: 25%;
 }
 
-	/*#leftmenu li {
+	#leftmenu ul {
+		margin: 0px;
+		padding: 0px;
+	}
+
+	#leftmenu li {
 		list-style-type: none;
-	}*/
+	}
+	
+
+	#leftmenu a {
+		width: 150px;
+		background-color:#7ac0da;
+		height: 25px;
+		text-decoration: none;
+		border-left: 5px solid #ffffff;
+		border-right: none;
+		border-top: none;
+		border-bottom: none;
+		padding:0px;
+	}
+
+		#leftmenu a:hover {
+			padding-left:20px;
+		}
+
+
+
+
+
 
 #shopview {
 	float:left;
@@ -213,7 +241,103 @@ footer {
 
 /* menu
 ----------------------------------------------------------*/
-ul#menu {
+
+nav {
+	list-style: none;
+	margin: -10px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+nav ul {
+	height: 35px;
+	display:inline;
+    font-size: 1.3em;
+    font-weight: 600;
+    /*position:relative;*/
+	margin:0px;
+	padding:0px;
+}
+
+	nav li {
+	}
+
+nav ul ul {
+	display: none;	/* hide submenus */
+}
+
+nav ul li:hover > ul {
+	display: block;	/* show submenus on hover */
+	position: absolute;
+}
+
+	nav ul li {
+		padding:0px;
+		margin:0px;
+		display: inline;
+	}
+
+	nav ul ul li a, a:active, a:link, a:visited {
+		margin: 0px 0px 0px 0px;
+		color: #ffffff;
+		display:inline-block;
+		width:100px;
+		height:25px;
+		font-size:12px;
+		padding: 0px 10px 13px 10px;
+		border-left: 1px solid #efeeef;
+		border-right: 1px solid #efeeef;
+		border-bottom: 1px solid #efeeef;
+		background-color: #7ac0da;
+		text-decoration: none;
+
+		padding: 15px 15px 0px 0px;
+	}
+
+	nav ul ul li a:hover {
+		border-bottom: 1px solid #ffffff;
+	}
+
+nav ul li:hover ul li {
+	clear: left;
+}
+
+	nav ul:after {
+		content: ""; clear: both; display: block;
+	}
+
+	nav ul li li {
+		background-color: #7ac0da;
+		
+	}
+
+	/*nav ul li {
+		margin-right: 10px;
+	}*/
+
+nav li {
+	display: inline;
+    position:relative;
+	text-align:left;
+	/*background-color:#7ac0da;*/
+}
+
+/*.topmenu a, a:hover {
+	display:inline;
+}*/
+
+	/*ul#menu a, a:hover, a:link, a:visited, a:active {
+		display:block;
+		width: 150px;
+		height: 50px;
+	}*/
+
+	nav li li {
+
+		width: 150px;
+		height: 50px;
+	}
+
+/*ul#menu {
     font-size: 1.3em;
     font-weight: 600;
     margin: 0 0 5px;
@@ -236,7 +360,7 @@ ul#menu {
         ul#menu li a:hover {
             color: #333;
             text-decoration: none;
-        }
+        }*/
 
 
 /* page elements
@@ -673,6 +797,7 @@ tr.pager td {
     /* menu */
     nav {
         margin-bottom: 5px;
+		float:none;
     }
 
     ul#menu {
