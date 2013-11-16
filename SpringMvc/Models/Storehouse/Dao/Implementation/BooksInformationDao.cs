@@ -23,7 +23,7 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
             return this.Session.Query<BookType>().Where(bookType => bookType.Id != -1).Select(bookType => bookType).ToList();
         }
 
-        public BookType GetBookById(long bookTypeId)
+        public BookType GetBookTypeById(long bookTypeId)
         {
             return this.Session.Query<BookType>().Where(bookType => bookType.Id == bookTypeId).Select(bookType => bookType).Single();
         }

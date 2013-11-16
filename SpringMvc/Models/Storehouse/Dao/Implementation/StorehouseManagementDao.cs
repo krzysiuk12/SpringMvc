@@ -10,6 +10,22 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
 {
     public class StorehouseManagementDao : BaseHibernateDao, IStorehouseManagementDao
     {
+
+        public void SaveBookType(BookType bookType)
+        {
+            this.Session.Save(bookType);
+        }
+
+        public void SaveCategory(Category category)
+        {
+            this.Session.Save(category);
+        }
+
+        public void UpdateQuantity(BookType bookType)
+        {
+            this.Session.Update(bookType);
+        }
+
         public void AddCategory(string name)
         {
             throw new NotImplementedException();
@@ -20,7 +36,7 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
             throw new NotImplementedException();
         }
 
-        public void MarkSold(long bookTypeId, int quantity)
+        public bool MarkSold(long bookTypeId, int quantity)
         {
             throw new NotImplementedException();
         }
