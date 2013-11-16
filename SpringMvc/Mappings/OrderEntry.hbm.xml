@@ -11,7 +11,7 @@
     <property name="Amount" column="Amount" type="Int32"/>
     <property name="Price" column="Price" type="double"/>
 
-    <many-to-one name="BookType" column="BookTypeId" class="BookType" not-null="true" update="false" insert="false" lazy="proxy" foreign-key="FK_OrderEntryToOrder"/>
+    <many-to-one name="BookType" column="BookTypeId" class="BookType" not-null="true" update="false" insert="false" lazy="false" foreign-key="FK_OrderEntryToOrder"/>
     <many-to-one name="Order" column="OrderId" class="Order" not-null="true" lazy="false" foreign-key="FK_OrderEntryToBookType"/>
   </class>
 </hibernate-mapping>

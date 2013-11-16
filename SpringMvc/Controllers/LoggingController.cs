@@ -17,6 +17,10 @@ namespace SpringMvc.Controllers
         //
         // GET: /Logging/
 
+
+        /*
+         * ***************************************** Login/Logout Controller Part *****************************************
+         */
         public ActionResult Index()
         {
             return View();
@@ -29,6 +33,7 @@ namespace SpringMvc.Controllers
             if (user != null)
             {
                 Session["LoggedUserId"] = (long)user.Id;
+                Session["LoggedUser"] = (UserAccount)user;
                 return RedirectToAction("Index", "MainShop");
             } 
             else
@@ -37,13 +42,22 @@ namespace SpringMvc.Controllers
             }
         }
 
-        [HttpPost]
-        public ActionResult GuestIndex()
+        public ActionResult GuestLogin()
         {
             Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
+            return RedirectToAction("Index", "MainShop");
+        }
+
+        public ActionResult Logout()
+        {
+            Session["LoggedUserId"] = null;
             return RedirectToAction("Index", "Logging");
         }
 
+
+        /*
+         * ***************************************** Register Controller Part *****************************************
+         */
         public ActionResult Register()
         {
             return View();
