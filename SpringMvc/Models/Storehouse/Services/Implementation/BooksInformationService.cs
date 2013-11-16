@@ -12,17 +12,17 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
     {
         public IEnumerable<BookType> GetBooksByCategoryId(long categoryId)
         {
-            throw new NotImplementedException();
+            return DaoFactory.BooksInformationDao.GetBooksByCategoryId(categoryId);
         }
 
         public IEnumerable<BookType> GetAllBooks()
         {
-            throw new NotImplementedException();
+            return DaoFactory.BooksInformationDao.GetAllBooks();
         }
 
         public BookType GetBookById(long bookTypeId)
         {
-            throw new NotImplementedException();
+            return DaoFactory.BooksInformationDao.GetBookById(bookTypeId);
         }
     }
 }
