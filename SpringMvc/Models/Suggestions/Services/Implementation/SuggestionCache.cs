@@ -9,6 +9,6 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
     public class SuggestionCache
     {
         public DateTime GenerationTime { get; set; }
-        public List<BookType> BookList { get; set; }
+        public List<long> BookList { get; set; }
     }
 }

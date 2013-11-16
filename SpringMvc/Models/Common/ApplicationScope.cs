@@ -17,5 +17,7 @@ namespace SpringMvc.Models.Common
         public static String WorkerLogin { get { return "worker"; } }
         public static String WorkerPassword { get { return "worker"; } }
 
+        public static Models.Suggestions.Services.Implementation.SuggestionCache GlobalSuggestionCache = null; 
+
     }
 }
