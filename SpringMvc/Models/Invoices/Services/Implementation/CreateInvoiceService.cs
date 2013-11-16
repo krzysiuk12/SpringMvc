@@ -26,6 +26,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                 totalOrderValue += entry.Price;
 
             invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
+            DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
         }
         [Transaction]
         public void GetInvoice(long orderId)
