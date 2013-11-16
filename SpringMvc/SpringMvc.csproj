@@ -299,6 +299,14 @@
     <Compile Include="Models\Shop\Services\Implementation\OrderManagementService.cs" />
     <Compile Include="Models\Shop\Services\Interfaces\IOrderInformationsService.cs" />
     <Compile Include="Models\Shop\Services\Interfaces\IOrderManagementService.cs" />
+    <Compile Include="Models\Storehouse\Dao\Implementation\BooksInformationDao.cs" />
+    <Compile Include="Models\Storehouse\Dao\Implementation\StorehouseManagementDao.cs" />
+    <Compile Include="Models\Storehouse\Dao\Interfaces\IBooksInformationDao.cs" />
+    <Compile Include="Models\Storehouse\Dao\Interfaces\IStorehouseManagementDao.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\BooksInformationService.cs" />
+    <Compile Include="Models\Storehouse\Services\Implementation\StorehouseManagementService.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\IBooksInformationService.cs" />
+    <Compile Include="Models\Storehouse\Services\Interfaces\IStorehouseManagementService.cs" />
     <Compile Include="Models\Suggestions\Services\Implementation\SuggestionService.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
@@ -492,9 +500,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Filters\" />
     <Folder Include="Models\Shipment\Dao\" />
-    <Folder Include="Models\Storehouse\Dao\" />
-    <Folder Include="Models\Storehouse\Services\Implementation\" />
-    <Folder Include="Models\Storehouse\Services\Interfaces\" />
     <Folder Include="Models\Suggestions\Dao\" />
     <Folder Include="Views\AdministratorPanel\" />
   </ItemGroup>
