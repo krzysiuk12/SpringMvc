@@ -3,7 +3,9 @@
          xmlns:tx="http://www.springframework.net/tx">
 
   <!-- **************************************** Service Locator Injected Services **************************************** -->
-  <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application"/>
+  <object id="applicationScope" type="SpringMvc.Models.Common.ApplicationScope" scope="application">
+    <property name="MenuProvider" ref="menuObjectProvider"/>
+  </object>
 
   <object id="accountAdministrationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountAdministrationService">
     <property name="DaoFactory" ref="daoFactory"/>

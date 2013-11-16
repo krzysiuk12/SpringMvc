@@ -245,6 +245,8 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Config\CustomLocalSessionFactoryProvider.cs" />
     <Compile Include="Config\SpringDependencyResolver.cs" />
+    <Compile Include="Controllers\AdministratorPanelController.cs" />
+    <Compile Include="Controllers\BookstoreController.cs" />
     <Compile Include="Controllers\InitializationController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\MainShopController.cs" />
@@ -253,6 +255,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Menu\MenuObject.cs" />
+    <Compile Include="Menu\MenuObjectProvider.cs" />
+    <Compile Include="Menu\MenuPositions\BaseMenuPosition.cs" />
+    <Compile Include="Menu\MenuPositions\PrimaryMenuPosition.cs" />
+    <Compile Include="Menu\MenuPositions\SecondaryMenuPosition.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
     <Compile Include="Models\Common\BaseSpringService.cs" />
@@ -347,6 +354,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\Spring\ContextDao.xml" />
+    <Content Include="Config\Spring\ContextMenuObjects.xml" />
     <Content Include="Config\Spring\ContextServices.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -433,13 +441,21 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\AdministratorPanel\ChangeUserPassword.aspx" />
+    <Content Include="Views\AdministratorPanel\ChangeUserStatus.aspx" />
+    <Content Include="Views\AdministratorPanel\ViewAllUserAccounts.aspx" />
+    <Content Include="Views\AdministratorPanel\ViewUserInformation.aspx" />
+    <Content Include="Views\Bookstore\About.aspx" />
+    <Content Include="Views\Bookstore\Contact.aspx" />
     <Content Include="Views\Logging\Index.aspx" />
     <Content Include="Views\Logging\Register.aspx" />
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Views\Shipment\index.aspx" />
+    <Content Include="Views\UserAccountPanel\ChangePassword.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />
+    <Content Include="Views\UserAccountPanel\Index.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -505,7 +521,6 @@
     <Folder Include="Filters\" />
     <Folder Include="Models\Shipment\Dao\" />
     <Folder Include="Models\Suggestions\Dao\" />
-    <Folder Include="Views\AdministratorPanel\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

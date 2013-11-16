@@ -6,7 +6,7 @@
     </ul>
 <% } else if ((long)Session["LoggedUserId"] == (long)Application["GuestId"]) { %>
      You are currently logged in as a Guest.
-     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
+     <li><%: Html.ActionLink("Logout", (string)Session["ControllerAction"], (string)Session["ControllerName"], routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
 <% } else if ((long)Session["LoggedUserId"] == (long)Application["AdministratorId"]) { %>
     You are currently logged in as Administrator.
     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>

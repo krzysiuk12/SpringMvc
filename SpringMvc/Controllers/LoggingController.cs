@@ -45,6 +45,7 @@ namespace SpringMvc.Controllers
         public ActionResult GuestLogin()
         {
             Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
+            Session["MenuProvider"] = (SpringMvc.Menu.MenuObjectProvider)ServiceLocator.ApplicationScope.MenuProvider;
             return RedirectToAction("Index", "MainShop");
         }
 
