@@ -27,5 +27,10 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
         {
             return this.Session.Query<BookType>().Where(bookType => bookType.Id == bookTypeId).Select(bookType => bookType).Single();
         }
+
+        public IList<Category> GetAllCategories()
+        {
+            return this.Session.Query<Category>().Select(category => category).ToList();
+        }
     }
 }

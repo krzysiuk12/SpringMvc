@@ -24,5 +24,10 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         {
             return DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
         }
+
+        public IList<Category> GetAllCategories()
+        {
+            return DaoFactory.BooksInformationDao.GetAllCategories();
+        }
     }
 }

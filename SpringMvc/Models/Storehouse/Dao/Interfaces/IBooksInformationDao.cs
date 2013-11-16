@@ -13,5 +13,7 @@ namespace SpringMvc.Models.Storehouse.Dao.Interfaces
         IEnumerable<BookType> GetAllBooks();
 
         BookType GetBookTypeById(long bookTypeId);
+
+        IList<Category> GetAllCategories();
     }
 }
