@@ -20,9 +20,9 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
             return DaoFactory.BooksInformationDao.GetAllBooks();
         }
 
-        public BookType GetBookById(long bookTypeId)
+        public BookType GetBookTypeById(long bookTypeId)
         {
-            return DaoFactory.BooksInformationDao.GetBookById(bookTypeId);
+            return DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
         }
     }
 }
