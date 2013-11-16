@@ -4,10 +4,9 @@
         <div class="float-right">
             <nav>
                 <ul id="menu">
-                    <li><%: Html.ActionLink("User Account Panel", "Index", "MainShop") %></li>
-                    <li><%: Html.ActionLink("Administrator Panel", "Index", "MainShop") %></li>
-                    <li><%: Html.ActionLink("Worker Panel", "Index", "MainShop") %></li>
-                    <li><%: Html.ActionLink("Shop", "Index", "MainShop") %></li>
+                    <% foreach (SpringMvc.Menu.MenuPositions.PrimaryMenuPosition position in ((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions) { %>
+                                <%: Html.ActionLink(position.Label, position.ControllerAction, position.ControllerName) %>
+                    <% } %>
                 </ul>
             </nav>
         </div>

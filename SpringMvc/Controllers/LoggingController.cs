@@ -33,7 +33,19 @@ namespace SpringMvc.Controllers
             if (user != null)
             {
                 Session["LoggedUserId"] = (long)user.Id;
-                Session["LoggedUser"] = (UserAccount)user;
+                switch(user.Id)
+                { 
+                    case 1:
+                        Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.AdministratorMenu;
+                        break;
+                    case 2:
+                        Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.WorkerMenu;
+                        break;
+                    default:
+                        Session["LoggedUser"] = (UserAccount)user;
+                        Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.UserAccountMenu;
+                        break;
+                }
                 return RedirectToAction("Index", "MainShop");
             } 
             else
@@ -45,7 +57,7 @@ namespace SpringMvc.Controllers
         public ActionResult GuestLogin()
         {
             Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
-            Session["MenuProvider"] = (SpringMvc.Menu.MenuObjectProvider)ServiceLocator.ApplicationScope.MenuProvider;
+            Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.GuestMenu;
             return RedirectToAction("Index", "MainShop");
         }
 

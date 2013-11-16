@@ -28,23 +28,6 @@
 <asp:Content ID="indexMain" ContentPlaceHolderID="MainContent" runat="server">
     <h2>Index</h2>
     I need a body, body, body is what i need...
-    <br/>
-    <% foreach (SpringMvc.Menu.MenuObject menuObject in ((SpringMvc.Menu.MenuObjectProvider)Session["MenuProvider"]).GetAllMenuObjects) { %>
-        <% if(menuObject.PrimaryMenuPositions != null) {
-            foreach (SpringMvc.Menu.MenuPositions.PrimaryMenuPosition position in menuObject.PrimaryMenuPositions) { %>
-                <%: Html.ActionLink(position.Label, position.ControllerAction, position.ControllerName) %>
-                <ul>
-                    <% if(position.SecondaryMenuPositions != null) {
-                        foreach(SpringMvc.Menu.MenuPositions.SecondaryMenuPosition secondaryMenuPosition  in position.SecondaryMenuPositions) { %>
-                            <li><%: Html.ActionLink(secondaryMenuPosition.Label, secondaryMenuPosition.ControllerAction, secondaryMenuPosition.ControllerName) %></li>
-                        <% } 
-                    } %>
-                </ul>
-            <% } 
-        } %> <!-- If MenuObject.PrimaryMenuPositions -->
-        <br/>
-        <br/>
-    <% } %> <!-- Foreach MenuObject -->
 </asp:Content>
 
 <asp:Content ID="indexScripts" ContentPlaceHolderID="ScriptsSection" runat="server">
