@@ -13,5 +13,9 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
         void AddBookType(String title, String authors, decimal price, int quantity, Category category);
 
         bool MarkSold(long bookTypeId, int quantity);
+
+        void SaveBookType(BookType bookType);
+
+        void SaveCategory(Category category);
     }
 }

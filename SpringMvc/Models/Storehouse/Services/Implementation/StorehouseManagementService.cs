@@ -58,5 +58,17 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
                 return true;
             }
         }
+
+        [Transaction]
+        public void SaveBookType(BookType bookType)
+        {
+            DaoFactory.StorehouseManagamentDao.SaveBookType(bookType);
+        }
+
+        [Transaction]
+        public void SaveCategory(Category category)
+        {
+            DaoFactory.StorehouseManagamentDao.SaveCategory(category);
+        }
     }
 }

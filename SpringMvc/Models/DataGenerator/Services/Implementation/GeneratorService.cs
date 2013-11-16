@@ -18,8 +18,16 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
         public void GenerateShopContent()
         {
             List<Category> categories = BookTypeGeneratorService.GenerateCategories();
+            foreach (Category category in categories)
+            {
+                ServiceLocator.StorehouseManagementService.SaveCategory(category);
+            }
             List<QuantityMap> quantityMaps = BookTypeGeneratorService.GenerateQuantityMaps();
             List<BookType> books = BookTypeGeneratorService.GenerateBooks(categories, quantityMaps);
+            foreach (BookType book in books)
+            {
+                ServiceLocator.StorehouseManagementService.SaveBookType(book);
+            }
         }
 
         public void GenerateUsers()
