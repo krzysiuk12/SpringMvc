@@ -8,6 +8,6 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
     interface IRecommendationEngine
     {
-        IEnumerable<BookType> GenerateRecommendation();
+        IEnumerable<long> GenerateRecommendation();
     }
 }

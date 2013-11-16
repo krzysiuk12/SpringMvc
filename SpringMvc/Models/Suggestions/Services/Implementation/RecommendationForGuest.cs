@@ -13,15 +13,49 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         private IServiceLocator serviceLocator;
         private Nullable<long> categoryID;
 
+        private readonly int quantity = 5;
+
         public RecommendationForGuest(IServiceLocator serviceLocator, Nullable<long> categoryID)
         {
             this.serviceLocator = serviceLocator;
             this.categoryID = categoryID;
         }
 
-        public IEnumerable<BookType> GenerateRecommendation()
+        public IEnumerable<long> GenerateRecommendation()
         {
-            throw new NotImplementedException();
+            List<long> resultList = new List<long>();
+
+            if (categoryID.HasValue)
+            {
+                generateWithCategory(resultList, categoryID.Value);
+            }
+            else
+            {
+                generateWithoutCategory(resultList);
+            }
+
+            if (resultList.Count < quantity) fillUpWithRandom(resultList);
+
+            return resultList;
+        }
+
+        private void generateWithoutCategory(List<long> list)
+        {
+            if (!isCacheValid()) updateCache();
+
+            list = ApplicationScope.GlobalSuggestionCache.BookList.ToList();
+        }
+
+        private void generateWithCategory(List<long> list, long categoryId)
+        {
+            List<BookType> booksList = serviceLocator.BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
+            
+            Random rnd = new Random();
+            int number = Math.Min(quantity, booksList.Count);
+            foreach (BookType book in booksList.OrderBy(x => rnd.Next()).Take(number))
+            {
+                list.Add(book.Id);
+            }        
         }
 
         private Boolean isCacheValid()
@@ -45,6 +79,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Dictionary<long, long> topDictionary = new Dictionary<long, long>();
             IEnumerable<Order> ordersInProgres = serviceLocator.OrderInformationsService.GetInProgressOrders();
+
             foreach (Order order in ordersInProgres)
             {
                 foreach (OrderEntry orderEntity in order.OrderEntries)
@@ -60,8 +95,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
                 }
             }
 
-            int number = 5;
-            if (topDictionary.Count < 5) number = topDictionary.Count;
+            int number = Math.Min(quantity, topDictionary.Count);
 
             List<long> topList = new List<long>();
 
@@ -70,7 +104,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
                 topList.Add(pair.Key);
             }
 
-            if (number < 5) fillUpWithRandom(topList);
+            if (number < quantity) fillUpWithRandom(topList);
 
             SuggestionCache newSuggestionCache = new SuggestionCache();
             newSuggestionCache.BookList = topList;
@@ -83,13 +117,13 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Random rnd = new Random();
 
-            var randomBooks = serviceLocator.BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(5);
+            var randomBooks = serviceLocator.BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(quantity);
 
             foreach (BookType book in randomBooks)
             {
-                if (!list.Contains(book.Id)) list.Add(book.Id);
+                if (list.Count == quantity) break;
 
-                if (list.Count == 5) break;
+                if (!list.Contains(book.Id)) list.Add(book.Id);
             }
         }
     }
