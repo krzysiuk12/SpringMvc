@@ -9,5 +9,21 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
     public class StorehouseManagementService : BaseSpringService, IStorehouseManagementService
     {
+
+        void AddCategory(String name)
+        {
+
+        }
+
+        void AddBookType(String title, String authors, long CategoryID, long QuantityMapId, decimal price)
+        {
+
+        }
+
+        void MarkSold(long id, int quantity)
+        {
+
+        }
+       
     }
 }
