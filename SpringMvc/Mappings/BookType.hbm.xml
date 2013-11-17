@@ -14,6 +14,6 @@
 
     <many-to-one name="Category" column="CategoryId" class="Category" lazy="false" foreign-key="FK_BookTypeCategory"/>
     <many-to-one name="QuantityMap" column="QuantityMapId" class="QuantityMap" lazy="false" unique="true" foreign-key="FK_BookTypeQuantityMap" cascade="all"/>
-
+    <many-to-one name="Image" column="BookImageId" class="BookImage" lazy="false" unique="true" foreign-key="FK_BookImageToBook" cascade="all"/>
   </class>
 </hibernate-mapping>

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +10,15 @@ namespace SpringMvc.Controllers
 {
     public class MainShopController : Controller
     {
+        private IServiceLocator ServiceLocator { get; set; } 
+
         //
         // GET: /MainShop/
 
         public ActionResult Index()
         {
-            return View();
+            IEnumerable<BookType> books = ServiceLocator.BooksInformationService.GetAllBooks();
+            return View(books);
         }
 
     }

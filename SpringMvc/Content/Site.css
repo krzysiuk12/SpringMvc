@@ -810,3 +810,25 @@ tr.pager td {
 .button a {
     text-decoration: none;
 }
+
+#leftmenu {
+ float:left;
+ width: 25%;
+}
+
+#shopview {
+ float:left;
+ width: 75%;
+}
+
+#shopview fieldset {
+    border: 1px solid gray;
+    margin: 0;
+    padding: 7px;
+    width: 80%; /* żeby nie rozciągało się na całą szerokość - wedle woli do ustawienia*/
+}
+
+ #shopview fieldset legend {
+    text-align: center;
+    display: initial;
+}

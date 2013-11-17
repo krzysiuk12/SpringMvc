@@ -13,5 +13,6 @@ namespace SpringMvc.Models.POCO
         public virtual string Title { get; set; }
         public virtual string Authors { get; set; }
         public virtual Decimal Price { get; set; }
+        public virtual BookImage Image { get; set; }
     }
 }

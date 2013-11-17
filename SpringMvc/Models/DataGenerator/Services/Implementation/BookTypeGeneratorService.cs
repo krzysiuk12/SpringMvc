@@ -31,6 +31,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                                                         "Suzanne Arruda", "I. J. Parker", "Susan Wittig Albert", "Emily Brightwell", "Guillermo Martinez, Sonia Soto", "Ann Purser", "Philip Kerr", "James Crumley", "Maggie Sefton", "Denise Swanson",
                                                         "Elizabeth Gilbert", "Jennifer Chiaverini", "Gigi Levangie", "Joanne Harris", "Nora Roberts", "K. B. Laugheed", "Bertrice Small", "Maya Banks", "Beth Kery", "Shayla Black",
                                                         "Stephen Baxter", "Steven L. Kent", "Christina Henry", "Jack McDevitt", "Kalayna Price", "Oliver Bowden", "Mike Shepherd", "Stephen Baxter", "Sharon Shinn", "Steven L. Kent" };
+        
         private string[] categoryNames = new string[] { "Fantasy", 
                                                         "Fiction/Literary", 
                                                         "Suspense & Thrillers", 
@@ -41,8 +42,120 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                                                         "Mystery", 
                                                         "Romance", 
                                                         "Science Fiction" };
-        private Random random = new Random();
+
+        private string[] bookImagesLinks = new string[] {   "/Images/Books/Fantasy_JamesandtheGiantPeach.png",
+                                                            "/Images/Books/Fantasy_DeadintheFamily.png", 
+                                                            "/Images/Books/Fantasy_HouseofIllusions.png", 
+                                                            "/Images/Books/Fantasy_ScrollofSaqqara.png", 
+                                                            "/Images/Books/Fantasy_VolumeTwoTheOasis.png", 
+                                                            "/Images/Books/Fantasy_VolumeThreeTheHorusRoad.png",
+                                                            "/Images/Books/Fantasy_RoseDaughter.png",
+                                                            "/Images/Books/Fantasy_TheAltonGift.png",  
+                                                            "/Images/Books/Fantasy_BeholdtheMan.png", 
+                                                            "/Images/Books/Fantasy_RamatheSteadfast.png", 
+
+                                                            "/Images/Books/Fiction_WritersBetweentheCovers.png",
+                                                            "/Images/Books/Fiction_LookingforPalestine.png", 
+                                                            "/Images/Books/Fiction_TheManfromMars.png",  
+                                                            "/Images/Books/Fiction_CharlesDickens.png",
+                                                            "/Images/Books/Fiction_WhoWasDracula.png", 
+                                                            "/Images/Books/Fiction_TheEntertainer.png", 
+                                                            "/Images/Books/Fiction_ToHaveandHaveAnother.png",
+                                                            "/Images/Books/Fiction_LifeAfterDeath.png", 
+                                                            "/Images/Books/Fiction_TheVoiceIsAll.png", 
+                                                            "/Images/Books/Fiction_EveryLoveStoryisaGhostStory.png", 
+
+                                                            "/Images/Books/Suspense_NowandThen.png",
+                                                            "/Images/Books/Suspense_DoubleJeopardy.png", 
+                                                            "/Images/Books/Suspense_SpareChange.png", 
+                                                            "/Images/Books/Suspense_PlagueShip.png", 
+                                                            "/Images/Books/Suspense_TheFaithfulSpy.png", 
+                                                            "/Images/Books/Suspense_ThreeinDeath.png",
+                                                            "/Images/Books/Suspense_WorldWithoutEnd.png", 
+                                                            "/Images/Books/Suspense_SkeletonCoast.png", 
+                                                            "/Images/Books/Suspense_TheSisters.png", 
+                                                            "/Images/Books/Suspense_BlackWind.png", 
+
+                                                            "/Images/Books/Western_TheBlackHills.png",
+                                                            "/Images/Books/Western_RalphComptonTheCheyenneTrail.png",
+                                                            "/Images/Books/Western_TheGunsmith389.png",  
+                                                            "/Images/Books/Western_Backlands.png",
+                                                            "/Images/Books/Western_Slocum423.png",
+                                                            "/Images/Books/Western_Longarm426.png",
+                                                            "/Images/Books/Western_TheLawmanTrackdown.png",   
+                                                            "/Images/Books/Western_Slocum422.png",  
+                                                            "/Images/Books/Western_Longarm425.png",
+                                                            "/Images/Books/Western_Gunsmith388.png",
+
+                                                            "/Images/Books/Action_Talesfrom1001Nights.png", 
+                                                            "/Images/Books/Action_Frostbite.png",
+                                                            "/Images/Books/Action_TheWizardofOz.png", 
+                                                            "/Images/Books/Action_OliverTwist.png",
+                                                            "/Images/Books/Action_TreasureIsland.png", 
+                                                            "/Images/Books/Action_MobyDick.png",
+                                                            "/Images/Books/Action_WhoWouldHaveThoughtIt.png",
+                                                            "/Images/Books/Action_TomClancysEndWar.png",
+                                                            "/Images/Books/Action_KingSolomonsMines.png", 
+                                                            "/Images/Books/Action_TheFaithfulSpy.png",
+
+                                                            "/Images/Books/Classics_NoWayBack.png", 
+                                                            "/Images/Books/Classics_OnTangledPaths.png",
+                                                            "/Images/Books/Classics_TheJungleBooks.png",
+                                                            "/Images/Books/Classics_DavidCopperfield.png",
+                                                            "/Images/Books/Classics_Vainglory.png",    
+                                                            "/Images/Books/Classics_ChildhoodBoyhoodYouth.png", 
+                                                            "/Images/Books/Classics_Persuasion.png",
+                                                            "/Images/Books/Classics_ThePromisedLand.png", 
+                                                            "/Images/Books/Classics_ThePhantomoftheOpera.png", 
+                                                            "/Images/Books/Classics_NorthangerAbbey.png", 
+
+
+                                                            "/Images/Books/General_Cell.png", 
+                                                            "/Images/Books/General_OnSuchaFullSea.png",
+                                                            "/Images/Books/General_Supervolcano.png",  
+                                                            "/Images/Books/General_Darklove.png",
+                                                            "/Images/Books/General_TheAccidentalWerewolf2.png",
+                                                            "/Images/Books/General_UndressingMrDarcy.png",
+                                                            "/Images/Books/General_SavingGrace.png", 
+                                                            "/Images/Books/General_Unrestrained.png",
+                                                            "/Images/Books/General_Twisted.png",     
+                                                            "/Images/Books/General_HeleninLove.png",
+
+                                                            "/Images/Books/Mystery_MarkoftheLion.png",
+                                                            "/Images/Books/Mystery_BlackArrow.png",
+                                                            "/Images/Books/Mystery_ChinaBaylesBookofDays.png",
+                                                            "/Images/Books/Mystery_MrsJeffriesandtheSilentKnight.png",
+                                                            "/Images/Books/Mystery_TheOxfordMurders.png",
+                                                            "/Images/Books/Mystery_FearonFriday.png", 
+                                                            "/Images/Books/Mystery_AGermanRequiem.png",
+                                                            "/Images/Books/Mystery_TheRightMadness.png",   
+                                                            "/Images/Books/Mystery_ADeadlyYarn.png", 
+                                                            "/Images/Books/Mystery_MurderofaRealBadBoy.png", 
+
+                                                            "/Images/Books/Romance_TheSignatureofallThings.png",
+                                                            "/Images/Books/Romance_TheSpymistress.png",
+                                                            "/Images/Books/Romance_SevenDeadlies.png",
+                                                            "/Images/Books/Romance_PeachesforFatherFrancis.png",    
+                                                            "/Images/Books/Romance_DarkWitch.png",
+                                                            "/Images/Books/Romance_TheSpiritKeeper.png", 
+                                                            "/Images/Books/Romance_Lucianna.png",
+                                                            "/Images/Books/Romance_ColtersGift.png", 
+                                                            "/Images/Books/Romance_BecauseWeBelong.png", 
+                                                            "/Images/Books/Romance_StripSearch.png", 
+
+                                                            "/Images/Books/SciFi_IronWinter.png",
+                                                            "/Images/Books/SciFi_TheCloneAssassin.png", 
+                                                            "/Images/Books/SciFi_BlackHeart.png", 
+                                                            "/Images/Books/SciFi_KickingIt.png",
+                                                            "/Images/Books/SciFi_Starhawk.png",
+                                                            "/Images/Books/SciFi_AssassinsCreedBlackFlag.png", 
+                                                            "/Images/Books/SciFi_KrisLongknigeMutineer.png", 
+                                                            "/Images/Books/SciFi_StoneSpring.png", 
+                                                            "/Images/Books/SciFi_TroubledWaters.png", 
+                                                            "/Images/Books/SciFi_TheCloneRepublic.png" };
         #endregion
+
+        private Random random = new Random();
 
         public List<Category> GenerateCategories() 
         {
@@ -75,10 +188,21 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                     Authors = bookAuthors[index],
                     Category = categories.ElementAt((int)Math.Floor((double)(index / categories.Count))),
                     Price = new Decimal(random.NextDouble() * 100),
-                    QuantityMap = quantityMaps.ElementAt(index)
+                    QuantityMap = quantityMaps.ElementAt(index),
+                    Image = new BookImage() { URL = bookImagesLinks[index] }
                 });
             }
             return books;
+        }
+
+        private List<BookImage> GenerateBookImages(int index)
+        {
+            List<BookImage> images = new List<BookImage>();
+            images.Add(new BookImage()
+            {
+                URL = bookImagesLinks[index]
+            });
+            return images;
         }
     }
 }

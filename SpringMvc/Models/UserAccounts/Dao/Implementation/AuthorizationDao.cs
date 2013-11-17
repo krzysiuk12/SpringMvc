@@ -13,7 +13,14 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
     {
         public UserAccount LoginUser(string login, string password)
         {
-            return this.Session.Query<UserAccount>().Where(user => user.Login == login).Select(user => user).Single();
+            try
+            {
+                return this.Session.Query<UserAccount>().Where(user => user.Login == login).Select(user => user).Single();
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public void LogoutUser(string login)
