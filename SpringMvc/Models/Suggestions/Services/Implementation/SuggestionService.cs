@@ -16,25 +16,43 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetSuggestionsForUser(long userID)
         {
-            throw new NotImplementedException();
+            IRecommendationEngine engine = new RecommendationForUser(ServiceLocator, userID, null);
+            IEnumerable<long> resultList = engine.GenerateRecommendation();
+            return toIEnumerableBookType(resultList);
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<BookType> GetSuggestionsForUser(long userID, string category)
+        public IEnumerable<BookType> GetSuggestionsForUser(long userID, long categoryID)
         {
-            throw new NotImplementedException();
+            IRecommendationEngine engine = new RecommendationForUser(ServiceLocator, userID, categoryID);
+            IEnumerable<long> resultList = engine.GenerateRecommendation();
+            return toIEnumerableBookType(resultList);
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetSuggestionsForGuest()
         {
-            throw new NotImplementedException();
+            IRecommendationEngine engine = new RecommendationForGuest(ServiceLocator, null);
+            IEnumerable<long> resultList = engine.GenerateRecommendation();
+            return toIEnumerableBookType(resultList);
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<BookType> GetSuggestionsForGuest(string category)
+        public IEnumerable<BookType> GetSuggestionsForGuest(long categoryID)
         {
-            throw new NotImplementedException();
+            IRecommendationEngine engine = new RecommendationForGuest(ServiceLocator, categoryID);
+            IEnumerable<long> resultList = engine.GenerateRecommendation();
+            return toIEnumerableBookType(resultList);
+        }
+
+        private IEnumerable<BookType> toIEnumerableBookType(IEnumerable<long> list)
+        {
+            List<BookType> resultList = new List<BookType>();
+            foreach (long bookId in list)
+            {
+                resultList.Add(ServiceLocator.BooksInformationService.GetBookTypeById(bookId));
+            }
+            return resultList;
         }
     }
 }

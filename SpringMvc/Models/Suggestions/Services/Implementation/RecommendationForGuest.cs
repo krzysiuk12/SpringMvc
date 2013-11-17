@@ -27,7 +27,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
             if (categoryID.HasValue)
             {
-                generateWithCategory(resultList, categoryID.Value);
+                generateWithCategory(resultList);
             }
             else
             {
@@ -46,9 +46,9 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             list = ApplicationScope.GlobalSuggestionCache.BookList.ToList();
         }
 
-        private void generateWithCategory(List<long> list, long categoryId)
+        private void generateWithCategory(List<long> list)
         {
-            List<BookType> booksList = serviceLocator.BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
+            List<BookType> booksList = serviceLocator.BooksInformationService.GetBooksByCategoryId(categoryID.Value).ToList();
             
             Random rnd = new Random();
             int number = Math.Min(quantity, booksList.Count);

@@ -100,9 +100,9 @@ h2{
                 <h2>Zamowienie 3 - detal</h2>
                 <div class="clientDetails">
                         <h3>Dane do wysyłki:</h3>
-                        <%=ViewBag.AddressDetails.FirstName %> <%=ViewBag.AddressDetails.LastName %></br>
-                        ul. Partyzantów 24/56 </br>
-                        30-150 Kraków</br>
+                        <%=ViewBag.Client.FirstName %> <%=ViewBag.Client.LastName %></br>
+                        <%=ViewBag.Client.Address.Street %> </br>
+                        <%=ViewBag.Client.Address.PostalCode %> <%=ViewBag.Client.Address.City %>, <%=ViewBag.Client.Address.Country %></br>
                 </div>
                 <div class="productList">
                         <div class="productHeader">

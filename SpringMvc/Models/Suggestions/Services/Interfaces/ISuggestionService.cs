@@ -9,9 +9,9 @@ namespace SpringMvc.Models.Suggestions.Services.Interfaces
     public interface ISuggestionService
     {
         IEnumerable<BookType> GetSuggestionsForUser(long userID);
-        IEnumerable<BookType> GetSuggestionsForUser(long userID, String category);
+        IEnumerable<BookType> GetSuggestionsForUser(long userID, long categoryID);
 
         IEnumerable<BookType> GetSuggestionsForGuest();
-        IEnumerable<BookType> GetSuggestionsForGuest(String category);
+        IEnumerable<BookType> GetSuggestionsForGuest(long categoryID);
     }
 }

@@ -14,10 +14,10 @@ namespace SpringMvc.Controllers
 
         public ActionResult Index()
         {
-            //PersonalData _personalData = ServiceLocator.UserInformationService.GetUserAccountById(1).PersonalData;
+            PersonalData client = ServiceLocator.ShipmentPreparationService.GetUserPersonalDataById(6);
             String[] orders = { "order1", "order2" };
             ViewBag.Orders = orders;
-            ///ViewBag.AddressDetails = _personalData;
+            ViewBag.Client = client;
             return View();
         }
     }
