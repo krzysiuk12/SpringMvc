@@ -24,6 +24,7 @@ namespace SpringMvc.Models.Common.Interfaces
         IStorehouseManagementService StorehouseManagementService { get; set; }
         IBooksInformationService BooksInformationService { get; set; }
         IShipmentPreparationService ShipmentPreparationService { get; set; }
+        IMailingService MailingService { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }
 }

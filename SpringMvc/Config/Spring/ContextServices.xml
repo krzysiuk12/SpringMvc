@@ -65,6 +65,11 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="mailingService" type="SpringMvc.Models.Shipment.Services.Implementation.MailingService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
     <property name="AuthorizationService" ref="authorizationService"/>
@@ -77,6 +82,7 @@
     <property name="BooksInformationService" ref="booksInformationService"/>
     <property name="StorehouseManagementService" ref="storehouseManagementService"/>
     <property name="ShipmentPreparationService" ref="shipmentPreparationService"/>
+    <property name="MailingService" ref="mailingService"/>
     <property name="ApplicationScope" ref="applicationScope"/>
   </object>
   

@@ -3,7 +3,6 @@ using Spring.Transaction.Interceptor;
 using SpringMvc.Models.Common;
 using SpringMvc.Models.Shipment.Services.Interfaces;
 using SpringMvc.Models.POCO;
-using SpringMvc.Models.ShipmentPages;
 using SpringMvc.Models.Common.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -27,27 +26,28 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<OrderEntryDetails> GetOrderEntriesInfoByOrderId(long orderId)
+        public IEnumerable<OrderEntry> GetOrderEntriesByOrderId(long orderId)
         {
-            throw new NotImplementedException();
+            return ServiceLocator.OrderInformationsService.GetOrderById(orderId).OrderEntries;
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<OrderInfo> GetUnrealizedOrdersDescriptions()
+        public IEnumerable<Order> GetUnrealizedOrders()
         {
-            throw new NotImplementedException();
+            return ServiceLocator.OrderInformationsService.GetInProgressOrders();
         }
 
         [Transaction]
         public void CompleteOrder(long orderId)
         {
-            throw new NotImplementedException();
+
+            ServiceLocator.OrderManagementService.CompleteOrder(orderId);
         }
 
         [Transaction]
         public void MarkOrderAsInProgress(long orderId)
         {
-            throw new NotImplementedException();
+            ServiceLocator.OrderManagementService.MarkOrderInProgress(orderId);
         }
     }
 }
