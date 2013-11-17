@@ -69,6 +69,12 @@ namespace SpringMvc.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult ChangePassword(ChangePasswordModel model)
+        {
+            return View();
+        }
         #endregion
 
         #region Account Information Methods

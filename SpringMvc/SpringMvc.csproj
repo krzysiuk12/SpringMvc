@@ -323,6 +323,7 @@
     <Compile Include="Models\Suggestions\Services\Implementation\SuggestionCache.cs" />
     <Compile Include="Models\Suggestions\Services\Implementation\SuggestionService.cs" />
     <Compile Include="Models\Suggestions\Services\Interfaces\ISuggestionService.cs" />
+    <Compile Include="Models\UserAccountsPages\ChangePasswordModel.cs" />
     <Compile Include="Models\UserAccountsPages\LogInModel.cs" />
     <Compile Include="Models\UserAccountsPages\RegisterModel.cs" />
     <Compile Include="Models\UserAccountsPages\UserAccountModel.cs" />

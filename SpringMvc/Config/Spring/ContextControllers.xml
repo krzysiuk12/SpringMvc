@@ -13,14 +13,14 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object type="SpringMvc.Controllers.AdministratorPanelController, SpringMvc">
+    <property name="ApplicationInitializationService" ref="applicationInitializationService"/>
+  </object>
+
   <object type="SpringMvc.Controllers.BookstoreController, SpringMvc" singleton="false">
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
-  
-  <object type="SpringMvc.Controllers.AdministratorPanelController, SpringMvc" singleton="false">
-    <property name="ServiceLocator" ref="serviceLocator"/>
-  </object>
-  
+
   <object type="SpringMvc.Controllers.MainShopController, SpringMvc" singleton="false">
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
@@ -28,5 +28,5 @@
   <object type="SpringMvc.Controllers.ShipmentController, SpringMvc" singleton="false">
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
-  
+
 </objects>
