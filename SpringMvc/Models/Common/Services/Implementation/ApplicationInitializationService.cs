@@ -21,7 +21,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
             CreateBaseUsers();
             GeneratorService.GenerateShopContent();
             GeneratorService.GenerateUsers();
-            //CreateVatStages();
+            CreateVatStages();
         }
 
         public void CreateBaseUsers() 
@@ -52,7 +52,12 @@ namespace SpringMvc.Models.Common.Services.Implementation
 
         public void CreateVatStages()
         {
-            throw new NotImplementedException();
+            double[] vatValues = new double[] {0.05, 0.08, 0.23 };
+            for(int index = 0; index < vatValues.Length; index++) {
+                VatMap newVat = new VatMap();
+                newVat.Value = vatValues[index];
+                DaoFactory.CreateInvoiceDao.SaveVat(newVat);
+            }
         }
     }
 }
