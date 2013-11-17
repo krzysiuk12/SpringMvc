@@ -8,6 +8,7 @@ using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.Invoices.Services.Interfaces;
 using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
+using SpringMvc.Models.Shipment.Services.Interfaces;
 
 namespace SpringMvc.Models.Common
 {
@@ -33,6 +34,8 @@ namespace SpringMvc.Models.Common
         
         public IBooksInformationService BooksInformationService { get; set; }
 
+        public IShipmentPreparationService ShipmentPreparationService { get; set; }
+        
         public ApplicationScope ApplicationScope { get; set; }
     }
 }

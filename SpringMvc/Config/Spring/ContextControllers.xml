@@ -13,4 +13,8 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object type="SpringMvc.Controllers.ShipmentController, SpringMvc" singleton="false">
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
 </objects>

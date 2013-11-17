@@ -3,6 +3,7 @@ using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
+using SpringMvc.Models.Shipment.Services.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,7 @@ namespace SpringMvc.Models.Common.Interfaces
         IOrderManagementService OrderManagementService { get; set; }
         IStorehouseManagementService StorehouseManagementService { get; set; }
         IBooksInformationService BooksInformationService { get; set; }
+        IShipmentPreparationService ShipmentPreparationService { get; set; }
         ApplicationScope ApplicationScope { get; set; }
     }
 }
