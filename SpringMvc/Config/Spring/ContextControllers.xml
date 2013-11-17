@@ -14,7 +14,7 @@
   </object>
 
   <object type="SpringMvc.Controllers.AdministratorPanelController, SpringMvc">
-    <property name="ApplicationInitializationService" ref="applicationInitializationService"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
   <object type="SpringMvc.Controllers.BookstoreController, SpringMvc" singleton="false">
