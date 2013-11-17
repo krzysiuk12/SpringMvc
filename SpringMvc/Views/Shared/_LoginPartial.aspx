@@ -14,6 +14,6 @@
     You are currently logged in as Worker.
     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
 <% } else { %> <!-- Simple User Account-->
-    Your are logged as <%: ((SpringMvc.Models.POCO.UserAccount)Session["LoggedUser"]).PersonalData.FirstName %> <%: ((SpringMvc.Models.POCO.UserAccount)Session["LoggedUser"]).PersonalData.LastName %>.
+    Your are logged as <%: ((SpringMvc.Models.POCO.UserAccount)Session["CurrentUser"]).PersonalData.FirstName %> <%: ((SpringMvc.Models.POCO.UserAccount)Session["CurrentUser"]).PersonalData.LastName %>.
     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
 <% } %>

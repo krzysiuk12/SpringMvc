@@ -1,34 +1,43 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainShop.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainShop.Master" Inherits="System.Web.Mvc.ViewPage<IEnumerable<SpringMvc.Models.POCO.BookType>>" %>
 
-<asp:Content ID="indexTitle" ContentPlaceHolderID="TitleContent" runat="server">
-    Bookstore
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    Index
 </asp:Content>
 
-<asp:Content ID="indexFeatured" ContentPlaceHolderID="FeaturedContent" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <table>
+        <tr>
+            <th></th>
+            <th><%: Html.DisplayNameFor(model => model.Title) %></th>
+            <th><%: Html.DisplayNameFor(model => model.Authors) %></th>
+            <th><%: Html.DisplayNameFor(model => model.Price) %></th>
+        </tr>
+        <% foreach (var item in Model) { %>
+            <tr>
+                <td>
+                    <img src="<%: Html.DisplayFor(modelItem => item.Image.URL) %>" height="40px" width="26px"/>
+                </td>
+                <td>
+                    <%: Html.DisplayFor(modelItem => item.Title) %>
+                </td>
+                <td><%: Html.DisplayFor(modelItem => item.Authors) %></td>
+                <td><%: Html.DisplayFor(modelItem => item.Price) %></td>
+        <%--        <td>
+                    <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
+                    <%: Html.ActionLink("Details", "Details", new { id=item.Id }) %> |
+                    <%: Html.ActionLink("Delete", "Delete", new { id=item.Id }) %>
+                </td>--%>
+            </tr>
+        <% } %>
+    </table>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
     <%: Html.Partial("_MainMenuPartial") %>
 </asp:Content>
 
-<asp:Content ID="indexLeftMenu" ContentPlaceHolderID="LeftMenuContent" runat="server">
-    <h2>Categories</h2>
-
-	
-    <ul class="leftmenu">
-        <li><%: Html.ActionLink("User Account", "Index", "Home") %>
-			<ul>
-				<li><a href="#">link1</a></li>
-				<li><a href="#">link2</a></li>
-				<li><a href="#">link3</a></li>
-			</ul>
-        </li>
-        <li><%: Html.ActionLink("About", "About", "Home") %></li>
-        <li><%: Html.ActionLink("Contact", "Contact", "Home") %></li>
-    </ul>
+<asp:Content ID="Content4" ContentPlaceHolderID="LeftMenuContent" runat="server">
 </asp:Content>
 
-<asp:Content ID="indexMain" ContentPlaceHolderID="MainContent" runat="server">
-    <h2>Index</h2>
-    I need a body, body, body is what i need...
-</asp:Content>
-
-<asp:Content ID="indexScripts" ContentPlaceHolderID="ScriptsSection" runat="server">
+<asp:Content ID="Content5" ContentPlaceHolderID="ScriptsSection" runat="server">
 </asp:Content>

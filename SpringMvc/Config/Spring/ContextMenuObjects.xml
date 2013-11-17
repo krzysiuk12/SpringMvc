@@ -14,7 +14,7 @@
   </object>
 
   <object id="userAccountPanelEdit" type="SpringMvc.Menu.MenuPositions.SecondaryMenuPosition">
-    <property name="Label" value="Personal Informations"/>
+    <property name="Label" value="Edit"/>
     <property name="ControllerAction" value="Index"/>
     <property name="ControllerName" value="UserAccountPanel"/>
   </object>
@@ -56,11 +56,13 @@
   </object>
 
 
-
+  
+  
   <!-- ****************************************************************************
                             Primary Menu Positions
   **************************************************************************** -->
   <object id="userAccountPanelPrimaryPosition" type="SpringMvc.Menu.MenuPositions.PrimaryMenuPosition">
+    <property name="CurrentSecondaryPosition" value="0"/>
     <property name="Label" value="User Account Panel"/>
     <property name="ControllerAction" value="Index"/>
     <property name="ControllerName" value="UserAccountPanel"/>
@@ -74,6 +76,7 @@
   </object>
 
   <object id="administratorPanelPrimaryPosition" type="SpringMvc.Menu.MenuPositions.PrimaryMenuPosition">
+    <property name="CurrentSecondaryPosition" value="0"/>
     <property name="Label" value="Administrator Panel"/>
     <property name="ControllerAction" value="ViewAllUserAccounts"/>
     <property name="ControllerName" value="AdministratorPanel"/>
@@ -88,6 +91,7 @@
   </object>
 
   <object id="shopPrimaryPosition" type="SpringMvc.Menu.MenuPositions.PrimaryMenuPosition">
+    <property name="CurrentSecondaryPosition" value="0"/>
     <property name="Label" value="Shop"/>
     <property name="ControllerAction" value="Index"/>
     <property name="ControllerName" value="MainShop"/>
@@ -144,8 +148,8 @@
     <property name="CurrentPrimaryPosition" value="0"/>
     <property name="PrimaryMenuPositions">
       <list element-type="SpringMvc.Menu.MenuPositions.PrimaryMenuPosition">
-        <ref object="userAccountPanelPrimaryPosition"/>       
         <ref object="shopPrimaryPosition"/>
+        <ref object="userAccountPanelPrimaryPosition"/>       
         <ref object="aboutPrimaryPosition"/>
         <ref object="contactPrimaryPosition"/>
       </list>

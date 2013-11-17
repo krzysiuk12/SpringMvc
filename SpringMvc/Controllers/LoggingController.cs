@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.Common;
+﻿using SpringMvc.Menu;
+using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.UserAccountsPages;
@@ -42,11 +43,11 @@ namespace SpringMvc.Controllers
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.WorkerMenu;
                         break;
                     default:
-                        Session["LoggedUser"] = (UserAccount)user;
+                        Session["CurrentUser"] = (UserAccount)user;
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.UserAccountMenu;
                         break;
                 }
-                return RedirectToAction("Index", "MainShop");
+                return RedirectToAction(((MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].ControllerAction, ((MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].ControllerName);
             } 
             else
             {

@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.Common.Interfaces;
+﻿using SpringMvc.Menu;
+using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.UserAccountsPages;
 using System;
@@ -65,6 +66,13 @@ namespace SpringMvc.Controllers
         // GET: /UserAccountPanel/Delete/5
 
         public ActionResult ChangePassword()
+        {
+            return View();
+        }
+        #endregion
+
+        #region Account Information Methods
+        public ActionResult AccountInformation()
         {
             return View();
         }

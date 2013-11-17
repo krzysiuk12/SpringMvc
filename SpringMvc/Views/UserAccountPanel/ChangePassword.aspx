@@ -11,6 +11,7 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
+        <%: Html.Partial("_MainMenuPartial") %>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="LeftMenuContent" runat="server">

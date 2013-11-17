@@ -255,8 +255,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Menu\MenuMapping.cs" />
     <Compile Include="Menu\MenuObject.cs" />
     <Compile Include="Menu\MenuObjectProvider.cs" />
+    <Compile Include="Menu\MenuPositionsMap.cs" />
     <Compile Include="Menu\MenuPositions\BaseMenuPosition.cs" />
     <Compile Include="Menu\MenuPositions\PrimaryMenuPosition.cs" />
     <Compile Include="Menu\MenuPositions\SecondaryMenuPosition.cs" />
@@ -284,6 +286,7 @@
     <Compile Include="Models\Invoices\Services\Interfaces\ICreateInvoiceService.cs" />
     <Compile Include="Models\Invoices\Services\Interfaces\IPdfInvoiceBuilder.cs" />
     <Compile Include="Models\POCO\Address.cs" />
+    <Compile Include="Models\POCO\BookImage.cs" />
     <Compile Include="Models\POCO\BookType.cs" />
     <Compile Include="Models\POCO\Category.cs" />
     <Compile Include="Models\POCO\Invoice.cs" />
@@ -518,6 +521,7 @@
     <Content Include="Images\Books\Western_TheLawmanTrackdown.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Mappings\Address.hbm.xml" />
+    <Content Include="Mappings\BookImage.hbm.xml" />
     <Content Include="Mappings\BookType.hbm.xml" />
     <Content Include="Mappings\Category.hbm.xml" />
     <Content Include="Mappings\Invoice.hbm.xml" />

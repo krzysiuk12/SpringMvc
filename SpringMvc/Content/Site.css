@@ -810,3 +810,13 @@ tr.pager td {
 .button a {
     text-decoration: none;
 }
+
+#leftmenu {
+ float:left;
+ width: 25%;
+}
+
+#shopview {
+ float:left;
+ width: 75%;
+}
