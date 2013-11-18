@@ -255,9 +255,19 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Menu\MenuComponent.cs" />
+    <Compile Include="Menu\MenuComponents\MenuComponent.cs" />
+    <Compile Include="Menu\MenuComponents\MenuComposite.cs" />
+    <Compile Include="Menu\MenuComposite.cs" />
+    <Compile Include="Menu\MenuElementMapping\MenuPanelsMapping.cs" />
+    <Compile Include="Menu\MenuElementMapping\MenuPrimaryPositionMappings.cs" />
     <Compile Include="Menu\MenuMapping.cs" />
     <Compile Include="Menu\MenuObject.cs" />
     <Compile Include="Menu\MenuObjectProvider.cs" />
+    <Compile Include="Menu\MenuPanels\AdministratorPanel.cs" />
+    <Compile Include="Menu\MenuPanels\ShopPanel.cs" />
+    <Compile Include="Menu\MenuPanels\UserAccountPanel.cs" />
+    <Compile Include="Menu\MenuPanels\WorkerPanel.cs" />
     <Compile Include="Menu\MenuPositionsMap.cs" />
     <Compile Include="Menu\MenuPositions\BaseMenuPosition.cs" />
     <Compile Include="Menu\MenuPositions\PrimaryMenuPosition.cs" />
