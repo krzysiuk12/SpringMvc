@@ -6,7 +6,7 @@
   
   <!-- **************************************************************************** 
                 User Account Panel - Secondary Menu Positions 
-  **************************************************************************** -->
+  **************************************************************************** --><!--
   <object id="userAccountPanelView" type="SpringMvc.Menu.MenuPositions.SecondaryMenuPosition">
     <property name="Label" value="Account Information"/>
     <property name="ControllerAction" value="Index"/>
@@ -28,9 +28,9 @@
   
   
 
-  <!-- ****************************************************************************
+  --><!-- ****************************************************************************
                   Administrator Panel - Secondary Menu Positions 
-  **************************************************************************** -->
+  **************************************************************************** --><!--
   <object id="administratorPanelViewAllUsers" type="SpringMvc.Menu.MenuPositions.SecondaryMenuPosition">
     <property name="Label" value="View All Users"/>
     <property name="ControllerAction" value="ViewAllUserAccounts"/>
@@ -58,9 +58,9 @@
 
   
   
-  <!-- ****************************************************************************
+  --><!-- ****************************************************************************
                             Primary Menu Positions
-  **************************************************************************** -->
+  **************************************************************************** --><!--
   <object id="userAccountPanelPrimaryPosition" type="SpringMvc.Menu.MenuPositions.PrimaryMenuPosition">
     <property name="CurrentSecondaryPosition" value="0"/>
     <property name="Label" value="User Account Panel"/>
@@ -112,7 +112,7 @@
 
   
   
-  <!-- ******************* Menu Objects ******************* -->
+  --><!-- ******************* Menu Objects ******************* --><!--
   <object id="administratorMenu" type="SpringMvc.Menu.MenuObject">
     <property name="CurrentPrimaryPosition" value="0"/>
     <property name="PrimaryMenuPositions">
@@ -158,7 +158,7 @@
   
   
   
-  <!-- ******************* Menu Objects ******************* -->
+  --><!-- ******************* Menu Objects ******************* --><!--
   <object id="menuObjectProvider" type="SpringMvc.Menu.MenuObjectProvider">
     <property name="AdministratorMenu" ref="administratorMenu"/>
     <property name="UserAccountMenu" ref="userAccountMenu"/>
@@ -172,6 +172,188 @@
         <ref object="guestMenu"/>
       </list>
     </property>
+  </object>-->
+
+  <!-- **************************************************************************** 
+                User Account Panel - Secondary Menu Positions 
+  **************************************************************************** -->
+  <object id="userAccountPanelView" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Account Information"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+  </object>
+
+  <object id="userAccountPanelEdit" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Edit"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+  </object>
+
+  <object id="userAccountPanelChangePassword" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Change Password"/>
+    <property name="ControllerAction" value="ChangePassword"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+  </object>
+
+
+
+
+  <!-- ****************************************************************************
+                  Administrator Panel - Secondary Menu Positions 
+  **************************************************************************** -->
+  <object id="administratorPanelViewAllUsers" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="View All Users"/>
+    <property name="ControllerAction" value="ViewAllUserAccounts"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+  </object>
+
+  <object id="administratorPanelChangeUserStatus" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Change User Status"/>
+    <property name="ControllerAction" value="ChangeUserStatus"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+  </object>
+
+  <object id="administratorPanelChangeUserPassword" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Change User Password"/>
+    <property name="ControllerAction" value="ChangeUserPassword"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+  </object>
+
+  <object id="administratorPanelViewUserInformation" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="View User Information"/>
+    <property name="ControllerAction" value="ViewUserInformation"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+  </object>
+
+
+
+
+  <!-- ****************************************************************************
+                  Shop Panel - Secondary Menu Positions 
+  **************************************************************************** -->
+  <object id="shopPanelViewAllBooks" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="All Books"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+  
+
+  
+  <!-- ****************************************************************************
+                            Primary Menu Positions
+  **************************************************************************** -->
+  <object id="userAccountPanel" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="User Account Panel"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="4" value-ref="userAccountPanelView"/>
+        <entry key="5" value-ref="userAccountPanelEdit"/>
+        <entry key="6" value-ref="userAccountPanelChangePassword"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="administratorPanel" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="Administrator Panel"/>
+    <property name="ControllerAction" value="ViewAllUserAccounts"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="0" value-ref="administratorPanelViewAllUsers"/>
+        <entry key="1" value-ref="administratorPanelChangeUserPassword"/>
+        <entry key="2" value-ref="administratorPanelChangeUserStatus"/>
+        <entry key="3" value-ref="administratorPanelViewUserInformation"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="shopPanel" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="Shop"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="MainShop"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="7" value-ref="shopPanelViewAllBooks"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="aboutPanel" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="About"/>
+    <property name="ControllerAction" value="About"/>
+    <property name="ControllerName" value="Bookstore"/>
+  </object>
+
+  <object id="contactPanel" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Contact"/>
+    <property name="ControllerAction" value="Contact"/>
+    <property name="ControllerName" value="Bookstore"/>
+  </object>
+
+
+
+
+  <!-- ******************* Menu Objects ******************* -->
+  <object id="administratorMenu" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="View All Users"/>
+    <property name="ControllerAction" value="ViewAllUserAccounts"/>
+    <property name="ControllerName" value="AdministratorPanel"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="0" value-ref="administratorPanel"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="workerMenu" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="About"/>
+    <property name="ControllerAction" value="About"/>
+    <property name="ControllerName" value="Bookstore"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="4" value-ref="aboutPanel"/>
+        <entry key="5" value-ref="contactPanel"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="guestMenu" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="Shop"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="MainShop"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="1" value-ref="shopPanel"/>
+        <entry key="4" value-ref="aboutPanel"/>
+        <entry key="3" value-ref="contactPanel"/>
+      </dictionary>
+    </property>
+  </object>
+
+  <object id="userAccountMenu" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="Shop"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="MainShop"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="1" value-ref="shopPanel"/>
+        <entry key="2" value-ref="userAccountPanel"/>
+        <entry key="4" value-ref="aboutPanel"/>
+        <entry key="5" value-ref="contactPanel"/>
+      </dictionary>
+    </property>
+  </object>
+
+
+
+  <!-- ******************* Menu Objects ******************* -->
+  <object id="menuObjectProvider" type="SpringMvc.Menu.MenuObjectProvider">
+    <property name="AdministratorMenu" ref="administratorMenu"/>
+    <property name="UserAccountMenu" ref="userAccountMenu"/>
+    <property name="WorkerMenu" ref="workerMenu"/>
+    <property name="GuestMenu" ref="guestMenu"/>
   </object>
   
   

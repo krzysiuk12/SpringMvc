@@ -6,7 +6,7 @@ using SpringMvc.Menu.MenuElementMapping;
 
 namespace SpringMvc.Menu.MenuComponents
 {
-    public class MenuComponent
+    public abstract class MenuComponent
     {
         public string Label { get; set; }
 
@@ -14,9 +14,6 @@ namespace SpringMvc.Menu.MenuComponents
 
         public string ControllerName { get; set; }
 
-        public virtual int GetMappedChildMenuPosition() 
-        {
-            return 0;
-        }
+        public abstract MenuComponent GetMappedChildMenuPosition(int globalMenuPosition);
     }
 }

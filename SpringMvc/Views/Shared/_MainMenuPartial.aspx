@@ -2,18 +2,16 @@
 <section class="featured">
     <div class="content-wrapper">
         <div class="float-left">
-            <% if (((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions != null) { %>
-                 <%: ((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((SpringMvc.Menu.MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].Label %>  
-            <% } %>
-            <% if (((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((SpringMvc.Menu.MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].SecondaryMenuPositions != null) { %>
-                 -> <%: ((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((SpringMvc.Menu.MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].SecondaryMenuPositions[((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((SpringMvc.Menu.MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].CurrentSecondaryPosition].Label %>  
+            <%: ((SpringMvc.Menu.MenuComponents.MenuComponent)Session["MenuObject"]).GetMappedChildMenuPosition((int)Session["PrimaryMenuPosition"]).Label  %>
+            <% if (Session["SecondaryMenuPosition"] != null) { %>
+                 -> <%: ((SpringMvc.Menu.MenuComponents.MenuComponent)Session["MenuObject"]).GetMappedChildMenuPosition((int)Session["PrimaryMenuPosition"]).GetMappedChildMenuPosition((int)Session["SecondaryMenuPosition"]).Label %>  
             <% } %>
         </div>
         <div class="float-right">
             <nav>
                 <ul id="menu">
-                    <% foreach (SpringMvc.Menu.MenuPositions.PrimaryMenuPosition position in ((SpringMvc.Menu.MenuObject)Session["MenuObject"]).PrimaryMenuPositions) { %>
-                        <li><%: Html.ActionLink(position.Label, position.ControllerAction, position.ControllerName) %></li>
+                    <% foreach (SpringMvc.Menu.MenuComponents.MenuComponent primaryPosition in ((SpringMvc.Menu.MenuComponents.MenuComposite)Session["MenuObject"]).ChildMenuPositionMap.Values) { %>
+                        <li><%: Html.ActionLink(primaryPosition.Label, primaryPosition.ControllerAction, primaryPosition.ControllerName) %></li>
                     <% } %>
                 </ul>
             </nav>

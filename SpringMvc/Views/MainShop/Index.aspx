@@ -37,6 +37,7 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="LeftMenuContent" runat="server">
+    <%: Html.Partial("_LeftSideMenuPartial") %>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ScriptsSection" runat="server">

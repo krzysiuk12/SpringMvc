@@ -1,4 +1,5 @@
 ﻿using SpringMvc.Menu;
+using SpringMvc.Menu.MenuElementMapping;
 using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
@@ -37,17 +38,20 @@ namespace SpringMvc.Controllers
                 switch(user.Id)
                 { 
                     case 1:
+                        SetCurrentMenuPositions(MenuPanelsMapping.ADMINISTRATOR, MenuPrimaryPositionMappings.ADMINISTRATOR_VIEW_ALL_USER_ACCOUNTS);
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.AdministratorMenu;
                         break;
                     case 2:
+                        SetCurrentMenuPositions(MenuPanelsMapping.WORKER);
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.WorkerMenu;
                         break;
                     default:
+                        SetCurrentMenuPositions(MenuPanelsMapping.SHOP, MenuPrimaryPositionMappings.SHOP_VIEW_ALL_BOOKS);
                         Session["CurrentUser"] = (UserAccount)user;
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.UserAccountMenu;
                         break;
                 }
-                return RedirectToAction(((MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].ControllerAction, ((MenuObject)Session["MenuObject"]).PrimaryMenuPositions[((MenuObject)Session["MenuObject"]).CurrentPrimaryPosition].ControllerName);
+                return RedirectToAction(((SpringMvc.Menu.MenuComponents.MenuComponent)Session["MenuObject"]).ControllerAction, ((SpringMvc.Menu.MenuComponents.MenuComponent)Session["MenuObject"]).ControllerName);
             } 
             else
             {
@@ -57,6 +61,7 @@ namespace SpringMvc.Controllers
 
         public ActionResult GuestLogin()
         {
+            SetCurrentMenuPositions(MenuPanelsMapping.SHOP);
             Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
             Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.GuestMenu;
             return RedirectToAction("Index", "MainShop");
@@ -83,6 +88,12 @@ namespace SpringMvc.Controllers
             UserAccount newUserAccount = new UserAccount() { Login = model.Login, Password = model.Password, Email = model.Email };
             ServiceLocator.AuthorizationService.RegisterUser(newUserAccount);
             return RedirectToAction("Create", "UserAccountPanel", new { userAccountId = newUserAccount.Id });
+        }
+
+        private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
+        {
+            Session["PrimaryMenuPosition"] = primaryMenuPosition;
+            Session["SecondaryMenuPosition"] = secondaryMenuPosition;
         }
     }
 }

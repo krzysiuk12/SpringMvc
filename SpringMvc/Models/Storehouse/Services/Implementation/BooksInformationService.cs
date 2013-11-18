@@ -13,6 +13,8 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
     [Repository]
     public class BooksInformationService : BaseSpringService, IBooksInformationService
     {
+        IEnumerable<BookType> bookTypeCache = null;
+
         [Transaction(ReadOnly=true)]
         public IEnumerable<BookType> GetBooksByCategoryId(long categoryId)
         {
@@ -22,7 +24,11 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetAllBooks()
         {
-            return DaoFactory.BooksInformationDao.GetAllBooks();
+            if (bookTypeCache == null)
+            {
+                bookTypeCache = DaoFactory.BooksInformationDao.GetAllBooks();
+            }
+            return bookTypeCache;
         }
 
         [Transaction(ReadOnly = true)]

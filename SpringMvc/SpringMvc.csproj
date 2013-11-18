@@ -255,20 +255,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Menu\MenuComponent.cs" />
     <Compile Include="Menu\MenuComponents\MenuComponent.cs" />
     <Compile Include="Menu\MenuComponents\MenuComposite.cs" />
-    <Compile Include="Menu\MenuComposite.cs" />
+    <Compile Include="Menu\MenuComponents\SimpleMenuComponent.cs" />
     <Compile Include="Menu\MenuElementMapping\MenuPanelsMapping.cs" />
     <Compile Include="Menu\MenuElementMapping\MenuPrimaryPositionMappings.cs" />
-    <Compile Include="Menu\MenuMapping.cs" />
     <Compile Include="Menu\MenuObject.cs" />
     <Compile Include="Menu\MenuObjectProvider.cs" />
-    <Compile Include="Menu\MenuPanels\AdministratorPanel.cs" />
-    <Compile Include="Menu\MenuPanels\ShopPanel.cs" />
-    <Compile Include="Menu\MenuPanels\UserAccountPanel.cs" />
-    <Compile Include="Menu\MenuPanels\WorkerPanel.cs" />
-    <Compile Include="Menu\MenuPositionsMap.cs" />
     <Compile Include="Menu\MenuPositions\BaseMenuPosition.cs" />
     <Compile Include="Menu\MenuPositions\PrimaryMenuPosition.cs" />
     <Compile Include="Menu\MenuPositions\SecondaryMenuPosition.cs" />
@@ -568,6 +561,7 @@
     <Content Include="Views\Logging\Index.aspx" />
     <Content Include="Views\Logging\Register.aspx" />
     <Content Include="Views\MainShop\Index.aspx" />
+    <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Views\Shipment\index.aspx" />
     <Content Include="Views\UserAccountPanel\ChangePassword.aspx" />
