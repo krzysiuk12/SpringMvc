@@ -19,9 +19,11 @@ namespace SpringMvc.Models.Common.Services.Implementation
         public void InitializeApplication()
         {
             CreateBaseUsers();
-            GeneratorService.GenerateShopContent();
-            GeneratorService.GenerateUsers();
+            List<BookType> bookTypes = GeneratorService.GenerateShopContent();
+            List<UserAccount> userAccounts = GeneratorService.GenerateUsers();
             CreateVatStages();
+			GeneratorService.GenerateOrders(bookTypes, userAccounts);
+			Console.WriteLine("");
         }
 
         public void CreateBaseUsers() 
