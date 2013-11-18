@@ -15,7 +15,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
         private IOrderGeneratorService OrderGeneratorService { get; set; }
         private IUserAccountGeneratorService UserAccountGeneratorService { get; set; }
 
-        public void GenerateShopContent()
+		public List<BookType> GenerateShopContent()
         {
             List<Category> categories = BookTypeGeneratorService.GenerateCategories();
             foreach (Category category in categories)
@@ -28,9 +28,10 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             {
                 ServiceLocator.StorehouseManagementService.SaveBookType(book);
             }
+			return books;
         }
 
-        public void GenerateUsers()
+		public List<UserAccount> GenerateUsers()
         {
             List<Address> addresses = UserAccountGeneratorService.GenerateAddress();
             List<PersonalData> personalDatas = UserAccountGeneratorService.GeneratePersonalData(addresses);
@@ -39,6 +40,17 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             {
                 ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(account);
             }
+			return userAccounts;
         }
+
+		public void GenerateOrders(List<BookType> books, List<UserAccount> userAccounts)
+		{
+			List<Order> orders = OrderGeneratorService.GenerateOrders(books, userAccounts);
+			foreach(Order order in orders)
+			{
+				ServiceLocator.OrderManagementService.CreateNewOrder(order);
+			}
+
+		}
     }
 }

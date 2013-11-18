@@ -15,8 +15,8 @@
 
     <many-to-one name="User" column="UserId" class="UserAccount" not-null="true" lazy="proxy"/>
     
-    <list name="OrderEntries" cascade="all">
-      <key column="OrderId" not-null="true"/>
+    <list name="OrderEntries" cascade="all" lazy="false">
+	  <key column="OrderId"/>
       <list-index column="Position" base="1"/>
       <one-to-many class="OrderEntry"/>
     </list>

@@ -15,7 +15,10 @@ namespace SpringMvc.Controllers
         public ActionResult Index()
         {
             PersonalData client = ServiceLocator.ShipmentPreparationService.GetUserPersonalDataById(6);
-            String[] orders = { "order1", "order2" };
+            IEnumerable<Order> orders = ServiceLocator.ShipmentPreparationService.GetUnrealizedOrders();
+            //String[] orders = { "order1", "order2" };
+            //Boolean result = ServiceLocator.MailingService.SendEmail("chamot@student.agh.edu.pl", "zam", "hejo");
+            //if (!result) throw new Exception();
             ViewBag.Orders = orders;
             ViewBag.Client = client;
             return View();

@@ -35,6 +35,8 @@ namespace SpringMvc.Models.Common
         public IBooksInformationService BooksInformationService { get; set; }
 
         public IShipmentPreparationService ShipmentPreparationService { get; set; }
+
+        public IMailingService MailingService { get; set; }
         
         public ApplicationScope ApplicationScope { get; set; }
     }
