@@ -9,7 +9,6 @@ namespace SpringMvc.Models.POCO
     {
         public virtual long Id { get; set; }
         public virtual BookType BookType { get; set; }
-        public virtual Order Order { get; set; }
         public virtual int Amount { get; set; }
         public virtual Decimal Price { get; set; }
     }

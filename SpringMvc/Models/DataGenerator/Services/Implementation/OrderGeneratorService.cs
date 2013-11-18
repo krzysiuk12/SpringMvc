@@ -76,10 +76,8 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 			{
 				Amount = amountsOfBooks[bookAmountIndex],
 				BookType = bookTypes.ElementAt(random.Next(bookTypes.Count)),
-				Order = order
 			};
 			entry.Price = entry.Amount * entry.BookType.Price;
-			//order.OrderEntries.Add(entry);
 			orderEntries.Add(entry);
 
 			return orderEntries;

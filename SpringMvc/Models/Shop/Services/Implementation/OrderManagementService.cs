@@ -48,7 +48,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             BookType bookType = new BookType(); //Tutaj jak zaimplementuja ServiceLocator.(...)
             OrderEntry orderEntry = new OrderEntry()
             {
-                Order = order,
+                //Order = order,
                 BookType = bookType,
                 Price = bookType.Price,
                 Amount = amount
