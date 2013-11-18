@@ -841,6 +841,7 @@ tr.pager td {
     font-weight: 600;
     padding: 7px;
     margin-right: 8px;
+	margin-left: 0px;
     text-decoration: none;
     width: 100px;
     list-style-type: none;
