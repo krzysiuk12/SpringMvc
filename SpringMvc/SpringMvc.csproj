@@ -260,11 +260,7 @@
     <Compile Include="Menu\MenuComponents\SimpleMenuComponent.cs" />
     <Compile Include="Menu\MenuElementMapping\MenuPanelsMapping.cs" />
     <Compile Include="Menu\MenuElementMapping\MenuPrimaryPositionMappings.cs" />
-    <Compile Include="Menu\MenuObject.cs" />
     <Compile Include="Menu\MenuObjectProvider.cs" />
-    <Compile Include="Menu\MenuPositions\BaseMenuPosition.cs" />
-    <Compile Include="Menu\MenuPositions\PrimaryMenuPosition.cs" />
-    <Compile Include="Menu\MenuPositions\SecondaryMenuPosition.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
     <Compile Include="Models\Common\BaseSpringService.cs" />
