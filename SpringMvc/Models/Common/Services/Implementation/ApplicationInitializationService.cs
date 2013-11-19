@@ -53,7 +53,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
 
         public void CreateVatStages()
         {
-            double[] vatValues = new double[] {0.05, 0.08, 0.23 };
+            double[] vatValues = new double[] {0.23, 0.08, 0.05 };
             for(int index = 0; index < vatValues.Length; index++) {
                 VatMap newVat = new VatMap();
                 newVat.Value = vatValues[index];
