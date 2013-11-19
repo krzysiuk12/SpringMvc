@@ -26,7 +26,7 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<OrderEntry> GetOrderEntriesByOrderId(long orderId)
+        public IEnumerable<OrderEntry> GetOrderEntriesByOrderId(long orderId)       
         {
             return ServiceLocator.OrderInformationsService.GetOrderById(orderId).OrderEntries;
         }
