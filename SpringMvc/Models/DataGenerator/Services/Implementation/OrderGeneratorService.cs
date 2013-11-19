@@ -67,18 +67,38 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 											2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 
 									   };
 
+
+		private int[] numberOfEntries = { 
+											1, 2, 1, 2, 2, 1, 2, 2, 1, 1, 
+											2, 2, 2, 1, 2, 2, 1, 1, 2, 2, 
+											1, 2, 2, 1, 1, 2, 2, 2, 2, 1, 
+											1, 2, 1, 2, 2, 2, 1, 1, 2, 2, 
+											2, 2, 2, 1, 1, 1, 1, 2, 1, 2, 
+											2, 1, 2, 2, 1, 2, 2, 2, 1, 1, 
+											2, 2, 2, 1, 2, 1, 2, 1, 1, 1, 
+											2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 
+											2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 
+											2, 1, 1, 1, 2, 2, 2, 2, 1, 1, 
+										};
+
+
+
+
 		#endregion Data
 
-		private List<OrderEntry> GenerateOrderEntries(List<BookType> bookTypes, Order order, int bookAmountIndex)
+		private List<OrderEntry> GenerateOrderEntries(List<BookType> bookTypes, Order order, int dataIndex)
 		{
 			List<OrderEntry> orderEntries = new List<OrderEntry>();
-			OrderEntry entry = new OrderEntry()
+			for (int i = 0; i < numberOfEntries[dataIndex]; i++)
 			{
-				Amount = amountsOfBooks[bookAmountIndex],
-				BookType = bookTypes.ElementAt(random.Next(bookTypes.Count)),
-			};
-			entry.Price = entry.Amount * entry.BookType.Price;
-			orderEntries.Add(entry);
+				OrderEntry entry = new OrderEntry()
+				{
+					Amount = amountsOfBooks[dataIndex],
+					BookType = bookTypes.ElementAt(random.Next(bookTypes.Count)),
+				};
+				entry.Price = entry.BookType.Price;
+				orderEntries.Add(entry);
+			}
 
 			return orderEntries;
 		}
@@ -90,28 +110,59 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 
 			for (int index = 0; index < userAccounts.Count; index++)
 			{
-				DateTime orderDate = DateTime.Parse(orderDates[index]);
-				DateTime sentDate = orderDate.AddDays(sentDaysToAdd[index]);
-				DateTime deliveryDate = sentDate.AddDays(deliveryDaysToAdd[index]);
-				Order order = new Order()
+				for ( int o = 0; o < 3; o++ )
 				{
-					OrderDate = orderDate,
-					SentDate = sentDate,
-					DeliveryDate = deliveryDate,
-					User = userAccounts[index],
-					Status = Order.OrderState.DELIVERED,
-				};
-				order.OrderEntries = GenerateOrderEntries(bookTypes, order, index);
-				orders.Add(order);
+					DateTime orderDate = DateTime.Parse(orderDates[index]);
+					DateTime sentDate = orderDate.AddDays(sentDaysToAdd[index]);
+					DateTime deliveryDate = sentDate.AddDays(deliveryDaysToAdd[index]);
+					Order order = new Order()
+					{
+						OrderDate = orderDate,
+						User = userAccounts[index],
+					};
+					if ( o % 3 == 0 )
+					{
+						order.Status = Order.OrderState.DELIVERED;
+						order.SentDate = sentDate;
+						order.DeliveryDate = deliveryDate;
+					}
+					else if (o % 3 == 1)
+					{
+						order.Status = Order.OrderState.ORDERED;
+					}
+					else
+					{
+						order.Status = Order.OrderState.IN_PROGRESS;
+						order.SentDate = sentDate;
+					}
+					order.OrderEntries = GenerateOrderEntries(bookTypes, order, index);
+					orders.Add(order);
+				}
 			}
 			return orders;
 		}
 
-		//public List<Invoice> invoice...
+		public List<Invoice> GenerateInvoices(List<Order> orders, List<VatMap> vatValues)
+		{
+			List<Invoice> invoices = new List<Invoice>();
+			foreach (Order order in orders)
+			{
+				Invoice invoice = new Invoice()
+				{
+					Order = order,
+					TotalValue = 0,
+					Counter = 0,
+					Vat = vatValues[1]
+				};
+				foreach (OrderEntry entry in order.OrderEntries)
+				{
+					invoice.TotalValue += entry.Amount * entry.Price;
+				}
+				invoices.Add(invoice);
+			}
+			return invoices;
+		}
 
-		//public List<VatMap> GenerateVatMap() {
-		//	//... 
-		//}
 
 	}
 }

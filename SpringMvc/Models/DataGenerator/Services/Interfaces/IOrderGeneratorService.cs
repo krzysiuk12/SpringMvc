@@ -12,7 +12,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Interfaces
 
 		List<Order> GenerateOrders(List<BookType> bookTypes, List<UserAccount> userAccounts);
 
-
+		List<Invoice> GenerateInvoices(List<Order> orders, List<VatMap> vatValues);
 
 	}
 }

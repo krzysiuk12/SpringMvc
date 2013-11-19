@@ -9,7 +9,7 @@
     </id>
 
     <property name="Counter" column="Counter" type="long"/>
-    <property name="TotalValue" column="TotalValue" type="double" precision="2" scale="5"/>
+    <property name="TotalValue" column="TotalValue" type="Decimal" precision="6" scale="2"/>
 
     <many-to-one name="Order" column="OrderId" class="Order" unique="true" not-null="true" foreign-key="FK_InvoiceToOrder"/>
     <many-to-one name="Vat" column="VatId" class="VatMap" not-null="true" foreign-key="FK_InvoiceToVatMap"/>
