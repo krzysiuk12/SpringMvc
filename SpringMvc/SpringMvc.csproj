@@ -556,6 +556,7 @@
     <Content Include="Views\Bookstore\Contact.aspx" />
     <Content Include="Views\Logging\Index.aspx" />
     <Content Include="Views\Logging\Register.aspx" />
+    <Content Include="Views\MainShop\CategoryBooksView.aspx" />
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />

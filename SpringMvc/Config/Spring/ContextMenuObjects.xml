@@ -65,6 +65,66 @@
     <property name="ControllerAction" value="Index"/>
     <property name="ControllerName" value="MainShop"/>
   </object>
+
+  <object id="shopPanelFantasy" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Fantasy"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelFictionLiterary" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Fiction/Literary"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelSuspenseThrillers" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Suspense and Thrillers"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelWestern" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Western"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelActionAdventure" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Action and Adventure"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelClassics" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Classics"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelGeneral" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="General"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelMystery" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Mystery"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelRomance" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Romance"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
+
+  <object id="shopPanelScienceFiction" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Science Fiction"/>
+    <property name="ControllerAction" value="GetBooksByCategory"/>
+    <property name="ControllerName" value="MainShop"/>
+  </object>
   
 
   
@@ -105,6 +165,16 @@
     <property name="ChildMenuPositionMap">
       <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
         <entry key="7" value-ref="shopPanelViewAllBooks"/>
+        <entry key="8" value-ref="shopPanelFantasy"/>
+        <entry key="9" value-ref="shopPanelFictionLiterary"/>
+        <entry key="10" value-ref="shopPanelSuspenseThrillers"/>
+        <entry key="11" value-ref="shopPanelWestern"/>
+        <entry key="12" value-ref="shopPanelActionAdventure"/>
+        <entry key="13" value-ref="shopPanelClassics"/>
+        <entry key="14" value-ref="shopPanelGeneral"/>
+        <entry key="15" value-ref="shopPanelMystery"/>
+        <entry key="16" value-ref="shopPanelRomance"/>
+        <entry key="17" value-ref="shopPanelScienceFiction"/>
       </dictionary>
     </property>
   </object>
