@@ -5,9 +5,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>About</h2>
-
+    About Main Content
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
