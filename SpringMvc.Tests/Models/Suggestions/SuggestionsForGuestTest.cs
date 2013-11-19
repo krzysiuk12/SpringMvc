@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpringMvc.Models.POCO;
@@ -38,7 +39,22 @@ namespace SpringMvc.Tests.Models.Suggestions
         [TestMethod]
         public void NoCacheUpdateTest()
         {
+            List<BookType> result1 = suggestionService.GetSuggestionsForGuest().ToList();
+            List<BookType> result2 = suggestionService.GetSuggestionsForGuest().ToList();
 
+            Assert.Equals(result1.Count, result2.Count);
+
+            foreach (BookType book in result1)
+            {
+                Assert.IsTrue(result2.Contains(book));
+            }
+        }
+
+        [TestMethod]
+        public void DistinctBookTest()
+        {
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest();
+            Assert.Equals(result.Count(), result.Distinct().Count());
         }
     }
 }
