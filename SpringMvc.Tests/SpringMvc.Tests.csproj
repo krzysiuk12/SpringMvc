@@ -120,6 +120,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Storehouse\BooksInformationServiceTest.cs" />
     <Compile Include="Models\Suggestions\SuggestionsForGuestTest.cs" />
     <Compile Include="NMock3\NMockTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
