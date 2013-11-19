@@ -14,13 +14,18 @@ namespace SpringMvc.Controllers
         {
             PersonalData client = ServiceLocator.ShipmentPreparationService.GetUserPersonalDataById(6);
             IEnumerable<Order> orders = ServiceLocator.ShipmentPreparationService.GetUnrealizedOrders();
-            Order order = ServiceLocator.OrderInformationsService.GetOrderById(1);
 
             //Boolean result = ServiceLocator.MailingService.SendEmail("chamot@student.agh.edu.pl", "zam", "hejo");
-            ViewBag.Orders = orders;
+            /*ViewBag.Orders = orders;
             ViewBag.Client = client;
             ViewBag.Order = order;
-            ViewBag.OrderEntries = ServiceLocator.ShipmentPreparationService.GetOrderEntriesByOrderId(1);
+            ViewBag.OrderEntries = ServiceLocator.ShipmentPreparationService.GetOrderEntriesByOrderId(1);*/
+            return View();
+        }
+
+        public ActionResult OrderDetails()
+        {
+            Order order = ServiceLocator.OrderInformationsService.GetOrderById(1);
             return View();
         }
 
