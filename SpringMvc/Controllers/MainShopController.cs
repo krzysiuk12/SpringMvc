@@ -21,5 +21,11 @@ namespace SpringMvc.Controllers
             return View(books);
         }
 
+        private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
+        {
+            Session["PrimaryMenuPosition"] = primaryMenuPosition;
+            Session["SecondaryMenuPosition"] = secondaryMenuPosition;
+        }
+
     }
 }

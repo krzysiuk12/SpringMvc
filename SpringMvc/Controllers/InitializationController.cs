@@ -16,11 +16,21 @@ namespace SpringMvc.Controllers
 
         public ActionResult Index()
         {
-            ApplicationInitializationService.InitializeApplication();
-            HttpContext.Application["GuestId"] = (long)ApplicationScope.GuestId;
-            HttpContext.Application["AdministratorId"] = (long)ApplicationScope.AdministratorId;
-            HttpContext.Application["WorkerId"] = (long)ApplicationScope.WorkerId;
+            if (!ApplicationScope.ApplicationInitializationDone)
+            {
+                ApplicationInitializationService.InitializeApplication();
+                HttpContext.Application["GuestId"] = (long)ApplicationScope.GuestId;
+                HttpContext.Application["AdministratorId"] = (long)ApplicationScope.AdministratorId;
+                HttpContext.Application["WorkerId"] = (long)ApplicationScope.WorkerId;
+                ApplicationScope.ApplicationInitializationDone = true;
+            }
             return RedirectToAction("Index", "Logging");
+        }
+
+        private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
+        {
+            Session["PrimaryMenuPosition"] = primaryMenuPosition;
+            Session["SecondaryMenuPosition"] = secondaryMenuPosition;
         }
 
     }

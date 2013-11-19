@@ -23,5 +23,11 @@ namespace SpringMvc.Controllers
             ViewBag.Client = client;
             return View();
         }
+
+        private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
+        {
+            Session["PrimaryMenuPosition"] = primaryMenuPosition;
+            Session["SecondaryMenuPosition"] = secondaryMenuPosition;
+        }
     }
 }

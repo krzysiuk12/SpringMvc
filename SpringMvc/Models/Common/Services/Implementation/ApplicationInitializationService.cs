@@ -23,7 +23,6 @@ namespace SpringMvc.Models.Common.Services.Implementation
             List<UserAccount> userAccounts = GeneratorService.GenerateUsers();
             CreateVatStages();
 			GeneratorService.GenerateOrders(bookTypes, userAccounts);
-			Console.WriteLine("");
         }
 
         public void CreateBaseUsers() 
