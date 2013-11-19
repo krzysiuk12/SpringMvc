@@ -250,6 +250,7 @@
     <Compile Include="Controllers\InitializationController.cs" />
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\MainShopController.cs" />
+    <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\ShipmentController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Global.asax.cs">
