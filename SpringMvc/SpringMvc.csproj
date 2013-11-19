@@ -560,7 +560,7 @@
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
-    <Content Include="Views\Shipment\index.aspx" />
+    <Content Include="Views\Shipment\Index.aspx" />
     <Content Include="Views\UserAccountPanel\ChangePassword.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />

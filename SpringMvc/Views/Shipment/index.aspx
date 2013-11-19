@@ -99,7 +99,7 @@ h2{
         </ol>
         <div class="orderFiltering"></div>
         </div>
-        <div class="orderDetails">
+        <%-- <div class="orderDetails">
                 <h2>Details:  <%=ViewBag.Order.OrderDate%>,   <%=ViewBag.Order.Status%></h2>
                 <div class="clientDetails">
                         <h3>Dane do wysyłki:</h3>
@@ -135,7 +135,7 @@ h2{
                                 <input type="submit" value="Zmien status zamowienia">
                         </form> 
                 </div>
-        </div>
+        </div>--%>
 </div>
 
 
@@ -154,5 +154,3 @@ h2{
         <% } %>
     </ul>
 </asp:Content>
-
-
