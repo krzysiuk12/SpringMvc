@@ -126,7 +126,38 @@
     <property name="ControllerName" value="MainShop"/>
   </object>
   
+  
+  
+  
+    <!-- ****************************************************************************
+                  Worker Panel - Secondary Menu Positions 
+  **************************************************************************** -->
+  <object id="workerPanelUndeliveredOrders" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Undelived Orders"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="Shipment"/>
+  </object>
 
+  <object id="workerPanelStorehouseSummary" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Storehouse Summary"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="Storehouse"/>
+  </object>
+
+  <object id="workerPanelAddBookQuantityView" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Add Quantity For Book"/>
+    <property name="ControllerAction" value="AddBookQuantityView"/>
+    <property name="ControllerName" value="Storehouse"/>
+  </object>
+
+  <object id="workerPanelAddBook" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Add Book"/>
+    <property name="ControllerAction" value="AddBook"/>
+    <property name="ControllerName" value="Storehouse"/>
+  </object>
+  
+
+  
   
   <!-- ****************************************************************************
                             Primary Menu Positions
@@ -179,6 +210,20 @@
     </property>
   </object>
 
+  <object id="workerPanel" type="SpringMvc.Menu.MenuComponents.MenuComposite">
+    <property name="Label" value="Worker Panel"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="Shipment"/>
+    <property name="ChildMenuPositionMap">
+      <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="18" value-ref="workerPanelUndeliveredOrders"/>
+        <entry key="19" value-ref="workerPanelStorehouseSummary"/>
+        <entry key="20" value-ref="workerPanelAddBookQuantityView"/>
+        <entry key="21" value-ref="workerPanelAddBook"/>
+      </dictionary>
+    </property>
+  </object>
+
   <object id="aboutPanel" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
     <property name="Label" value="About"/>
     <property name="ControllerAction" value="About"/>
@@ -207,11 +252,12 @@
   </object>
 
   <object id="workerMenu" type="SpringMvc.Menu.MenuComponents.MenuComposite">
-    <property name="Label" value="About"/>
-    <property name="ControllerAction" value="About"/>
-    <property name="ControllerName" value="Bookstore"/>
+    <property name="Label" value="Undelivered Orders"/>
+    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerName" value="Shipment"/>
     <property name="ChildMenuPositionMap">
       <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
+        <entry key="3" value-ref="workerPanel"/>
         <entry key="4" value-ref="aboutPanel"/>
         <entry key="5" value-ref="contactPanel"/>
       </dictionary>

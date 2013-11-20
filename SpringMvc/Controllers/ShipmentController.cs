@@ -13,15 +13,21 @@ namespace SpringMvc.Controllers
         public ActionResult Index()
         {
             PersonalData client = ServiceLocator.ShipmentPreparationService.GetUserPersonalDataById(6);
-            IEnumerable<Order> orders = ServiceLocator.ShipmentPreparationService.GetUnrealizedOrders();
-            //Order order = ServiceLocator.OrderInformationsService.GetOrderById(1);
-
+            //IEnumerable<Order> orders = ServiceLocator.ShipmentPreparationService.GetUnrealizedOrders();
+            IList<Order> orders = new List<Order>();
+            orders.Add(ServiceLocator.OrderInformationsService.GetOrderById(1));
             //Boolean result = ServiceLocator.MailingService.SendEmail("chamot@student.agh.edu.pl", "zam", "hejo");
             /*ViewBag.Orders = orders;
             ViewBag.Client = client;
             ViewBag.Order = order;
             ViewBag.OrderEntries = ServiceLocator.ShipmentPreparationService.GetOrderEntriesByOrderId(1);*/
-            return View();
+            return View(orders);
+        }
+
+        public ActionResult OrderDetailsSite(long orderId)
+        {
+            Order order = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
+            return View(order);
         }
 
         private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)

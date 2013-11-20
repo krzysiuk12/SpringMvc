@@ -27,5 +27,10 @@ namespace SpringMvc.Menu.MenuElementMapping
         public const int SHOP_CATEGORY_MYSTERY = 15;
         public const int SHOP_CATEGORY_ROMANCE = 16;
         public const int SHOP_CATEGORY_SCIENCEFICTION = 17;
+
+        public const int WORKER_UNDELIVEREDORDERS = 18;
+        public const int WORKER_STOREHOUSESUMMARY = 19;
+        public const int WORKER_ADDBOOKWUANTITYVIEW = 20;
+        public const int WORKER_ADDBOOK = 21;
     }
 }

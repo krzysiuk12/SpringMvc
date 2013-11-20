@@ -121,20 +121,61 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             for (int index = 0; index < firstNames.Length; index++)
             {
                 int rand = new Random().Next(30);
-                users.Add(new UserAccount()
+                UserAccount user = new UserAccount()
                 {
                     Login = firstNames[index] + lastNames[index],
                     Password = AuthorizationService.EncryptPassword(lastNames[index]),
                     Email = firstNames[index] + lastNames[index] + "@mail.com",
-                    LastPasswordChangedDate = DateTime.Now.Date,
-                    LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand + rand % 10)),
-                    ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand)),
-                    ValidTo = DateTime.Now.Date.AddMonths(1),
-                    AccountStatus = UserAccount.Status.ACTIVE,
                     PersonalData = userPersonalDataList.ElementAt(index),
-                });
+                };
+                switch (index % 10)
+                { 
+                    case 7:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.EXPIRED, user);
+                        break;
+                    case 8:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.REMOVED, user);
+                        break;
+                    case 9:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.LOCKED_OUT, user);
+                        break;
+                    default:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.ACTIVE, user);
+                        break;
+                }
+                users.Add(user);
             }
             return users;
+        }
+
+        private UserAccount GenerateDatesForUserWithStatus(UserAccount.Status status, UserAccount user)
+        {
+            user.AccountStatus = status;
+            if (status == UserAccount.Status.ACTIVE || status == UserAccount.Status.LOCKED_OUT)
+            {
+                int rand = new Random().Next(30);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand - rand % 10));
+                user.ValidTo = DateTime.Now.Date.AddDays(rand + 31);
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays((rand % 10) * rand));
+            }
+            else if (status == UserAccount.Status.REMOVED)
+            {
+                int rand = new Random().Next(61);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand + rand % 10));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand % 31));
+                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(32 + rand % 31));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(62 + 2 * ((rand % 4) + 1) * rand));
+            }
+            else
+            {
+                int rand = new Random().Next(61);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand + rand % 10));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand % 31));
+                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand % 31));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(2 * ((rand % 3) + 1) * rand));
+            }
+            return user;
         }
     }
 }
