@@ -134,7 +134,52 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                     PersonalData = userPersonalDataList.ElementAt(index),
                 });
             }
+            int statusIndex = 0;
+            UserAccount.Status status;
+            foreach (UserAccount user in users) 
+            {
+                if (statusIndex == 10)
+                    statusIndex = 0;
+                if (statusIndex < 7)
+                    status = UserAccount.Status.ACTIVE;
+                else if (statusIndex == 7)
+                    status = UserAccount.Status.EXPIRED;
+                else if (statusIndex == 8)
+                    status = UserAccount.Status.REMOVED;
+                else
+                    status = UserAccount.Status.LOCKED_OUT;
+                statusIndex++;
+                GenerateDatesForUserWithStatus(status, user);
+            }
             return users;
+        }
+
+        private void GenerateDatesForUserWithStatus(UserAccount.Status status, UserAccount user)
+        {
+            if (status == UserAccount.Status.ACTIVE || status == UserAccount.Status.LOCKED_OUT)
+            {
+                int rand = new Random().Next(30);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand - rand % 10));
+                user.ValidTo = DateTime.Now.Date.AddDays(rand + 31);
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays((rand % 10) * rand));
+            }
+            else if (status == UserAccount.Status.REMOVED)
+            {
+                int rand = new Random().Next(61);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand + rand % 10));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand % 31));
+                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(32 + rand % 31));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(62 + 2 * ((rand % 4) + 1) * rand));
+            }
+            else
+            {
+                int rand = new Random().Next(61);
+                user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand + rand % 10));
+                user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand % 31));
+                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand % 31));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(2 * ((rand % 3) + 1) * rand));
+            }
         }
     }
 }
