@@ -13,5 +13,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Interfaces
         List<PersonalData> GeneratePersonalData(List<Address> userAddressList);
 
         List<UserAccount> GenerateUsers(List<PersonalData> userPersonalDataList);
+
+        IList<LogInOutEvent> GenerateLogInOutEvents(List<UserAccount> userList);
     }
 }

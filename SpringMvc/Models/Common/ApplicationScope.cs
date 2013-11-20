@@ -12,11 +12,18 @@ namespace SpringMvc.Models.Common
         public static long AdministratorId { get { return 1;  } }
         public static long WorkerId { get { return 2; } }
 
-        public static String AdministratorLogin { get { return "admin"; } }
-        public static String AdministratorPassword { get { return "admin";  } }
+        public static string AdministratorLogin { get { return "admin"; } }
+        public static string AdministratorPassword { get { return "admin";  } }
 
-        public static String WorkerLogin { get { return "worker"; } }
-        public static String WorkerPassword { get { return "worker"; } }
+        public static string WorkerLogin { get { return "worker"; } }
+        public static string WorkerPassword { get { return "worker"; } }
+
+        public static string CompanyName { get { return "BookStore"; } }
+        public static string CompanyStreet { get { return "Big Tower with Red Eye"; } }
+        public static string CompanyPostalCode { get { return "666"; } }
+        public static string CompanyCity { get { return "Barad-Dur"; } }
+        public static string CompanyCountry { get { return "Mordor"; } }
+        public static string CompanyMail { get { return "bookshopto2@gmail.com"; } }
 
         public MenuObjectProvider MenuProvider { get; set; }
 

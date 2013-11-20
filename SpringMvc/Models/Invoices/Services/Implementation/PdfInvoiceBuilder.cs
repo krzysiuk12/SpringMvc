@@ -62,10 +62,11 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                     left_margin = 350;
                     writeText(cb, "Invoice address", left_margin, top_margin, f_cb, 10);
-                    writeText(cb, "BookStore", left_margin, top_margin - 12, f_cn, 10);
-                    writeText(cb, "Big Tower with Red Eye", left_margin, top_margin - 24, f_cn, 10);
-                    writeText(cb, "666 Barad-Dur", left_margin, top_margin - 36, f_cn, 10);
-                    writeText(cb, "Mordor", left_margin, top_margin - 48, f_cn, 10);
+                    writeText(cb, ApplicationScope.CompanyName, left_margin, top_margin - 12, f_cn, 10);
+                    writeText(cb, ApplicationScope.CompanyStreet, left_margin, top_margin - 24, f_cn, 10);
+                    writeText(cb, ApplicationScope.CompanyPostalCode + " " + ApplicationScope.CompanyCity,
+                        left_margin, top_margin - 36, f_cn, 10);
+                    writeText(cb, ApplicationScope.CompanyCountry, left_margin, top_margin - 48, f_cn, 10);
 
                     cb.EndText();
                     cb.SetLineWidth(0f);
