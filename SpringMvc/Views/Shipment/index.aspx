@@ -6,12 +6,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 <style>
-    #leftmenu {
-        display: none;
+    /*#leftmenu {
+        display: ;
     }
     #shopview {
         width: 100%;
-    }
+    }*/
     table {
         width: 100%;
     }

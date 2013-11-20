@@ -29,4 +29,8 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object type="SpringMvc.Controllers.StorehouseController, SpringMvc" singleton="false">
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
 </objects>
