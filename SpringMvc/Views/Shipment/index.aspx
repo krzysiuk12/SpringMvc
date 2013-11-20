@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<style type="text/css">
+ <style type="text/css">
 .wysylka {
         display: table;
         width: 1000px;
@@ -84,20 +84,23 @@ h2{
         margin-left: auto;        
 }
 </style>
+    
 
 <div class="wysylka">
         <div class="orders"> 
                 <h2>Niezrealizowane Zamówienia:</h2>
         <ol class="orderList">
-        <% foreach (var order in ViewBag.Orders) { %>
-            <li class="order"><%=order %></li>
-        <% } %>
-                </ol>
-                <div class="orderFiltering">
-                </div>
+            <% foreach (SpringMvc.Models.POCO.Order order in ViewBag.Orders)
+                    { %>
+                        <div class="order">
+                            <%=order.OrderDate%>,   <%=order.Id%> 
+                        </div>
+                    <% }; %>
+        </ol>
+        <div class="orderFiltering"></div>
         </div>
-        <div class="orderDetails">
-                <h2>Zamowienie 3 - detal</h2>
+        <%-- <div class="orderDetails">
+                <h2>Details:  <%=ViewBag.Order.OrderDate%>,   <%=ViewBag.Order.Status%></h2>
                 <div class="clientDetails">
                         <h3>Dane do wysyłki:</h3>
                         <%=ViewBag.Client.FirstName %> <%=ViewBag.Client.LastName %></br>
@@ -105,30 +108,22 @@ h2{
                         <%=ViewBag.Client.Address.PostalCode %> <%=ViewBag.Client.Address.City %>, <%=ViewBag.Client.Address.Country %></br>
                 </div>
                 <div class="productList">
+
                         <div class="productHeader">
                                 <div class="productID cell">ID</div>
                                 <div class="productName cell">Opis</div>
                                 <div class="productsDesired cell">Ilosc</div>
                                 <div class="productsInStock cell">W magazynie</div>                        
                         </div>
+                    <% foreach (SpringMvc.Models.POCO.OrderEntry entry in ViewBag.OrderEntries)
+                    { %>
                         <div class="product">
-                                <div class="productID cell">1</div>
-                                <div class="productName cell">Description </div>
-                                <div class="productsDesired cell">1</div>
-                                <div class="productsInStock cell">2</div>
+                                <div class="productID cell"><%=entry.Id %></div>
+                                <div class="productName cell"><%=entry.BookType.Authors %> - <%=entry.BookType.Title %></div>
+                                <div class="productsDesired cell"><%=entry.Amount %></div>
+                                <div class="productsInStock cell"><%=entry.BookType.QuantityMap.Quantity %></div>
                         </div>
-                        <div class="product">
-                                <div class="productID cell">2</div>
-                                <div class="productName cell">Author -Title</div>
-                                <div class="productsDesired cell">1</div>
-                                <div class="productsInStock cell">32 </div>
-                        </div>
-                        <div class="product">
-                                <div class="productID cell">3</div>
-                                <div class="productName cell">Author2 -Title2</div>
-                                <div class="productsDesired cell"> 2</div>
-                                <div class="productsInStock cell"> 1</div>
-                        </div>
+                    <% }; %>
                 </div>                        
                 <div class="confirmation">
                         <h3>Status zamówienia:</h3>
@@ -140,7 +135,7 @@ h2{
                                 <input type="submit" value="Zmien status zamowienia">
                         </form> 
                 </div>
-        </div>
+        </div>--%>
 </div>
 
 
@@ -152,3 +147,10 @@ h2{
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
 </asp:Content>
 
+<asp:Content ID="Content5" ContentPlaceHolderID="LeftMenuContent" runat="server">
+    <ul>
+        <% foreach (SpringMvc.Menu.MenuComponents.MenuComponent secondaryPosition in ((SpringMvc.Menu.MenuComponents.MenuComposite)(((SpringMvc.Menu.MenuComponents.MenuComposite)Session["MenuObject"]).GetMappedChildMenuPosition((int)Session["PrimaryMenuPosition"]))).ChildMenuPositionMap.Values) { %>
+            <li class="button-list"><%: Html.ActionLink(secondaryPosition.Label, secondaryPosition.ControllerAction, secondaryPosition.ControllerName, routeValues: new { name = secondaryPosition.Label }, htmlAttributes: new { id = "guestLink" }) %></li>
+        <% } %>
+    </ul>
+</asp:Content>

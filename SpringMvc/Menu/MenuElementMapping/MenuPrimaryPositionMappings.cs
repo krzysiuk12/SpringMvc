@@ -12,8 +12,20 @@ namespace SpringMvc.Menu.MenuElementMapping
         public const int ADMINISTRATOR_CHANGE_USER_STATUS = 2;
         public const int ADMINISTRATOR_VIEW_USER_INFORMATION = 3;
 
-        public const int USERACCOUNT_EDIT = 4;
-        public const int USERACCOUNT_VIEW = 5;
+        public const int USERACCOUNT_VIEW = 4;
+        public const int USERACCOUNT_EDIT = 5;
         public const int USERACCOUNT_CHANGEPASSWORD = 6;
+
+        public const int SHOP_VIEW_ALL_BOOKS = 7;
+        public const int SHOP_CATEGORY_FANTASY = 8;
+        public const int SHOP_CATEGORY_FICTIONLITERARY = 9;
+        public const int SHOP_CATEGORY_SUSPENCETHRILLERS = 10;
+        public const int SHOP_CATEGORY_WESTERN = 11;
+        public const int SHOP_CATEGORY_ACTIONADVENTURE = 12;
+        public const int SHOP_CATEGORY_CLASSICS = 13;
+        public const int SHOP_CATEGORY_GENERAL = 14;
+        public const int SHOP_CATEGORY_MYSTERY = 15;
+        public const int SHOP_CATEGORY_ROMANCE = 16;
+        public const int SHOP_CATEGORY_SCIENCEFICTION = 17;
     }
 }

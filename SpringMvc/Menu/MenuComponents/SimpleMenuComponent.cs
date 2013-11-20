@@ -5,13 +5,11 @@ using System.Web;
 
 namespace SpringMvc.Menu.MenuComponents
 {
-    public class MenuComposite : MenuComponent
+    public class SimpleMenuComponent : MenuComponent
     {
-        public IDictionary<int, MenuComponent> ChildMenuPositionMap { get; set; }
-
         public override MenuComponent GetMappedChildMenuPosition(int globalMenuPosition)
         {
-            return ChildMenuPositionMap[globalMenuPosition];
+            return null;
         } 
     }
 }

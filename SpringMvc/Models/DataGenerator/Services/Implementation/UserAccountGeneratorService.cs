@@ -120,15 +120,16 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 
             for (int index = 0; index < firstNames.Length; index++)
             {
+                int rand = new Random().Next(30);
                 users.Add(new UserAccount()
                 {
                     Login = firstNames[index] + lastNames[index],
                     Password = AuthorizationService.EncryptPassword(lastNames[index]),
                     Email = firstNames[index] + lastNames[index] + "@mail.com",
-                    // LastPasswordChangedDate =
-                    // LastSuccessfulSignInDate =
-                    // ValidFrom =
-                    // ValidTo =
+                    LastPasswordChangedDate = DateTime.Now.Date,
+                    LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand + rand % 10)),
+                    ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand)),
+                    ValidTo = DateTime.Now.Date.AddMonths(1),
                     AccountStatus = UserAccount.Status.ACTIVE,
                     PersonalData = userPersonalDataList.ElementAt(index),
                 });

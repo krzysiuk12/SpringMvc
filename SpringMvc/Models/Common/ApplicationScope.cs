@@ -22,5 +22,7 @@ namespace SpringMvc.Models.Common
 
         public static Models.Suggestions.Services.Implementation.SuggestionCache GlobalSuggestionCache = null;
 
+        public static bool ApplicationInitializationDone = false;
+
     }
 }

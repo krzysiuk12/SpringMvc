@@ -34,9 +34,9 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
         
         private string[] categoryNames = new string[] { "Fantasy", 
                                                         "Fiction/Literary", 
-                                                        "Suspense & Thrillers", 
+                                                        "Suspense and Thrillers", 
                                                         "Western", 
-                                                        "Action & Adventure", 
+                                                        "Action and Adventure", 
                                                         "Classics", 
                                                         "General", 
                                                         "Mystery", 
