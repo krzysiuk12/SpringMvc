@@ -12,6 +12,6 @@ namespace SpringMvc.Models.DataGenerator.Services.Interfaces
 
 		List<UserAccount> GenerateUsers();
 
-		void GenerateOrders(List<BookType> books, List<UserAccount> userAccounts);
+		List<Order> GenerateOrders(List<BookType> books, List<UserAccount> userAccounts, List<VatMap> vatValues);
     }
 }

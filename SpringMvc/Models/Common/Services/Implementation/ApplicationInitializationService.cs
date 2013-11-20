@@ -21,8 +21,9 @@ namespace SpringMvc.Models.Common.Services.Implementation
             CreateBaseUsers();
             List<BookType> bookTypes = GeneratorService.GenerateShopContent();
             List<UserAccount> userAccounts = GeneratorService.GenerateUsers();
-            CreateVatStages();
-			GeneratorService.GenerateOrders(bookTypes, userAccounts);
+            List<VatMap> vatValues = CreateVatStages();
+			List<Order> orders = GeneratorService.GenerateOrders(bookTypes, userAccounts, vatValues);
+			Console.WriteLine("");
         }
 
         public void CreateBaseUsers() 
@@ -51,14 +52,18 @@ namespace SpringMvc.Models.Common.Services.Implementation
             }
         }
 
-        public void CreateVatStages()
-        {
-            double[] vatValues = new double[] {0.05, 0.08, 0.23 };
-            for(int index = 0; index < vatValues.Length; index++) {
-                VatMap newVat = new VatMap();
-                newVat.Value = vatValues[index];
-                DaoFactory.CreateInvoiceDao.SaveVat(newVat);
-            }
-        }
+		public List<VatMap> CreateVatStages()
+		{
+			double[] vatValues = new  double[] { 0.05, 0.08, 0.23 };
+			List<VatMap> vatMapValues = new List<VatMap>();
+			for (int index = 0; index < vatValues.Length; index++)
+			{
+				VatMap newVat = new VatMap();
+				newVat.Value = vatValues[index];
+				vatMapValues.Add(newVat);
+				DaoFactory.CreateInvoiceDao.SaveVat(newVat);
+			}
+			return vatMapValues;
+		}
     }
 }

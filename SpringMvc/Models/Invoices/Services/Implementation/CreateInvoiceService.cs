@@ -23,7 +23,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             Decimal totalOrderValue = 0;
             
             foreach (OrderEntry entry in invoice.Order.OrderEntries)
-                totalOrderValue += entry.Price;
+                totalOrderValue += entry.Price * entry.Amount;
 
             invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
             DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);

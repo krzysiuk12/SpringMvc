@@ -43,7 +43,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 			return userAccounts;
         }
 
-		public void GenerateOrders(List<BookType> books, List<UserAccount> userAccounts)
+		public List<Order> GenerateOrders(List<BookType> books, List<UserAccount> userAccounts, List<VatMap> vatValues)
 		{
 			List<Order> orders = OrderGeneratorService.GenerateOrders(books, userAccounts);
 			foreach(Order order in orders)
@@ -51,6 +51,13 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 				ServiceLocator.OrderManagementService.CreateNewOrder(order);
 			}
 
+			List<Invoice> invoices = OrderGeneratorService.GenerateInvoices(orders, vatValues);
+			foreach (Invoice invoice in invoices)
+			{
+				DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
+			}
+
+			return orders;
 		}
     }
 }
