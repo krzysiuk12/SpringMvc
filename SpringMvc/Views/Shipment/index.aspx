@@ -5,26 +5,39 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-
-<h2>Index</h2>
+<style>
+    #leftmenu {
+        display: none;
+    }
+    #shopview {
+        width: 100%;
+    }
+    table {
+        width: 100%;
+    }
+</style>
+<h2>Unrealised Orders</h2>
 <table>
     <tr>
         <th>
-            <%: Html.DisplayNameFor(model => model.Id) %>
+<%--            <%: Html.DisplayNameFor(model => model.Id) %>--%>
+            Id
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.User) %>
+<%--            <%: Html.DisplayNameFor(model => model.User) %>--%>
+            Client
+        </th>
+<%--        <th>--%>
+<%--            <%: Html.DisplayNameFor(model => model.SentDate) %>--%>
+<%--        </th>--%>
+        <th>
+<%--            <%: Html.DisplayNameFor(model => model.OrderDate) %>--%>
+            Order Date
         </th>
         <th>
-            <%: Html.DisplayNameFor(model => model.SentDate) %>
+<%--            <%: Html.DisplayNameFor(model => model.DeliveryDate) %>--%>
+            Status
         </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.OrderDate) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.DeliveryDate) %>
-        </th>
-        <th></th>
     </tr>
 
 <% foreach (var item in Model) { %>
@@ -37,15 +50,15 @@
             <%: Html.DisplayFor(modelItem => item.User.PersonalData.LastName) %>
         </td>
 
-        <td>
-            <%: Html.DisplayFor(modelItem => item.SentDate) %>
-        </td>
+<%--        <td>--%>
+<%--            <%: Html.DisplayFor(modelItem => item.SentDate) %>--%>
+<%--        </td>--%>
 
         <td>
             <%: Html.DisplayFor(modelItem => item.OrderDate) %>
         </td>
         <td>
-            <%: Html.DisplayFor(modelItem => item.DeliveryDate) %>
+            <%: Html.DisplayFor(modelItem => item.Status) %>
         </td>
         <td>
             <%: Html.ActionLink("Details", "OrderDetailsSite", new { orderId=item.Id }) %>

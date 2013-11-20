@@ -99,7 +99,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 					SentDate = sentDate,
 					DeliveryDate = deliveryDate,
 					User = userAccounts[index],
-					Status = Order.OrderState.DELIVERED,
+					Status = Order.OrderState.IN_PROGRESS,
 				};
 				order.OrderEntries = GenerateOrderEntries(bookTypes, order, index);
 				orders.Add(order);
