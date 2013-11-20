@@ -177,5 +177,49 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             }
             return user;
         }
+        public IList<LogInOutEvent> GenerateLogInOutEvents(List<UserAccount> userList)
+        {
+            IList<LogInOutEvent> logInOutEventsList = new List<LogInOutEvent>();
+            foreach (UserAccount user in userList)
+            {
+                DateTime validFrom = user.ValidFrom;
+                DateTime lastSuccesfulSignIn = user.LastSuccessfulSignInDate;
+                int timeSpan = (int) (lastSuccesfulSignIn.Date - validFrom.Date).Days;
+                int rand = new Random().Next(timeSpan / 3) + 1;
+                int daySpan = (int) timeSpan / rand;
+                while (daySpan < timeSpan)
+                {
+                    if (daySpan % 6 == 1)
+                    {
+
+                        logInOutEventsList.Add(new LogInOutEvent() {
+                            IpAddress = "192.168.0.1",
+                            UserAccount = user,
+                            Type = LogInOutEvent.ActionType.LOGIN_FAILURE,
+                            GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
+                        });
+                    }
+                    else
+                    {
+                        logInOutEventsList.Add(new LogInOutEvent()
+                        {
+                            IpAddress = "192.168.0.1",
+                            UserAccount = user,
+                            Type = LogInOutEvent.ActionType.LOGIN_SUCCESSFUL,
+                            GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
+                        }); 
+                        logInOutEventsList.Add(new LogInOutEvent()
+                        {
+                            IpAddress = "192.168.0.1",
+                            UserAccount = user,
+                            Type = LogInOutEvent.ActionType.LOGOUT,
+                            GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
+                        });
+                    }
+                    daySpan += daySpan;
+                }
+            }
+            return logInOutEventsList;
+        }
     }
 }
