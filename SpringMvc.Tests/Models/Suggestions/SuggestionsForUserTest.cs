@@ -1,16 +1,16 @@
 ﻿using System;
-using System.Linq;
+using System.Text;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.Suggestions.Services.Implementation;
 
-
 namespace SpringMvc.Tests.Models.Suggestions
 {
     [TestClass]
-    public class SuggestionsForGuestTest
+    public class SuggestionsForUserTest
     {
 
         private ISuggestionService suggestionService;
@@ -24,7 +24,7 @@ namespace SpringMvc.Tests.Models.Suggestions
         [TestMethod]
         public void ResultQuantityTest()
         {
-            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest();
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForUser(1);
 
             Int32 counter = 0;
             foreach (BookType book in result)
@@ -37,24 +37,12 @@ namespace SpringMvc.Tests.Models.Suggestions
         }
 
         [TestMethod]
-        public void NoCacheUpdateTest()
+        [ExpectedException(typeof(ArgumentException))]
+        public void BadUserIdTest()
         {
-            List<BookType> result1 = suggestionService.GetSuggestionsForGuest().ToList();
-            List<BookType> result2 = suggestionService.GetSuggestionsForGuest().ToList();
-
-            Assert.Equals(result1.Count, result2.Count);
-
-            foreach (BookType book in result1)
-            {
-                Assert.IsTrue(result2.Contains(book));
-            }
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForUser(-1);
         }
 
-        [TestMethod]
-        public void DistinctBookTest()
-        {
-            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest();
-            Assert.Equals(result.Count(), result.Distinct().Count());
-        }
+
     }
 }

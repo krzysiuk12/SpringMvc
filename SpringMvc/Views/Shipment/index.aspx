@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainShop.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     Index
@@ -6,7 +6,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<style type="text/css">
+ <style type="text/css">
 .wysylka {
         display: table;
         width: 1000px;
@@ -84,6 +84,7 @@ h2{
         margin-left: auto;        
 }
 </style>
+    
 
 <div class="wysylka">
         <div class="orders"> 
@@ -98,7 +99,7 @@ h2{
         </ol>
         <div class="orderFiltering"></div>
         </div>
-        <div class="orderDetails">
+        <%-- <div class="orderDetails">
                 <h2>Details:  <%=ViewBag.Order.OrderDate%>,   <%=ViewBag.Order.Status%></h2>
                 <div class="clientDetails">
                         <h3>Dane do wysyłki:</h3>
@@ -134,15 +135,19 @@ h2{
                                 <input type="submit" value="Zmien status zamowienia">
                         </form> 
                 </div>
-        </div>
+        </div>--%>
 </div>
 
 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
+    <%: Html.Partial("_MainMenuPartial") %>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="LeftMenuContent" runat="server">
+    <%: Html.Partial("_LeftSideMenuPartial") %>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ScriptsSection" runat="server">
 </asp:Content>
-

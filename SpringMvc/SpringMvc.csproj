@@ -251,6 +251,7 @@
     <Compile Include="Controllers\LoggingController.cs" />
     <Compile Include="Controllers\MainShopController.cs" />
     <Compile Include="Controllers\ShipmentController.cs" />
+    <Compile Include="Controllers\StorehouseController.cs" />
     <Compile Include="Controllers\UserAccountPanelController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -561,6 +562,9 @@
     <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Views\Shipment\index.aspx" />
+    <Content Include="Views\Storehouse\AddBook.aspx" />
+    <Content Include="Views\Storehouse\AddBookQuantityView.aspx" />
+    <Content Include="Views\Storehouse\Index.aspx" />
     <Content Include="Views\UserAccountPanel\ChangePassword.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />

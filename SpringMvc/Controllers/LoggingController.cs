@@ -42,7 +42,7 @@ namespace SpringMvc.Controllers
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.AdministratorMenu;
                         break;
                     case 2:
-                        SetCurrentMenuPositions(MenuPanelsMapping.WORKER);
+                        SetCurrentMenuPositions(MenuPanelsMapping.WORKER, MenuPrimaryPositionMappings.WORKER_UNDELIVEREDORDERS);
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.WorkerMenu;
                         break;
                     default:

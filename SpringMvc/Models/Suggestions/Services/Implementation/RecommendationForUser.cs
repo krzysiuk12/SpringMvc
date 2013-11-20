@@ -25,6 +25,11 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         public IEnumerable<long> GenerateRecommendation()
         {
+            if (serviceLocator.OrderInformationsService.GetOrdersByUserId(userID) == null)
+            {
+                throw new ArgumentException("No user with that id");
+            }
+
             List<long> resultList = new List<long>();
 
             if (categoryID.HasValue)
