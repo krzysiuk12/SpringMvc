@@ -12,6 +12,11 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
+  <object id="accountManagementService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AccountManagementService">
+    <property name="DaoFactory" ref="daoFactory"/>
+    <property name="ServiceLocator" ref="serviceLocator"/>
+  </object>
+
   <object id="authorizationService" type="SpringMvc.Models.UserAccounts.Services.Implementation.AuthorizationService">
     <property name="DaoFactory" ref="daoFactory"/>
     <property name="ServiceLocator" ref="serviceLocator"/>
@@ -72,6 +77,7 @@
 
   <object id="serviceLocator" type="SpringMvc.Models.Common.ServiceLocator">
     <property name="AccountAdministrationService" ref="accountAdministrationService"/>
+    <property name="AccountManagementService" ref="accountManagementService"/>
     <property name="AuthorizationService" ref="authorizationService"/>
     <property name="LogEventsService" ref="logEventsService"/>
     <property name="UserInformationService" ref="userInformationService"/>

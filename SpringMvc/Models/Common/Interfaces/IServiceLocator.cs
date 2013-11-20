@@ -15,6 +15,7 @@ namespace SpringMvc.Models.Common.Interfaces
     {
         IAuthorizationService AuthorizationService { get; set; }
         IAccountAdministrationService AccountAdministrationService { get; set; }
+        IAccountManagementService AccountManagementService { get; set; }
         ILogEventsService LogEventsService { get; set; }
         IUserInformationService UserInformationService { get; set; }
         ISuggestionService SuggestionService { get; set; }

@@ -18,6 +18,8 @@ namespace SpringMvc.Models.Common
 
         public IAccountAdministrationService AccountAdministrationService { get; set; }
 
+        public IAccountManagementService AccountManagementService { get; set; }
+
         public ILogEventsService LogEventsService { get; set; }
 
         public IUserInformationService UserInformationService { get; set; }

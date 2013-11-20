@@ -14,7 +14,7 @@
 
   <object id="userAccountPanelEdit" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
     <property name="Label" value="Edit"/>
-    <property name="ControllerAction" value="Index"/>
+    <property name="ControllerAction" value="Edit"/>
     <property name="ControllerName" value="UserAccountPanel"/>
   </object>
 
@@ -125,11 +125,11 @@
     <property name="ControllerAction" value="GetBooksByCategory"/>
     <property name="ControllerName" value="MainShop"/>
   </object>
-  
-  
-  
-  
-    <!-- ****************************************************************************
+
+
+
+
+  <!-- ****************************************************************************
                   Worker Panel - Secondary Menu Positions 
   **************************************************************************** -->
   <object id="workerPanelUndeliveredOrders" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
@@ -155,10 +155,10 @@
     <property name="ControllerAction" value="AddBook"/>
     <property name="ControllerName" value="Storehouse"/>
   </object>
-  
 
-  
-  
+
+
+
   <!-- ****************************************************************************
                             Primary Menu Positions
   **************************************************************************** -->
@@ -300,6 +300,6 @@
     <property name="WorkerMenu" ref="workerMenu"/>
     <property name="GuestMenu" ref="guestMenu"/>
   </object>
-  
-  
+
+
 </objects>

@@ -51,16 +51,6 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
         }
 
-        [Transaction]
-        public void ChangePassword(long userAccountId, string oldPassword, string newPassword)
-        {
-            UserAccount userAccount = DaoFactory.UserInformationDao.GetUserAccountById(userAccountId);
-            if (userAccount.Password != oldPassword)
-            { 
-                //PASSWORD DOES NOT MATCH
-            }
-        }
-
         [Transaction(ReadOnly=true)]
         public IEnumerable<UserAccount> GetUserAccountsWithCriteria(IDictionary<string, string> parameters)
         {

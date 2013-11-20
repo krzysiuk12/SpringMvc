@@ -1,4 +1,5 @@
 ﻿using SpringMvc.Menu;
+using SpringMvc.Menu.MenuElementMapping;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.UserAccountsPages;
@@ -19,7 +20,9 @@ namespace SpringMvc.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            SetCurrentMenuPositions(MenuPanelsMapping.USER_ACCOUNT, MenuPrimaryPositionMappings.USERACCOUNT_VIEW);
+            UserAccount userAccount = ServiceLocator.UserInformationService.GetUserAccountById((long)Session["LoggedUserId"]);
+            return View(userAccount);
         }
 
         //
@@ -43,28 +46,23 @@ namespace SpringMvc.Controllers
         }
         #endregion
 
-        //
-        // GET: /UserAccountPanel/Edit/5
         #region Edit Methods
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
-            return View();
+            SetCurrentMenuPositions(MenuPanelsMapping.USER_ACCOUNT, MenuPrimaryPositionMappings.USERACCOUNT_EDIT);
+            UserAccount model = ServiceLocator.UserInformationService.GetUserAccountById((long)Session["LoggedUserId"]);
+            return View(model);
         }
 
-        //
-        // POST: /UserAccountPanel/Edit/5
-
         [HttpPost]
-        public ActionResult Edit(int id, UserAccountModel model)
+        public ActionResult Edit(UserAccount model)
         {
-            return View();
+            ServiceLocator.AccountManagementService.EditUserPersonalData((long)Session["LoggedUserId"], model.PersonalData);
+            return RedirectToAction("Index", "UserAccountPanel");
         }
         #endregion
 
         #region Change Password Methods
-        //
-        // GET: /UserAccountPanel/Delete/5
-
         public ActionResult ChangePassword()
         {
             return View();
@@ -73,6 +71,7 @@ namespace SpringMvc.Controllers
         [HttpPost]
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
+            ServiceLocator.AccountManagementService.ChangePassword((long)Session["LoggedUserId"], model.OldPassword, model.NewPassword);
             return View();
         }
         #endregion

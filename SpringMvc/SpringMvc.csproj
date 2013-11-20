@@ -338,10 +338,12 @@
     <Compile Include="Models\UserAccounts\Dao\Interfaces\ILogEventsDao.cs" />
     <Compile Include="Models\UserAccounts\Dao\Interfaces\IUserInformationDao.cs" />
     <Compile Include="Models\UserAccounts\Services\Implementation\AccountAdministrationService.cs" />
+    <Compile Include="Models\UserAccounts\Services\Implementation\AccountManagementService.cs" />
     <Compile Include="Models\UserAccounts\Services\Implementation\AuthorizationService.cs" />
     <Compile Include="Models\UserAccounts\Services\Implementation\LogEventsService.cs" />
     <Compile Include="Models\UserAccounts\Services\Implementation\UserInformationService.cs" />
     <Compile Include="Models\UserAccounts\Services\Interfaces\IAccountAdministrationService.cs" />
+    <Compile Include="Models\UserAccounts\Services\Interfaces\IAccountManagementService.cs" />
     <Compile Include="Models\UserAccounts\Services\Interfaces\IAuthorizationService.cs" />
     <Compile Include="Models\UserAccounts\Services\Interfaces\ILogEventsService.cs" />
     <Compile Include="Models\UserAccounts\Services\Interfaces\IUserInformationService.cs" />

@@ -18,8 +18,6 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
 
         void LockUser(long userAccountId);
 
-        void ChangePassword(long userAccountId, string oldPassword, string newPassword);
-
         IEnumerable<UserAccount> GetUserAccountsWithCriteria(IDictionary<String, String> parameters);
 
         IEnumerable<UserAccount> AllUserAccounts { get; }
