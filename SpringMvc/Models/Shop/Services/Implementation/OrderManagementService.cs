@@ -31,6 +31,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
         public void CompleteOrder(long orderId)
         {
             Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
+            order.DeliveryDate = DateTime.Now;
             order.Status = Order.OrderState.DELIVERED;
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
@@ -48,7 +49,6 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             BookType bookType = new BookType(); //Tutaj jak zaimplementuja ServiceLocator.(...)
             OrderEntry orderEntry = new OrderEntry()
             {
-                //Order = order,
                 BookType = bookType,
                 Price = bookType.Price,
                 Amount = amount
