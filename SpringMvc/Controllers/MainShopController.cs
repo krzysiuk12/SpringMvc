@@ -23,6 +23,18 @@ namespace SpringMvc.Controllers
             return View(books);
         }
 
+        public ActionResult UserOrdersView()
+        {
+            IEnumerable<OrderEntry> orderEntry = ServiceLocator.OrderInformationsService.GetOrderById(1).OrderEntries;
+            return View(orderEntry);
+        }
+
+        public ActionResult BookDetails()
+        {
+            BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(1);
+            return View(book);
+        }
+
         public ActionResult CategoryBooksView(string name)
         {
             SetCurrentMenuPositions(MenuPanelsMapping.SHOP, MapCategoryNameToShopSecondaryPosition(name));
