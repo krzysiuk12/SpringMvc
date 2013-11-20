@@ -15,19 +15,5 @@ namespace SpringMvc.Models.Shop.Dao.Implementation
         {
             this.Session.SaveOrUpdate(order);
         }
-        //public void CreateNewOrder(Order order)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void MarkOrderInProgress(long orderId)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public void CompleteOrder(long orderId)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }

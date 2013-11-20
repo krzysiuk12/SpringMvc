@@ -7,7 +7,7 @@ namespace SpringMvc.Models.POCO
 {
     public class Order
     {
-        public enum OrderState { ORDERED, IN_PROGRESS, PAID, DELIVERED };
+        public enum OrderState { ORDERED, SENT, DELIVERED };
 
         public virtual long Id { get; set; }
         public virtual IList<OrderEntry> OrderEntries { get; set; }

@@ -34,7 +34,7 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetUnrealizedOrders()
         {
-            return ServiceLocator.OrderInformationsService.GetInProgressOrders();
+            return ServiceLocator.OrderInformationsService.GetUndeliveredOrders();
         }
 
         [Transaction]
@@ -45,9 +45,9 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         }
 
         [Transaction]
-        public void MarkOrderAsInProgress(long orderId)
+        public void MarkOrderAsInProgress(long orderId) // metoda ustawia w order date wysłania i zmienia status na SENT
         {
-            ServiceLocator.OrderManagementService.MarkOrderInProgress(orderId);
+            ServiceLocator.OrderManagementService.MarkOrderSent(orderId);
         }
     }
 }

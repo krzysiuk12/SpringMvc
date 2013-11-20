@@ -28,14 +28,14 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void TestGetInProgressOrdersByUserIdWithWrongId()
         {
-            IEnumerable<Order> orders = ois.GetInProgressOrdersByUserId(-1);
+            IEnumerable<Order> orders = ois.GetUndeliveredOrdersByUserId(-1);
             Assert.Equals((new LinkedList<Order>(orders)).Count, 0);
         }
 
         [TestMethod]
         public void TestGetInProgressOrders()
         {
-            IEnumerable<Order> orders = ois.GetInProgressOrders();
+            IEnumerable<Order> orders = ois.GetUndeliveredOrders();
             foreach (var item in orders)
             {
                 Assert.IsNotNull(item);

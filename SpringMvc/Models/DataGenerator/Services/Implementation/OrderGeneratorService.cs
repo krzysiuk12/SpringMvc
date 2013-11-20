@@ -132,7 +132,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 					}
 					else
 					{
-						order.Status = Order.OrderState.IN_PROGRESS;
+						order.Status = Order.OrderState.SENT;
 						order.SentDate = sentDate;
 					}
 					order.OrderEntries = GenerateOrderEntries(bookTypes, order, index);

@@ -16,14 +16,17 @@ namespace SpringMvc.Models.Shop.Services.Implementation
         [Transaction]
         public void CreateNewOrder(Order order)
         {
+            order.Status = Order.OrderState.ORDERED;
+            order.OrderDate = DateTime.Now;
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 
         [Transaction]
-        public void MarkOrderInProgress(long orderId)
+        public void MarkOrderSent(long orderId)
         {
             Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
-            order.Status = Order.OrderState.IN_PROGRESS;
+            order.Status = Order.OrderState.SENT;
+            order.SentDate = DateTime.Now;
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 
@@ -33,14 +36,6 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
             order.DeliveryDate = DateTime.Now;
             order.Status = Order.OrderState.DELIVERED;
-            DaoFactory.OrderManagementDao.SaveOrUpdate(order);
-        }
-
-        [Transaction]
-        public void OrderPaid(long orderId)
-        {
-            Order order = DaoFactory.OrderInformationsDao.GetOrderById(orderId);
-            order.Status = Order.OrderState.PAID;
             DaoFactory.OrderManagementDao.SaveOrUpdate(order);
         }
 

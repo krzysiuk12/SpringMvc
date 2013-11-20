@@ -21,14 +21,14 @@ namespace SpringMvc.Models.Shop.Dao.Implementation
             return this.Session.Query<Order>().Where(order => order.User.Id == userId).Select(order => order).ToList();
         }
 
-        public IEnumerable<Order> GetInProgressOrders()
+        public IEnumerable<Order> GetUndeliveredOrders()
         {
-            return this.Session.Query<Order>().Where(order => order.Status == Order.OrderState.IN_PROGRESS).Select(order => order).ToList();
+            return this.Session.Query<Order>().Where(order => order.Status != Order.OrderState.DELIVERED).Select(order => order).ToList();
         }
 
-        public IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
+        public IEnumerable<Order> GetUndeliveredByUserId(long userId)
         {
-            return this.Session.Query<Order>().Where(order => (order.Status == Order.OrderState.IN_PROGRESS && order.User.Id == userId )).Select(order => order).ToList();
+            return this.Session.Query<Order>().Where(order => (order.Status != Order.OrderState.DELIVERED && order.User.Id == userId )).Select(order => order).ToList();
         }
     }
 }

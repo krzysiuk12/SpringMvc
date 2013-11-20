@@ -26,15 +26,15 @@ namespace SpringMvc.Models.Shop.Services.Implementation
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<Order> GetInProgressOrders()
+        public IEnumerable<Order> GetUndeliveredOrders()
         {
-            return DaoFactory.OrderInformationsDao.GetInProgressOrders();
+            return DaoFactory.OrderInformationsDao.GetUndeliveredOrders();
         }
 
         [Transaction(ReadOnly = true)]
-        public IEnumerable<Order> GetInProgressOrdersByUserId(long userId)
+        public IEnumerable<Order> GetUndeliveredOrdersByUserId(long userId)
         {
-            return DaoFactory.OrderInformationsDao.GetInProgressOrdersByUserId(userId);
+            return DaoFactory.OrderInformationsDao.GetUndeliveredByUserId(userId);
         }
     }
 }

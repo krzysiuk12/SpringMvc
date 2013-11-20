@@ -12,8 +12,8 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
 
         IEnumerable<Order> GetOrdersByUserId(long userId);
 
-        IEnumerable<Order> GetInProgressOrders();
+        IEnumerable<Order> GetUndeliveredOrders();
 
-        IEnumerable<Order> GetInProgressOrdersByUserId(long userId);
+        IEnumerable<Order> GetUndeliveredOrdersByUserId(long userId);
     }
 }

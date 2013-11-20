@@ -78,7 +78,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         private void updateCache()
         {
             Dictionary<long, long> topDictionary = new Dictionary<long, long>();
-            IEnumerable<Order> ordersInProgres = serviceLocator.OrderInformationsService.GetInProgressOrders();
+            IEnumerable<Order> ordersInProgres = serviceLocator.OrderInformationsService.GetUndeliveredOrders();
 
             foreach (Order order in ordersInProgres)
             {
