@@ -561,7 +561,8 @@
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
-    <Content Include="Views\Shipment\index.aspx" />
+    <Content Include="Views\Shipment\Index.aspx" />
+    <Content Include="Views\Shipment\OrderDetailsSite.aspx" />
     <Content Include="Views\Storehouse\AddBook.aspx" />
     <Content Include="Views\Storehouse\AddBookQuantityView.aspx" />
     <Content Include="Views\Storehouse\Index.aspx" />

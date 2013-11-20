@@ -13,7 +13,7 @@
     <property name="DeliveryDate" column="DeliveryDate" type="DateTime"/>
     <property name="Status" column="OrderStatus" type="Order+OrderState"/>
 
-    <many-to-one name="User" column="UserId" class="UserAccount" not-null="true" lazy="proxy"/>
+    <many-to-one name="User" column="UserId" class="UserAccount" not-null="true" lazy="false"/>
     
     <list name="OrderEntries" cascade="all" lazy="false">
 	    <key column="OrderId" not-null="true"/>
