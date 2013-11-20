@@ -121,41 +121,36 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             for (int index = 0; index < firstNames.Length; index++)
             {
                 int rand = new Random().Next(30);
-                users.Add(new UserAccount()
+                UserAccount user = new UserAccount()
                 {
                     Login = firstNames[index] + lastNames[index],
                     Password = AuthorizationService.EncryptPassword(lastNames[index]),
                     Email = firstNames[index] + lastNames[index] + "@mail.com",
-                    LastPasswordChangedDate = DateTime.Now.Date,
-                    LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand + rand % 10)),
-                    ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand)),
-                    ValidTo = DateTime.Now.Date.AddMonths(1),
-                    AccountStatus = UserAccount.Status.ACTIVE,
                     PersonalData = userPersonalDataList.ElementAt(index),
-                });
-            }
-            int statusIndex = 0;
-            UserAccount.Status status;
-            foreach (UserAccount user in users) 
-            {
-                if (statusIndex == 10)
-                    statusIndex = 0;
-                if (statusIndex < 7)
-                    status = UserAccount.Status.ACTIVE;
-                else if (statusIndex == 7)
-                    status = UserAccount.Status.EXPIRED;
-                else if (statusIndex == 8)
-                    status = UserAccount.Status.REMOVED;
-                else
-                    status = UserAccount.Status.LOCKED_OUT;
-                statusIndex++;
-                GenerateDatesForUserWithStatus(status, user);
+                };
+                switch (index % 10)
+                { 
+                    case 7:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.EXPIRED, user);
+                        break;
+                    case 8:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.REMOVED, user);
+                        break;
+                    case 9:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.LOCKED_OUT, user);
+                        break;
+                    default:
+                        user = GenerateDatesForUserWithStatus(UserAccount.Status.ACTIVE, user);
+                        break;
+                }
+                users.Add(user);
             }
             return users;
         }
 
-        private void GenerateDatesForUserWithStatus(UserAccount.Status status, UserAccount user)
+        private UserAccount GenerateDatesForUserWithStatus(UserAccount.Status status, UserAccount user)
         {
+            user.AccountStatus = status;
             if (status == UserAccount.Status.ACTIVE || status == UserAccount.Status.LOCKED_OUT)
             {
                 int rand = new Random().Next(30);
@@ -180,6 +175,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand % 31));
                 user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(2 * ((rand % 3) + 1) * rand));
             }
+            return user;
         }
     }
 }
