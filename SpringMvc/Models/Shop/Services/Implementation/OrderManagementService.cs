@@ -41,7 +41,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
 
         public void AddOrderEntry(Order order, long selectedBookTypeId, int amount)
         {
-            BookType bookType = new BookType(); //Tutaj jak zaimplementuja ServiceLocator.(...)
+            BookType bookType = ServiceLocator.BooksInformationService.GetBookTypeById(selectedBookTypeId);
             OrderEntry orderEntry = new OrderEntry()
             {
                 BookType = bookType,
