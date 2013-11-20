@@ -40,7 +40,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             userAccount.PersonalData.Address.PostalCode = personalData.Address.PostalCode;
             userAccount.PersonalData.Address.City = personalData.Address.City;
             userAccount.PersonalData.Address.Country = personalData.Address.Country;
-            DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
+            ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
         }
     }
 }

@@ -65,6 +65,7 @@ namespace SpringMvc.Controllers
         #region Change Password Methods
         public ActionResult ChangePassword()
         {
+            SetCurrentMenuPositions(MenuPanelsMapping.USER_ACCOUNT, MenuPrimaryPositionMappings.USERACCOUNT_CHANGEPASSWORD);
             return View();
         }
 
