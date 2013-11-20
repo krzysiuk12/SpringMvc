@@ -23,6 +23,7 @@ namespace SpringMvc.Tests.Models.Storehouse
             IStorehouseManagementService sms = new StorehouseManagementService();
             TEST_CAT_NAME = "testowa kategoria";
             testBook = new BookType();
+            testBook.Id = 47123;
             testBook.Title = "Książka testowa";
             testBook.Authors = "Autor testowy";
             testBook.Category = testCategory;
