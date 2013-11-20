@@ -185,13 +185,12 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 DateTime validFrom = user.ValidFrom;
                 DateTime lastSuccesfulSignIn = user.LastSuccessfulSignInDate;
                 int timeSpan = (int) (lastSuccesfulSignIn.Date - validFrom.Date).Days;
-                int rand = new Random().Next(timeSpan / 3) + 1;
+                int rand = new Random().Next(timeSpan) + 1;
                 int daySpan = (int) timeSpan / rand;
                 while (daySpan < timeSpan)
                 {
                     if (daySpan % 6 == 1)
                     {
-
                         logInOutEventsList.Add(new LogInOutEvent() {
                             IpAddress = "192.168.0.1",
                             UserAccount = user,
