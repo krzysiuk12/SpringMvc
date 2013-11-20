@@ -40,6 +40,11 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
             {
                 ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(account);
             }
+            //IList<LogInOutEvent> logEvents = UserAccountGeneratorService.GenerateLogInOutEvents(userAccounts);
+            //foreach (LogInOutEvent logEvent in logEvents)
+            //{
+            //    ServiceLocator.LogEventsService.SaveLogInOutEvent(logEvent);
+            //}
 			return userAccounts;
         }
 
