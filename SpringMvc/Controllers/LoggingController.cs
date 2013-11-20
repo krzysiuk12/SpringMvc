@@ -47,6 +47,10 @@ namespace SpringMvc.Controllers
                         break;
                     default:
                         SetCurrentMenuPositions(MenuPanelsMapping.SHOP, MenuPrimaryPositionMappings.SHOP_VIEW_ALL_BOOKS);
+                        Session["CurrentOrder"] = new Order() 
+                        { 
+                            User = user
+                        };
                         Session["CurrentUser"] = (UserAccount)user;
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.UserAccountMenu;
                         break;
@@ -62,6 +66,7 @@ namespace SpringMvc.Controllers
         public ActionResult GuestLogin()
         {
             SetCurrentMenuPositions(MenuPanelsMapping.SHOP);
+            Session["CurrentOrder"] = null;
             Session["LoggedUserId"] = (long)ApplicationScope.GuestId;
             Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.GuestMenu;
             return RedirectToAction("Index", "MainShop");

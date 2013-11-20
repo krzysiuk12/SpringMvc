@@ -44,6 +44,11 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
             });
         }
 
+        public void SaveLogInOutEvent(LogInOutEvent logEvent)
+        {
+            this.Session.Save(logEvent);
+        }
+
         public IEnumerable<LogInOutEvent> GetLogEventsForUserByUserId(long userAccountId)
         {
             return this.Session.Query<LogInOutEvent>().Where(log => log.UserAccount.Id == userAccountId).Select(log => log).ToList();

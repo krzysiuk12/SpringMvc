@@ -29,9 +29,9 @@ namespace SpringMvc.Controllers
             return View(orderEntry);
         }
 
-        public ActionResult BookDetails()
+        public ActionResult BookDetails(long booktypeId)
         {
-            BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(1);
+            BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(booktypeId);
             return View(book);
         }
 

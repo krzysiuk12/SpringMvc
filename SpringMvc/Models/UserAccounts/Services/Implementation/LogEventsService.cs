@@ -31,6 +31,12 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             throw new NotImplementedException();
         }
 
+        [Transaction]
+        public void SaveLogInOutEvent(LogInOutEvent logEvent)
+        {
+            DaoFactory.LogEventsDao.SaveLogInOutEvent(logEvent);
+        }
+
         [Transaction(ReadOnly = true)]
         public IEnumerable<LogInOutEvent> GetLogEventsForUserByUserId(long userAccountId)
         {

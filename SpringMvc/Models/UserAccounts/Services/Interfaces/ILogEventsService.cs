@@ -15,5 +15,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
         void SaveLogOutEventForUser(UserAccount userAccountId, string ipAddress);
 
         IEnumerable<LogInOutEvent> GetLogEventsForUserByUserId(long userAccountId);
+
+        void SaveLogInOutEvent(LogInOutEvent logEvent);
     }
 }
