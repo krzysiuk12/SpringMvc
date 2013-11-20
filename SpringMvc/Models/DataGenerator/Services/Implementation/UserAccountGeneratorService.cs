@@ -185,6 +185,8 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 DateTime validFrom = user.ValidFrom;
                 DateTime lastSuccesfulSignIn = user.LastSuccessfulSignInDate;
                 int timeSpan = (int) (lastSuccesfulSignIn.Date - validFrom.Date).Days;
+                if (timeSpan < 0)
+                    timeSpan *= -1;
                 int rand = new Random().Next(timeSpan) + 1;
                 int daySpan = (int) timeSpan / rand;
                 while (daySpan < timeSpan)

@@ -50,10 +50,20 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 
 		public List<Order> GenerateOrders(List<BookType> books, List<UserAccount> userAccounts, List<VatMap> vatValues)
 		{
+            long index = 1;
 			List<Order> orders = OrderGeneratorService.GenerateOrders(books, userAccounts);
 			foreach(Order order in orders)
 			{
 				ServiceLocator.OrderManagementService.CreateNewOrder(order);
+                if (index % 3 == 0)
+                {               
+                    ServiceLocator.OrderManagementService.MarkOrderSent(index);
+                }
+                if (index % 3 == 1)
+                {
+                    ServiceLocator.OrderManagementService.CompleteOrder(index);
+                }
+                index++;
 			}
 
 			List<Invoice> invoices = OrderGeneratorService.GenerateInvoices(orders, vatValues);
