@@ -70,7 +70,7 @@ namespace SpringMvc.Controllers
         public ActionResult ChangePassword(ChangePasswordModel model)
         {
             ServiceLocator.AccountManagementService.ChangePassword((long)Session["LoggedUserId"], model.OldPassword, model.NewPassword);
-            return View();
+            return RedirectToAction("Index", "UserAccountPanel");
         }
         #endregion
 

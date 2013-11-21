@@ -10,10 +10,6 @@ namespace SpringMvc.Models.UserAccounts.Dao.Interfaces
     {
         void SaveOrUpdateUser(UserAccount userAccount);
 
-        void ChangePassword(long userAccountId, string oldPassword, string newPassword);
-
-        IEnumerable<UserAccount> GetUserAccountsWithCriteria(IDictionary<String, String> parameters);
-
         IEnumerable<UserAccount> AllUserAccounts { get; }
 
         IEnumerable<UserAccount> AllActiveUserAccounts { get; }

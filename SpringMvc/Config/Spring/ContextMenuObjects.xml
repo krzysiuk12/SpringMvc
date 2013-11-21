@@ -48,7 +48,7 @@
     <property name="ControllerName" value="AdministratorPanel"/>
   </object>
 
-  <object id="administratorPanelChangeUserStatus" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+  <!--<object id="administratorPanelChangeUserStatus" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
     <property name="Label" value="Change User Status"/>
     <property name="ControllerAction" value="ChangeUserStatus"/>
     <property name="ControllerName" value="AdministratorPanel"/>
@@ -64,7 +64,7 @@
     <property name="Label" value="View User Information"/>
     <property name="ControllerAction" value="ViewUserInformation"/>
     <property name="ControllerName" value="AdministratorPanel"/>
-  </object>
+  </object>-->
 
 
 
@@ -196,9 +196,9 @@
     <property name="ChildMenuPositionMap">
       <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
         <entry key="0" value-ref="administratorPanelViewAllUsers"/>
-        <entry key="1" value-ref="administratorPanelChangeUserPassword"/>
+        <!--<entry key="1" value-ref="administratorPanelChangeUserPassword"/>
         <entry key="2" value-ref="administratorPanelChangeUserStatus"/>
-        <entry key="3" value-ref="administratorPanelViewUserInformation"/>
+        <entry key="3" value-ref="administratorPanelViewUserInformation"/>-->
       </dictionary>
     </property>
   </object>

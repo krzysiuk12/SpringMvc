@@ -42,5 +42,51 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             userAccount.PersonalData.Address.Country = personalData.Address.Country;
             ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
         }
+
+        [Transaction]
+        public void ChangeUserPassword(long userId, String newPassword)
+        {
+            UserAccount userAccount = ServiceLocator.UserInformationService.GetUserAccountById(userId);
+            userAccount.Password = ServiceLocator.AuthorizationService.EncryptPassword(newPassword);
+            DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
+        }
+
+
+        [Transaction(ReadOnly = true)]
+        public IEnumerable<UserAccount> GetAllUserAccounts()
+        {
+            return DaoFactory.AccountAdministrationDao.AllUserAccounts;
+        }
+
+        [Transaction(ReadOnly = true)]
+        public IEnumerable<UserAccount> GetAllActiveUserAccounts()
+        {
+            return DaoFactory.AccountAdministrationDao.AllActiveUserAccounts;
+        }
+
+        [Transaction]
+        public void LockUser(long userAccountId)
+        {
+            UserAccount userAccount = DaoFactory.UserInformationDao.GetUserAccountById(userAccountId);
+            userAccount.AccountStatus = UserAccount.Status.LOCKED_OUT;
+            DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
+        }
+
+        [Transaction]
+        public void RemoveUser(long userAccountId)
+        {
+            UserAccount userAccount = DaoFactory.UserInformationDao.GetUserAccountById(userAccountId);
+            userAccount.ValidTo = DateTime.Now;
+            userAccount.AccountStatus = UserAccount.Status.REMOVED;
+            DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
+        }
+
+        [Transaction]
+        public void TurnOnUser(long userAccountId)
+        {
+            UserAccount userAccount = DaoFactory.UserInformationDao.GetUserAccountById(userAccountId);
+            userAccount.AccountStatus = UserAccount.Status.ACTIVE;
+            DaoFactory.AccountAdministrationDao.SaveOrUpdateUser(userAccount);
+        }
     }
 }

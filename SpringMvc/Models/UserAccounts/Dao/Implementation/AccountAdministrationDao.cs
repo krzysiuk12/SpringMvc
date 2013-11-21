@@ -16,24 +16,14 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
             this.Session.SaveOrUpdate(userAccount);
         }
 
-        public void ChangePassword(long userAccountId, string oldPassword, string newPassword)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerable<UserAccount> GetUserAccountsWithCriteria(IDictionary<string, string> parameters)
-        {
-            throw new NotImplementedException();
-        }
-
         public IEnumerable<UserAccount> AllUserAccounts
         {
-            get { throw new NotImplementedException(); }
+            get { return this.Session.Query<UserAccount>().Where(user => user.Id > 2).OrderBy(user => user.Id).ToList(); }
         }
 
         public IEnumerable<UserAccount> AllActiveUserAccounts
         {
-            get { throw new NotImplementedException(); }
+            get { return this.Session.Query<UserAccount>().Where(user => user.Id > 2 && user.AccountStatus == UserAccount.Status.ACTIVE).OrderBy(user => user.Id).ToList(); }
         }
     }
 }

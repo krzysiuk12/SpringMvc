@@ -13,7 +13,7 @@
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
-  <object type="SpringMvc.Controllers.AdministratorPanelController, SpringMvc">
+  <object type="SpringMvc.Controllers.AdministratorPanelController, SpringMvc" singleton="false">
     <property name="ServiceLocator" ref="serviceLocator"/>
   </object>
 
