@@ -40,9 +40,11 @@
     <div class="button" style="float: right; margin-top: 15px;">
         <%: Html.ActionLink("Back to Shopping", "Index") %>
     </div>
-    <div class="button" style="float: right; margin-top: 15px;">
-        <%: Html.ActionLink("Add to Card", "AddToShoppingCart", new { ProductId = Model.Id}) %>
-    </div>
+    <% if ((long)Session["LoggedUserId"] != (long)Application["GuestId"]) { %>
+        <div class="button" style="float: right; margin-top: 15px;">
+            <%: Html.ActionLink("Add to Card", "AddToShoppingCart", new { ProductId = Model.Id}) %>
+        </div>
+    <% } %>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
