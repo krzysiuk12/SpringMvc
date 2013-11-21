@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<SpringMvc.Models.POCO.BookType>" %>
+<%@ Import Namespace="SpringMvc.Models.POCO" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     BookDetails
@@ -40,7 +41,7 @@
         <%: Html.ActionLink("Back to Shopping", "Index") %>
     </div>
     <div class="button" style="float: right; margin-top: 15px;">
-        <%: Html.ActionLink("Add to Card", "Index") %>
+        <%: Html.ActionLink("Add to Card", "AddToShoppingCart", new { ProductId = Model.Id}) %>
     </div>
 </asp:Content>
 
