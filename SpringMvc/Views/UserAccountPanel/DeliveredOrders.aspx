@@ -44,7 +44,7 @@
                     <%: Html.DisplayFor(modelItem => item.Status) %>
                 </td>
                 <td>
-                    <%: Html.ActionLink("Details", "Details", new { id=item.Id }) %>
+                    <%: Html.ActionLink("Details", "DeliveredOrderDetails", new { orderId = item.Id }) %>
                 </td>
             </tr>
         <% } %>

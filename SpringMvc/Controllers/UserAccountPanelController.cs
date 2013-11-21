@@ -101,6 +101,12 @@ namespace SpringMvc.Controllers
             return View(order);
         }
 
+        public ActionResult DeliveredOrderDetails(long orderId)
+        {
+            Order order = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
+            return View(order);
+        }
+
         private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
         {
             Session["PrimaryMenuPosition"] = primaryMenuPosition;

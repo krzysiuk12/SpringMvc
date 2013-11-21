@@ -831,6 +831,7 @@ tr.pager td {
  #shopview fieldset legend {
     text-align: center;
     display: initial;
+    font-weight: bold;
 }
 
 .button-list {

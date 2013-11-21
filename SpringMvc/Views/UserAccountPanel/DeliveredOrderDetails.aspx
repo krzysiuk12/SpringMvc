@@ -69,7 +69,7 @@
         </table>
     </fieldset>
     <div class="button" style="margin-top: 15px;">
-        <%: Html.ActionLink("Back to List", "UndeliveredOrders") %>
+        <%: Html.ActionLink("Back to List", "DeliveredOrders") %>
     </div>
 </asp:Content>
 
