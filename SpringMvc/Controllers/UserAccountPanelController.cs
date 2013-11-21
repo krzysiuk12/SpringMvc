@@ -107,6 +107,12 @@ namespace SpringMvc.Controllers
             return View(order);
         }
 
+        public ActionResult GetInvoiceByOrderId(long orderId)
+        {
+            //ServiceLocator.CreateInvoiceService.GetInvoice(orderId);
+            return RedirectToAction("DeliveredOrderDetails", "UserAccountPanel", new { orderId = orderId });
+        }
+
         private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
         {
             Session["PrimaryMenuPosition"] = primaryMenuPosition;
