@@ -15,5 +15,7 @@ namespace SpringMvc.Models.Shop.Dao.Interfaces
         IEnumerable<Order> GetUndeliveredOrders();
 
         IEnumerable<Order> GetUndeliveredByUserId(long userId);
+
+        IEnumerable<Order> GetDeliveredOrdersByUserId(long userId);
     }
 }

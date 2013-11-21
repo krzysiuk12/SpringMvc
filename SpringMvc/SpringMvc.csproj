@@ -572,8 +572,11 @@
     <Content Include="Views\Storehouse\Index.aspx" />
     <Content Include="Views\UserAccountPanel\ChangePassword.aspx" />
     <Content Include="Views\UserAccountPanel\Create.aspx" />
+    <Content Include="Views\UserAccountPanel\DeliveredOrders.aspx" />
     <Content Include="Views\UserAccountPanel\Edit.aspx" />
     <Content Include="Views\UserAccountPanel\Index.aspx" />
+    <Content Include="Views\UserAccountPanel\UndeliveredOrderDetails.aspx" />
+    <Content Include="Views\UserAccountPanel\UndeliveredOrders.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

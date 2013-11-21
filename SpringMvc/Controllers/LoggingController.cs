@@ -49,7 +49,8 @@ namespace SpringMvc.Controllers
                         SetCurrentMenuPositions(MenuPanelsMapping.SHOP, MenuPrimaryPositionMappings.SHOP_VIEW_ALL_BOOKS);
                         Session["CurrentOrder"] = new Order() 
                         { 
-                            User = user
+                            User = user,
+                            OrderEntries = new List<OrderEntry>()
                         };
                         Session["CurrentUser"] = (UserAccount)user;
                         Session["MenuObject"] = ServiceLocator.ApplicationScope.MenuProvider.UserAccountMenu;
@@ -74,6 +75,7 @@ namespace SpringMvc.Controllers
 
         public ActionResult Logout()
         {
+            Session["CurrentOrder"] = null;
             Session["LoggedUserId"] = null;
             return RedirectToAction("Index", "Logging");
         }

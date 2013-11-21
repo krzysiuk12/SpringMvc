@@ -32,5 +32,8 @@ namespace SpringMvc.Menu.MenuElementMapping
         public const int WORKER_STOREHOUSESUMMARY = 19;
         public const int WORKER_ADDBOOKWUANTITYVIEW = 20;
         public const int WORKER_ADDBOOK = 21;
+
+        public const int USERACCOUNT_UNDELIVEREDORDERS = 22;
+        public const int USERACCOUNT_DELIVERED_ORDERS = 23;
     }
 }

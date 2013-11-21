@@ -30,5 +30,10 @@ namespace SpringMvc.Models.Shop.Dao.Implementation
         {
             return this.Session.Query<Order>().Where(order => (order.Status != Order.OrderState.DELIVERED && order.User.Id == userId )).Select(order => order).ToList();
         }
+
+        public IEnumerable<Order> GetDeliveredOrdersByUserId(long userId)
+        {
+            return this.Session.Query<Order>().Where(order => (order.Status == Order.OrderState.DELIVERED && order.User.Id == userId)).Select(order => order).ToList();
+        }
     }
 }

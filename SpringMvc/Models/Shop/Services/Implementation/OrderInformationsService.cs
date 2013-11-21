@@ -36,5 +36,11 @@ namespace SpringMvc.Models.Shop.Services.Implementation
         {
             return DaoFactory.OrderInformationsDao.GetUndeliveredByUserId(userId);
         }
+
+        [Transaction(ReadOnly = true)]
+        public IEnumerable<Order> GetDeliveredOrdersByUserId(long userId)
+        {
+            return DaoFactory.OrderInformationsDao.GetDeliveredOrdersByUserId(userId);
+        }
     }
 }

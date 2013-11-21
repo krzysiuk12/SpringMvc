@@ -24,6 +24,18 @@
     <property name="ControllerName" value="UserAccountPanel"/>
   </object>
 
+  <object id="userAccountUndeliveredOrders" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Undelivered Orders"/>
+    <property name="ControllerAction" value="UndeliveredOrders"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+  </object>
+
+  <object id="userAccountPanelDeliveredOrders" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+    <property name="Label" value="Delivered Orders"/>
+    <property name="ControllerAction" value="DeliveredOrders"/>
+    <property name="ControllerName" value="UserAccountPanel"/>
+  </object>
+
 
 
 
@@ -171,6 +183,8 @@
         <entry key="4" value-ref="userAccountPanelView"/>
         <entry key="5" value-ref="userAccountPanelEdit"/>
         <entry key="6" value-ref="userAccountPanelChangePassword"/>
+        <entry key="22" value-ref="userAccountUndeliveredOrders"/>
+        <entry key="23" value-ref="userAccountPanelDeliveredOrders"/>
       </dictionary>
     </property>
   </object>

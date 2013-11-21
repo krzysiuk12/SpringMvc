@@ -15,5 +15,7 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
         IEnumerable<Order> GetUndeliveredOrders();
 
         IEnumerable<Order> GetUndeliveredOrdersByUserId(long userId);
+
+        IEnumerable<Order> GetDeliveredOrdersByUserId(long userId);
     }
 }

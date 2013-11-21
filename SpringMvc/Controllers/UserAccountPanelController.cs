@@ -25,9 +25,6 @@ namespace SpringMvc.Controllers
             return View(userAccount);
         }
 
-        //
-        // GET: /UserAccountPanel/Create
-
         #region Create Methods
         public ActionResult Create(long userAccountId)
         {
@@ -83,6 +80,26 @@ namespace SpringMvc.Controllers
             return View();
         }
         #endregion
+
+        public ActionResult UndeliveredOrders()
+        {
+            SetCurrentMenuPositions(MenuPanelsMapping.USER_ACCOUNT, MenuPrimaryPositionMappings.USERACCOUNT_UNDELIVEREDORDERS);
+            IEnumerable<Order> orders = ServiceLocator.OrderInformationsService.GetUndeliveredOrdersByUserId((long)Session["LoggedUserId"]);
+            return View(orders);
+        }
+
+        public ActionResult DeliveredOrders() 
+        {
+            SetCurrentMenuPositions(MenuPanelsMapping.USER_ACCOUNT, MenuPrimaryPositionMappings.USERACCOUNT_DELIVERED_ORDERS);
+            IEnumerable<Order> orders = ServiceLocator.OrderInformationsService.GetDeliveredOrdersByUserId((long)Session["LoggedUserId"]);
+            return View(orders);
+        }
+
+        public ActionResult UndeliveredOrderDetails(long orderId)
+        {
+            Order order = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
+            return View(order);
+        }
 
         private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)
         {
