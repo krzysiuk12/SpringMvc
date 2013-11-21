@@ -56,6 +56,15 @@ namespace SpringMvc.Controllers
             }
         }
 
+        public ActionResult AddToShoppingCart(long productId)
+        {
+            BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(productId);
+            var currentOrder = (Order)Session["CurrentOrder"];
+            currentOrder.OrderEntries.Add(new OrderEntry() { Amount = 1, BookType = book, Price = book.Price });
+            // throw new Exception(currentOrder.OrderEntries.Count.ToString());
+            return RedirectToAction("Index", "MainShop");
+        }
+
         private int MapCategoryNameToShopSecondaryPosition(string name)
         {
             switch (name)
