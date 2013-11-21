@@ -50,5 +50,11 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             };
             order.OrderEntries.Add(orderEntry);
         }
+
+		[Transaction]
+		public void SaveOrder(Order order)
+		{
+			DaoFactory.OrderManagementDao.SaveOrUpdate(order);
+		}
     }
 }

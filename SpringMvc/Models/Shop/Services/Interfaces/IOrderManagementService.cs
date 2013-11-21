@@ -15,5 +15,7 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
         void MarkOrderSent(long orderId);
 
         void CompleteOrder(long orderId);
+
+		void SaveOrder(Order order);
     }
 }

@@ -53,7 +53,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 			List<Order> orders = OrderGeneratorService.GenerateOrders(books, userAccounts);
 			foreach(Order order in orders)
 			{
-				ServiceLocator.OrderManagementService.CreateNewOrder(order);
+				ServiceLocator.OrderManagementService.SaveOrder(order);
 			}
 			List<Invoice> invoices = OrderGeneratorService.GenerateInvoices(orders, vatValues);
 			foreach (Invoice invoice in invoices)

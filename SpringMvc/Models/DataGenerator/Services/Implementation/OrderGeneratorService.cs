@@ -53,33 +53,33 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 											5, 8, 7, 9, 7, 5, 9, 4, 3, 6, 
 										  };
 
-
 		private int[] amountsOfBooks = { 
-											1, 2, 1, 2, 2, 1, 1, 1, 2, 1, 
-											1, 1, 1, 2, 2, 2, 1, 1, 2, 2, 
-											2, 2, 2, 1, 2, 1, 1, 2, 2, 2, 
-											1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 
-											1, 2, 2, 2, 2, 1, 1, 2, 1, 2, 
-											1, 2, 2, 1, 2, 1, 1, 1, 2, 2, 
-											1, 1, 1, 1, 1, 1, 2, 1, 1, 2, 
-											1, 2, 2, 2, 2, 2, 1, 1, 1, 1, 
-											2, 1, 1, 2, 2, 2, 1, 1, 2, 1, 
-											2, 2, 1, 1, 2, 1, 1, 1, 2, 1, 
+											2, 1, 2, 2, 2, 3, 3, 3, 3, 1, 
+											3, 3, 1, 1, 1, 1, 2, 3, 2, 1, 
+											2, 2, 1, 1, 1, 2, 3, 2, 1, 2, 
+											2, 2, 2, 1, 2, 2, 1, 2, 3, 2, 
+											3, 2, 2, 1, 1, 2, 2, 3, 1, 3, 
+											3, 3, 2, 2, 2, 2, 3, 2, 1, 1, 
+											1, 2, 1, 1, 3, 3, 3, 3, 3, 2, 
+											3, 3, 2, 3, 2, 2, 3, 2, 2, 1, 
+											2, 3, 1, 1, 1, 1, 3, 1, 1, 1, 
+											1, 1, 3, 3, 1, 1, 2, 3, 2, 1, 
 									   };
 
 
 		private int[] numberOfEntries = { 
-											1, 2, 1, 2, 2, 1, 2, 2, 1, 1, 
-											2, 2, 2, 1, 2, 2, 1, 1, 2, 2, 
-											1, 2, 2, 1, 1, 2, 2, 2, 2, 1, 
-											1, 2, 1, 2, 2, 2, 1, 1, 2, 2, 
-											2, 2, 2, 1, 1, 1, 1, 2, 1, 2, 
-											2, 1, 2, 2, 1, 2, 2, 2, 1, 1, 
-											2, 2, 2, 1, 2, 1, 2, 1, 1, 1, 
-											2, 1, 1, 1, 1, 1, 1, 1, 2, 2, 
-											2, 1, 2, 1, 2, 1, 1, 2, 2, 2, 
-											2, 1, 1, 1, 2, 2, 2, 2, 1, 1, 
-										};
+											4, 4, 3, 4, 1, 1, 1, 5, 3, 4, 
+											3, 3, 4, 2, 4, 5, 3, 4, 4, 1, 
+											4, 5, 4, 1, 1, 3, 3, 1, 1, 5, 
+											1, 2, 1, 5, 3, 4, 1, 1, 1, 4, 
+											2, 3, 5, 2, 3, 1, 4, 3, 4, 2, 
+											3, 3, 1, 2, 2, 3, 5, 2, 4, 1, 
+											1, 2, 1, 4, 3, 4, 1, 2, 3, 3, 
+											3, 3, 4, 1, 5, 1, 5, 2, 5, 2, 
+											5, 1, 3, 5, 1, 1, 3, 3, 2, 5, 
+											1, 4, 1, 2, 5, 2, 2, 2, 1, 2, 
+										}; 
+
 
 
 
@@ -110,30 +110,33 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 
 			for (int index = 0; index < userAccounts.Count; index++)
 			{
-				for ( int o = 0; o < 3; o++ )
+				DateTime orderDate = DateTime.Parse(orderDates[index]);
+				DateTime sentDate = orderDate.AddDays(sentDaysToAdd[index]);
+				DateTime deliveryDate = sentDate.AddDays(deliveryDaysToAdd[index]);
+				for ( int orderType = 0; orderType < 3; orderType++ )
 				{
-					DateTime orderDate = DateTime.Parse(orderDates[index]);
-					DateTime sentDate = orderDate.AddDays(sentDaysToAdd[index]);
-					DateTime deliveryDate = sentDate.AddDays(deliveryDaysToAdd[index]);
 					Order order = new Order()
 					{
 						OrderDate = orderDate,
 						User = userAccounts[index],
 					};
-					if ( o % 3 == 0 )
+
+					switch ( orderType )
 					{
-						order.Status = Order.OrderState.DELIVERED;
-						order.SentDate = sentDate;
-						order.DeliveryDate = deliveryDate;
-					}
-					else if (o % 3 == 1)
-					{
-						order.Status = Order.OrderState.ORDERED;
-					}
-					else
-					{
-						order.Status = Order.OrderState.SENT;
-						order.SentDate = sentDate;
+						case 0:
+							order.Status = Order.OrderState.DELIVERED;
+							order.SentDate = sentDate;
+							order.DeliveryDate = deliveryDate;
+							break;
+
+						case 1:
+							order.Status = Order.OrderState.SENT;
+							order.SentDate = sentDate;
+							break;
+
+						default:
+							order.Status = Order.OrderState.ORDERED;
+							break;
 					}
 					order.OrderEntries = GenerateOrderEntries(bookTypes, order, index);
 					orders.Add(order);
@@ -152,7 +155,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 					Order = order,
 					TotalValue = 0,
 					Counter = 0,
-					Vat = vatValues[1]
+					Vat = vatValues[2]
 				};
 				foreach (OrderEntry entry in order.OrderEntries)
 				{
