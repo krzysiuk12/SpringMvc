@@ -1,4 +1,5 @@
-﻿using SpringMvc.Models.POCO;
+﻿using SpringMvc.Models.Common;
+using SpringMvc.Models.POCO;
 using SpringMvc.Models.DataGenerator.Services.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -157,15 +158,15 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand));
                 user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand - rand % 10));
                 user.ValidTo = DateTime.Now.Date.AddDays(rand + 31);
-                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays((rand % 10) * rand));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays((rand % 5) * rand + 31));
             }
             else if (status == UserAccount.Status.REMOVED)
             {
                 int rand = new Random().Next(61);
                 user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand + rand % 10));
                 user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(3 * 31 + rand % 31));
-                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(32 + rand % 31));
-                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(62 + 2 * ((rand % 4) + 1) * rand));
+                user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand % 31));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(93 + 2 * ((rand % 4) + 1) * rand));
             }
             else
             {
@@ -173,7 +174,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 user.LastPasswordChangedDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand + rand % 10));
                 user.LastSuccessfulSignInDate = DateTime.Now.Date.Subtract(TimeSpan.FromDays(31 + rand % 31));
                 user.ValidTo = DateTime.Now.Date.Subtract(TimeSpan.FromDays(rand % 31));
-                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(2 * ((rand % 3) + 1) * rand));
+                user.ValidFrom = DateTime.Now.Date.Subtract(TimeSpan.FromDays(62 + 2 * ((rand % 3) + 1) * rand));
             }
             return user;
         }
@@ -187,12 +188,31 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 int timeSpan = (int) (lastSuccesfulSignIn.Date - validFrom.Date).Days;
                 int rand = new Random().Next(timeSpan) + 1;
                 int daySpan = (int) timeSpan / rand;
-                while (daySpan < timeSpan)
+                int daySpanCounter = daySpan;
+                while (daySpanCounter < timeSpan)
                 {
-                    if (daySpan % 6 == 1)
+                    if (daySpanCounter == daySpan) // Date of last succesful sign in.
                     {
-                        logInOutEventsList.Add(new LogInOutEvent() {
-                            IpAddress = "192.168.0.1",
+                        logInOutEventsList.Add(new LogInOutEvent()
+                        {
+                            IpAddress = ApplicationScope.DataGenFixedIp,
+                            UserAccount = user,
+                            Type = LogInOutEvent.ActionType.LOGIN_SUCCESSFUL,
+                            GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
+                        }); 
+                        logInOutEventsList.Add(new LogInOutEvent()
+                        {
+                            IpAddress = ApplicationScope.DataGenFixedIp,
+                            UserAccount = user,
+                            Type = LogInOutEvent.ActionType.LOGOUT,
+                            GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
+                        });
+                    }
+                    else if (daySpanCounter % 6 == 1)
+                    {
+                        logInOutEventsList.Add(new LogInOutEvent() 
+                        {
+                            IpAddress = ApplicationScope.DataGenFixedIp,
                             UserAccount = user,
                             Type = LogInOutEvent.ActionType.LOGIN_FAILURE,
                             GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
@@ -202,20 +222,20 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                     {
                         logInOutEventsList.Add(new LogInOutEvent()
                         {
-                            IpAddress = "192.168.0.1",
+                            IpAddress = ApplicationScope.DataGenFixedIp,
                             UserAccount = user,
                             Type = LogInOutEvent.ActionType.LOGIN_SUCCESSFUL,
                             GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
                         }); 
                         logInOutEventsList.Add(new LogInOutEvent()
                         {
-                            IpAddress = "192.168.0.1",
+                            IpAddress = ApplicationScope.DataGenFixedIp,
                             UserAccount = user,
                             Type = LogInOutEvent.ActionType.LOGOUT,
                             GeneratedOn = lastSuccesfulSignIn.Date.Subtract(TimeSpan.FromDays(daySpan))
                         });
                     }
-                    daySpan += daySpan;
+                    daySpanCounter += daySpanCounter;
                 }
             }
             return logInOutEventsList;

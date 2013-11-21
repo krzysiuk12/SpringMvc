@@ -25,6 +25,8 @@ namespace SpringMvc.Models.Common
         public static string CompanyCountry { get { return "Mordor"; } }
         public static string CompanyMail { get { return "bookshopto2@gmail.com"; } }
 
+        public static string DataGenFixedIp { get { return "10.0.0.1"; } }
+
         public MenuObjectProvider MenuProvider { get; set; }
 
         public static Models.Suggestions.Services.Implementation.SuggestionCache GlobalSuggestionCache = null;
