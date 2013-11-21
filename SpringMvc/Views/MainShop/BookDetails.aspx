@@ -5,7 +5,16 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <table class="showbooks">
+    <style type="text/css">
+        .showbooks th {
+            width: 100px;
+        }
+    </style>
+
+    <div style="float: left; margin-left: 15px; margin-right: 30px;">
+        <img src="<%: Html.DisplayFor(model => model.Image.URL) %>" height="200px" width="130px"/>
+    </div>
+    <table class="showbooks" >
         <tr>
             <th><%: Html.DisplayNameFor(model => model.Title) %> </th> 
             <td> <%: Html.DisplayFor(model => model.Title) %> </td>         
@@ -21,12 +30,18 @@
         <tr>
             <th><%: Html.DisplayNameFor(model => model.Price) %> </th> 
             <td> <%: Html.DisplayFor(model => model.Price) %> </td>         
-        </tr>                
+        </tr>
+        <tr>
+            <th><%: Html.DisplayNameFor(model => model.QuantityMap.Quantity) %> </th> 
+            <td> <%: Html.DisplayFor(model => model.QuantityMap.Quantity) %> </td>         
+        </tr>                      
     </table>
-    <p>
+    <div class="button" style="float: right; margin-top: 15px;">
         <%: Html.ActionLink("Back to Shopping", "Index") %>
-    </p>
-
+    </div>
+    <div class="button" style="float: right; margin-top: 15px;">
+        <%: Html.ActionLink("Add to Card", "Index") %>
+    </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">

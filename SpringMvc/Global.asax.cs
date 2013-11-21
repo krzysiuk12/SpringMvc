@@ -31,5 +31,20 @@ namespace SpringMvc
             Application["AdministratorId"] = ApplicationScope.AdministratorId;
             Application["WorkerId"] = ApplicationScope.WorkerId;
         }
+
+        void Application_Error(object sender, EventArgs e)
+        {
+
+            Exception exc = Server.GetLastError();
+
+
+            Response.Write("<h2>ERROR PAGE</h2>\n");
+            Response.Write(
+                "<p>" + exc.Message + "</p>\n");
+            Response.Write("Return to the <a href='/'>" +
+                "MainShop</a>\n");
+
+            Server.ClearError();
+        }
     }
 }
