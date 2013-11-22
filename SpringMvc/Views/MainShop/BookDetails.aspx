@@ -1,8 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<SpringMvc.Models.POCO.BookType>" %>
-<%@ Import Namespace="System.Activities.Expressions" %>
-<%@ Import Namespace="Org.BouncyCastle.Crypto.Digests" %>
 <%@ Import Namespace="SpringMvc.Models.CartPages" %>
-<%@ Import Namespace="SpringMvc.Models.POCO" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     BookDetails
@@ -10,9 +7,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <style type="text/css">
-        .showbooks th {
-            width: 100px;
-        }
+        .showbooks th { width: 100px; }
     </style>
 
     <div style="float: left; margin-left: 15px; margin-right: 30px;">
@@ -40,16 +35,20 @@
             <td> <%: Html.DisplayFor(model => model.QuantityMap.Quantity) %> </td>         
         </tr>                     
     </table>
-    <div class="button" style="float: right; margin-top: 15px;">
-        <%: Html.ActionLink("Back to Shopping", "Index") %>
+    <div>
+        <div class="button" style="float: right; margin-top: 15px;">
+            <%: Html.ActionLink("Back to Shopping", "Index") %>
+        </div>
+        <div>
+            <% if ((long) Session["LoggedUserId"] != (long) Application["GuestId"])
+               { %>
+                <% Html.BeginForm("AddToShoppingCart", "MainShop", new NewOrderEntryModel {ProductId = Model.Id}); %>
+                <input style="float: left; height: 26px; margin-left: 145px; width: 30px" type="number" value="1" name="amount"/>
+                <input  type="submit" value="Add to Cart"/>
+                <% Html.EndForm(); %>
+            <% } %>
+        </div>
     </div>
-
-    <% if ((long)Session["LoggedUserId"] != (long)Application["GuestId"]) { %>
-        <% Html.BeginForm("AddToShoppingCart", "MainShop", new NewOrderEntryModel(){ProductId = Model.Id});%>
-            <input type="number" value="0" name="amount"/>
-            <input type="submit" value="Add to Cart"/>
-        <% Html.EndForm(); %>
-    <% } %>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">

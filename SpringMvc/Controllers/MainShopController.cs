@@ -60,7 +60,13 @@ namespace SpringMvc.Controllers
         public ActionResult AddToShoppingCart(NewOrderEntryModel orderModel, int amount)
         {
             var currentOrder = Session["CurrentOrder"] as Order;
-            ServiceLocator.OrderManagementService.AddOrderEntry(currentOrder,orderModel.ProductId, amount);
+            int avaliable =
+                ServiceLocator.BooksInformationService.GetBookTypeById(orderModel.ProductId).QuantityMap.Quantity;
+            if (avaliable - amount >= 0 && amount > 0)
+            {
+                ServiceLocator.StorehouseManagementService.AddQuantity(orderModel.ProductId, -amount);
+                ServiceLocator.OrderManagementService.AddOrderEntry(currentOrder, orderModel.ProductId, amount);
+            }
             return RedirectToAction("Index", "MainShop");
         }
 
@@ -75,11 +81,12 @@ namespace SpringMvc.Controllers
         {
             var currentOrder = Session["CurrentOrder"] as Order;
             ServiceLocator.OrderManagementService.CreateNewOrder(currentOrder);
-            Session["CurrentOrder"] = new Order()
-            {
-                User = currentOrder.User,
-                OrderEntries = new List<OrderEntry>()
-            };
+            if (currentOrder != null)
+                Session["CurrentOrder"] = new Order()
+                {
+                    User = currentOrder.User,
+                    OrderEntries = new List<OrderEntry>()
+                };
             return RedirectToAction("YourCart", "MainShop");
         }
 

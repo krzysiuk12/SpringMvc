@@ -6,48 +6,60 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>YourCart
+<h2>Your Cart
     <% if (Model.OrderEntries.Count > 0)
        { %>
         </h2>
-        <table>
+        <table style="width: 100%">
             <tr>
                 <th>
-                    Product Id
+                    Authors
                 </th>
                 <th>
-                    Description
+                    Title
                 </th>
                 <th>
                     Amount
                 </th>
 
                 <th>
-                    In Stock
+                    Price
                 </th>
             </tr>
-
+    <% decimal total = 0;%>
         <% foreach (var item in Model.OrderEntries)
            { %>
+            <% total += item.Amount * item.Price; %>
             <tr>
                 <td>
-                    <%= item.Id %>
+                    <%= item.BookType.Authors %>
                 </td>
                 <td>
                     <%= item.BookType.Title %>,
-                    <%= item.BookType.Authors %>
                 </td>
                 <td>
                     <%= item.Amount %>
                 </td>
                 <td>
-                    <%= item.BookType.QuantityMap.Quantity %>
+                    <%= item.Price %> $
                 </td>
             </tr>
         <% } %>
+            <tr>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                    Total:
+                </td>
+                <td>
+                    <%= total %> $
+                </td>
+            </tr>
         </table>
 
-        <%: Html.ActionLink("SubmitOrder", "SubmitOrder") %>
+        <div class="button"><%: Html.ActionLink("Submit Order", "SubmitOrder") %></div>
     <% }
        else
        { %>
