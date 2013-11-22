@@ -1,4 +1,5 @@
 ﻿using SpringMvc.Menu.MenuElementMapping;
+using SpringMvc.Models.CartPages;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
 using System;
@@ -56,13 +57,30 @@ namespace SpringMvc.Controllers
             }
         }
 
-        public ActionResult AddToShoppingCart(long productId)
+        public ActionResult AddToShoppingCart(NewOrderEntryModel orderModel, int amount)
         {
-            BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(productId);
-            var currentOrder = (Order)Session["CurrentOrder"];
-            currentOrder.OrderEntries.Add(new OrderEntry() { Amount = 1, BookType = book, Price = book.Price });
-            // throw new Exception(currentOrder.OrderEntries.Count.ToString());
+            var currentOrder = Session["CurrentOrder"] as Order;
+            ServiceLocator.OrderManagementService.AddOrderEntry(currentOrder,orderModel.ProductId, amount);
             return RedirectToAction("Index", "MainShop");
+        }
+
+
+        public ActionResult YourCart()
+        {
+            var currentOrder = Session["CurrentOrder"] as Order;
+            return View(currentOrder);
+        }
+
+        public ActionResult SubmitOrder()
+        {
+            var currentOrder = Session["CurrentOrder"] as Order;
+            ServiceLocator.OrderManagementService.CreateNewOrder(currentOrder);
+            Session["CurrentOrder"] = new Order()
+            {
+                User = currentOrder.User,
+                OrderEntries = new List<OrderEntry>()
+            };
+            return RedirectToAction("YourCart", "MainShop");
         }
 
         private int MapCategoryNameToShopSecondaryPosition(string name)
@@ -101,4 +119,5 @@ namespace SpringMvc.Controllers
         }
 
     }
+
 }

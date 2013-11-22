@@ -262,6 +262,7 @@
     <Compile Include="Menu\MenuElementMapping\MenuPanelsMapping.cs" />
     <Compile Include="Menu\MenuElementMapping\MenuPrimaryPositionMappings.cs" />
     <Compile Include="Menu\MenuObjectProvider.cs" />
+    <Compile Include="Models\CartPages\NewOrderEntryModel.cs" />
     <Compile Include="Models\Common\ApplicationScope.cs" />
     <Compile Include="Models\Common\BaseHibernateDao.cs" />
     <Compile Include="Models\Common\BaseSpringService.cs" />
@@ -563,6 +564,7 @@
     <Content Include="Views\MainShop\CategoryBooksView.aspx" />
     <Content Include="Views\MainShop\Index.aspx" />
     <Content Include="Views\MainShop\UserOrdersView.aspx" />
+    <Content Include="Views\MainShop\YourCart.aspx" />
     <Content Include="Views\Shared\_LeftSideMenuPartial.aspx" />
     <Content Include="Views\Shared\_MainMenuPartial.aspx" />
     <Content Include="Views\Shipment\Index.aspx" />

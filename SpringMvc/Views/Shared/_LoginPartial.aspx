@@ -15,6 +15,6 @@
     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
 <% } else { %> <!-- Simple User Account-->
     Your are logged as <%: ((SpringMvc.Models.POCO.UserAccount)Session["CurrentUser"]).PersonalData.FirstName %> <%: ((SpringMvc.Models.POCO.UserAccount)Session["CurrentUser"]).PersonalData.LastName %>.
-    <a href="/MainShop">Your card: <%: ((SpringMvc.Models.POCO.Order)Session["CurrentOrder"]).OrderEntries.Count %></a>
+    <a href="/MainShop/YourCart">Your card: <%: ((SpringMvc.Models.POCO.Order)Session["CurrentOrder"]).OrderEntries.Count %></a>
     <li><%: Html.ActionLink("Logout", "Logout", "Logging", routeValues: null, htmlAttributes: new { id = "loginLink" })%></li>
 <% } %>
