@@ -10,25 +10,27 @@ namespace SpringMvc.Tests.Models.Storehouse
     public class StorehouseManagmentServiceTest
     {
         private BookType testBook;
+        private BookType testGetBook;
         private string TEST_CAT_NAME;
         private int TEST_QUANTITY;
-        private IBooksInformationService bis;
-        private IStorehouseManagementService sms;
+        private int TEST_ADD_QUANTITY;
+        private IBooksInformationService bis  = new BooksInformationService();
+        private IStorehouseManagementService sms = new StorehouseManagementService();
         [ClassInitialize]
         public void Initialize()
         {
             Category testCategory = new Category();
             testCategory.Name = TEST_CAT_NAME;
-            IBooksInformationService bis = new BooksInformationService();
-            IStorehouseManagementService sms = new StorehouseManagementService();
             TEST_CAT_NAME = "testowa kategoria";
             testBook = new BookType();
+            testGetBook = new BookType();
             testBook.Id = 47123;
             testBook.Title = "Książka testowa";
             testBook.Authors = "Autor testowy";
             testBook.Category = testCategory;
             testBook.Price = 40;
             TEST_QUANTITY = 5;
+            TEST_ADD_QUANTITY = 4;
         }
         [TestMethod]
         public void TestAddCategory()
@@ -83,6 +85,45 @@ namespace SpringMvc.Tests.Models.Storehouse
                     item.Category.Name.Equals(testBook.Category.Name)) isInList = true;
             }
             Assert.IsTrue(isInList);
+        }
+
+        [TestMethod]
+        public void TestMarkSoldEnough()
+        {
+            bool marked = false;
+            sms.SaveBookType(testBook);
+            marked = (sms.MarkSold(testBook.Id, testBook.QuantityMap.Quantity));
+            testGetBook = bis.GetBookTypeById(testGetBook.Id);
+            Assert.IsTrue(testGetBook.QuantityMap.Quantity == 0 && marked);
+        }
+
+        [TestMethod]
+        public void TestMarkSoldTooMany()
+        {
+            sms.SaveBookType(testBook);
+            Assert.IsFalse(sms.MarkSold(testBook.Id, testBook.QuantityMap.Quantity + 1));
+        }
+
+        [TestMethod]
+        public void TestMarkSoldWrongId()
+        {
+            Assert.IsFalse(sms.MarkSold(-1, 5));
+        }
+
+        [TestMethod]
+        public void AddQuantityWrongId()
+        {
+            Assert.IsFalse(sms.AddQuantity(-1, 5));
+        }
+
+        [TestMethod]
+        public void AddQuantity()
+        {
+            bool added = false;
+            sms.SaveBookType(testBook);
+            added = (sms.AddQuantity(testBook.Id, TEST_ADD_QUANTITY));
+            testGetBook = bis.GetBookTypeById(testBook.Id);
+            Assert.IsTrue(added && testGetBook.QuantityMap.Quantity == testBook.QuantityMap.Quantity + TEST_ADD_QUANTITY);
         }
     }
 }
