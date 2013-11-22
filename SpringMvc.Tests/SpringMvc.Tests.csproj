@@ -127,6 +127,10 @@
     <Compile Include="Models\Storehouse\StorehouseManagmentServiceTest.cs" />
     <Compile Include="Models\Suggestions\SuggestionsForGuestTest.cs" />
     <Compile Include="Models\Suggestions\SuggestionsForUserTest.cs" />
+    <Compile Include="Models\UserAccounts\AccountManagementServiceTest.cs" />
+    <Compile Include="Models\UserAccounts\AuthorizationTest.cs" />
+    <Compile Include="Models\UserAccounts\AuthorizationTestData.cs" />
+    <Compile Include="Models\UserAccounts\Helpers.cs" />
     <Compile Include="NMock3\NMockTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\HomeControllerTest.cs" />
