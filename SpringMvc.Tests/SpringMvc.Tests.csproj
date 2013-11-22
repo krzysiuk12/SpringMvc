@@ -122,6 +122,7 @@
   <ItemGroup>
     <Compile Include="Models\Shipment\ShipmentPreperationServiceTest.cs" />
     <Compile Include="Models\Shop\OrderInformationsServiceTest.cs" />
+    <Compile Include="Models\Shop\OrderManagementServiceTest.cs" />
     <Compile Include="Models\Storehouse\BooksInformationServiceTest.cs" />
     <Compile Include="Models\Storehouse\StorehouseManagmentServiceTest.cs" />
     <Compile Include="Models\Suggestions\SuggestionsForGuestTest.cs" />

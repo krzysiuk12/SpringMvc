@@ -25,6 +25,20 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         }
 
         [Transaction]
+        public bool AddQuantity(long bookTypeId,int quantity)
+        {
+            BookType bookType = DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
+
+            if (bookType == null) return false;
+            else
+            {
+                bookType.QuantityMap.Quantity += quantity;
+                DaoFactory.StorehouseManagamentDao.UpdateQuantity(bookType);
+                return true;
+            }
+        }
+
+        [Transaction]
         public void AddBookType(string title, string authors, decimal price, int quantity, Category category)
         {
             QuantityMap quantityMap = new QuantityMap()
@@ -49,6 +63,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         {
             BookType bookType = DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
 
+            if (bookType == null) return false;
             if (bookType.QuantityMap.Quantity - quantity < 0)
                 return false;
             else
