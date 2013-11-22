@@ -25,6 +25,7 @@ namespace SpringMvc.Tests.Models.UserAccounts
         public void Initialize()
         {
             authorizationService = new AuthorizationService();
+            accountAdministrationService = new AccountAdministrationService();
             UserAccount userAccount;
             userAccount = new UserAccount();
             helper.UserAccountHelper(userAccount);
