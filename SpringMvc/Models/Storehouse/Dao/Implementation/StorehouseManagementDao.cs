@@ -40,5 +40,10 @@ namespace SpringMvc.Models.Storehouse.Dao.Implementation
         {
             throw new NotImplementedException();
         }
+
+        public bool AddQuantity(long bookTypeId, int quantity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
