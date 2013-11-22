@@ -71,6 +71,9 @@
     <div class="button" style="margin-top: 15px;">
         <%: Html.ActionLink("Back to List", "DeliveredOrders") %>
     </div>
+    <div class="button" style="margin-top: 15px;">
+        <%: Html.ActionLink("Download Invoice", "GetInvoiceByOrderId", new { orderId = Model.Id })%>
+    </div>
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
