@@ -24,9 +24,11 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
 
             try {
-                
-                using (System.IO.FileStream fs = new FileStream("~\\Tmp" + "\\" 
-                    + orderDetails.Id.ToString()+ "_" + DateTime.Now.ToString() + ".pdf", FileMode.Create))
+
+                string currentDate = DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString();
+                string projectPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
+                using (System.IO.FileStream fs = new FileStream(projectPath + "\\Tmp\\" + "Invoice_" + orderDetails.Id.ToString() + "_" 
+                    + currentDate + ".pdf", FileMode.Create))
                 {
                     Document document = new Document(PageSize.A4, 25, 25, 30, 1);
                     PdfWriter writer = PdfWriter.GetInstance(document, fs);
@@ -36,7 +38,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     document.Open();
 
                     PdfContentByte cb = writer.DirectContent;
-                    iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance("~\\Images\\logo.png");
+                    iTextSharp.text.Image png = iTextSharp.text.Image.GetInstance(projectPath + "\\Images\\logo.png");
                     png.ScaleAbsolute(200, 55);
                     png.SetAbsolutePosition(40, 750);
                     cb.AddImage(png);
@@ -76,7 +78,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     cb.BeginText();
                     int lastwriteposition = 100;
 
-                    top_margin = 660;
+                    top_margin = 600;
                     left_margin = 40;
                     writeText(cb, "Item Id", left_margin, top_margin, f_cb, 10);
                     writeText(cb, "Description", left_margin+70, top_margin, f_cb, 10);
@@ -85,19 +87,19 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, "Price", left_margin + 495, top_margin, 0);
                     writeText(cb, "Curr", left_margin+500, top_margin, f_cb, 10);
 
-                    top_margin = 648;
+                    top_margin = 588;
 
                     Decimal totalInvoicedPrice = 0;
                     foreach (OrderEntry entry in orderDetails.OrderEntries)
                     {
                         writeText(cb, entry.BookType.Id.ToString(), left_margin, top_margin, f_cn, 10);
-                        writeText(cb, entry.BookType.Authors + ", " + entry.BookType.Title, left_margin + 70, top_margin, f_cn, 10);
+                        writeText(cb, entry.BookType.Authors + ", \"" + entry.BookType.Title + "\"", left_margin + 70, top_margin, f_cn, 10);
                         cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, entry.Amount.ToString(), left_margin + 415, top_margin, 0);
-                        writeText(cb, "PCS", left_margin + 420, top_margin, f_cn, 10);
+                        writeText(cb, ApplicationScope.InvoiceUnit, left_margin + 420, top_margin, f_cn, 10);
                         cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, entry.Price.ToString(), left_margin + 495, top_margin, 0);
-                        writeText(cb, "PLN", left_margin + 500, top_margin, f_cn, 10);
+                        writeText(cb, ApplicationScope.InvoiceCurrency, left_margin + 500, top_margin, f_cn, 10);
 
-                        totalInvoicedPrice += entry.Price;
+                        totalInvoicedPrice += entry.Price * entry.Amount;
 
                         top_margin -= 12;
 
@@ -118,14 +120,12 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     writeText(cb, "Invoice grand total", left_margin, top_margin-36, f_cb, 10);
                     left_margin = 540;
                     cb.SetFontAndSize(f_cn, 10);
-                    string curr = "PLN";
-                    Decimal vatTaxValue = Decimal.Multiply((Decimal)(invoice.Vat.Value), totalInvoicedPrice);
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin, 0);
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin-12, 0);
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, curr, left_margin, top_margin-36, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, ApplicationScope.InvoiceCurrency, left_margin, top_margin, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, ApplicationScope.InvoiceCurrency, left_margin, top_margin - 12, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_LEFT, ApplicationScope.InvoiceCurrency, left_margin, top_margin - 36, 0);
                     left_margin = 535;
                     cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, totalInvoicedPrice.ToString(), left_margin, top_margin, 0);
-                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, vatTaxValue.ToString(), left_margin, top_margin - 12, 0);
+                    cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, invoice.VatPriceValue.ToString(), left_margin, top_margin - 12, 0);
                     cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, invoice.TotalValue.ToString(),
                         left_margin, top_margin - 36, 0);
 

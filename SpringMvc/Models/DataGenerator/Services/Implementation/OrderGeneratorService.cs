@@ -157,10 +157,13 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 					Counter = 0,
 					Vat = vatValues[2]
 				};
+                Decimal totalValue = 0;
 				foreach (OrderEntry entry in order.OrderEntries)
 				{
-					invoice.TotalValue += entry.Amount * entry.Price;
-				}
+					totalValue += entry.Amount * entry.Price;
+                }
+                invoice.VatPriceValue = Decimal.Multiply(totalValue, (Decimal)invoice.Vat.Value);
+                invoice.TotalValue = totalValue + invoice.VatPriceValue;
 				invoices.Add(invoice);
 			}
 			return invoices;

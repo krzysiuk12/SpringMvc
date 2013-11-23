@@ -54,7 +54,7 @@ namespace SpringMvc.Models.Common.Services.Implementation
 
 		public List<VatMap> CreateVatStages()
 		{
-			double[] vatValues = new  double[] { 0.05, 0.08, 0.23 };
+			double[] vatValues = new double[] { 0.05, 0.08, 0.23 };
 			List<VatMap> vatMapValues = new List<VatMap>();
 			for (int index = 0; index < vatValues.Length; index++)
 			{

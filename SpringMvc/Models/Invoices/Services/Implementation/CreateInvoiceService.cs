@@ -26,6 +26,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                 totalOrderValue += entry.Price * entry.Amount;
 
             invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
+            invoice.VatPriceValue = Decimal.Multiply(totalOrderValue, (Decimal)invoice.Vat.Value);
+            invoice.TotalValue = totalOrderValue + invoice.VatPriceValue;
             DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
         }
         [Transaction]

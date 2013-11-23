@@ -109,7 +109,7 @@ namespace SpringMvc.Controllers
 
         public ActionResult GetInvoiceByOrderId(long orderId)
         {
-            //ServiceLocator.CreateInvoiceService.GetInvoice(orderId);
+            ServiceLocator.CreateInvoiceService.GetInvoice(orderId);
             return RedirectToAction("DeliveredOrderDetails", "UserAccountPanel", new { orderId = orderId });
         }
 
