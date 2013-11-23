@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.POCO;
@@ -25,6 +24,12 @@ namespace SpringMvc.Controllers
         public ActionResult CompleteOrder(long orderId)
         {
             ServiceLocator.ShipmentPreparationService.CompleteOrder(orderId);
+            return RedirectToAction("Index", "Shipment");
+        }
+
+        public ActionResult SendOrder(long orderId)
+        {
+            ServiceLocator.ShipmentPreparationService.MarkOrderAsInProgress(orderId);
             return RedirectToAction("Index", "Shipment");
         }
 

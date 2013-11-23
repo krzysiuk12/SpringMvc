@@ -1,22 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Shared/MainShop.Master" Inherits="System.Web.Mvc.ViewPage<SpringMvc.Models.POCO.Order>" %>
+<%@ Import Namespace="SpringMvc.Models.POCO" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
     OrderDetailsSite
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-<style>
-    #leftmenu {
-        display: none;
-    }
-    #shopview {
-        width: 100%;
-    }
-    table {
-        width: 100%;
-    }
-</style>
-<h2>Order Details  (id: <%: Html.DisplayFor(model => model.Id) %>)</h2>
+    <style>
+        #leftmenu { display: none; }
+
+        #shopview { width: 100%; }
+
+        table { width: 100%; }
+    </style>
+    <h2>Order Details  (id: <%: Html.DisplayFor(model => model.Id) %>)</h2>
 
     <fieldset>
         <legend>Client Address Details</legend>
@@ -53,37 +50,49 @@
                 </th>
             </tr>
 
-        <% foreach (var item in Model.OrderEntries) { %>
-            <tr>
-                <td>
-                    <%: Html.DisplayFor(modelItem => item.Id) %>
-                </td>
-                <td>
-                    <%: Html.DisplayFor(modelItem => item.BookType.Title) %>,
-                    <%: Html.DisplayFor(modelItem => item.BookType.Authors) %>
-                </td>
-                <td>
-                    <%: Html.DisplayFor(modelItem => item.Amount) %>
-                </td>
-                <td>
-                    <%: Html.DisplayFor(modelItem => item.BookType.QuantityMap.Quantity) %>
-                </td>
-            </tr>
-        <% } %>
+            <% foreach (OrderEntry item in Model.OrderEntries)
+               { %>
+                <tr>
+                    <td>
+                        <%: Html.DisplayFor(modelItem => item.Id) %>
+                    </td>
+                    <td>
+                        <%: Html.DisplayFor(modelItem => item.BookType.Title) %>,
+                        <%: Html.DisplayFor(modelItem => item.BookType.Authors) %>
+                    </td>
+                    <td>
+                        <%: Html.DisplayFor(modelItem => item.Amount) %>
+                    </td>
+                    <td>
+                        <%: Html.DisplayFor(modelItem => item.BookType.QuantityMap.Quantity) %>
+                    </td>
+                </tr>
+            <% } %>
         </table>
     </fieldset>
-<p>
-    <%: Html.ActionLink("Complete This Order", "CompleteOrder", new { orderId=Model.Id }) %>
-</p>        
+    <p>
 
-<p>
-    <%: Html.ActionLink("Back to List", "Index") %>
-</p>
+        <div class="button">
+            <% if (Model.Status == Order.OrderState.SENT)
+               { %>
+                <%: Html.ActionLink("Complete Order (If order has been delivered)", "CompleteOrder", new {orderId = Model.Id}) %>
+            <% }
+               else if (Model.Status == Order.OrderState.ORDERED)
+               { %>
+                <%: Html.ActionLink("Mark order as sent", "SendOrder", new {orderId = Model.Id}) %>
+            <% } %>
+        </div>
+
+    </p>        
+
+    <p>
+        <%: Html.ActionLink("Back to List", "Index") %>
+    </p>
 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="FeaturedContent" runat="server">
-     <%: Html.Partial("_MainMenuPartial") %>
+    <%: Html.Partial("_MainMenuPartial") %>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="LeftMenuContent" runat="server">
