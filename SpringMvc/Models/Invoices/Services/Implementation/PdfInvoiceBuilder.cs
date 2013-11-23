@@ -49,6 +49,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     writeText(cb, invoice.Id.ToString(), 420, 800, f_cn, 10);
                     writeText(cb, "Order date", 350, 788, f_cb, 10);
                     writeText(cb, orderDetails.OrderDate.ToString(), 420, 788, f_cn, 10);
+                    writeText(cb, "Order Id", 350, 776, f_cb, 10);
+                    writeText(cb, orderDetails.Id.ToString(), 420, 776, f_cn, 10);
                     writeText(cb, "Customer Id", 350, 764, f_cb, 10);
                     writeText(cb, orderDetails.User.Id.ToString(), 420, 764, f_cn, 10);
 
