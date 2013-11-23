@@ -22,13 +22,22 @@ namespace SpringMvc.Controllers
             return View(books);
         }
 
-        public ActionResult AddBookQuantityView()
+        public ActionResult AddBookQuantity(long productId, int amount)
         {
-            return View();
+            if (amount > 0)
+                ServiceLocator.StorehouseManagementService.AddQuantity(productId, amount);
+
+            return RedirectToAction("Index", "Storehouse");
+        }
+
+        public ActionResult AddBookSave(string authors, string title, Category category, decimal price, int quantity, BookImage image)
+        {
+            ServiceLocator.StorehouseManagementService.AddBookType(title, authors, price, quantity, category);
+            return RedirectToAction("Index", "Storehouse");
         }
 
         public ActionResult AddBook()
-        {
+        {           
             return View();
         }
     }

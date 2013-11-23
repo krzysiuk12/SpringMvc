@@ -24,10 +24,10 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetAllBooks()
         {
-            if (bookTypeCache == null)
-            {
+//            if (bookTypeCache == null)
+//            {
                 bookTypeCache = DaoFactory.BooksInformationDao.GetAllBooks();
-            }
+//            }
             return bookTypeCache;
         }
 

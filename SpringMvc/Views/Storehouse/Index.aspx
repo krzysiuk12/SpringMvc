@@ -26,6 +26,9 @@
             <th>
                 <%: Html.DisplayNameFor(model => model.QuantityMap.Quantity) %>
             </th>
+            <th>
+                Add 
+            </th>
             <th></th>
         </tr>
 
@@ -49,10 +52,12 @@
             <td>
                 <%: Html.DisplayFor(modelItem => item.QuantityMap.Quantity) %>
             </td>
-            <td>
-    <%--            <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Details", "Details", new { id=item.Id }) %> |
-                <%: Html.ActionLink("Delete", "Delete", new { id=item.Id }) %>--%>
+            <td style="width: 110px">
+                <% Html.BeginForm("AddBookQuantity", "Storehouse", new { productId = item.Id}); %>
+                +
+                <input style="float: left; height: 16px; width: 20px" type="number" value="" name="amount"/>
+                <input  type="submit" value="Save"/>
+                <% Html.EndForm(); %>
             </td>
         </tr>
     <% } %>

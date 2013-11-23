@@ -42,7 +42,7 @@
         <div>
             <% if ((long) Session["LoggedUserId"] != (long) Application["GuestId"])
                { %>
-                <% Html.BeginForm("AddToShoppingCart", "MainShop", new NewOrderEntryModel {ProductId = Model.Id}); %>
+                <% Html.BeginForm("AddToShoppingCart", "MainShop", new { productId = Model.Id }); %>
                 <input style="float: left; height: 26px; margin-left: 145px; width: 30px" type="number" value="1" name="amount"/>
                 <input  type="submit" value="Add to Cart"/>
                 <% Html.EndForm(); %>

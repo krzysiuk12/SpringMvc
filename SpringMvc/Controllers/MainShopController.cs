@@ -57,15 +57,15 @@ namespace SpringMvc.Controllers
             }
         }
 
-        public ActionResult AddToShoppingCart(NewOrderEntryModel orderModel, int amount)
+        public ActionResult AddToShoppingCart(long productId , int amount)
         {
             var currentOrder = Session["CurrentOrder"] as Order;
             int avaliable =
-                ServiceLocator.BooksInformationService.GetBookTypeById(orderModel.ProductId).QuantityMap.Quantity;
+                ServiceLocator.BooksInformationService.GetBookTypeById(productId).QuantityMap.Quantity;
             if (avaliable - amount >= 0 && amount > 0)
             {
-                ServiceLocator.StorehouseManagementService.AddQuantity(orderModel.ProductId, -amount);
-                ServiceLocator.OrderManagementService.AddOrderEntry(currentOrder, orderModel.ProductId, amount);
+                ServiceLocator.StorehouseManagementService.AddQuantity(productId, -amount);
+                ServiceLocator.OrderManagementService.AddOrderEntry(currentOrder, productId, amount);
             }
             return RedirectToAction("Index", "MainShop");
         }
