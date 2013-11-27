@@ -8,6 +8,6 @@ namespace SpringMvc.Models.POCO
     public class VatMap
     {
         public virtual long Id { get; set; }
-        public virtual double Value { get; set; }
+        public virtual Decimal Value { get; set; }
     }
 }

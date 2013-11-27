@@ -13,6 +13,7 @@ using System.Web.UI.WebControls;
 using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Web.Mvc;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
@@ -27,8 +28,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                 string currentDate = DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString();
                 string projectPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
-                using (System.IO.FileStream fs = new FileStream(projectPath + "\\Tmp\\" + "Invoice_" + orderDetails.Id.ToString() + "_" 
-                    + currentDate + ".pdf", FileMode.Create))
+                string invoiceName = "Invoice_" + orderDetails.Id.ToString() + "_" + currentDate + ".pdf";
+                using (System.IO.FileStream fs = new FileStream(projectPath + "\\Tmp\\" + invoiceName, FileMode.Create))
                 {
                     Document document = new Document(PageSize.A4, 25, 25, 30, 1);
                     PdfWriter writer = PdfWriter.GetInstance(document, fs);
@@ -142,6 +143,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             {
                 System.Console.WriteLine(error.ToString());
             }
+
+            
         }
 
         private void writeText(PdfContentByte cb, string Text, int X, int Y, BaseFont font, int Size)

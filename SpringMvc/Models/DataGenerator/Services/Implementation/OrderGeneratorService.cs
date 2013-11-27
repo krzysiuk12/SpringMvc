@@ -162,7 +162,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
 				{
 					totalValue += entry.Amount * entry.Price;
                 }
-                invoice.VatPriceValue = Decimal.Multiply(totalValue, (Decimal)invoice.Vat.Value);
+                invoice.VatPriceValue = Decimal.Multiply(totalValue, invoice.Vat.Value);
                 invoice.TotalValue = totalValue + invoice.VatPriceValue;
 				invoices.Add(invoice);
 			}
