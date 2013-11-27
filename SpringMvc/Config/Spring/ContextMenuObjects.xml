@@ -156,11 +156,11 @@
     <property name="ControllerName" value="Storehouse"/>
   </object>
 
-  <object id="workerPanelAddBookQuantityView" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
+  <!--<object id="workerPanelAddBookQuantityView" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
     <property name="Label" value="Add Quantity For Book"/>
     <property name="ControllerAction" value="AddBookQuantityView"/>
     <property name="ControllerName" value="Storehouse"/>
-  </object>
+  </object>-->
 
   <object id="workerPanelAddBook" type="SpringMvc.Menu.MenuComponents.SimpleMenuComponent">
     <property name="Label" value="Add Book"/>
@@ -232,7 +232,7 @@
       <dictionary key-type="int" value-type="SpringMvc.Menu.MenuComponents.MenuComponent">
         <entry key="18" value-ref="workerPanelUndeliveredOrders"/>
         <entry key="19" value-ref="workerPanelStorehouseSummary"/>
-        <entry key="20" value-ref="workerPanelAddBookQuantityView"/>
+        <!--<entry key="20" value-ref="workerPanelAddBookQuantityView"/>-->
         <entry key="21" value-ref="workerPanelAddBook"/>
       </dictionary>
     </property>
