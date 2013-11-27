@@ -10,6 +10,6 @@ namespace SpringMvc.Models.Invoices.Services.Interfaces
 {
     public interface IPdfInvoiceBuilder
     {
-       void BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice);
+       string BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice);
     }
 }

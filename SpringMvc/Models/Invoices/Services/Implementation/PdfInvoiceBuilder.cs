@@ -19,7 +19,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 {
     public class PdfInvoiceBuilder : IPdfInvoiceBuilder
     {
-        public void BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice)
+        public string BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice)
         {
             BaseFont f_cb = BaseFont.CreateFont("c:\\windows\\fonts\\calibrib.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -137,14 +137,14 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     document.Close();
                     writer.Close();
                     fs.Close();
+                    return invoiceName;
                 }
             }
             catch(Exception error)
             {
                 System.Console.WriteLine(error.ToString());
+                return null;
             }
-
-            
         }
 
         private void writeText(PdfContentByte cb, string Text, int X, int Y, BaseFont font, int Size)
