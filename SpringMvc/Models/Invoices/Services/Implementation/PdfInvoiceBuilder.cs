@@ -13,12 +13,13 @@ using System.Web.UI.WebControls;
 using iTextSharp;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Web.Mvc;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
     public class PdfInvoiceBuilder : IPdfInvoiceBuilder
     {
-        public void BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice)
+        public string BuildInvoice(Order orderDetails, UserAccount userDetails, Invoice invoice)
         {
             BaseFont f_cb = BaseFont.CreateFont("c:\\windows\\fonts\\calibrib.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
             BaseFont f_cn = BaseFont.CreateFont("c:\\windows\\fonts\\calibri.ttf", BaseFont.CP1252, BaseFont.NOT_EMBEDDED);
@@ -27,8 +28,8 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
 
                 string currentDate = DateTime.Now.Day.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Year.ToString();
                 string projectPath = System.AppDomain.CurrentDomain.BaseDirectory.ToString();
-                using (System.IO.FileStream fs = new FileStream(projectPath + "\\Tmp\\" + "Invoice_" + orderDetails.Id.ToString() + "_" 
-                    + currentDate + ".pdf", FileMode.Create))
+                string invoiceName = "Invoice_" + orderDetails.Id.ToString() + "_" + currentDate + ".pdf";
+                using (System.IO.FileStream fs = new FileStream(projectPath + "\\Tmp\\" + invoiceName, FileMode.Create))
                 {
                     Document document = new Document(PageSize.A4, 25, 25, 30, 1);
                     PdfWriter writer = PdfWriter.GetInstance(document, fs);
@@ -136,11 +137,13 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                     document.Close();
                     writer.Close();
                     fs.Close();
+                    return invoiceName;
                 }
             }
             catch(Exception error)
             {
                 System.Console.WriteLine(error.ToString());
+                return null;
             }
         }
 

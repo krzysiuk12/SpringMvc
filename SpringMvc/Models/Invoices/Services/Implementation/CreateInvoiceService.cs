@@ -1,12 +1,15 @@
 ﻿using SpringMvc.Models.POCO;
 using SpringMvc.Models.Invoices.Services.Interfaces;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI;
 using SpringMvc.Models.Common;
 using Spring.Transaction.Interceptor;
 using Spring.Stereotype;
+using System.Web.Mvc;
 
 namespace SpringMvc.Models.Invoices.Services.Implementation
 {
@@ -26,19 +29,21 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                 totalOrderValue += entry.Price * entry.Amount;
 
             invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
-            invoice.VatPriceValue = Decimal.Multiply(totalOrderValue, (Decimal)invoice.Vat.Value);
+            invoice.VatPriceValue = Decimal.Multiply(totalOrderValue, invoice.Vat.Value);
             invoice.TotalValue = totalOrderValue + invoice.VatPriceValue;
             DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
         }
         [Transaction]
-        public void GetInvoice(long orderId)
+        public string GetInvoice(long orderId)
         {
             Order orderDetails = ServiceLocator.OrderInformationsService.GetOrderById(orderId);
             UserAccount userDetails = ServiceLocator.UserInformationService.GetUserAccountById(orderDetails.User.Id);
             Invoice invoice = DaoFactory.CreateInvoiceDao.GetInvoiceByOrderId(orderId);
-            PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails, invoice);
+            string invoiceName = PdfInvoiceBuilder.BuildInvoice(orderDetails, userDetails, invoice);
             invoice.Counter++;
             DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
+            return invoiceName;
+            
         }
     }
 }
