@@ -9,8 +9,8 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
     public interface IStorehouseManagementService
     {
         void AddCategory(String name);
-
-        void AddBookType(String title, String authors, decimal price, int quantity, Category category);
+		
+		void AddBookType(String title, String authors, decimal price, int quantity, Category category, string imageURL);
 
         bool MarkSold(long bookTypeId, int quantity);
 

@@ -2,7 +2,9 @@
 using SpringMvc.Models.POCO;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -30,9 +32,15 @@ namespace SpringMvc.Controllers
             return RedirectToAction("Index", "Storehouse");
         }
 
-        public ActionResult AddBookSave(string authors, string title, Category category, decimal price, int quantity, BookImage image)
+		[HttpPost]
+		public ActionResult AddBookSave(string authors, string title, Category category, decimal price, int quantity, HttpPostedFileBase image)
         {
-            ServiceLocator.StorehouseManagementService.AddBookType(title, authors, price, quantity, category);
+
+			string fileName = category + "_" + ParseFileName(title) + Path.GetExtension(image.FileName);
+			string path = System.IO.Path.Combine(Server.MapPath("~/Images/Books"), fileName);
+			ServiceLocator.StorehouseManagementService.AddBookType(title, authors, price, quantity, category, "/Images/Books/" + fileName);
+
+			image.SaveAs(path); 
             return RedirectToAction("Index", "Storehouse");
         }
 
@@ -40,5 +48,10 @@ namespace SpringMvc.Controllers
         {           
             return View();
         }
+
+		private string ParseFileName(string text)
+		{
+			return Regex.Replace(text, "[^a-zA-Z0-9_]+", "", RegexOptions.Compiled);
+		}
     }
 }

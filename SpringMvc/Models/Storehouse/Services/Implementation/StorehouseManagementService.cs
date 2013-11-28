@@ -37,26 +37,31 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
                 return true;
             }
         }
+		[Transaction]
+		public void AddBookType(string title, string authors, decimal price, int quantity, Category category, string imageURL)
+		{
+			QuantityMap quantityMap = new QuantityMap()
+			{
+				Quantity = quantity
+			};
 
-        [Transaction]
-        public void AddBookType(string title, string authors, decimal price, int quantity, Category category)
-        {
-            QuantityMap quantityMap = new QuantityMap()
-            {
-                Quantity = quantity
-            };
+			BookImage image = new BookImage()
+			{
+				URL = imageURL
+			};
 
-            BookType newBookType = new BookType()
-            {
-                Title = title,
-                Authors = authors,
-                Price = price,
-                QuantityMap = quantityMap,
-                Category = category
-            };
+			BookType newBookType = new BookType()
+			{
+				Title = title,
+				Authors = authors,
+				Price = price,
+				QuantityMap = quantityMap,
+				Category = category,
+				Image = image
+			};
 
-            DaoFactory.StorehouseManagamentDao.SaveBookType(newBookType);
-        }
+			DaoFactory.StorehouseManagamentDao.SaveBookType(newBookType);
+		}
 
         [Transaction]
         public bool MarkSold(long bookTypeId, int quantity)

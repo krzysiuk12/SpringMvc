@@ -8,7 +8,7 @@
 
     <h2>AddBook</h2>
 
-    <% Html.BeginForm("AddBookSave", "Storehouse"); %>
+    <% Html.BeginForm("AddBookSave", "Storehouse", FormMethod.Post, new { enctype = "multipart/form-data" }); %>
     <div><div>Authors:</div><input type="text" value="" name="authors"/></div>
     <div><div>Title:</div><input type="text" value="" name="title"/></div>
     <div><div>Category:</div><input type="text" value="" name="category"/></div>
