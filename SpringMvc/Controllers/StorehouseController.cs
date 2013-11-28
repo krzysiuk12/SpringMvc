@@ -33,10 +33,10 @@ namespace SpringMvc.Controllers
         }
 
 		[HttpPost]
-		public ActionResult AddBookSave(string authors, string title, Category category, decimal price, int quantity, HttpPostedFileBase image)
+		public ActionResult AddBookSave(string authors, string title, int categoryID, decimal price, int quantity, HttpPostedFileBase image)
         {
-
-			string fileName = category + "_" + ParseFileName(title) + Path.GetExtension(image.FileName);
+			Category category = ServiceLocator.BooksInformationService.GetAllCategories()[categoryID - 1];
+			string fileName = ParseFileName(category.Name) + "_" + ParseFileName(title) + Path.GetExtension(image.FileName);
 			string path = System.IO.Path.Combine(Server.MapPath("~/Images/Books"), fileName);
 			ServiceLocator.StorehouseManagementService.AddBookType(title, authors, price, quantity, category, "/Images/Books/" + fileName);
 
@@ -45,8 +45,9 @@ namespace SpringMvc.Controllers
         }
 
         public ActionResult AddBook()
-        {           
-            return View();
+        {
+			IEnumerable<Category> categories = ServiceLocator.BooksInformationService.GetAllCategories();
+            return View(categories);
         }
 
 		private string ParseFileName(string text)
