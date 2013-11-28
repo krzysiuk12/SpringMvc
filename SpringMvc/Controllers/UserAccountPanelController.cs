@@ -111,7 +111,6 @@ namespace SpringMvc.Controllers
         {
             string invoiceName = ServiceLocator.CreateInvoiceService.GetInvoice(orderId);
             return File(System.AppDomain.CurrentDomain.BaseDirectory.ToString() + "\\Tmp\\" + invoiceName, "application/octet-stream", invoiceName);
-            //return RedirectToAction("DeliveredOrderDetails", "UserAccountPanel", new { orderId = orderId });
         }
 
         private void SetCurrentMenuPositions(int primaryMenuPosition, int? secondaryMenuPosition = null)

@@ -126,7 +126,7 @@ namespace SpringMvc.Models.DataGenerator.Services.Implementation
                 {
                     Login = firstNames[index] + lastNames[index],
                     Password = AuthorizationService.EncryptPassword(lastNames[index]),
-                    Email = firstNames[index] + lastNames[index] + "@mail.com",
+                    Email = firstNames[index].ToLower() + lastNames[index].ToLower() + "@mail.com",
                     PersonalData = userPersonalDataList.ElementAt(index),
                 };
                 switch (index % 10)
