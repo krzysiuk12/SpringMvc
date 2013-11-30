@@ -102,7 +102,7 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
                         cb.ShowTextAligned(PdfContentByte.ALIGN_RIGHT, entry.Price.ToString(), left_margin + 495, top_margin, 0);
                         writeText(cb, ApplicationScope.InvoiceCurrency, left_margin + 500, top_margin, f_cn, 10);
 
-                        totalInvoicedPrice += entry.Price * entry.Amount;
+                        totalInvoicedPrice = Decimal.Add(totalInvoicedPrice, Decimal.Multiply(entry.Price, (Decimal) entry.Amount));
 
                         top_margin -= 12;
 

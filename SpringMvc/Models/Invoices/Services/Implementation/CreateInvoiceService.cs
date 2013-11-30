@@ -26,11 +26,11 @@ namespace SpringMvc.Models.Invoices.Services.Implementation
             Decimal totalOrderValue = 0;
             
             foreach (OrderEntry entry in invoice.Order.OrderEntries)
-                totalOrderValue += entry.Price * entry.Amount;
+                totalOrderValue = Decimal.Add(totalOrderValue, Decimal.Multiply(entry.Price, (Decimal) entry.Amount));
 
             invoice.Vat = DaoFactory.CreateInvoiceDao.GetActualVat();
             invoice.VatPriceValue = Decimal.Multiply(totalOrderValue, invoice.Vat.Value);
-            invoice.TotalValue = totalOrderValue + invoice.VatPriceValue;
+            invoice.TotalValue = Decimal.Add(totalOrderValue, invoice.VatPriceValue);
             DaoFactory.CreateInvoiceDao.SaveInvoice(invoice);
         }
         [Transaction]
