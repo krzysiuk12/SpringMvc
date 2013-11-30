@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NMock;
 using SpringMvc.Models.POCO;
@@ -19,6 +20,7 @@ namespace SpringMvc.Tests.Models.Shop
         private Order order;
         private UserAccount userAcc;
         private MockFactory _factory = new MockFactory();
+        private IList<Order> orderLists;
 
         [ClassInitialize]
         public static void Class_Initialize(TestContext context)
@@ -31,19 +33,41 @@ namespace SpringMvc.Tests.Models.Shop
         public void Initialize()
         {
             order = new Order();
+            userAcc = new UserAccount();
             order.OrderEntries = null;
             order.SentDate = DateTime.Now;
-            order.User = null;
-
+            order.User = userAcc;
+            order.Id = 1;
             
-            //mock.Expects.One.MethodWith(_ => _.Method(1, 2, 3, 4)).WillReturn(new Version(5, 6, 7, 8));
-            //
-            //var controller = new Controller(mock.MockObject);
-            //var version = controller.GetVersion(1, 2, 3, 4);
-            //
-           // mock.Expects.One.Method(_ => _.Method(null)).With(Is.TypeOf<Version>()).WillReturn("3, 4, 5, 6");
-           //
-            // var result = controller.GetVersion(version);
+            orderLists = new List<Order>();
+
+            var orderInformationsMock = _factory.CreateMock<IOrderInformationsDao>();
+            ois.OrderInformationsDao = orderInformationsMock.MockObject;
+
+            orderInformationsMock.Expects.One.MethodWith<Order>(x => x.GetOrderById(-1)).WillReturn(null);
+            orderInformationsMock.Expects.One.MethodWith<Order>(x => x.GetOrderById(order.Id)).
+                WillReturn(order);
+            orderInformationsMock.Expects.One.MethodWith<IEnumerable<Order>>(x => x.GetOrdersByUserId(order.User.Id))
+                .WillReturn(orderLists.Where<Order>(y => y.User.Id == userAcc.Id));
+            orderInformationsMock.Expects.One.MethodWith<IEnumerable<Order>>(x => x.GetOrdersByUserId(-1))
+                .WillReturn(orderLists.Where<Order>(y => y.User.Id == -1));
+            orderInformationsMock.Expects.One.Method<IEnumerable<Order>>(x => x.GetUndeliveredOrders())
+                .WillReturn(orderLists.Where<Order>(y => y.Status == Order.OrderState.ORDERED));
+            orderInformationsMock.Expects.One.MethodWith<IEnumerable<Order>>(x => x.GetUndeliveredByUserId(order.User.Id))
+               .WillReturn(orderLists.Where<Order>(y => y.Status == Order.OrderState.ORDERED && y.User.Id == userAcc.Id));
+            orderInformationsMock.Expects.One.MethodWith<IEnumerable<Order>>(x => x.GetDeliveredOrdersByUserId(order.User.Id))
+              .WillReturn(orderLists.Where<Order>(y => y.Status == Order.OrderState.DELIVERED && y.User.Id == userAcc.Id));
+            
+
+            var orderManagementMock = _factory.CreateMock<IOrderManagementDao>();
+            oms.OrderManagementDao = orderManagementMock.MockObject;
+
+            NMock.Actions.InvokeAction action = new NMock.Actions.InvokeAction(
+                new Action(() => orderLists.Add(order)));
+           
+            orderManagementMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(
+                    action
+                );
         }
 
 
@@ -53,15 +77,12 @@ namespace SpringMvc.Tests.Models.Shop
             oms.CreateNewOrder(order);
             Order testedOrder = ois.GetOrderById(order.Id);
             Assert.AreEqual(testedOrder.Id, order.Id);
+            Assert.IsNotNull(testedOrder);
         }
 
         [TestMethod]
         public void TestGetOrderByIdWithWrongId()
         {
-            var mock = _factory.CreateMock<IOrderInformationsDao>();
-            mock.Expects.One.MethodWith<Order>(x => x.GetOrderById(-1)).WillReturn(null);
-            ois.OrderInformationsDao = mock.MockObject;
-
             Order testedOrder = ois.GetOrderById(-1);
             Assert.IsNull(testedOrder);
         }
@@ -83,7 +104,7 @@ namespace SpringMvc.Tests.Models.Shop
         public void TestGetOrdersByUserIdWithWrongId()
         {
             IEnumerable<Order> orders = ois.GetOrdersByUserId(-1);
-            Assert.Equals((new LinkedList<Order>(orders)).Count, 0);
+            Assert.AreEqual(orders.Count(), 0);
         }
 
         [TestMethod]
@@ -117,14 +138,17 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void TestGetDeliveredOrdersByUserId()
         {
-            order.User = userAcc;
-            order.Status = Order.OrderState.DELIVERED;
-            oms.CreateNewOrder(order);
+            Order order2 = new Order();
+            order2.User = userAcc;
+            order2.Id = 5;
+            order2.Status = Order.OrderState.DELIVERED;
+            orderLists.Add(order2);
+           // oms.CreateNewOrder(order2);
             bool isOrderThere = false;
             foreach (var item in ois.GetDeliveredOrdersByUserId(userAcc.Id))
             {
                 Assert.AreEqual(item.User.Id, userAcc.Id);
-                if (item.Id == order.Id) isOrderThere = true;
+                if (item.Id == order2.Id) isOrderThere = true;
             }
             Assert.IsTrue(isOrderThere);
         }

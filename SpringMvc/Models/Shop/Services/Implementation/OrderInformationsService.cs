@@ -14,6 +14,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
     [Repository]
     public class OrderInformationsService : BaseSpringService, IOrderInformationsService
     {
+        #region Dao
         private IOrderInformationsDao orderInformationsDao;
         public IOrderInformationsDao OrderInformationsDao
         {
@@ -29,6 +30,22 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             }
         }
 
+        private IOrderManagementDao orderManagementDao;
+        public IOrderManagementDao OrderManagementDao
+        {
+            get
+            {
+                if (orderManagementDao == null)
+                    return DaoFactory.OrderManagementDao;
+                return orderManagementDao;
+            }
+            set
+            {
+                orderManagementDao = value;
+            }
+        }
+        #endregion
+
         [Transaction(ReadOnly = true)]
         public Order GetOrderById(long orderId)
         {
@@ -38,25 +55,25 @@ namespace SpringMvc.Models.Shop.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetOrdersByUserId(long userId)
         {
-            return DaoFactory.OrderInformationsDao.GetOrdersByUserId(userId);
+            return OrderInformationsDao.GetOrdersByUserId(userId);
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetUndeliveredOrders()
         {
-            return DaoFactory.OrderInformationsDao.GetUndeliveredOrders();
+            return OrderInformationsDao.GetUndeliveredOrders();
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetUndeliveredOrdersByUserId(long userId)
         {
-            return DaoFactory.OrderInformationsDao.GetUndeliveredByUserId(userId);
+            return OrderInformationsDao.GetUndeliveredByUserId(userId);
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetDeliveredOrdersByUserId(long userId)
         {
-            return DaoFactory.OrderInformationsDao.GetDeliveredOrdersByUserId(userId);
+            return OrderInformationsDao.GetDeliveredOrdersByUserId(userId);
         }
     }
 }
