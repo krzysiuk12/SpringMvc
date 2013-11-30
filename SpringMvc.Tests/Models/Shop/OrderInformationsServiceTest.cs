@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NMock;
 using SpringMvc.Models.POCO;
+using SpringMvc.Models.Shop.Dao.Interfaces;
 using SpringMvc.Models.Shop.Services.Implementation;
 using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.UserAccounts.Services.Implementation;
@@ -16,12 +18,13 @@ namespace SpringMvc.Tests.Models.Shop
         private IAccountAdministrationService aas = new AccountAdministrationService();
         private Order order;
         private UserAccount userAcc;
+        private MockFactory _factory = new MockFactory();
 
         [ClassInitialize]
-        public void Class_Initialize()
+        public static void Class_Initialize(TestContext context)
         {
-            userAcc = new UserAccount();
-            aas.SaveOrUpdateUser(userAcc);
+          //  userAcc = new UserAccount();
+          //  aas.SaveOrUpdateUser(userAcc);
         }
 
         [TestInitialize]
@@ -31,8 +34,17 @@ namespace SpringMvc.Tests.Models.Shop
             order.OrderEntries = null;
             order.SentDate = DateTime.Now;
             order.User = null;
-        }
 
+            
+            //mock.Expects.One.MethodWith(_ => _.Method(1, 2, 3, 4)).WillReturn(new Version(5, 6, 7, 8));
+            //
+            //var controller = new Controller(mock.MockObject);
+            //var version = controller.GetVersion(1, 2, 3, 4);
+            //
+           // mock.Expects.One.Method(_ => _.Method(null)).With(Is.TypeOf<Version>()).WillReturn("3, 4, 5, 6");
+           //
+            // var result = controller.GetVersion(version);
+        }
 
 
         [TestMethod]
@@ -46,6 +58,10 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void TestGetOrderByIdWithWrongId()
         {
+            var mock = _factory.CreateMock<IOrderInformationsDao>();
+            mock.Expects.One.MethodWith<Order>(x => x.GetOrderById(-1)).WillReturn(null);
+            ois.OrderInformationsDao = mock.MockObject;
+
             Order testedOrder = ois.GetOrderById(-1);
             Assert.IsNull(testedOrder);
         }

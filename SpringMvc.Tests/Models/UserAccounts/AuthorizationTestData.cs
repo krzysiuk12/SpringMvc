@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using SpringMvc.Models.POCO;
 
 namespace SpringMvc.Tests.Models.UserAccounts
 {
+    [TestClass]
     class AuthorizationTestData
     {
         #region LoginInformation
@@ -37,7 +39,11 @@ namespace SpringMvc.Tests.Models.UserAccounts
         public static string EDIT_ADDRESS_COUNTRY = "Great Britain";
         #endregion
 
+        [TestInitialize]
+        public void TestInit()
+        {
 
+        }
 
     }
 }

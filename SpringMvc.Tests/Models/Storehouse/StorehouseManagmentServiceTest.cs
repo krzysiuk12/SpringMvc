@@ -31,6 +31,7 @@ namespace SpringMvc.Tests.Models.Storehouse
             testBook.Price = 40;
             TEST_QUANTITY = 5;
             TEST_ADD_QUANTITY = 4;
+            
         }
         [TestMethod]
         public void TestAddCategory()
@@ -61,7 +62,7 @@ namespace SpringMvc.Tests.Models.Storehouse
         [TestMethod]
         public void TestAddBookType()
         {
-            sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category);
+            sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category,"");
             IEnumerable<BookType> list = bis.GetAllBooks();
             bool isInList = false;
             foreach (var item in list)

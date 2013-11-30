@@ -7,16 +7,32 @@ using Spring.Transaction.Interceptor;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Common;
+using SpringMvc.Models.Shop.Dao.Interfaces;
 
 namespace SpringMvc.Models.Shop.Services.Implementation
 {
     [Repository]
     public class OrderInformationsService : BaseSpringService, IOrderInformationsService
     {
+        private IOrderInformationsDao orderInformationsDao;
+        public IOrderInformationsDao OrderInformationsDao
+        {
+            get
+            {
+                if (orderInformationsDao == null)
+                    return DaoFactory.OrderInformationsDao;
+                return orderInformationsDao;
+            }
+            set
+            {
+                orderInformationsDao = value;
+            }
+        }
+
         [Transaction(ReadOnly = true)]
         public Order GetOrderById(long orderId)
         {
-            return DaoFactory.OrderInformationsDao.GetOrderById(orderId);
+            return OrderInformationsDao.GetOrderById(orderId);
         }
 
         [Transaction(ReadOnly = true)]
