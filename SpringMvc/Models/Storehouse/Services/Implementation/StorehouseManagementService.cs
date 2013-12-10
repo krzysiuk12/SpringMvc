@@ -9,6 +9,7 @@ using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Dao.Interfaces;
+using SpringMvc.Models.Storehouse.Dao.Implementation;
 
 namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
@@ -16,6 +17,21 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
     public class StorehouseManagementService : BaseSpringService, IStorehouseManagementService
     {
         #region Dao
+        private IBooksInformationDao booksInformationDao;
+        public IBooksInformationDao BooksInformationDao
+        {
+            get
+            {
+                if (booksInformationDao == null)
+                    return DaoFactory.BooksInformationDao;
+                return booksInformationDao;
+            }
+            set
+            {
+                booksInformationDao = value;
+            }
+        }
+
         private IStorehouseManagementDao storehouseManagementDao;
         public IStorehouseManagementDao StorehouseManagementDao
         {
@@ -45,7 +61,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction]
         public bool AddQuantity(long bookTypeId,int quantity)
         {
-            BookType bookType = DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
+            BookType bookType = BooksInformationDao.GetBookTypeById(bookTypeId);
 
             if (bookType == null) return false;
             else
@@ -84,7 +100,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction]
         public bool MarkSold(long bookTypeId, int quantity)
         {
-            BookType bookType = DaoFactory.BooksInformationDao.GetBookTypeById(bookTypeId);
+            BookType bookType = BooksInformationDao.GetBookTypeById(bookTypeId);
 
             if (bookType == null) return false;
             if (bookType.QuantityMap.Quantity - quantity < 0)
