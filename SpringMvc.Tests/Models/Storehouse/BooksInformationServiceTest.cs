@@ -56,14 +56,29 @@ namespace SpringMvc.Tests.Models.Storehouse
             bis.BooksInformationDao = bookInformationMock.MockObject;
 
             bookInformationMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(-1)).WillReturn(null);
+            bookInformationMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(bookType.Id)).WillReturn(bookType);
+            bookInformationMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetAllBooks())
+                .WillReturn(bookTypeList);
+            bookInformationMock.Expects.One.MethodWith<IList<Category>>(x => x.GetAllCategories())
+                .WillReturn(categoryList);
+            bookInformationMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetBooksByCategoryId(category.Id))
+                .WillReturn(bookTypeList);
+            bookInformationMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetBooksByCategoryId(-1))
+                .WillReturn(null);
+
 
             var storehouseManagementMock = _factory.CreateMock<IStorehouseManagementDao>();
             sms.StorehouseManagementDao = storehouseManagementMock.MockObject;
 
-            NMock.Actions.InvokeAction action = new NMock.Actions.InvokeAction(
+            NMock.Actions.InvokeAction saveBookTypeAction = new NMock.Actions.InvokeAction(
             new Action(() => bookTypeList.Add(bookType)));
 
-            storehouseManagementMock.Expects.Any.MethodWith(x => x.SaveBookType(bookType)).Will(action);
+            storehouseManagementMock.Expects.Any.MethodWith(x => x.SaveBookType(bookType)).Will(saveBookTypeAction);
+
+            NMock.Actions.InvokeAction saveCategoryAction = new NMock.Actions.InvokeAction(
+            new Action(() => categoryList.Add(category)));
+
+            storehouseManagementMock.Expects.Any.MethodWith(x => x.SaveCategory(category)).Will(saveCategoryAction);
 
         }
         [ClassInitialize]
@@ -72,62 +87,76 @@ namespace SpringMvc.Tests.Models.Storehouse
 
         }
         [TestMethod]
-        public void TestGetBookTypeById()
+        public void TestGetBookTypeByWrongId()
         {
             BookType book = bis.GetBookTypeById(-1);
             Assert.IsNull(book);
         }
 
-        /*
-        [TestMethod]
-        public void TestGetAllCategories()
-        {
-            sms.AddCategory(CATEGORY_NAME);
-            IList<Category> list = bis.GetAllCategories();
-            bool isCategoryThere = false;
-            foreach (var item in list)
-            {
-                if (item.Name.Equals(CATEGORY_NAME)) isCategoryThere = true;
-                Assert.IsNotNull(item);
-            }
-            Assert.IsTrue(isCategoryThere);
-        }
-       
         [TestMethod]
         public void TestGetBookTypeById()
         {
             sms.SaveBookType(bookType);
             BookType book = bis.GetBookTypeById(bookType.Id);
             Assert.IsNotNull(book);
-            Assert.IsTrue(book.Authors.Equals(bookType.Authors));
-            Assert.IsTrue(book.Title.Equals(bookType.Title));
-            Assert.IsTrue(book.Category.Name.Equals(bookType.Category.Name));
+            Assert.AreEqual(book, bookType);
         }
+
         [TestMethod]
-        public void TestGetAllBooks()
+        public void TestGetAllBooksEmpty()
         {
-            sms.SaveBookType(bookType);
             IEnumerable<BookType> list = bis.GetAllBooks();
-            bool isBookThere = false;
             foreach (var item in list)
             {
-                if (item.Id==bookType.Id) isBookThere = true;
+                Assert.IsNull(item);
+            }
+            Assert.IsNotNull(list);
+        }
+
+        [TestMethod]
+        public void TestGetAllCategories()
+        {
+            sms.SaveCategory(category);
+            IList<Category> list = bis.GetAllCategories();
+            bool isCategoryThere = false;
+            foreach (var item in list)
+            {
+                if (item.Equals(category)) isCategoryThere = true;
                 Assert.IsNotNull(item);
             }
-            Assert.IsTrue(isBookThere);
+            Assert.IsTrue(isCategoryThere);
         }
+
+        [TestMethod]
+        public void TestGetAllCategoriesEmpty()
+        {
+            IList<Category> list = bis.GetAllCategories();
+            foreach (var item in list)
+            {
+                Assert.IsNull(item);
+            }
+        }
+
         [TestMethod]
         public void TestGetBooksByCategoryId()
         {
+            sms.SaveBookType(bookType);
             sms.SaveCategory(category);
             IEnumerable<BookType> list = bis.GetBooksByCategoryId(category.Id);
             bool isBookThere = false;
             foreach (var item in list)
             {
-                if (item.Id == bookType.Id) isBookThere = true;
+                if (item.Equals(bookType)) isBookThere = true;
                 Assert.IsNotNull(item);
             }
             Assert.IsTrue(isBookThere);
-        }*/
+        }
+
+        [TestMethod]
+        public void TestGetBooksByCategoryWrongId()
+        {
+            IEnumerable<BookType> list = bis.GetBooksByCategoryId(-1);
+            Assert.IsNull(list);
+        }
     }
 }

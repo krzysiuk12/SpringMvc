@@ -39,7 +39,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
             {
                 Name = name
             };
-            DaoFactory.StorehouseManagamentDao.SaveCategory(category);
+            StorehouseManagementDao.SaveCategory(category);
         }
 
         [Transaction]
@@ -51,7 +51,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
             else
             {
                 bookType.QuantityMap.Quantity += quantity;
-                DaoFactory.StorehouseManagamentDao.UpdateQuantity(bookType);
+                StorehouseManagementDao.UpdateQuantity(bookType);
                 return true;
             }
         }
@@ -78,7 +78,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
 				Image = image
 			};
 
-			DaoFactory.StorehouseManagamentDao.SaveBookType(newBookType);
+            StorehouseManagementDao.SaveBookType(newBookType);
 		}
 
         [Transaction]
@@ -92,7 +92,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
             else
             {
                 bookType.QuantityMap.Quantity -= quantity;
-                DaoFactory.StorehouseManagamentDao.UpdateQuantity(bookType);
+                StorehouseManagementDao.UpdateQuantity(bookType);
                 return true;
             }
         }
@@ -100,13 +100,13 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction]
         public void SaveBookType(BookType bookType)
         {
-            DaoFactory.StorehouseManagamentDao.SaveBookType(bookType);
+            StorehouseManagementDao.SaveBookType(bookType);
         }
 
         [Transaction]
         public void SaveCategory(Category category)
         {
-            DaoFactory.StorehouseManagamentDao.SaveCategory(category);
+            StorehouseManagementDao.SaveCategory(category);
         }
     }
 }

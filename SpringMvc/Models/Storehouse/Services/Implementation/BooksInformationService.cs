@@ -51,16 +51,13 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction(ReadOnly=true)]
         public IEnumerable<BookType> GetBooksByCategoryId(long categoryId)
         {
-            return DaoFactory.BooksInformationDao.GetBooksByCategoryId(categoryId);
+            return BooksInformationDao.GetBooksByCategoryId(categoryId);
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetAllBooks()
         {
-//            if (bookTypeCache == null)
-//            {
-                bookTypeCache = DaoFactory.BooksInformationDao.GetAllBooks();
-//            }
+            bookTypeCache = BooksInformationDao.GetAllBooks();
             return bookTypeCache;
         }
 
@@ -73,7 +70,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IList<Category> GetAllCategories()
         {
-            return DaoFactory.BooksInformationDao.GetAllCategories();
+            return BooksInformationDao.GetAllCategories();
         }
     }
 }

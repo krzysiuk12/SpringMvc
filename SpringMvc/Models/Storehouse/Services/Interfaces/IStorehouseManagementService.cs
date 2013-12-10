@@ -9,7 +9,6 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
 {
     public interface IStorehouseManagementService
     {
-
         IStorehouseManagementDao StorehouseManagementDao
         {
             set;
