@@ -8,12 +8,30 @@ using SpringMvc.Models.Common;
 using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
+using SpringMvc.Models.Storehouse.Dao.Interfaces;
 
 namespace SpringMvc.Models.Storehouse.Services.Implementation
 {
     [Repository]
     public class StorehouseManagementService : BaseSpringService, IStorehouseManagementService
     {
+        #region Dao
+        private IStorehouseManagementDao storehouseManagementDao;
+        public IStorehouseManagementDao StorehouseManagementDao
+        {
+            get
+            {
+                if (storehouseManagementDao == null)
+                    return DaoFactory.StorehouseManagamentDao;
+                return storehouseManagementDao;
+            }
+            set
+            {
+                storehouseManagementDao = value;
+            }
+        }
+        #endregion
+
         [Transaction]
         public void AddCategory(String name)
         {
@@ -92,3 +110,4 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         }
     }
 }
+

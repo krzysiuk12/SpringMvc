@@ -32,7 +32,7 @@ namespace SpringMvc.Tests.Models.Storehouse
             TEST_QUANTITY = 5;
             TEST_ADD_QUANTITY = 4;
         }
-        [TestMethod]
+      /*  [TestMethod]
         public void TestAddCategory()
         {
             sms.AddCategory(TEST_CAT_NAME);
@@ -124,6 +124,6 @@ namespace SpringMvc.Tests.Models.Storehouse
             added = (sms.AddQuantity(testBook.Id, TEST_ADD_QUANTITY));
             testGetBook = bis.GetBookTypeById(testBook.Id);
             Assert.IsTrue(added && testGetBook.QuantityMap.Quantity == testBook.QuantityMap.Quantity + TEST_ADD_QUANTITY);
-        }
+        }*/
     }
 }
