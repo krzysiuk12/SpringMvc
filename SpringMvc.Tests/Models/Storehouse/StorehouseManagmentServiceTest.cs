@@ -61,7 +61,7 @@ namespace SpringMvc.Tests.Models.Storehouse
         [TestMethod]
         public void TestAddBookType()
         {
-            sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category);
+            sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category, null);
             IEnumerable<BookType> list = bis.GetAllBooks();
             bool isInList = false;
             foreach (var item in list)
