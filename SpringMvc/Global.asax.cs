@@ -42,7 +42,7 @@ namespace SpringMvc
             Response.Write(
                 "<p>" + exc.Message + "</p>\n");
             Response.Write("Return to the <a href='/'>" +
-                "MainShop</a>\n");
+                "Logging Page</a>\n");
 
             Server.ClearError();
         }

@@ -32,7 +32,9 @@ namespace SpringMvc.Controllers
 
         public ActionResult BookDetails(long booktypeId)
         {
+            long currentUser = (long) Session["LoggedUserId"];
             BookType book = ServiceLocator.BooksInformationService.GetBookTypeById(booktypeId);
+            ViewBag.Recommended = ServiceLocator.SuggestionService.GetSuggestionsForUser(currentUser, book.Category.Id);
             return View(book);
         }
 

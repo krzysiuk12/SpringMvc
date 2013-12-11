@@ -9,7 +9,7 @@
     <style type="text/css">
         .showbooks th { width: 100px; }
     </style>
-
+    <div style="height:250px">
     <div style="float: left; margin-left: 15px; margin-right: 30px;">
         <img src="<%: Html.DisplayFor(model => model.Image.URL) %>" height="200px" width="130px"/>
     </div>
@@ -48,6 +48,19 @@
                 <% Html.EndForm(); %>
             <% } %>
         </div>
+    </div>
+    </div>
+    <div>
+         <h3>Recommended books:</h3>
+            <% foreach (var recBook in ViewBag.Recommended)
+            {%>
+            <span>
+                <a href="BookDetails?booktypeId=<%: recBook.Id %>" >
+                    <img src="<%: recBook.Image.URL %>" height="200px" width="130px"/>
+                </a>
+
+            </span>
+            <% }%>
     </div>
 </asp:Content>
 
