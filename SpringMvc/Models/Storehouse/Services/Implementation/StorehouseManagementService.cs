@@ -32,6 +32,7 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
             }
         }
 
+
         private IStorehouseManagementDao storehouseManagementDao;
         public IStorehouseManagementDao StorehouseManagementDao
         {
@@ -123,6 +124,21 @@ namespace SpringMvc.Models.Storehouse.Services.Implementation
         public void SaveCategory(Category category)
         {
             StorehouseManagementDao.SaveCategory(category);
+        }
+
+        private IBooksInformationService booksInformationService;
+        public IBooksInformationService BooksInformationService
+        {
+            get
+            {
+                if (booksInformationService == null)
+                    return ServiceLocator.BooksInformationService;
+                return booksInformationService;
+            }
+            set
+            {
+                booksInformationService = value;
+            }
         }
     }
 }

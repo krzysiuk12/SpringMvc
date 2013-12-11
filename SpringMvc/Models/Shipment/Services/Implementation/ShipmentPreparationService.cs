@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.UserAccounts.Services.Interfaces;
 
 
 namespace SpringMvc.Models.Shipment.Services.Implementation
@@ -50,7 +51,7 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         [Transaction(ReadOnly = true)]
         public PersonalData GetUserPersonalDataById(long userId)
         {
-            UserAccount user = ServiceLocator.UserInformationService.GetUserAccountById(userId);
+            UserAccount user = UserInformationService.GetUserAccountById(userId);
             Console.Write(user);
             if (user.PersonalData == null) throw new Exception();
             return user.PersonalData;
@@ -78,6 +79,21 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         public void MarkOrderAsInProgress(long orderId) // metoda ustawia w order date wysłania i zmienia status na SENT
         {
             OrderManagementService.MarkOrderSent(orderId);
+        }
+
+        private IUserInformationService userInformationService;
+        public IUserInformationService UserInformationService
+        {
+            get
+            {
+                if (userInformationService == null)
+                    return ServiceLocator.UserInformationService;
+                return userInformationService;
+            }
+            set
+            {
+                userInformationService = value;
+            }
         }
     }
 }

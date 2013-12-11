@@ -10,6 +10,7 @@ using SpringMvc.Models.Storehouse.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Services.Implementation;
 using NMock;
 using SpringMvc.Models.Shop.Dao.Interfaces;
+using SpringMvc.Models.Storehouse.Dao.Interfaces;
 
 namespace SpringMvc.Tests.Models.Shop
 {
@@ -26,6 +27,8 @@ namespace SpringMvc.Tests.Models.Shop
 
         private Mock<IOrderManagementDao> orderManagementDaoMock;
         private Mock<IOrderInformationsDao> orderInformationDaoMock;
+        private Mock<IStorehouseManagementDao> storehouseManagementDaoMock;
+        private Mock<IBooksInformationService> booksInformationServiceMock;
         private MockFactory _factory;
 
         [TestInitialize]
@@ -52,6 +55,13 @@ namespace SpringMvc.Tests.Models.Shop
             orderInformationDaoMock = _factory.CreateMock<IOrderInformationsDao>();
             ois.OrderInformationDao = orderInformationDaoMock.MockObject;
             oms.OrderInformationDao = orderInformationDaoMock.MockObject;
+
+            storehouseManagementDaoMock = _factory.CreateMock<IStorehouseManagementDao>();
+            sms.StorehouseManagementDao = storehouseManagementDaoMock.MockObject;
+
+            booksInformationServiceMock = _factory.CreateMock<IBooksInformationService>();
+            sms.BooksInformationService = booksInformationServiceMock.MockObject;
+            oms.BooksInformationService = booksInformationServiceMock.MockObject;
         }
 
         [TestMethod]
@@ -106,10 +116,25 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void AddOrderEntryTest()
         {
+
+            List<Order> orders = new List<Order>();
+            List<BookType> bookTypeList = new List<BookType>();
+            NMock.Actions.InvokeAction saveOrUpdateAction = new NMock.Actions.InvokeAction(() => orders.Add(order));
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrUpdateAction);
+            
             bool isInList = false;
+            order.OrderEntries = new List<OrderEntry>();
             oms.CreateNewOrder(order);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(orders.First(x => x.Id == order.Id));
+            
             getOrder = ois.GetOrderById(order.Id);
+
+            NMock.Actions.InvokeAction saveBookType = new NMock.Actions.InvokeAction(new Action(() => bookTypeList.Add(testBook)));
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.SaveBookType(testBook)).Will(saveBookType);
+
             sms.SaveBookType(testBook);
+            booksInformationServiceMock.Expects.Any.MethodWith(x => x.GetBookTypeById(testBook.Id)).WillReturn(bookTypeList.FirstOrDefault(x => x.Id == testBook.Id));
+            
             oms.AddOrderEntry(order, testBook.Id, TEST_AMOUNT);
 
             foreach (var item in order.OrderEntries)

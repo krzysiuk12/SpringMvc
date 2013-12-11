@@ -11,6 +11,7 @@ using SpringMvc.Models.POCO;
 using NMock;
 using SpringMvc.Models.Shop.Dao.Interfaces;
 using System.Linq;
+using SpringMvc.Models.UserAccounts.Dao.Interfaces;
 namespace SpringMvc.Tests.Models.Shipment
 {
     //TESTY z withWrongID prawdopodobnie do usunięcia albo zmiany
@@ -33,7 +34,9 @@ namespace SpringMvc.Tests.Models.Shipment
         private Mock<IOrderManagementService> orderManagementServiceMock;
         private Mock<IOrderManagementDao> orderManagementDaoMock;
         private Mock<IOrderInformationsDao> orderInformationsDaoMock;
-
+        private Mock<IAccountAdministrationDao> accountAdministrationDao;
+        private Mock<IUserInformationDao> userInformationDao;
+        private Mock<IUserInformationService> userInformationService;
         private MockFactory _factory = new MockFactory();
         private IList<Order> orders;
 
@@ -55,6 +58,14 @@ namespace SpringMvc.Tests.Models.Shipment
             oms.OrderInformationDao = orderInformationsDaoMock.MockObject;
             sps.OrderInformationsService = ois;
             sps.OrderManagementService = oms;
+
+            accountAdministrationDao = _factory.CreateMock<IAccountAdministrationDao>();
+            userInformationDao = _factory.CreateMock<IUserInformationDao>();
+            aas.AccountAdministrationDao = accountAdministrationDao.MockObject;
+            aas.UserInformationDao = userInformationDao.MockObject;
+            
+            userInformationService = _factory.CreateMock<IUserInformationService>();
+            sps.UserInformationService = userInformationService.MockObject;
         }
 
 
@@ -75,7 +86,12 @@ namespace SpringMvc.Tests.Models.Shipment
         [TestMethod]
         public void TestMarkOrderAsInProgress()
         {
+            orders = new List<Order>();
+            NMock.Actions.InvokeAction saveOrUpdateAction = new NMock.Actions.InvokeAction(() => orders.Add(order));
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrUpdateAction);
             oms.CreateNewOrder(order);
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(orders.First(x => x.Id == order.Id));
+            
             sps.MarkOrderAsInProgress(order.Id);
             Order testedOrder = ois.GetOrderById(order.Id);
             Assert.AreEqual(Order.OrderState.SENT, testedOrder.Status);
@@ -142,7 +158,7 @@ namespace SpringMvc.Tests.Models.Shipment
         [TestMethod]
         public void TestIdentityCardNumber()
         {
-            UserAccount userAcc = new UserAccount();
+             UserAccount userAcc = new UserAccount();
             PersonalData personalData = new PersonalData();
             personalData.PESEL = PESEL;
             personalData.Sex = SEX;
@@ -151,7 +167,13 @@ namespace SpringMvc.Tests.Models.Shipment
             personalData.IdentityCardNumber = IDCN;
             personalData.PhoneNumber = PHONE;
             userAcc.PersonalData = personalData;
+           
+            List<UserAccount> userAccounts = new List<UserAccount>();
+            NMock.Actions.InvokeAction addUserAccounts = new NMock.Actions.InvokeAction(() => userAccounts.Add(userAcc));
+            accountAdministrationDao.Expects.One.MethodWith(x => x.SaveOrUpdateUser(userAcc)).Will(addUserAccounts);
+
             aas.SaveOrUpdateUser(userAcc);
+            userInformationService.Expects.One.MethodWith(x => x.GetUserAccountById(userAcc.Id)).WillReturn(userAcc);
             PersonalData returnedPD = sps.GetUserPersonalDataById(userAcc.Id);
             Assert.AreEqual(PESEL, returnedPD.PESEL);
             Assert.AreEqual(SEX, returnedPD.Sex);

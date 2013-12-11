@@ -21,6 +21,12 @@ namespace SpringMvc.Models.Storehouse.Services.Interfaces
             get;
         }
 
+        IBooksInformationService BooksInformationService
+        {
+            get;
+            set;
+        }
+
         void AddCategory(String name);
 		
 		void AddBookType(String title, String authors, decimal price, int quantity, Category category, string imageURL);

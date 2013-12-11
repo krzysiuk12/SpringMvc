@@ -105,10 +105,12 @@ namespace SpringMvc.Tests.Models.Storehouse
         [TestMethod]
         public void TestAddBookType()
         {
+            testBook.Id = 0;
             NMock.Actions.InvokeAction saveBookType = new NMock.Actions.InvokeAction(new Action(() => bookTypeList.Add(testBook)));
             storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.SaveBookType(testBook)).Will(saveBookType);
             booksInformationDaoMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetAllBooks())
                .WillReturn(bookTypeList);
+         
             sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category, null);
             IEnumerable<BookType> list = bis.GetAllBooks();
             bool isInList = false;
@@ -141,6 +143,10 @@ namespace SpringMvc.Tests.Models.Storehouse
         {
             bool marked = false;
             sms.SaveBookType(testBook);
+
+            NMock.Actions.InvokeAction addQuantityAction = new NMock.Actions.InvokeAction(new Action(() => testGetBook.QuantityMap = testBook.QuantityMap));
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.UpdateQuantity(testBook)).Will(addQuantityAction);
+            
             marked = (sms.MarkSold(testBook.Id, testBook.QuantityMap.Quantity));
             testGetBook = bis.GetBookTypeById(testGetBook.Id);
             Assert.IsTrue(testGetBook.QuantityMap.Quantity == 0) ;

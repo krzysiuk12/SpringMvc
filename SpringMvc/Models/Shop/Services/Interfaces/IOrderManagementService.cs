@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SpringMvc.Models.Shop.Dao.Interfaces;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Shop.Services.Interfaces
 {
@@ -16,6 +17,12 @@ namespace SpringMvc.Models.Shop.Services.Interfaces
         }
 
         IOrderInformationsDao OrderInformationDao
+        {
+            get;
+            set;
+        }
+
+        IBooksInformationService BooksInformationService
         {
             get;
             set;

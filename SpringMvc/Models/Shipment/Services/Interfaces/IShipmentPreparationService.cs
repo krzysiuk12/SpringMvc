@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.UserAccounts.Services.Interfaces;
 
 namespace SpringMvc.Models.Shipment.Services.Interfaces
 {
@@ -17,6 +18,12 @@ namespace SpringMvc.Models.Shipment.Services.Interfaces
         }
 
         IOrderManagementService OrderManagementService
+        {
+            get;
+            set;
+        }
+
+        IUserInformationService UserInformationService
         {
             get;
             set;

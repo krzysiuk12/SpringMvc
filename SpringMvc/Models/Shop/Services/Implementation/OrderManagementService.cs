@@ -8,6 +8,7 @@ using SpringMvc.Models.Common;
 using Spring.Stereotype;
 using Spring.Transaction.Interceptor;
 using SpringMvc.Models.Shop.Dao.Interfaces;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Shop.Services.Implementation
 {
@@ -16,7 +17,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
     {
         private IOrderManagementDao orderManagementDao;
         private IOrderInformationsDao orderInformationDao;
-
+        private IBooksInformationService booksInformationService;
         public IOrderManagementDao OrderManagementDao
         {
             get
@@ -42,6 +43,20 @@ namespace SpringMvc.Models.Shop.Services.Implementation
             set
             {
                 orderInformationDao = value;
+            }
+        }
+
+        public IBooksInformationService BooksInformationService
+        {
+            get
+            {
+                if (booksInformationService == null)
+                    return ServiceLocator.BooksInformationService;
+                return booksInformationService;
+            }
+            set
+            {
+                booksInformationService = value;
             }
         }
 
@@ -73,7 +88,7 @@ namespace SpringMvc.Models.Shop.Services.Implementation
 
         public void AddOrderEntry(Order order, long selectedBookTypeId, int amount)
         {
-            BookType bookType = ServiceLocator.BooksInformationService.GetBookTypeById(selectedBookTypeId);
+            BookType bookType = BooksInformationService.GetBookTypeById(selectedBookTypeId);
             OrderEntry orderEntry = new OrderEntry()
             {
                 BookType = bookType,
