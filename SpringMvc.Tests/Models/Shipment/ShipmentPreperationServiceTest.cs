@@ -8,6 +8,9 @@ using SpringMvc.Models.UserAccounts.Services.Implementation;
 using SpringMvc.Models.UserAccounts.Services.Interfaces;
 using System.Collections.Generic;
 using SpringMvc.Models.POCO;
+using NMock;
+using SpringMvc.Models.Shop.Dao.Interfaces;
+using System.Linq;
 namespace SpringMvc.Tests.Models.Shipment
 {
     //TESTY z withWrongID prawdopodobnie do usunięcia albo zmiany
@@ -25,6 +28,15 @@ namespace SpringMvc.Tests.Models.Shipment
         private const string lastName = "B";
         private const string IDCN = "a344";
         private const string PHONE = "333222333";
+
+        private Mock<IOrderInformationsService> orderInformationServiceMock;
+        private Mock<IOrderManagementService> orderManagementServiceMock;
+        private Mock<IOrderManagementDao> orderManagementDaoMock;
+        private Mock<IOrderInformationsDao> orderInformationsDaoMock;
+
+        private MockFactory _factory = new MockFactory();
+        private IList<Order> orders;
+
         [TestInitialize]
         public void Initialize()
         {
@@ -32,14 +44,28 @@ namespace SpringMvc.Tests.Models.Shipment
             order.OrderEntries = null;
             order.SentDate = DateTime.Now;
             order.User = null;
+
+            orderInformationServiceMock = _factory.CreateMock<IOrderInformationsService>();
+            orderManagementServiceMock = _factory.CreateMock<IOrderManagementService>();
+            orderManagementDaoMock = _factory.CreateMock<IOrderManagementDao>();
+            orderInformationsDaoMock = _factory.CreateMock<IOrderInformationsDao>();
+
+            ois.OrderInformationDao = orderInformationsDaoMock.MockObject;
+            oms.OrderManagementDao = orderManagementDaoMock.MockObject;
+            sps.OrderInformationsService = orderInformationServiceMock.MockObject;
+            sps.OrderManagementService = orderManagementServiceMock.MockObject;
         }
 
 
         [TestMethod]
         public void TestGetUnrealizedOrders()
         {
-            IEnumerable<Order> orders = sps.GetUnrealizedOrders();
-            foreach (var item in orders)
+            orders= new List<Order>();
+            orders.Add(order);
+            orderInformationServiceMock.Expects.Any.Method(x => x.GetUndeliveredOrders())
+                .WillReturn(orders.Where(x => x.Status != Order.OrderState.DELIVERED));
+            IEnumerable<Order> getOrders = sps.GetUnrealizedOrders();
+            foreach (var item in getOrders)
             {
                 Assert.IsNotNull(item);
             }
@@ -58,6 +84,7 @@ namespace SpringMvc.Tests.Models.Shipment
         [ExpectedException(typeof(Exception))]
         public void TestMarkOrderAsInProgressWithWrongId()
         {
+
             sps.MarkOrderAsInProgress(-1);
         }
 

@@ -23,7 +23,8 @@ namespace SpringMvc.Tests.Models.Storehouse
         private MockFactory _factory = new MockFactory();
         private IList<Category> categoryList;
         private IList<BookType> bookTypeList;
-
+        private Mock<IStorehouseManagementDao> storehouseManagementDaoMock;
+        private Mock<IBooksInformationDao> booksInformationDaoMock;
         [TestInitialize]
         public void Initialize()
         {
@@ -31,7 +32,6 @@ namespace SpringMvc.Tests.Models.Storehouse
             TEST_ADD_QUANTITY = 4;
             TEST_CAT_NAME = "testowa kategoria";
             testCategory = new Category();
-            testCategory.Id = 1;
             testCategory.Name = TEST_CAT_NAME;
             testBook = new BookType();
             testGetBook = new BookType();
@@ -47,29 +47,30 @@ namespace SpringMvc.Tests.Models.Storehouse
             categoryList = new List<Category>();
             bookTypeList = new List<BookType>();
 
-            var bookInformationMock = _factory.CreateMock<IBooksInformationDao>();
-            bis.BooksInformationDao = bookInformationMock.MockObject;
+             booksInformationDaoMock = _factory.CreateMock<IBooksInformationDao>();
+             bis.BooksInformationDao = booksInformationDaoMock.MockObject;
+             sms.BooksInformationDao = booksInformationDaoMock.MockObject;
 
-            bookInformationMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetAllBooks()).WillReturn(bookTypeList);
-            bookInformationMock.Expects.One.MethodWith<IList<Category>>(x => x.GetAllCategories()).WillReturn(categoryList);
-            bookInformationMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testBook.Id)).WillReturn(testBook);
-            bookInformationMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testGetBook.Id)).WillReturn(testGetBook);
+             booksInformationDaoMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetAllBooks()).WillReturn(bookTypeList);
+             booksInformationDaoMock.Expects.One.MethodWith<IList<Category>>(x => x.GetAllCategories()).WillReturn(categoryList);
+             booksInformationDaoMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testBook.Id)).WillReturn(testBook);
+             booksInformationDaoMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testGetBook.Id)).WillReturn(testGetBook);
 
-            var storehouseManagmentMock = _factory.CreateMock<IStorehouseManagementDao>();
-            sms.StorehouseManagementDao = storehouseManagmentMock.MockObject;
+            storehouseManagementDaoMock = _factory.CreateMock<IStorehouseManagementDao>();
+            sms.StorehouseManagementDao = storehouseManagementDaoMock.MockObject;
 
             NMock.Actions.InvokeAction markSold = new NMock.Actions.InvokeAction(new Action(() => changeQuantity()));
-            storehouseManagmentMock.Expects.Any.MethodWith(x => x.MarkSold(testBook.Id, testBook.QuantityMap.Quantity)).Will(markSold);
-            storehouseManagmentMock.Expects.One.MethodWith<bool>(x => x.MarkSold(-1,5)).WillReturn(false);
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.MarkSold(testBook.Id, testBook.QuantityMap.Quantity)).Will(markSold);
+            storehouseManagementDaoMock.Expects.One.MethodWith<bool>(x => x.MarkSold(-1, 5)).WillReturn(false);
 
             NMock.Actions.InvokeAction saveCategory = new NMock.Actions.InvokeAction(new Action(() => categoryList.Add(testCategory)));
-            storehouseManagmentMock.Expects.Any.MethodWith(x => x.SaveCategory(testCategory)).Will(saveCategory);
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.SaveCategory(testCategory)).Will(saveCategory);
             NMock.Actions.InvokeAction saveBookType = new NMock.Actions.InvokeAction(new Action(() => bookTypeList.Add(testBook)));
-            storehouseManagmentMock.Expects.Any.MethodWith(x => x.SaveBookType(testBook)).Will(saveBookType);
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.SaveBookType(testBook)).Will(saveBookType);
             NMock.Actions.InvokeAction addCategory = new NMock.Actions.InvokeAction(new Action(() => categoryList.Add(testCategory)));
-            storehouseManagmentMock.Expects.Any.MethodWith(x => x.AddCategory(TEST_CAT_NAME)).Will(addCategory);
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.AddCategory(TEST_CAT_NAME)).Will(addCategory);
             NMock.Actions.InvokeAction addBookType = new NMock.Actions.InvokeAction(new Action(() => bookTypeList.Add(testBook)));
-            storehouseManagmentMock.Expects.Any.MethodWith(x => x.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category)).Will(addBookType);
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category)).Will(addBookType);
            // NMock.Actions.InvokeAction addQuantity = new NMock.Actions.InvokeAction(new Action(() => 
 
             
@@ -149,24 +150,33 @@ namespace SpringMvc.Tests.Models.Storehouse
         [TestMethod]
         public void TestMarkSoldWrongId()
         {
+            booksInformationDaoMock.Expects.Any.MethodWith(x => x.GetBookTypeById(-1)).WillReturn(null);
             Assert.IsFalse(sms.MarkSold(-1, 5));
         }
 
         [TestMethod]
         public void AddQuantityWrongId()
         {
+            booksInformationDaoMock.Expects.Any.MethodWith(x => x.GetBookTypeById(-1)).WillReturn(null);
             Assert.IsFalse(sms.AddQuantity(-1, 5));
         }
 
         [TestMethod]
         public void AddQuantity()
         {
+            NMock.Actions.InvokeAction addQuantityAction = new NMock.Actions.InvokeAction(new Action(() => testGetBook.QuantityMap = testBook.QuantityMap));
+
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.UpdateQuantity(testBook)).Will(addQuantityAction);
+            booksInformationDaoMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testGetBook.Id)).WillReturn(testGetBook);
+            booksInformationDaoMock.Expects.One.MethodWith<BookType>(x => x.GetBookTypeById(testBook.Id)).WillReturn(testBook);
+
             bool added = false;
             sms.SaveBookType(testBook);
             added = (sms.AddQuantity(testBook.Id, TEST_ADD_QUANTITY));
             testGetBook = bis.GetBookTypeById(testBook.Id);
-            Assert.IsTrue(added && testGetBook.QuantityMap.Quantity == testBook.QuantityMap.Quantity + TEST_ADD_QUANTITY);
+            Assert.IsTrue(added && testGetBook.QuantityMap.Quantity == testBook.QuantityMap.Quantity);
         }
+
         public void changeQuantity()
         {
             foreach (var item in bookTypeList)

@@ -29,5 +29,13 @@ namespace SpringMvc.Models.POCO
 
         [Display(Name = "User Account")]
         public virtual UserAccount User { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            Order order = obj as Order;
+            if (order == null)
+                return false;
+            return order.Id == this.Id;
+        }
     }
 }

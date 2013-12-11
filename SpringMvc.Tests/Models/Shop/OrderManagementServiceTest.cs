@@ -8,6 +8,8 @@ using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Shop.Services.Implementation;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Services.Implementation;
+using NMock;
+using SpringMvc.Models.Shop.Dao.Interfaces;
 
 namespace SpringMvc.Tests.Models.Shop
 {
@@ -22,9 +24,14 @@ namespace SpringMvc.Tests.Models.Shop
         private BookType testBook;
         private int TEST_AMOUNT;
 
-        [ClassInitialize]
+        private Mock<IOrderManagementDao> orderManagementDaoMock;
+        private Mock<IOrderInformationsDao> orderInformationDaoMock;
+        private MockFactory _factory;
+
+        [TestInitialize]
         public void Initialize()
         {
+            _factory = new MockFactory();
             order = new Order();
             order.OrderEntries = null;
             order.SentDate = DateTime.Now;
@@ -38,11 +45,23 @@ namespace SpringMvc.Tests.Models.Shop
             testBook.Category = testCategory;
             testBook.Price = 40;
             TEST_AMOUNT = 5;
+
+            orderManagementDaoMock = _factory.CreateMock<IOrderManagementDao>();
+            oms.OrderManagementDao = orderManagementDaoMock.MockObject;
+
+            orderInformationDaoMock = _factory.CreateMock<IOrderInformationsDao>();
+            ois.OrderInformationDao = orderInformationDaoMock.MockObject;
+            oms.OrderInformationDao = orderInformationDaoMock.MockObject;
         }
 
         [TestMethod]
         public void CreateNewOrderTestOrdered()
         {
+            NMock.Actions.InvokeAction saveOrder = new NMock.Actions.InvokeAction(
+            new Action(() => getOrder = order));
+
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
             oms.CreateNewOrder(order);
             getOrder = ois.GetOrderById(order.Id);
             Assert.IsNotNull(getOrder.Status.Equals(Order.OrderState.ORDERED));
@@ -51,7 +70,16 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void MarkOrderSendTest()
         {
+            NMock.Actions.InvokeAction saveOrder = new NMock.Actions.InvokeAction(
+           new Action(() => getOrder = order));
+
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
+            
             oms.CreateNewOrder(order);
+            orderManagementDaoMock.Expects.One.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+           
             oms.MarkOrderSent(order.Id);
             getOrder = ois.GetOrderById(order.Id);
             Assert.IsTrue(getOrder.Status.Equals(Order.OrderState.SENT));
@@ -60,8 +88,17 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void CompleteOrderTest()
         {
+            NMock.Actions.InvokeAction saveOrder = new NMock.Actions.InvokeAction(
+          new Action(() => getOrder = order));
+
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
+            
             oms.CreateNewOrder(order);
             oms.CompleteOrder(order.Id);
+            orderManagementDaoMock.Expects.One.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+           
             getOrder = ois.GetOrderById(order.Id);
             Assert.IsTrue(getOrder.Status.Equals(Order.OrderState.DELIVERED));
         }
@@ -89,6 +126,13 @@ namespace SpringMvc.Tests.Models.Shop
         [TestMethod]
         public void SaveOrderTest()
         {
+            NMock.Actions.InvokeAction saveOrder = new NMock.Actions.InvokeAction(
+        new Action(() => getOrder = order));
+
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+            orderManagementDaoMock.Expects.Any.MethodWith(x => x.SaveOrUpdate(order)).Will(saveOrder);
+            orderInformationDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(getOrder);
+            
             oms.CreateNewOrder(order);
             oms.SaveOrder(order);
             getOrder = ois.GetOrderById(order.Id);

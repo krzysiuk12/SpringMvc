@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SpringMvc.Models.Shop.Services.Interfaces;
 
 
 namespace SpringMvc.Models.Shipment.Services.Implementation
@@ -15,7 +16,37 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
     [Repository]
     public class ShipmentPreparationService : BaseSpringService, IShipmentPreparationService
     {
+        private IOrderInformationsService orderInformationsService;
+        private IOrderManagementService orderManagementService;
 
+        public IOrderInformationsService OrderInformationsService
+        {
+            get
+            {
+                if (orderInformationsService == null)
+                    return ServiceLocator.OrderInformationsService;
+                return orderInformationsService;
+            }
+            set
+            {
+                orderInformationsService = value;
+            }
+        }
+
+        public IOrderManagementService OrderManagementService
+        {
+            get
+            {
+                if (orderManagementService == null)
+                    return ServiceLocator.OrderManagementService;
+                return orderManagementService;
+            }
+            set
+            {
+                orderManagementService = value;
+            }
+        }
+        
         [Transaction(ReadOnly = true)]
         public PersonalData GetUserPersonalDataById(long userId)
         {
@@ -28,13 +59,13 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         [Transaction(ReadOnly = true)]
         public IEnumerable<OrderEntry> GetOrderEntriesByOrderId(long orderId)       
         {
-            return ServiceLocator.OrderInformationsService.GetOrderById(orderId).OrderEntries;
+            return OrderInformationsService.GetOrderById(orderId).OrderEntries;
         }
 
         [Transaction(ReadOnly = true)]
         public IEnumerable<Order> GetUnrealizedOrders()
         {
-            return ServiceLocator.OrderInformationsService.GetUndeliveredOrders();
+            return OrderInformationsService.GetUndeliveredOrders();
         }
 
         [Transaction]
@@ -47,7 +78,7 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         [Transaction]
         public void MarkOrderAsInProgress(long orderId) // metoda ustawia w order date wysłania i zmienia status na SENT
         {
-            ServiceLocator.OrderManagementService.MarkOrderSent(orderId);
+            OrderManagementService.MarkOrderSent(orderId);
         }
     }
 }
