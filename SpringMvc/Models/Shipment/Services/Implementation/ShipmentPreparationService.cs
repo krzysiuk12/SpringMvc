@@ -71,8 +71,7 @@ namespace SpringMvc.Models.Shipment.Services.Implementation
         [Transaction]
         public void CompleteOrder(long orderId)
         {
-
-            ServiceLocator.OrderManagementService.CompleteOrder(orderId);
+            OrderManagementService.CompleteOrder(orderId);
         }
 
         [Transaction]

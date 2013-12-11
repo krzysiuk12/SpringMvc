@@ -22,5 +22,18 @@ namespace SpringMvc.Models.POCO
         public virtual Decimal Price { get; set; }
         
         public virtual BookImage Image { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            BookType type = obj as BookType;
+            if (type == null)
+                return false;
+            return String.Compare(type.Title, this.Title) == 0 && type.Id == this.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

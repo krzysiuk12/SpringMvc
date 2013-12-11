@@ -37,5 +37,10 @@ namespace SpringMvc.Models.POCO
                 return false;
             return order.Id == this.Id;
         }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }

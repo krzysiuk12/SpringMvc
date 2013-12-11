@@ -41,7 +41,7 @@ namespace SpringMvc.Tests.Models.Shipment
         public void Initialize()
         {
             order = new Order();
-            order.OrderEntries = null;
+            order.OrderEntries = new List<OrderEntry>();
             order.SentDate = DateTime.Now;
             order.User = null;
 
@@ -52,8 +52,9 @@ namespace SpringMvc.Tests.Models.Shipment
 
             ois.OrderInformationDao = orderInformationsDaoMock.MockObject;
             oms.OrderManagementDao = orderManagementDaoMock.MockObject;
-            sps.OrderInformationsService = orderInformationServiceMock.MockObject;
-            sps.OrderManagementService = orderManagementServiceMock.MockObject;
+            oms.OrderInformationDao = orderInformationsDaoMock.MockObject;
+            sps.OrderInformationsService = ois;
+            sps.OrderManagementService = oms;
         }
 
 
@@ -62,7 +63,7 @@ namespace SpringMvc.Tests.Models.Shipment
         {
             orders= new List<Order>();
             orders.Add(order);
-            orderInformationServiceMock.Expects.Any.Method(x => x.GetUndeliveredOrders())
+            orderInformationsDaoMock.Expects.Any.Method(x => x.GetUndeliveredOrders())
                 .WillReturn(orders.Where(x => x.Status != Order.OrderState.DELIVERED));
             IEnumerable<Order> getOrders = sps.GetUnrealizedOrders();
             foreach (var item in getOrders)
@@ -81,26 +82,32 @@ namespace SpringMvc.Tests.Models.Shipment
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void TestMarkOrderAsInProgressWithWrongId()
         {
-
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(-1)).WillReturn(null);
             sps.MarkOrderAsInProgress(-1);
         }
 
         [TestMethod]
         public void TestCompleteOrder()
         {
+            orders = new List<Order>();
+            NMock.Actions.InvokeAction createOrder = new NMock.Actions.InvokeAction(() => orders.Add(order));
+            orderManagementDaoMock.Expects.One.MethodWith(x => x.SaveOrUpdate(order)).Will(createOrder);
             oms.CreateNewOrder(order);
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(orders.First(x => x.Id == order.Id));
+            orderManagementDaoMock.Expects.One.MethodWith(x => x.SaveOrUpdate(order)).Will(createOrder);
             sps.CompleteOrder(order.Id);
             Order testedOrder = ois.GetOrderById(order.Id);
             Assert.AreEqual(Order.OrderState.DELIVERED, testedOrder.Status);
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void TestCompleteOrderWithWrongId()
         {
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(-1)).WillReturn(null);
             sps.CompleteOrder(-1);
         }
 
@@ -109,7 +116,13 @@ namespace SpringMvc.Tests.Models.Shipment
         {
             OrderEntry tmpOrderEntry = new OrderEntry();
             order.OrderEntries.Add(tmpOrderEntry);
-            oms.CreateNewOrder(order);
+            orders = new List<Order>();
+            NMock.Actions.InvokeAction createOrder = new NMock.Actions.InvokeAction(() => orders.Add(order));
+            orderManagementDaoMock.Expects.One.MethodWith(x => x.SaveOrUpdate(order)).Will(createOrder);
+
+            oms.CreateNewOrder(order); 
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(order.Id)).WillReturn(orders.FirstOrDefault(x => x.Id == order.Id));
+           
             bool isEntryThere = false;
             foreach (var item in sps.GetOrderEntriesByOrderId(order.Id))
             {
@@ -119,9 +132,10 @@ namespace SpringMvc.Tests.Models.Shipment
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void TestGetOrderEntriesByOrderIdWithWrongId()
         {
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(-1)).WillReturn(null);
             sps.GetOrderEntriesByOrderId(-1);
         }
 
@@ -148,9 +162,10 @@ namespace SpringMvc.Tests.Models.Shipment
         }
 
         [TestMethod]
-        [ExpectedException(typeof(Exception))]
+        [ExpectedException(typeof(NullReferenceException))]
         public void TestGetUserPersonalDataByIdWithWrongId()
         {
+            orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(-1)).WillReturn(null);
             sps.GetUserPersonalDataById(-1);
         }
     }

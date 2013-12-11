@@ -101,9 +101,14 @@ namespace SpringMvc.Tests.Models.Storehouse
             }
             Assert.IsTrue(isInList);
         }
+
         [TestMethod]
         public void TestAddBookType()
         {
+            NMock.Actions.InvokeAction saveBookType = new NMock.Actions.InvokeAction(new Action(() => bookTypeList.Add(testBook)));
+            storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.SaveBookType(testBook)).Will(saveBookType);
+            booksInformationDaoMock.Expects.One.MethodWith<IEnumerable<BookType>>(x => x.GetAllBooks())
+               .WillReturn(bookTypeList);
             sms.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category, null);
             IEnumerable<BookType> list = bis.GetAllBooks();
             bool isInList = false;
@@ -115,6 +120,7 @@ namespace SpringMvc.Tests.Models.Storehouse
             }
             Assert.IsTrue(isInList);
         }
+
         [TestMethod]
         public void TestSaveBookType()
         {
