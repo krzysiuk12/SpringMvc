@@ -34,6 +34,18 @@ namespace SpringMvc.Controllers
             UserAccount user = ServiceLocator.AuthorizationService.LoginUser(loginModelData.UserName, loginModelData.Password);
             if (user != null)
             {
+                switch(user.AccountStatus)
+                {
+                    case UserAccount.Status.LOCKED_OUT:
+                        ModelState.AddModelError("Locked Out User Account", "Your account has been locked out. Please contact with administrator to get further details.");
+                        return View();
+                    case UserAccount.Status.REMOVED:
+                        ModelState.AddModelError("Removed Account", "Your account has been removed. Please contact with administrator to get further details.");
+                        return View();
+                    case UserAccount.Status.EXPIRED:
+                        ModelState.AddModelError("Expired Account", "Your account has expired. Please contact with administrator to prolong it.");
+                        return View();
+                }
                 Session["LoggedUserId"] = (long)user.Id;
                 switch(user.Id)
                 { 
@@ -60,6 +72,7 @@ namespace SpringMvc.Controllers
             } 
             else
             {
+                ModelState.AddModelError("Password or login incorrect.", "Provided login or password are incorrect. Please try again.");
                 return View();
             }
         }
@@ -93,7 +106,11 @@ namespace SpringMvc.Controllers
         public ActionResult Register(RegisterModel model)
         {
             UserAccount newUserAccount = new UserAccount() { Login = model.Login, Password = model.Password, Email = model.Email };
-            ServiceLocator.AuthorizationService.RegisterUser(newUserAccount);
+            if (ServiceLocator.AuthorizationService.RegisterUser(newUserAccount) == 0)
+            {
+                ModelState.AddModelError("Login Unique Error", "Provided login already exists in the system. Please enter another one.");
+                return View();
+            }
             return RedirectToAction("Create", "UserAccountPanel", new { userAccountId = newUserAccount.Id });
         }
 

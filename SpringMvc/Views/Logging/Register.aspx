@@ -22,6 +22,7 @@
             <div class="editor-field">
                 <%: Html.EditorFor(model => model.Login) %>
                 <%: Html.ValidationMessageFor(model => model.Login) %>
+                <%: Html.ValidationMessage("Login Unique Error") %>
             </div>
             <div class="editor-label">
                 <%: Html.LabelFor(model => model.Password) %>

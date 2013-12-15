@@ -12,7 +12,8 @@
         <h2>Log in</h2>
         <% using (Html.BeginForm()) { %>
             <%: Html.AntiForgeryToken() %>
-            <%: Html.ValidationSummary(true) %>
+            <%: Html.ValidationSummary() %>
+
             <fieldset>
                 <legend>LogInModel</legend>
                 <div class="editor-label">

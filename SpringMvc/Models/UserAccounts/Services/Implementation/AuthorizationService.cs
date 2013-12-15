@@ -20,17 +20,19 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         public UserAccount LoginUser(string login, string password)
         {
             UserAccount user = DaoFactory.AuthorizationDao.LoginUser(login, password);
-            if (user.Password.Equals(EncryptPassword(password)))
+            if (user != null)
             {
-                DaoFactory.LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
-            }
-            else 
-            {
-                DaoFactory.LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
-                return null; //Exception in future
+                if (user.Password.Equals(EncryptPassword(password)))
+                {
+                    DaoFactory.LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                }
+                else
+                {
+                    DaoFactory.LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                    return null;
+                }
             }
             return user;
-
         }
 
         [Transaction]
@@ -42,6 +44,10 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         [Transaction]
         public long RegisterUser(UserAccount newUserAccount)
         {
+            if (validateUniqueLogin(newUserAccount.Login) == false)
+            {
+                return 0;
+            }
             newUserAccount.Password = EncryptPassword(newUserAccount.Password);
             newUserAccount.AccountStatus = UserAccount.Status.ACTIVE;
             newUserAccount.LastPasswordChangedDate = DateTime.Now;
@@ -88,6 +94,12 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
                 strBuilder.Append(hashResult[i].ToString("x2"));
             }
             return strBuilder.ToString();
+        }
+
+        private bool validateUniqueLogin(String login)
+        {
+            IEnumerable<UserAccount> activeOrLockedUserAccounts = ServiceLocator.AccountManagementService.GetAllUserAccounts().Where(user => user.AccountStatus == UserAccount.Status.ACTIVE || user.AccountStatus == UserAccount.Status.LOCKED_OUT).ToList();
+            return activeOrLockedUserAccounts.Where(user => user.Login.Equals(login)).ToList().Count == 0;
         }
     }
 }
