@@ -14,33 +14,9 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
     public class LogEventsService : BaseSpringService, ILogEventsService
     {
         [Transaction]
-        public void SaveSuccessfulLogInEventForUser(UserAccount userAccountId, string ipAddress)
-        {
-            throw new NotImplementedException();
-        }
-
-        [Transaction]
-        public void SaveFailedLogInEventForUser(UserAccount userAccountId, string ipAddress)
-        {
-            throw new NotImplementedException();
-        }
-
-        [Transaction]
-        public void SaveLogOutEventForUser(UserAccount userAccountId, string ipAddress)
-        {
-            throw new NotImplementedException();
-        }
-
-        [Transaction]
         public void SaveLogInOutEvent(LogInOutEvent logEvent)
         {
             DaoFactory.LogEventsDao.SaveLogInOutEvent(logEvent);
-        }
-
-        [Transaction(ReadOnly = true)]
-        public IEnumerable<LogInOutEvent> GetLogEventsForUserByUserId(long userAccountId)
-        {
-            throw new NotImplementedException();
         }
     }
 }

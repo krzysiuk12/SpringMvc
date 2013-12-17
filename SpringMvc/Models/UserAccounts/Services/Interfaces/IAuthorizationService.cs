@@ -18,10 +18,6 @@ namespace SpringMvc.Models.UserAccounts.Services.Interfaces
 
         string EncryptPassword(string text);
 
-        IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<String, String> parameters);
-
-        UserAccount LoggedUserAccount { get; }
-
         IEnumerable<UserAccount> AllLoggedUserAccounts { get; }
     }
 }

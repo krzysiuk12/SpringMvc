@@ -65,18 +65,6 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             ServiceLocator.AccountAdministrationService.SaveOrUpdateUser(userAccount);
         }
 
-        [Transaction(ReadOnly = true)]
-        public IEnumerable<UserAccount> GetLoggedUserAccountsWithCriteria(IDictionary<string, string> parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        public UserAccount LoggedUserAccount
-        {
-            [Transaction(ReadOnly = true)]
-            get { throw new NotImplementedException(); }
-        }
-
         public IEnumerable<UserAccount> AllLoggedUserAccounts
         {
             [Transaction(ReadOnly = true)]
