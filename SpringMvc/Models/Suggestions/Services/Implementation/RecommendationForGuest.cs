@@ -126,5 +126,18 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
                 if (!list.Contains(book.Id)) list.Add(book.Id);
             }
         }
+
+
+        public Shop.Services.Interfaces.IOrderInformationsService OrderInformationsService
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

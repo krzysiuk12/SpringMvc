@@ -5,12 +5,28 @@ using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.Shop.Services.Implementation;
+using SpringMvc.Models.Shop.Services.Interfaces;
 
 namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
     public class RecommendationForUser : IRecommendationEngine
     {
         private IServiceLocator serviceLocator;
+        private IOrderInformationsService orderInformationService;
+        public IOrderInformationsService OrderInformationsService
+        {
+            get
+            {
+                if (orderInformationService == null)
+                    return serviceLocator.OrderInformationsService;
+                return orderInformationService;
+            }
+            set
+            {
+                orderInformationService = value;
+            }
+        }
         private long userID;
         private Nullable<long> categoryID;
 
@@ -25,10 +41,10 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         public IEnumerable<long> GenerateRecommendation()
         {
-            if (serviceLocator.OrderInformationsService.GetOrdersByUserId(userID) == null)
-            {
-                throw new ArgumentException("No user with that id");
-            }
+            //if (serviceLocator.OrderInformationsService.GetOrdersByUserId(userID) == null)
+            //{
+            //    throw new ArgumentException("No user with that id");
+            //}
 
             List<long> resultList = new List<long>();
 
@@ -50,7 +66,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Dictionary<long, long> categoryDictionary = new Dictionary<long,long>();
 
-            foreach(Order order in serviceLocator.OrderInformationsService.GetOrdersByUserId(userID))
+            foreach(Order order in OrderInformationsService.GetOrdersByUserId(userID))
             {
                 foreach (OrderEntry orderEntry in order.OrderEntries)
                 {

@@ -7,12 +7,21 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using SpringMvc.Models.Shop.Services.Implementation;
+using SpringMvc.Models.Shop.Services.Interfaces;
 
 namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
     [Repository]
     public class SuggestionService : BaseSpringService, ISuggestionService
     {
+        private IOrderInformationsService orderInformationsService;
+        public IOrderInformationsService OrderInformationsService
+        {
+            get;
+            set;
+        }
+
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetSuggestionsForUser(long userID)
         {
