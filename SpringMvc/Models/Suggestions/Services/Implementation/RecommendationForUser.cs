@@ -7,6 +7,7 @@ using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
 using SpringMvc.Models.Shop.Services.Implementation;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
@@ -87,7 +88,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         private void generateWithCategory(List<long> list, long categoryId)
         {
-            List<BookType> booksList = serviceLocator.BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
+            List<BookType> booksList = BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
 
             Random rnd = new Random();
             int number = Math.Min(quantity, booksList.Count);
@@ -101,13 +102,28 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Random rnd = new Random();
 
-            var randomBooks = serviceLocator.BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(quantity);
+            var randomBooks = BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(quantity);
 
             foreach (BookType book in randomBooks)
             {
                 if (list.Count == quantity) break;
 
                 if (!list.Contains(book.Id)) list.Add(book.Id);
+            }
+        }
+
+        private IBooksInformationService booksInformationService;
+        public IBooksInformationService BooksInformationService
+        {
+            get
+            {
+                if (booksInformationService == null)
+                    return serviceLocator.BooksInformationService;
+                return booksInformationService;
+            }
+            set
+            {
+                booksInformationService = value;
             }
         }
     }

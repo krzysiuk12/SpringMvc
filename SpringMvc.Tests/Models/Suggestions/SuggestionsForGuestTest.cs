@@ -6,6 +6,8 @@ using SpringMvc.Models.POCO;
 using SpringMvc.Models.Suggestions.Services.Implementation;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
 using NMock;
+using SpringMvc.Models.Suggestions.Services.Interfaces;
+using SpringMvc.Models.Shop.Services.Interfaces;
 
 
 namespace SpringMvc.Tests.Models.Suggestions
@@ -14,9 +16,20 @@ namespace SpringMvc.Tests.Models.Suggestions
     public class SuggestionsForGuestTest
     {
         private static MockFactory _factory = new MockFactory();
+        private ISuggestionService suggestionService;
+        private Mock<IOrderInformationsService> orderInformationServiceMock;
+        private Mock<IBooksInformationService> booksInformationServiceMock;
 
         [ClassInitialize]
         public static void TestsSetup(TestContext context)
+        {
+
+            //TODO!!
+            //serviceLocator.BooksInformationService = mockBookInformationService
+        }
+
+        [TestInitialize]
+        public void Initialize()
         {
             var mockBookInformationService = _factory.CreateMock<IBooksInformationService>();
             BookType book = new BookType();
@@ -31,13 +44,12 @@ namespace SpringMvc.Tests.Models.Suggestions
             mockBookInformationService.Expects.Any.Method(_ => _.GetBooksByCategoryId(0)).WithAnyArguments().WillReturn(bookList);
             mockBookInformationService.Expects.Any.Method(_ => _.GetBookTypeById(0)).WithAnyArguments().WillReturn(book);
 
-            //TODO!!
-            //serviceLocator.BooksInformationService = mockBookInformationService
-        }
+            suggestionService = new SuggestionService();
+            orderInformationServiceMock = _factory.CreateMock<IOrderInformationsService>();
+            booksInformationServiceMock = _factory.CreateMock<IBooksInformationService>();
 
-        [TestInitialize]
-        public void Initialize()
-        {
+            suggestionService.OrderInformationService = orderInformationServiceMock.MockObject;
+            suggestionService.BooksInformationService = booksInformationServiceMock.MockObject;
             //TODO!!
             //AplicationScope.GlobalSuggestionCache = null
         }
@@ -64,19 +76,90 @@ namespace SpringMvc.Tests.Models.Suggestions
         [TestMethod]
         public void ResultQuantityTest()
         {
-            IEnumerable<BookType> result = null;
-            //TODO!!
-            // result = suggestionService.GetSuggestionsForGuest();
-            Assert.Equals(result.Count(), 5);
+            IList<Order> orders = new List<Order>();
+
+            IList<BookType> books = new List<BookType>();
+            Category cat = new Category();
+            cat.Id = 5;
+            cat.Name = "Kategoria";
+            for (long i = 1; i < 8; i++)
+            {
+                BookType bookd = new BookType();
+                Order order = new Order();
+                OrderEntry entry = new OrderEntry();
+                order.OrderEntries = new List<OrderEntry>();
+                order.SentDate = DateTime.Now;
+                order.Id = 10;
+                order.User = null;
+                entry.Id = i;
+                entry.BookType = bookd;
+                order.OrderEntries.Add(entry);
+                bookd.Title = "Title" + i;
+                bookd.Authors = "Auotr";
+                bookd.Id = i;
+                bookd.Category = cat;
+                booksInformationServiceMock.Expects.Any.MethodWith(x => x.GetBookTypeById(i)).WillReturn(bookd);
+                booksInformationServiceMock.Expects.Any.MethodWith(x => x.GetBooksByCategoryId(5)).WillReturn(books);
+
+                orders.Add(order);
+                books.Add(bookd);
+            }
+            booksInformationServiceMock.Expects.Any.Method(x => x.GetAllBooks()).WillReturn(books);
+
+            orderInformationServiceMock.Expects.Any.MethodWith(x => x.GetOrdersByUserId(1)).WillReturn(orders);
+            orderInformationServiceMock.Expects.Any.Method(x => x.GetUndeliveredOrders()).WillReturn(orders.Where(x => x.Status != Order.OrderState.DELIVERED));
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest();
+
+            Int32 counter = 0;
+            foreach (BookType book in result)
+            {
+                Assert.IsNotNull(book);
+                counter++;
+            }
+
+            Assert.AreEqual(counter, 5);
         }
 
         [TestMethod]
         public void DistinctBookTest()
         {
             IEnumerable<BookType> result = null;
-            //TODO!!
-            // result = suggestionService.GetSuggestionsForGuest();
-            Assert.Equals(result.Count(), result.Distinct().Count());
+            IList<Order> orders = new List<Order>();
+
+            IList<BookType> books = new List<BookType>();
+            Category cat = new Category();
+            cat.Id = 5;
+            cat.Name = "Kategoria";
+            for (long i = 1; i < 8; i++)
+            {
+                BookType bookd = new BookType();
+                Order order = new Order();
+                OrderEntry entry = new OrderEntry();
+                order.OrderEntries = new List<OrderEntry>();
+                order.SentDate = DateTime.Now;
+                order.Id = 10;
+                order.User = null;
+                entry.Id = i;
+                entry.BookType = bookd;
+                order.OrderEntries.Add(entry);
+                bookd.Title = "Title" + i;
+                bookd.Authors = "Auotr";
+                bookd.Id = i;
+                bookd.Category = cat;
+                booksInformationServiceMock.Expects.Any.MethodWith(x => x.GetBookTypeById(i)).WillReturn(bookd);
+                booksInformationServiceMock.Expects.Any.MethodWith(x => x.GetBooksByCategoryId(5)).WillReturn(books);
+
+                orders.Add(order);
+                books.Add(bookd);
+            }
+            booksInformationServiceMock.Expects.Any.Method(x => x.GetAllBooks()).WillReturn(books);
+
+            orderInformationServiceMock.Expects.Any.MethodWith(x => x.GetOrdersByUserId(1)).WillReturn(orders);
+            orderInformationServiceMock.Expects.Any.Method(x => x.GetUndeliveredOrders()).WillReturn(orders.Where(x => x.Status != Order.OrderState.DELIVERED));
+            
+            
+            result = suggestionService.GetSuggestionsForGuest();
+            Assert.AreEqual(result.Count(), result.Distinct().Count());
         }
     }
 }
