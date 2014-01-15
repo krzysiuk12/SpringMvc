@@ -10,6 +10,6 @@ namespace SpringMvc.Models.Common
     {
         public IDaoFactory DaoFactory { get; set; }
 
-        public ServiceLocator ServiceLocator { get; set; }
+        public IServiceLocator ServiceLocator { get; set; }
     }
 }

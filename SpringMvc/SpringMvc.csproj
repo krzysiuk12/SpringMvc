@@ -434,6 +434,7 @@
     <Content Include="x86\SQLite.Interop.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Images\Books\Action_Frostbite.png" />
     <Content Include="Images\Books\Action_KingSolomonsMines.png" />
