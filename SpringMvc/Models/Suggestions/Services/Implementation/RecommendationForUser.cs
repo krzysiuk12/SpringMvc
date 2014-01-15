@@ -5,12 +5,29 @@ using System.Web;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Common;
 using SpringMvc.Models.Common.Interfaces;
+using SpringMvc.Models.Shop.Services.Implementation;
+using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Storehouse.Services.Interfaces;
 
 namespace SpringMvc.Models.Suggestions.Services.Implementation
 {
     public class RecommendationForUser : IRecommendationEngine
     {
         private IServiceLocator serviceLocator;
+        private IOrderInformationsService orderInformationService;
+        public IOrderInformationsService OrderInformationsService
+        {
+            get
+            {
+                if (orderInformationService == null)
+                    return serviceLocator.OrderInformationsService;
+                return orderInformationService;
+            }
+            set
+            {
+                orderInformationService = value;
+            }
+        }
         private long userID;
         private Nullable<long> categoryID;
 
@@ -25,10 +42,10 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         public IEnumerable<long> GenerateRecommendation()
         {
-            if (serviceLocator.OrderInformationsService.GetOrdersByUserId(userID) == null)
-            {
-                throw new ArgumentException("No user with that id");
-            }
+            //if (serviceLocator.OrderInformationsService.GetOrdersByUserId(userID) == null)
+            //{
+            //    throw new ArgumentException("No user with that id");
+            //}
 
             List<long> resultList = new List<long>();
 
@@ -50,7 +67,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Dictionary<long, long> categoryDictionary = new Dictionary<long,long>();
 
-            foreach(Order order in serviceLocator.OrderInformationsService.GetOrdersByUserId(userID))
+            foreach(Order order in OrderInformationsService.GetOrdersByUserId(userID))
             {
                 foreach (OrderEntry orderEntry in order.OrderEntries)
                 {
@@ -71,7 +88,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         private void generateWithCategory(List<long> list, long categoryId)
         {
-            List<BookType> booksList = serviceLocator.BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
+            List<BookType> booksList = BooksInformationService.GetBooksByCategoryId(categoryId).ToList();
 
             Random rnd = new Random();
             int number = Math.Min(quantity, booksList.Count);
@@ -85,13 +102,28 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             Random rnd = new Random();
 
-            var randomBooks = serviceLocator.BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(quantity);
+            var randomBooks = BooksInformationService.GetAllBooks().OrderBy(x => rnd.Next()).Take(quantity);
 
             foreach (BookType book in randomBooks)
             {
                 if (list.Count == quantity) break;
 
                 if (!list.Contains(book.Id)) list.Add(book.Id);
+            }
+        }
+
+        private IBooksInformationService booksInformationService;
+        public IBooksInformationService BooksInformationService
+        {
+            get
+            {
+                if (booksInformationService == null)
+                    return serviceLocator.BooksInformationService;
+                return booksInformationService;
+            }
+            set
+            {
+                booksInformationService = value;
             }
         }
     }

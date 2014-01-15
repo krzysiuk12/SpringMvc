@@ -24,6 +24,7 @@ namespace SpringMvc.Tests.Models.UserAccounts
             testPersonalData.LastName = AuthorizationTestData.LAST_NAME;
             testPersonalData.PESEL = AuthorizationTestData.PESEL;
             testPersonalData.PhoneNumber = AuthorizationTestData.PHONE_NUMBER;
+            testPersonalData.Address = new Address();
             testPersonalData.Address.Street = AuthorizationTestData.ADDRESS_STREET;
             testPersonalData.Address.PostalCode = AuthorizationTestData.ADDRESS_POSTAL_CODE;
             testPersonalData.Address.City = AuthorizationTestData.ADDRESS_CITY;

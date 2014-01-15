@@ -9,6 +9,7 @@ using Spring.Transaction.Interceptor;
 using Spring.Stereotype;
 using System.Security.Cryptography;
 using System.Text;
+using SpringMvc.Models.UserAccounts.Dao.Interfaces;
 
 
 namespace SpringMvc.Models.UserAccounts.Services.Implementation
@@ -16,19 +17,50 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
     [Repository]
     public class AuthorizationService : BaseSpringService, IAuthorizationService
     {
+        private IAuthorizationDao authorizationDao;
+        private ILogEventsDao logEventsDao;
+
+        public IAuthorizationDao AuthorizationDao
+        {
+            get
+            {
+                if (authorizationDao == null)
+                    return DaoFactory.AuthorizationDao;
+                return authorizationDao;
+            }
+            set
+            {
+                authorizationDao = value;
+            }
+        }
+
+        public ILogEventsDao LogEventsDao
+        {
+            get
+            {
+                if (logEventsDao == null)
+                    return DaoFactory.LogEventsDao;
+                return logEventsDao;
+            }
+            set
+            {
+                logEventsDao = value;
+            }
+        }
+
         [Transaction]
         public UserAccount LoginUser(string login, string password)
         {
-            UserAccount user = DaoFactory.AuthorizationDao.LoginUser(login, password);
+            UserAccount user = AuthorizationDao.LoginUser(login, password);
             if (user != null)
             {
                 if (user.Password.Equals(EncryptPassword(password)))
                 {
-                    DaoFactory.LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                    LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
                 }
                 else
                 {
-                    DaoFactory.LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                    LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
                     return null;
                 }
             }
@@ -53,7 +85,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             newUserAccount.LastPasswordChangedDate = DateTime.Now;
             newUserAccount.ValidFrom = DateTime.Now;
             newUserAccount.ValidTo = new DateTime(newUserAccount.ValidFrom.Year + 1, newUserAccount.ValidFrom.Month, newUserAccount.ValidFrom.Day);
-            return DaoFactory.AuthorizationDao.RegisterUser(newUserAccount);
+            return AuthorizationDao.RegisterUser(newUserAccount);
         }
 
         [Transaction]

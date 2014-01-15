@@ -187,6 +187,7 @@ namespace SpringMvc.Tests.Models.Shipment
         [ExpectedException(typeof(NullReferenceException))]
         public void TestGetUserPersonalDataByIdWithWrongId()
         {
+            userInformationService.Expects.Any.MethodWith(x => x.GetUserAccountById(-1)).WillReturn(null);
             orderInformationsDaoMock.Expects.Any.MethodWith(x => x.GetOrderById(-1)).WillReturn(null);
             sps.GetUserPersonalDataById(-1);
         }
