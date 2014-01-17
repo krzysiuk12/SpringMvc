@@ -11,5 +11,7 @@ namespace SpringMvc.Models.UserAccounts.Dao.Interfaces
         UserAccount LoginUser(String login, String password);
 
         long RegisterUser(UserAccount newUserAccount);
+
+        IEnumerable<UserAccount> GetLoggedUsers();
     }
 }

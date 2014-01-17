@@ -27,5 +27,10 @@ namespace SpringMvc.Models.UserAccounts.Dao.Implementation
         {
             return (long)this.Session.Save(newUserAccount);
         }
+
+        public IEnumerable<UserAccount> GetLoggedUsers()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

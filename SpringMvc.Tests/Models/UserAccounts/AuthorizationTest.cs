@@ -8,6 +8,8 @@ using SpringMvc.Models.UserAccounts.Services.Implementation;
 using SpringMvc.Models.POCO;
 using NMock;
 using SpringMvc.Models.UserAccounts.Dao.Interfaces;
+using System.Web;
+using System.Security.Cryptography;
 
 namespace SpringMvc.Tests.Models.UserAccounts
 {
@@ -42,7 +44,6 @@ namespace SpringMvc.Tests.Models.UserAccounts
             authorizationService.AuthorizationDao = authorizationDaoMock.MockObject;
             logInOutEventDaoMock = _factory.CreateMock<ILogEventsDao>();
             authorizationService.LogEventsDao = logInOutEventDaoMock.MockObject;
-            //accountAdministrationService.SaveOrUpdateUser(userAccount);
         }
 
         [TestMethod]
@@ -58,13 +59,37 @@ namespace SpringMvc.Tests.Models.UserAccounts
         {
             logInOutEventDaoMock.Expects.Any.Method(x => x.SaveFailedLogInEventForUser(new UserAccount(), "localhost"));
             authorizationDaoMock.Expects.Any.MethodWith(x => x.LoginUser(login, password)).WillReturn(userAccount);
+
+            userAccount.Password = Encrypt(userAccount.Password);
+            
+            logInOutEventDaoMock.Expects.Any.Method(x => x.SaveFailedLogInEventForUser(new UserAccount(), "localhost"));
+            authorizationDaoMock.Expects.Any.MethodWith(x => x.LoginUser(login, password)).WillReturn(userAccount);
+            authorizationService.AuthorizationDao = authorizationDaoMock.MockObject;
+            authorizationService.LogEventsDao = logInOutEventDaoMock.MockObject;
             UserAccount user = authorizationService.LoginUser(login, password);
             Assert.IsNotNull(user);
+        }
+
+        private string Encrypt(string oldPass)
+        {
+            SHA256 sha = new SHA256CryptoServiceProvider();
+            sha.ComputeHash(ASCIIEncoding.ASCII.GetBytes(oldPass));
+            byte[] hashResult = sha.Hash;
+
+            StringBuilder strBuilder = new StringBuilder();
+            for (int i = 0; i < hashResult.Length; i++)
+            {
+                strBuilder.Append(hashResult[i].ToString("x2"));
+            }
+            return strBuilder.ToString();
         }
 
         [TestMethod]
         public void LogOut()
         {
+            logInOutEventDaoMock.Expects.Any.Method(x => x.SaveFailedLogInEventForUser(new UserAccount(), "localhost"));
+            authorizationDaoMock.Expects.Any.MethodWith(x => x.LoginUser(login, password)).WillReturn(userAccount);
+           
             UserAccount user = authorizationService.LoginUser(login, password);
             authorizationService.LogoutUser(login);
             Assert.IsNull(user);
@@ -73,11 +98,37 @@ namespace SpringMvc.Tests.Models.UserAccounts
         [TestMethod]
         public void CheckedLoggedAccount()
         {
-            UserAccount user1 = authorizationService.LoginUser(login, password);
+            authorizationService.AuthorizationDao = authorizationDaoMock.MockObject;
+            authorizationService.LogEventsDao = logInOutEventDaoMock.MockObject;
+
+            UserAccount user1 = new UserAccount();
+            user1.Password = password;
+            user1.Login = login;
             Assert.IsNotNull(user1);
-            UserAccount user2 = authorizationService.LoginUser(login2, password2);
+            UserAccount user2 = new UserAccount();
+            user2.Password = password2;
+            user2.Login = login2;
             Assert.IsNotNull(user2);
 
+            user1.Password = Encrypt(user1.Password);
+            user2.Password = Encrypt(user2.Password);
+
+            List<UserAccount> loggedUsers = new List<UserAccount>();
+
+            NMock.Actions.InvokeAction akcja2 = new NMock.Actions.InvokeAction( new Action( () => loggedUsers.Add(user2)));
+            NMock.Actions.InvokeAction akcja = new NMock.Actions.InvokeAction(new Action(() => loggedUsers.Add(user1)));
+
+            logInOutEventDaoMock.Expects.Any.Method(x => x.SaveFailedLogInEventForUser(new UserAccount(), "localhost"));
+            authorizationDaoMock.Expects.Any.MethodWith(x => x.LoginUser(login, password)).Will(akcja, new NMock.Actions.ReturnAction<UserAccount>(user1)); // WillReturn(user1);
+             
+            logInOutEventDaoMock.Expects.Any.Method(x => x.SaveFailedLogInEventForUser(new UserAccount(), "localhost"));
+            authorizationDaoMock.Expects.Any.MethodWith(x => x.LoginUser(login2, password2)).Will(akcja2, new NMock.Actions.ReturnAction<UserAccount>(user2)); // WillReturn(user2);
+
+            authorizationService.LoginUser(login, password);
+            authorizationService.LoginUser(login2, password2);
+
+            authorizationDaoMock.Expects.Any.Method(x => x.GetLoggedUsers()).WillReturn(loggedUsers);
+            
             IEnumerable<UserAccount> LoggedAccounts = authorizationService.AllLoggedUserAccounts;
             Assert.AreEqual((new LinkedList<UserAccount>(LoggedAccounts)).Count, 2);
         }

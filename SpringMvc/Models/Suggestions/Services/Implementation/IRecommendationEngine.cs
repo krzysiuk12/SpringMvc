@@ -23,5 +23,11 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             get;
             set;
         }
+
+        SuggestionCache SuggestionCache
+        {
+            get;
+            set;
+        }
     }
 }

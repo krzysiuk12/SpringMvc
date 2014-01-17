@@ -14,7 +14,22 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
     {
         private IServiceLocator serviceLocator;
         private Nullable<long> categoryID;
+        private SuggestionCache suggestionCache;
 
+        public SuggestionCache SuggestionCache
+        {
+            get
+            {
+                if (suggestionCache == null)
+                    return ApplicationScope.GlobalSuggestionCache;
+                return suggestionCache;
+            }
+            set
+            {
+                suggestionCache = value;
+                
+            }
+        }
         private readonly int quantity = 5;
 
         public RecommendationForGuest(IServiceLocator serviceLocator, Nullable<long> categoryID)
@@ -45,7 +60,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
         {
             if (!isCacheValid()) updateCache();
 
-            list = ApplicationScope.GlobalSuggestionCache.BookList.ToList();
+            list = SuggestionCache.BookList.ToList();
         }
 
         private void generateWithCategory(List<long> list)
@@ -62,7 +77,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
 
         private Boolean isCacheValid()
         {
-            SuggestionCache cache = ApplicationScope.GlobalSuggestionCache;
+            SuggestionCache cache = SuggestionCache;
 
             if (cache == null)
             {
@@ -112,7 +127,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             newSuggestionCache.BookList = topList;
             newSuggestionCache.GenerationTime = DateTime.Now;
 
-            ApplicationScope.GlobalSuggestionCache = newSuggestionCache;
+            SuggestionCache = newSuggestionCache;
         }
 
         private void fillUpWithRandom(List<long> list)

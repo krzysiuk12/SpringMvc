@@ -5,6 +5,7 @@ using System.Text;
 using SpringMvc.Models.POCO;
 using SpringMvc.Models.Shop.Services.Interfaces;
 using SpringMvc.Models.Storehouse.Services.Interfaces;
+using SpringMvc.Models.Suggestions.Services.Implementation;
 
 namespace SpringMvc.Models.Suggestions.Services.Interfaces
 {
@@ -15,6 +16,8 @@ namespace SpringMvc.Models.Suggestions.Services.Interfaces
             get; 
             set; 
         }
+
+       SuggestionCache SuggestionCache { get; set; }
 
        IBooksInformationService BooksInformationService
        {

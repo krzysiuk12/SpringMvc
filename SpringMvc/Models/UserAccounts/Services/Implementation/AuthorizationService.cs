@@ -56,11 +56,13 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
             {
                 if (user.Password.Equals(EncryptPassword(password)))
                 {
-                    LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                    if(HttpContext.Current != null && HttpContext.Current.Request != null && HttpContext.Current.Request.UserHostAddress != null)
+                        LogEventsDao.SaveSuccessfulLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
                 }
                 else
                 {
-                    LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
+                    if (HttpContext.Current != null && HttpContext.Current.Request != null && HttpContext.Current.Request.UserHostAddress != null)
+                        LogEventsDao.SaveFailedLogInEventForUser(user, HttpContext.Current.Request.UserHostAddress);
                     return null;
                 }
             }
@@ -70,7 +72,7 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         [Transaction]
         public void LogoutUser(string login)
         {
-            throw new NotImplementedException();
+          
         }
 
         [Transaction]
@@ -100,7 +102,9 @@ namespace SpringMvc.Models.UserAccounts.Services.Implementation
         public IEnumerable<UserAccount> AllLoggedUserAccounts
         {
             [Transaction(ReadOnly = true)]
-            get { throw new NotImplementedException(); }
+            get {
+                return authorizationDao.GetLoggedUsers();
+            }
         }
 
         public string EncryptPassword(string text) {

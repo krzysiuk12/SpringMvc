@@ -16,6 +16,8 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
     [Repository]
     public class SuggestionService : BaseSpringService, ISuggestionService
     {
+
+        private SuggestionCache suggestionCache;
         private IOrderInformationsService orderInformationsService;
         private IBooksInformationService booksInformationService;
 
@@ -47,6 +49,20 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             }
         }
 
+        public SuggestionCache SuggestionCache
+        {
+            get
+            {
+                if (suggestionCache == null)
+                    return ApplicationScope.GlobalSuggestionCache;
+                return suggestionCache;
+            }
+            set
+            {
+                suggestionCache = value;
+            }
+        }
+
         [Transaction(ReadOnly = true)]
         public IEnumerable<BookType> GetSuggestionsForUser(long userID)
         {
@@ -73,6 +89,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             IRecommendationEngine engine = new RecommendationForGuest(ServiceLocator, null);
             engine.OrderInformationsService = this.OrderInformationService;
             engine.BooksInformationService = this.BooksInformationService;
+            engine.SuggestionCache = SuggestionCache;
             IEnumerable<long> resultList = engine.GenerateRecommendation();
             return toIEnumerableBookType(resultList);
         }
@@ -83,6 +100,7 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
             IRecommendationEngine engine = new RecommendationForGuest(ServiceLocator, categoryID);
             engine.OrderInformationsService = this.OrderInformationService;
             engine.BooksInformationService = this.BooksInformationService;
+            engine.SuggestionCache = SuggestionCache;
             IEnumerable<long> resultList = engine.GenerateRecommendation();
             return toIEnumerableBookType(resultList);
         }

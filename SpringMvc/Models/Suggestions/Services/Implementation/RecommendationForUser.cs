@@ -28,6 +28,23 @@ namespace SpringMvc.Models.Suggestions.Services.Implementation
                 orderInformationService = value;
             }
         }
+
+        private SuggestionCache suggestionCache;
+        public SuggestionCache SuggestionCache
+        {
+            get
+            {
+                if (suggestionCache == null)
+                    return ApplicationScope.GlobalSuggestionCache;
+                return suggestionCache;
+            }
+            set
+            {
+                suggestionCache = value;
+
+            }
+        }
+
         private long userID;
         private Nullable<long> categoryID;
 

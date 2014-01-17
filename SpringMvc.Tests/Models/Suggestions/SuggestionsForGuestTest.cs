@@ -8,6 +8,7 @@ using SpringMvc.Models.Storehouse.Services.Interfaces;
 using NMock;
 using SpringMvc.Models.Suggestions.Services.Interfaces;
 using SpringMvc.Models.Shop.Services.Interfaces;
+using SpringMvc.Models.Common;
 
 
 namespace SpringMvc.Tests.Models.Suggestions
@@ -57,7 +58,6 @@ namespace SpringMvc.Tests.Models.Suggestions
         [TestCleanup]
         public void Cleanup()
         {
-            _factory.VerifyAllExpectationsHaveBeenMet();
             _factory.ClearExpectations();
         }
 
@@ -69,8 +69,7 @@ namespace SpringMvc.Tests.Models.Suggestions
             List<long> bookList = new List<long>();
             mockSuggestionCache.Expects.One.GetProperty(_ => _.BookList).WillReturn(bookList);
 
-            //TODO!!
-            //AplicationScope.GlobalSuggestionCache = mockSuggestionCache
+            suggestionService.SuggestionCache = mockSuggestionCache.MockObject;
         }
 
         [TestMethod]
