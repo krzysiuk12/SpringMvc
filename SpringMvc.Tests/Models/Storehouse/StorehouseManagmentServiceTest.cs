@@ -73,9 +73,23 @@ namespace SpringMvc.Tests.Models.Storehouse
             storehouseManagementDaoMock.Expects.Any.MethodWith(x => x.AddBookType(testBook.Title, testBook.Authors, testBook.Price, TEST_QUANTITY, testBook.Category)).Will(addBookType);
            // NMock.Actions.InvokeAction addQuantity = new NMock.Actions.InvokeAction(new Action(() => 
 
-            
-        }
+            quantityMap = new QuantityMap()
+            {
+                Quantity = 0
+            };
 
+            image = new BookImage()
+            {
+                URL = ""
+            };
+            category = new Category()
+            {
+
+            };
+        }
+        private QuantityMap quantityMap;
+        private BookImage image;
+        private Category category;
         [TestMethod]
         public void TestAddCategory()
         {
@@ -194,6 +208,172 @@ namespace SpringMvc.Tests.Models.Storehouse
             foreach (var item in bookTypeList)
                 if (item.Id == testBook.Id) item.QuantityMap.Quantity -= testBook.QuantityMap.Quantity;
         }
+
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddCategoryNullNameTest()
+        {
+
+            NMock.Actions.InvokeAction saveCategory = new NMock.Actions.InvokeAction(ThrowNull);
+
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveCategory(new Category() {Name=null })).
+                Will(saveCategory);
+
+            sms.AddCategory(null);
+
+        }
+        private void ThrowNull()
+        {
+            throw new NullReferenceException();
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void SaveCategoryNullTest()
+        {
+
+            NMock.Actions.InvokeAction saveCategory = new NMock.Actions.InvokeAction(ThrowNull);
+
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveCategory(null)).
+                Will(saveCategory);
+
+            sms.SaveCategory(null);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void SaveBookTypeNullTest()
+        {
+
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(null)).
+                Will(save);
+
+            sms.SaveBookType(null);
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddBookTypeNullTitleTest()
+        {
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+            var book = new BookType()
+            {
+                Authors="",
+                Category= category,
+                Image = image,
+                Price = 0,
+                QuantityMap = quantityMap,
+                Title = null
+
+            };
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(book)).
+                Will(save);
+
+            sms.AddBookType(null, "", 0, 0, category, "");
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddBookTypeNullAuthorTest()
+        {
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+            var book = new BookType()
+            {
+                Authors = null,
+                Category = category,
+                Image = image,
+                Price = 0,
+                QuantityMap = quantityMap,
+                Title = ""
+
+            };
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(book)).
+                Will(save);
+
+            sms.AddBookType("", null, 0, 0, category, "");
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddBookTypeNullCategoryTest()
+        {
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+            var book = new BookType()
+            {
+                Authors = "",
+                Category = null,
+                Image = image,
+                Price = 0,
+                QuantityMap = quantityMap,
+                Title = ""
+
+            };
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(book)).
+                Will(save);
+
+            sms.AddBookType("", "", 0, 0, null, "");
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddBookTypeWrongPriceTest()
+        {
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+            var book = new BookType()
+            {
+                Authors = "",
+                Category = category,
+                Image = image,
+                Price = -1,
+                QuantityMap = quantityMap,
+                Title = ""
+
+            };
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(book)).
+                Will(save);
+
+            sms.AddBookType("", "", -1, 0, category, "");
+
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.NullReferenceException))]
+        public void AddBookTypeWrongQuantityTest()
+        {
+            NMock.Actions.InvokeAction save = new NMock.Actions.InvokeAction(ThrowNull);
+            var book = new BookType()
+            {
+                Authors = "",
+                Category = category,
+                Image = image,
+                Price = 0,
+                QuantityMap = quantityMap,
+                Title = ""
+
+            };
+            storehouseManagementDaoMock.Expects.Any.
+                MethodWith(x => x.SaveBookType(book)).
+                Will(save);
+
+            sms.AddBookType("", "", 0, -1, category, "");
+
+        }
+    
     }
     
         

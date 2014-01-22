@@ -20,7 +20,7 @@ namespace SpringMvc.Tests.Models.Suggestions
         private ISuggestionService suggestionService;
         private Mock<IOrderInformationsService> orderInformationServiceMock;
         private Mock<IBooksInformationService> booksInformationServiceMock;
-
+        private List<BookType> nonEmptyList;
         [ClassInitialize]
         public static void TestsSetup(TestContext context)
         {
@@ -38,9 +38,10 @@ namespace SpringMvc.Tests.Models.Suggestions
             for (int i = 0; i < 10; i++)
             {
                 BookType tempBook = new BookType();
-                tempBook.Id = 0;
+                tempBook.Id = i;
+                bookList.Add(tempBook);
             }
-
+            nonEmptyList = bookList;
             mockBookInformationService.Expects.Any.Method(_ => _.GetAllBooks()).WillReturn(bookList);
             mockBookInformationService.Expects.Any.Method(_ => _.GetBooksByCategoryId(0)).WithAnyArguments().WillReturn(bookList);
             mockBookInformationService.Expects.Any.Method(_ => _.GetBookTypeById(0)).WithAnyArguments().WillReturn(book);
@@ -159,6 +160,68 @@ namespace SpringMvc.Tests.Models.Suggestions
             
             result = suggestionService.GetSuggestionsForGuest();
             Assert.AreEqual(result.Count(), result.Distinct().Count());
+        }
+
+        [TestMethod]
+        public void WrongCategoryIdParameterTest()
+        {
+            List<BookType> bookList = new List<BookType>();
+            for (long i = 0; i < 10; i++)
+            {
+                BookType bookd = new BookType() { Id = i };
+                bookList.Add(bookd);
+                booksInformationServiceMock.
+                    Expects.
+                    Any.
+                    MethodWith(x => x.GetBookTypeById(i)).WillReturn(bookd);
+            }
+
+            long wrongCategoryId = -1;
+
+            booksInformationServiceMock.Expects.One.
+                MethodWith(x => x.GetBooksByCategoryId(wrongCategoryId)).
+                WillReturn(new List<BookType>());
+
+            booksInformationServiceMock.Expects.One.
+                MethodWith(x => x.GetAllBooks()).
+                WillReturn(bookList);
+            
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest(wrongCategoryId);
+            Assert.AreEqual(result.Count(), 5);
+        }
+
+        [TestMethod]
+        public void RightCategoryIdParameterTest()
+        {
+            List<BookType> bookList = new List<BookType>();
+            var rightCatlist = new List<BookType>();
+            for (long i = 0; i < 10; i++)
+            {
+                BookType bookd = new BookType() { Id = i, Category = new Category() { Id = i } };
+                bookList.Add(bookd);
+                booksInformationServiceMock.
+                    Expects.
+                    Any.
+                    MethodWith(x => x.GetBookTypeById(i)).WillReturn(bookd);
+                if (i % 2 == 0) rightCatlist.Add(bookd);
+            }
+
+            long rightCategoryId = 1;
+
+            booksInformationServiceMock.Expects.One.
+                MethodWith(x => x.GetBooksByCategoryId(rightCategoryId)).
+                WillReturn(rightCatlist);
+
+            booksInformationServiceMock.Expects.One.
+                MethodWith(x => x.GetAllBooks()).
+                WillReturn(bookList);
+
+            IEnumerable<BookType> result = suggestionService.GetSuggestionsForGuest(rightCategoryId);
+            Assert.AreEqual(result.Count(), rightCatlist.Count);
+            foreach (var item in result)
+            {
+                Assert.IsTrue(rightCatlist.Contains(item));
+            }
         }
     }
 }
